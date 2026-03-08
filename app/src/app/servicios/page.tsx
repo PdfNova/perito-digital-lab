@@ -14,7 +14,13 @@ import {
   TagList,
 } from "@/components/ui";
 import { buildPageMetadata } from "../metadata";
-import { contactPageCtaLabel, resourcesCtaLabel, visualAssets } from "../site-config";
+import {
+  articleBaseCtaLabel,
+  contactPageCtaLabel,
+  resourcesCtaLabel,
+  technicalGuideCtaLabel,
+  visualAssets,
+} from "../site-config";
 
 const services = [
   {
@@ -82,7 +88,7 @@ const supportContent = [
       "Pieza recomendada para entender por que contexto, integridad y trazabilidad condicionan la utilidad de una evidencia.",
     meta: "Recurso de autoridad",
     href: "/recursos/articulos/valor-documental-evidencia-digital",
-    cta: "Leer articulo",
+    cta: articleBaseCtaLabel,
     tags: ["Contexto", "Integridad", "Evidencia digital"],
   },
   {
@@ -92,7 +98,7 @@ const supportContent = [
       "Recurso pensado para alinear expectativas antes de solicitar una revision y reforzar la percepcion de servicio especializado.",
     meta: "Recurso orientado a conversion",
     href: "/recursos/guias/revision-tecnica-evidencia-digital",
-    cta: "Leer guia",
+    cta: technicalGuideCtaLabel,
     tags: ["Alcance", "Limites", "Revision tecnica"],
   },
 ];

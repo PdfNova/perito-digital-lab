@@ -14,7 +14,14 @@ import {
   TagList,
 } from "@/components/ui";
 import { buildPageMetadata } from "@/app/metadata";
-import { articleBaseCtaLabel, contactPageCtaLabel } from "@/app/site-config";
+import {
+  articleBaseCtaLabel,
+  contactPageCtaLabel,
+  episode01EmbedUrl,
+  episode01ExternalUrl,
+  episode01HasMediaAccess,
+  technicalGuideCtaLabel,
+} from "@/app/site-config";
 
 const blocks = [
   {
@@ -77,10 +84,13 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function Episode01Page() {
+  const hasEmbed = Boolean(episode01EmbedUrl);
+  const hasExternalAccess = Boolean(episode01ExternalUrl);
+
   return (
     <>
       <PageHero
-        eyebrow="Video"
+        eyebrow="Episodio editorial"
         title="Que hace util a una evidencia digital y que la debilita"
         subtitle="Episodio editorial de apertura sobre contexto, integridad, preservacion y valor documental. La pieza ya puede leerse como una unidad publica completa dentro del hub y concentra su resumen, estructura y derivados breves."
         primaryAction={{ href: "#estructura", label: "Ver estructura" }}
@@ -89,12 +99,12 @@ export default function Episode01Page() {
           label: articleBaseCtaLabel,
         }}
         stats={[
-          { value: "5:30-6:00", label: "Duracion objetivo" },
+          { value: "5:30-6:00", label: "Duracion de referencia" },
           { value: "5", label: "Bloques narrativos" },
           { value: "2", label: "Shorts derivados" },
         ]}
         notes={[
-          "El tono esta pensado para voz serena, didactica y sin dramatizacion.",
+          "La pieza mantiene una voz serena, didactica y sin dramatizacion.",
           "La pieza funciona como contenido de autoridad y tambien como puerta de entrada a la biblioteca editorial.",
         ]}
         visual={
@@ -103,8 +113,8 @@ export default function Episode01Page() {
             alt="Pieza audiovisual editorial sobre evidencia digital con guion, monitor y notas tecnicas"
             eyebrow="Episodio 01"
             title="Una pieza breve para fijar el marco metodologico del proyecto"
-            description="El episodio abre la capa audiovisual del sitio y articula el primer lote entre video, articulos y piezas verticales derivadas."
-            tags={["Video largo", "Faceless", "Criterio tecnico"]}
+            description="El episodio articula la capa audiovisual y editorial del sitio en una misma ruta publica, conectada con articulos, guia tecnica y piezas verticales derivadas."
+            tags={["Serie inicial", "Pieza editorial", "Criterio tecnico"]}
             priority
             aspect="landscape"
           />
@@ -151,12 +161,41 @@ export default function Episode01Page() {
           </div>
 
           <div className="grid gap-4">
-            <SurfaceCard
-              title="Como se publica esta pieza"
-              description="Esta ruta funciona como ficha editorial completa del episodio: concentra la idea central, sus bloques, los cortes breves derivados y la continuidad con el resto del hub."
-            >
-              <TagList items={["Lectura guiada", "Serie inicial", "Hub editorial"]} />
-            </SurfaceCard>
+            {hasEmbed ? (
+              <div className="premium-shell rounded-[1.8rem] p-4 md:p-5">
+                <div className="overflow-hidden rounded-[1.35rem] border border-[var(--color-border)] bg-[rgba(255,255,255,0.62)] shadow-[var(--shadow-soft)]">
+                  <div className="aspect-video">
+                    <iframe
+                      src={episode01EmbedUrl}
+                      title="Episodio 01"
+                      className="h-full w-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                </div>
+                <div className="mt-4 grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
+                  <p>Acceso audiovisual integrado en la misma ruta editorial para mantener continuidad entre visionado, lectura y contacto.</p>
+                  {hasExternalAccess ? (
+                    <div>
+                      <ButtonLink href={episode01ExternalUrl} label="Abrir acceso audiovisual" variant="secondary" />
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+            ) : (
+              <SurfaceCard
+                title="Como se publica esta pieza"
+                description="Esta ruta funciona como pieza editorial completa del episodio: concentra la idea central, sus bloques, los cortes breves derivados y la continuidad con el resto del hub."
+              >
+                <TagList items={["Lectura guiada", "Serie inicial", "Hub editorial"]} />
+                {episode01HasMediaAccess ? (
+                  <div className="pt-1">
+                    <ButtonLink href={episode01ExternalUrl} label="Abrir acceso audiovisual" variant="secondary" />
+                  </div>
+                ) : null}
+              </SurfaceCard>
+            )}
 
             <SurfaceCard
               title="Articulos relacionados"
@@ -178,7 +217,7 @@ export default function Episode01Page() {
                 className="inline-link"
                 href="/recursos/guias/revision-tecnica-evidencia-digital"
               >
-                Leer guia de alcance
+                {technicalGuideCtaLabel}
               </Link>
             </SurfaceCard>
           </div>
@@ -200,8 +239,8 @@ export default function Episode01Page() {
                 description={block.description}
               >
                 <p className="text-sm leading-7 text-[var(--color-muted)]">
-                  Bloque pensado para locucion clara, apoyo visual sobrio y continuidad con el resto
-                  de la biblioteca.
+                  Bloque pensado para lectura guiada, locucion clara o ambas, con apoyo visual sobrio
+                  y continuidad con el resto de la biblioteca.
                 </p>
               </SurfaceCard>
             ))}
@@ -230,7 +269,7 @@ export default function Episode01Page() {
                   </p>
                   <p>{short.hook}</p>
                   <p>{short.meta}</p>
-                  <p>{short.cta}</p>
+                  <p className="font-medium text-[var(--color-text)]">{short.cta}</p>
                 </div>
               </SurfaceCard>
             ))}
@@ -247,9 +286,9 @@ export default function Episode01Page() {
           label: articleBaseCtaLabel,
         }}
         secondaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
-        note="La misma ruta puede concentrar despues acceso audiovisual, cortes derivados y continuidad editorial sin rehacer la pagina."
+        note="La misma ruta ya puede convivir con lectura editorial, acceso audiovisual futuro y continuidad directa hacia recursos y contacto."
         highlights={[
-          "Pieza audiovisual alineada con el tono tecnico y discreto de la marca.",
+          "Pieza editorial alineada con el tono tecnico y discreto de la marca.",
           "Continuidad directa entre video largo, shorts, articulos y contacto.",
         ]}
       />

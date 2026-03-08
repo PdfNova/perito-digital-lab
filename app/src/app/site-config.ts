@@ -10,6 +10,7 @@ export const contactSubject = `Consulta inicial - ${brandName}`;
 export const contactPageCtaLabel = "Solicitar orientacion inicial";
 export const contactDirectCtaLabel = "Escribir por correo";
 export const contactAnchorCtaLabel = "Ver canal de contacto";
+export const contactResourceCtaLabel = "Leer recursos antes de escribir";
 export const resourcesCtaLabel = "Explorar recursos";
 export const episodeCtaLabel = "Abrir episodio";
 export const articleBaseCtaLabel = "Leer articulo base";
@@ -20,6 +21,9 @@ export const contactFirstStepCopy =
 export const contactResponseCopy =
   "La respuesta inicial sirve para valorar encaje, ordenar el punto de partida y proponer el siguiente paso razonable.";
 export const contactMailto = `mailto:${contactEmail}?subject=${encodeURIComponent(contactSubject)}`;
+export const episode01EmbedUrl = process.env.NEXT_PUBLIC_EPISODE_01_EMBED_URL ?? "";
+export const episode01ExternalUrl = process.env.NEXT_PUBLIC_EPISODE_01_EXTERNAL_URL ?? "";
+export const episode01HasMediaAccess = Boolean(episode01EmbedUrl || episode01ExternalUrl);
 
 export const visualAssets = {
   heroMain: {

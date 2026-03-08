@@ -51,7 +51,7 @@ const featuredPieces = [
       "Recurso orientado a explicar que puede aportar una revision tecnica y por que los limites refuerzan la credibilidad del analisis.",
     meta: "Lectura estimada: 7 min",
     href: "/recursos/guias/revision-tecnica-evidencia-digital",
-    cta: "Leer guia",
+    cta: technicalGuideCtaLabel,
     tags: ["Guia", "Revision tecnica", "Conversion"],
   },
 ];
@@ -64,7 +64,7 @@ const articles = [
       "Pieza de apertura sobre contexto, integridad, trazabilidad y factores que refuerzan o debilitan la utilidad de una evidencia.",
     meta: "Base editorial",
     href: "/recursos/articulos/valor-documental-evidencia-digital",
-    cta: "Leer articulo",
+    cta: articleBaseCtaLabel,
     tags: ["Contexto", "Integridad", "Trazabilidad"],
   },
   {
@@ -74,7 +74,7 @@ const articles = [
       "Guia practica sobre errores frecuentes de preservacion, orden de materiales y criterios minimos para un mejor punto de partida.",
     meta: "Pieza practica",
     href: "/recursos/articulos/preservacion-inicial-evidencia-digital",
-    cta: "Leer articulo",
+    cta: "Leer articulo practico",
     tags: ["Preservacion", "Errores frecuentes", "Punto de partida"],
   },
 ];

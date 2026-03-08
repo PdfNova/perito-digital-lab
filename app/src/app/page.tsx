@@ -16,9 +16,11 @@ import {
 } from "@/components/ui";
 import { buildPageMetadata } from "./metadata";
 import {
+  articleBaseCtaLabel,
   contactPageCtaLabel,
   episodeCtaLabel,
   resourcesCtaLabel,
+  technicalGuideCtaLabel,
   visualAssets,
 } from "./site-config";
 
@@ -53,7 +55,7 @@ const featuredResources = [
       "Pieza base para entender por que contexto, integridad y trazabilidad importan tanto como el hallazgo.",
     meta: "Lectura estimada: 6 min",
     href: "/recursos/articulos/valor-documental-evidencia-digital",
-    cta: "Leer articulo",
+    cta: articleBaseCtaLabel,
     tags: ["Evidencia digital", "Contexto", "Integridad"],
   },
   {
@@ -73,7 +75,7 @@ const featuredResources = [
       "Recurso nuevo orientado a explicar que puede aportar una revision tecnica y por que los limites refuerzan su credibilidad.",
     meta: "Lectura estimada: 7 min",
     href: "/recursos/guias/revision-tecnica-evidencia-digital",
-    cta: "Leer guia",
+    cta: technicalGuideCtaLabel,
     tags: ["Revision tecnica", "Alcance", "Conversion"],
   },
 ];
@@ -91,7 +93,7 @@ const recommendedPath = [
     description:
       "Empezar por el articulo base o por la guia tecnica para ajustar lenguaje, expectativas y valor documental.",
     href: "/recursos",
-    cta: "Ir a recursos",
+    cta: resourcesCtaLabel,
   },
   {
     title: "Valorar encaje",
@@ -105,7 +107,7 @@ const recommendedPath = [
     description:
       "Pasar a contacto con materiales identificados, objetivo claro y una expectativa razonable sobre la salida del trabajo.",
     href: "/contacto",
-    cta: "Ir a contacto",
+    cta: contactPageCtaLabel,
   },
 ];
 

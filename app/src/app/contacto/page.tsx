@@ -13,14 +13,17 @@ import {
   TagList,
 } from "@/components/ui";
 import {
+  articleBaseCtaLabel,
   contactAnchorCtaLabel,
   contactDirectCtaLabel,
   contactEmail,
   contactFirstStepCopy,
   contactMailto,
+  contactResourceCtaLabel,
   contactResponseCopy,
   contactSubject,
   resourcesCtaLabel,
+  technicalGuideCtaLabel,
   visualAssets,
 } from "@/app/site-config";
 import { buildPageMetadata } from "../metadata";
@@ -33,7 +36,7 @@ const supportPieces = [
       "Lectura recomendada para entender que materiales suelen llegar mejor a una revision tecnica o documental.",
     meta: "Recurso base",
     href: "/recursos/articulos/valor-documental-evidencia-digital",
-    cta: "Leer articulo",
+    cta: articleBaseCtaLabel,
     tags: ["Valor documental", "Contexto", "Integridad"],
   },
   {
@@ -43,7 +46,7 @@ const supportPieces = [
       "Pieza orientada a alinear expectativas y aclarar que puede aportar realmente una revision antes del primer contacto.",
     meta: "Recurso de encaje",
     href: "/recursos/guias/revision-tecnica-evidencia-digital",
-    cta: "Leer guia",
+    cta: technicalGuideCtaLabel,
     tags: ["Alcance", "Limites", "Revision tecnica"],
   },
 ];
@@ -184,7 +187,7 @@ export default function ContactPage() {
                 </div>
                 <div className="mt-5 flex flex-wrap gap-3">
                   <ButtonLink href={contactMailto} label={contactDirectCtaLabel} />
-                  <ButtonLink href="/recursos" label="Leer recursos antes de escribir" variant="secondary" />
+                  <ButtonLink href="/recursos" label={contactResourceCtaLabel} variant="secondary" />
                 </div>
               </div>
 
