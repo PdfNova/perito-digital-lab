@@ -27,20 +27,25 @@ export default function ContactPage() {
       />
 
       <Section>
-        <Container className="grid gap-8 lg:grid-cols-[1fr_0.92fr]">
+        <Container className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-start">
           <div>
             <SectionHeading
               title="Casos donde una consulta inicial puede aportar valor"
               description="Tiene sentido contactar cuando existe evidencia digital que necesita contexto, una secuencia de hechos que requiere orden o una necesidad de documentacion tecnica mas clara para terceros."
             />
           </div>
-          <TagList
-            items={[
-              "Evidencia dispersa",
-              "Necesidad de cronologia",
-              "Necesidad de informe claro",
-            ]}
-          />
+          <SurfaceCard
+            title="Antes del primer mensaje"
+            description="Cuanto mas claro el marco inicial, mas util resultara la orientacion posterior."
+          >
+            <TagList
+              items={[
+                "Evidencia dispersa",
+                "Necesidad de cronologia",
+                "Necesidad de informe claro",
+              ]}
+            />
+          </SurfaceCard>
         </Container>
       </Section>
 
@@ -50,7 +55,7 @@ export default function ContactPage() {
             title="Informacion util para una primera consulta"
             description="No hace falta enviar un relato extenso. Resulta mas util resumir el problema, indicar que materiales existen, describir el momento del caso y explicar que se espera aclarar."
           >
-            <ul className="mt-5 space-y-2 text-sm text-[var(--color-muted)]">
+            <ul className="space-y-2 text-sm text-[var(--color-muted)]">
               {[
                 "Breve descripcion del problema",
                 "Tipo de fuentes o materiales disponibles",
@@ -63,7 +68,7 @@ export default function ContactPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-sm font-medium text-[var(--color-accent)]">
+            <p className="text-sm font-medium text-[var(--color-accent)]">
               Cuanto mas claro el contexto, mejor la orientacion inicial.
             </p>
           </SurfaceCard>
@@ -72,7 +77,11 @@ export default function ContactPage() {
             title="Lo que esta web no ofrece"
             description="No se atienden solicitudes orientadas a accesos a cuentas, recuperaciones invasivas sobre terceros, identificaciones garantizadas ni peticiones formuladas desde logicas opacas o impropias."
           >
-            <p className="mt-5 text-sm font-medium text-[var(--color-accent)]">
+            <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
+              <p>La utilidad de este sitio depende de mantener un alcance tecnico y documental claro.</p>
+              <p>No se plantea como canal para encargos invasivos ni para promesas impropias.</p>
+            </div>
+            <p className="text-sm font-medium text-[var(--color-accent)]">
               Alcance tecnico y documental.
             </p>
           </SurfaceCard>
@@ -80,19 +89,19 @@ export default function ContactPage() {
       </Section>
 
       <Section>
-        <Container id="consulta" className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-[2rem] border border-[var(--color-border)] bg-[rgba(255,255,255,0.8)] p-6 shadow-[var(--shadow)] md:p-8">
+        <Container id="consulta" className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
+          <div className="panel-surface rounded-[2rem] p-6 md:p-8">
             <SectionHeading
               title="Plantear la consulta"
               description="El canal de contacto debe invitar a explicar la necesidad con brevedad, claridad y enfoque practico."
             />
-            <form className="mt-8 grid gap-5">
+            <form className="mt-8 grid gap-4">
               <label className="grid gap-2">
                 <span className="text-sm font-medium text-[var(--color-text)]">
                   Nombre o referencia de contacto
                 </span>
                 <input
-                  className="rounded-2xl border border-[var(--color-border)] bg-white px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus:border-[var(--color-border-strong)]"
+                  className="input-shell rounded-2xl px-4 py-3 text-sm"
                   placeholder="Puede usarse una referencia profesional o identificador funcional"
                   readOnly
                 />
@@ -100,18 +109,14 @@ export default function ContactPage() {
               <label className="grid gap-2">
                 <span className="text-sm font-medium text-[var(--color-text)]">Correo de respuesta</span>
                 <input
-                  className="rounded-2xl border border-[var(--color-border)] bg-white px-4 py-3 text-sm text-[var(--color-text)] outline-none transition focus:border-[var(--color-border-strong)]"
+                  className="input-shell rounded-2xl px-4 py-3 text-sm"
                   placeholder="Se utilizara unicamente para dar continuidad a la consulta"
                   readOnly
                 />
               </label>
               <label className="grid gap-2">
                 <span className="text-sm font-medium text-[var(--color-text)]">Tipo de necesidad</span>
-                <select
-                  className="rounded-2xl border border-[var(--color-border)] bg-white px-4 py-3 text-sm text-[var(--color-text)] outline-none"
-                  defaultValue=""
-                  disabled
-                >
+                <select className="input-shell rounded-2xl px-4 py-3 text-sm" defaultValue="" disabled>
                   <option value="" disabled>
                     Seleccionar entre investigacion digital, forense, OSINT, trazabilidad o documentacion
                   </option>
@@ -120,7 +125,7 @@ export default function ContactPage() {
               <label className="grid gap-2">
                 <span className="text-sm font-medium text-[var(--color-text)]">Resumen del caso</span>
                 <textarea
-                  className="min-h-32 rounded-[1.5rem] border border-[var(--color-border)] bg-white px-4 py-3 text-sm text-[var(--color-text)] outline-none"
+                  className="input-shell min-h-32 rounded-[1.4rem] px-4 py-3 text-sm"
                   placeholder="Describir el problema en pocas lineas, sin incluir datos innecesarios"
                   readOnly
                 />
@@ -128,19 +133,16 @@ export default function ContactPage() {
               <label className="grid gap-2">
                 <span className="text-sm font-medium text-[var(--color-text)]">Materiales disponibles</span>
                 <textarea
-                  className="min-h-28 rounded-[1.5rem] border border-[var(--color-border)] bg-white px-4 py-3 text-sm text-[var(--color-text)] outline-none"
+                  className="input-shell min-h-28 rounded-[1.4rem] px-4 py-3 text-sm"
                   placeholder="Indicar si existen correos, capturas, cronologias, dispositivos, metadatos u otros soportes"
                   readOnly
                 />
               </label>
-              <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--color-border)] pt-5">
-                <p className="max-w-md text-sm text-[var(--color-muted)]">
+              <div className="mt-2 flex flex-wrap items-center justify-between gap-4 border-t border-[var(--color-border)] pt-5">
+                <p className="max-w-md text-sm leading-7 text-[var(--color-muted)]">
                   Estructura visual del formulario. La logica de envio no se implementa en esta fase.
                 </p>
-                <button
-                  type="button"
-                  className="rounded-full bg-[var(--color-text)] px-5 py-3 text-sm font-medium text-white"
-                >
+                <button type="button" className="button-primary">
                   Enviar consulta
                 </button>
               </div>
@@ -152,16 +154,18 @@ export default function ContactPage() {
               title="Discrecion y claridad desde el primer contacto"
               description="La comunicacion inicial debe evitar datos personales innecesarios y centrarse en los elementos tecnicos y documentales relevantes para valorar el encaje de la consulta."
             >
-              <p className="mt-4 text-sm font-medium text-[var(--color-accent)]">
-                Mejor contexto, menos exposicion.
-              </p>
+              <TagList items={["Menos exposicion", "Mas contexto util", "Mejor orientacion"]} />
             </SurfaceCard>
 
             <SurfaceCard
               title="El objetivo del primer contacto no es resolver todo"
               description="Una buena consulta inicial permite valorar alcance, limites y posibles siguientes pasos con mayor precision y menos ruido."
             >
-              <p className="mt-4 text-sm font-medium text-[var(--color-accent)]">
+              <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
+                <p>Primero se acota el punto de partida.</p>
+                <p>Despues se decide si la necesidad encaja y que forma de trabajo tiene sentido.</p>
+              </div>
+              <p className="text-sm font-medium text-[var(--color-accent)]">
                 Primer paso: explicar bien el contexto.
               </p>
             </SurfaceCard>

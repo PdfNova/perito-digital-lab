@@ -63,13 +63,15 @@ export default function MethodologyPage() {
             title="Trabajar con orden para explicar mejor"
             description="La metodologia combina analisis tecnico, lectura de contexto y documentacion clara. Su objetivo es reducir ruido, evitar interpretaciones apresuradas y producir resultados comprensibles."
           />
-          <TagList items={["Rigor sin exhibicion"]} />
+          <div className="mt-6">
+            <TagList items={["Rigor sin exhibicion"]} />
+          </div>
         </Container>
       </Section>
 
       <Section tint="soft">
         <Container>
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2">
             {phases.map((phase, index) => (
               <SurfaceCard
                 key={phase.title}
@@ -84,7 +86,7 @@ export default function MethodologyPage() {
       </Section>
 
       <Section>
-        <Container className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
+        <Container className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-start">
           <div>
             <SectionHeading
               title="Principios que sostienen el proceso"

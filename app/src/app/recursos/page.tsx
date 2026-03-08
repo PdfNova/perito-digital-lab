@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   ActionBanner,
   Container,
@@ -56,7 +57,7 @@ export default function ResourcesPage() {
       />
 
       <Section>
-        <Container className="grid gap-8 lg:grid-cols-[1fr_0.92fr]">
+        <Container className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-start">
           <div>
             <SectionHeading
               title="Una biblioteca tecnica pensada para aportar claridad"
@@ -67,7 +68,11 @@ export default function ResourcesPage() {
             title="Piezas recomendadas para empezar"
             description="Una seleccion inicial puede ayudar a entender como se organiza un caso digital, que errores conviene evitar y por que la documentacion importa tanto como el analisis."
           >
-            <p className="mt-4 text-sm font-medium text-[var(--color-accent)]">Empezar por lo esencial.</p>
+            <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
+              <p>Recorridos breves para entrar en materia sin perder contexto tecnico.</p>
+              <p>Contenidos pensados para preparar mejor una conversacion o un caso.</p>
+            </div>
+            <p className="text-sm font-medium text-[var(--color-accent)]">Empezar por lo esencial.</p>
           </SurfaceCard>
         </Container>
       </Section>
@@ -78,7 +83,7 @@ export default function ResourcesPage() {
             title="Lineas editoriales principales"
             description="El contenido se agrupa en pilares que permiten recorrer el proyecto desde distintos intereses o necesidades."
           />
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {pillars.map((pillar) => (
               <SurfaceCard
                 key={pillar.title}
@@ -87,33 +92,58 @@ export default function ResourcesPage() {
               />
             ))}
           </div>
-          <div className="mt-8">
+          <div className="mt-8 flex items-center justify-between gap-4 border-t border-[var(--color-border)] pt-5">
             <span className="text-sm font-medium text-[var(--color-accent)]">Explorar por tema</span>
+            <Link className="inline-link" href="/contacto">
+              Plantear una consulta
+            </Link>
           </div>
         </Container>
       </Section>
 
       <Section>
-        <Container className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+        <Container className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
           <div>
             <SectionHeading
               title="Formatos de contenido"
               description="La primera version puede incluir articulos breves, guias descargables o resumibles, glosarios y piezas audiovisuales de explicacion tipo pizarra con voz y subtitulos."
             />
           </div>
-          <TagList items={["Articulos", "Guias", "Glosarios", "Videos"]} />
+          <SurfaceCard
+            title="Una estructura editorial compacta y reutilizable"
+            description="La biblioteca se organiza para que cada formato pueda escalar sin romper la coherencia del sitio."
+          >
+            <TagList items={["Articulos", "Guias", "Glosarios", "Videos"]} />
+          </SurfaceCard>
         </Container>
       </Section>
 
       <Section tint="soft">
-        <Container>
+        <Container className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
           <SurfaceCard
             title="Recursos que ayudan a preparar mejor una necesidad real"
             description="Leer contenido tecnico antes de contactar permite formular mejor el problema, identificar lagunas de contexto y entender mejor que tipo de analisis o documentacion puede ser util."
           >
-            <p className="mt-4 text-sm font-medium text-[var(--color-accent)]">
+            <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
+              <p>El recurso no sustituye el analisis, pero mejora la calidad del punto de partida.</p>
+              <p>Tambien reduce ruido y ayuda a distinguir necesidad tecnica de expectativa difusa.</p>
+            </div>
+            <p className="text-sm font-medium text-[var(--color-accent)]">
               Del recurso al caso concreto.
             </p>
+          </SurfaceCard>
+
+          <SurfaceCard
+            title="Uso previsto de esta seccion"
+            description="Espacio para concentrar autoridad, ampliar contexto y conectar el sitio con una futura capa editorial mas profunda."
+          >
+            <TagList
+              items={[
+                "Descubrimiento cualificado",
+                "Autoridad metodologica",
+                "Puente hacia contacto",
+              ]}
+            />
           </SurfaceCard>
         </Container>
       </Section>

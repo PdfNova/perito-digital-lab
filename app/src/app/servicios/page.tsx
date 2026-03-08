@@ -91,13 +91,15 @@ export default function ServicesPage() {
             title="Que puede aportar esta linea de trabajo"
             description="La web presenta servicios para casos donde hace falta ordenar evidencia digital, reconstruir secuencias, correlacionar indicios o traducir hallazgos tecnicos a una base documental comprensible."
           />
-          <TagList items={["Analisis con criterio", "Documentacion util"]} />
+          <div className="mt-6">
+            <TagList items={["Analisis con criterio", "Documentacion util"]} />
+          </div>
         </Container>
       </Section>
 
       <Section tint="soft">
         <Container>
-          <div className="grid gap-5">
+          <div className="grid gap-4">
             {services.map((service) => (
               <SurfaceCard key={service.title} title={service.title} description={service.description}>
                 <ul className="mt-5 space-y-2 text-sm text-[var(--color-muted)]">
@@ -116,7 +118,7 @@ export default function ServicesPage() {
       </Section>
 
       <Section>
-        <Container className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
+        <Container className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-start">
           <div>
             <SectionHeading
               title="Cuando esta propuesta tiene sentido"
