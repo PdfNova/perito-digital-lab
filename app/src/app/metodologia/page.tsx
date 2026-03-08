@@ -13,6 +13,12 @@ import {
   TagList,
 } from "@/components/ui";
 import { buildPageMetadata } from "../metadata";
+import {
+  articleBaseCtaLabel,
+  contactPageCtaLabel,
+  resourcesCtaLabel,
+  technicalGuideCtaLabel,
+} from "../site-config";
 
 const phases = [
   {
@@ -49,7 +55,7 @@ const supportPieces = [
       "Pieza recomendada para entender por que contexto, integridad y trazabilidad condicionan la lectura de cualquier material.",
     meta: "Marco conceptual",
     href: "/recursos/articulos/valor-documental-evidencia-digital",
-    cta: "Leer articulo",
+    cta: articleBaseCtaLabel,
     tags: ["Contexto", "Integridad", "Valor documental"],
   },
   {
@@ -59,7 +65,7 @@ const supportPieces = [
       "Guia pensada para explicar que puede sostenerse realmente al final del proceso y por que los limites forman parte del rigor.",
     meta: "Continuidad metodologica",
     href: "/recursos/guias/revision-tecnica-evidencia-digital",
-    cta: "Leer guia",
+    cta: technicalGuideCtaLabel,
     tags: ["Alcance", "Limites", "Revision tecnica"],
   },
 ];
@@ -78,7 +84,7 @@ export default function MethodologyPage() {
         eyebrow="Metodologia"
         title="Un metodo visible refuerza la credibilidad antes de cualquier conversacion"
         subtitle="El valor no esta solo en el hallazgo, sino en como se delimita, se preserva, se interpreta y se convierte en una salida documental clara."
-        primaryAction={{ href: "/contacto", label: "Contactar" }}
+        primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         secondaryAction={{ href: "/servicios", label: "Ver servicios" }}
         stats={[
           { value: "4", label: "Fases principales del proceso" },
@@ -260,7 +266,7 @@ export default function MethodologyPage() {
             />
             <div className="mt-8">
               <Link className="inline-link" href="/recursos">
-                Explorar recursos
+                {resourcesCtaLabel}
               </Link>
             </div>
           </div>
@@ -282,10 +288,11 @@ export default function MethodologyPage() {
       </Section>
 
       <ActionBanner
+        eyebrow="Metodo visible"
         title="Si el caso requiere metodo, la siguiente conversacion debe partir de una necesidad bien delimitada"
         description="Una consulta inicial con contexto minimo permite valorar mejor el punto de partida, el tipo de fuentes disponibles y la salida documental mas razonable."
-        primaryAction={{ href: "/contacto", label: "Contactar" }}
-        secondaryAction={{ href: "/recursos", label: "Ver recursos" }}
+        primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
+        secondaryAction={{ href: "/recursos", label: resourcesCtaLabel }}
         note="La metodologia ya funciona como una prueba visible de criterio, orden y madurez profesional."
         highlights={[
           "El metodo ayuda a filtrar expectativas poco realistas.",

@@ -10,6 +10,11 @@ export const contactSubject = `Consulta inicial - ${brandName}`;
 export const contactPageCtaLabel = "Solicitar orientacion inicial";
 export const contactDirectCtaLabel = "Escribir por correo";
 export const contactAnchorCtaLabel = "Ver canal de contacto";
+export const resourcesCtaLabel = "Explorar recursos";
+export const episodeCtaLabel = "Abrir episodio";
+export const articleBaseCtaLabel = "Leer articulo base";
+export const technicalGuideCtaLabel = "Leer guia tecnica";
+export const resourcesHubReturnLabel = "Volver al hub editorial";
 export const contactFirstStepCopy =
   "Primer paso recomendado: resumir el problema, indicar materiales disponibles y definir el objetivo tecnico o documental.";
 export const contactResponseCopy =

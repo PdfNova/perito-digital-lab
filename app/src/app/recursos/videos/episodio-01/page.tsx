@@ -14,7 +14,7 @@ import {
   TagList,
 } from "@/components/ui";
 import { buildPageMetadata } from "@/app/metadata";
-import { contactPageCtaLabel } from "@/app/site-config";
+import { articleBaseCtaLabel, contactPageCtaLabel } from "@/app/site-config";
 
 const blocks = [
   {
@@ -86,7 +86,7 @@ export default function Episode01Page() {
         primaryAction={{ href: "#estructura", label: "Ver estructura" }}
         secondaryAction={{
           href: "/recursos/articulos/valor-documental-evidencia-digital",
-          label: "Leer articulo base",
+          label: articleBaseCtaLabel,
         }}
         stats={[
           { value: "5:30-6:00", label: "Duracion objetivo" },
@@ -142,7 +142,7 @@ export default function Episode01Page() {
               <div className="flex flex-wrap gap-3 pt-1">
                 <ButtonLink
                   href="/recursos/articulos/valor-documental-evidencia-digital"
-                  label="Leer articulo base"
+                  label={articleBaseCtaLabel}
                   variant="secondary"
                 />
                 <ButtonLink href="/contacto" label="Llevar este marco a una consulta" variant="secondary" />
@@ -166,7 +166,7 @@ export default function Episode01Page() {
                 className="inline-link"
                 href="/recursos/articulos/valor-documental-evidencia-digital"
               >
-                Leer articulo base
+                {articleBaseCtaLabel}
               </Link>
               <Link
                 className="inline-link"
@@ -239,11 +239,12 @@ export default function Episode01Page() {
       </Section>
 
       <ActionBanner
+        eyebrow="Continuidad editorial"
         title="Si este episodio ya deja claro el marco, el siguiente paso es profundizar en la pieza base o trasladar una necesidad real a una consulta mejor encuadrada"
         description="El episodio ya funciona como una pieza publica valida dentro del hub: resume el argumento principal, conecta con lecturas mas detalladas y permite avanzar hacia contacto sin perder continuidad."
         primaryAction={{
           href: "/recursos/articulos/valor-documental-evidencia-digital",
-          label: "Leer articulo base",
+          label: articleBaseCtaLabel,
         }}
         secondaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         note="La misma ruta puede concentrar despues acceso audiovisual, cortes derivados y continuidad editorial sin rehacer la pagina."

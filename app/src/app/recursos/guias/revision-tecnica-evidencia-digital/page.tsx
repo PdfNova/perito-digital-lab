@@ -13,7 +13,7 @@ import {
   TagList,
 } from "@/components/ui";
 import { buildPageMetadata } from "@/app/metadata";
-import { contactPageCtaLabel } from "@/app/site-config";
+import { contactPageCtaLabel, resourcesHubReturnLabel } from "@/app/site-config";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Revision tecnica de evidencia digital: alcance y limites",
@@ -218,10 +218,11 @@ export default function TechnicalReviewGuidePage() {
       </Section>
 
       <ActionBanner
+        eyebrow="Continuidad editorial"
         title="Si el objetivo es valorar alcance real y no solo acumular materiales, el siguiente paso es plantear la revision con contexto suficiente"
         description="Esta guia ayuda a ajustar expectativas antes del contacto. A partir de ahi, la conversacion inicial puede centrarse en materiales disponibles, objetivo documental y limites razonables del trabajo."
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
-        secondaryAction={{ href: "/recursos", label: "Volver a recursos" }}
+        secondaryAction={{ href: "/recursos", label: resourcesHubReturnLabel }}
         note="Una consulta mejor planteada mejora tanto el encaje comercial como la utilidad tecnica de la revision."
         highlights={[
           "Recurso tecnico orientado a conversion cualificada.",

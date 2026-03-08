@@ -13,7 +13,12 @@ import {
   TagList,
 } from "@/components/ui";
 import { buildPageMetadata } from "@/app/metadata";
-import { contactPageCtaLabel } from "@/app/site-config";
+import {
+  articleBaseCtaLabel,
+  contactPageCtaLabel,
+  episodeCtaLabel,
+  technicalGuideCtaLabel,
+} from "@/app/site-config";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Preservacion inicial de evidencia digital",
@@ -218,7 +223,7 @@ export default function InitialPreservationArticlePage() {
                 className="inline-link"
                 href="/recursos/articulos/valor-documental-evidencia-digital"
               >
-                Leer articulo base
+                {articleBaseCtaLabel}
               </Link>
             </SurfaceCard>
 
@@ -228,7 +233,7 @@ export default function InitialPreservationArticlePage() {
             >
               <TagList items={["Video", "Shorts", "Resumen grabable"]} />
               <Link className="inline-link" href="/recursos/videos/episodio-01">
-                Ver pagina del episodio
+                {episodeCtaLabel}
               </Link>
             </SurfaceCard>
 
@@ -238,7 +243,7 @@ export default function InitialPreservationArticlePage() {
             >
               <TagList items={["Alcance", "Revision", "Salida documental"]} />
               <Link className="inline-link" href="/recursos/guias/revision-tecnica-evidencia-digital">
-                Leer guia tecnica
+                {technicalGuideCtaLabel}
               </Link>
             </SurfaceCard>
           </div>
@@ -246,10 +251,11 @@ export default function InitialPreservationArticlePage() {
       </Section>
 
       <ActionBanner
+        eyebrow="Continuidad editorial"
         title="Si ya existe material digital recopilado, el siguiente paso es ordenarlo mejor antes de extraer conclusiones fuertes"
         description="Esta pieza ayuda a mejorar el punto de partida. Si la necesidad ya es concreta, la conversacion inicial puede centrarse en materiales disponibles, prioridad documental y alcance razonable."
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
-        secondaryAction={{ href: "/recursos/videos/episodio-01", label: "Ver episodio" }}
+        secondaryAction={{ href: "/recursos/videos/episodio-01", label: episodeCtaLabel }}
         note="Mejor preservacion inicial suele traducirse en mejor claridad tecnica y mejor tiempo de respuesta."
         highlights={[
           "Guia util para fases tempranas de un caso con componente digital.",

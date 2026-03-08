@@ -14,7 +14,7 @@ import {
   TagList,
 } from "@/components/ui";
 import { buildPageMetadata } from "../metadata";
-import { contactPageCtaLabel, visualAssets } from "../site-config";
+import { contactPageCtaLabel, resourcesCtaLabel, visualAssets } from "../site-config";
 
 const services = [
   {
@@ -119,7 +119,7 @@ export default function ServicesPage() {
         title="Servicios tecnicos para casos donde la evidencia digital necesita orden, lectura y salida documental"
         subtitle="La propuesta se organiza por necesidades reales de analisis, correlacion y documentacion, con una presentacion mas cercana a una firma tecnica que a un listado generico de servicios."
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
-        secondaryAction={{ href: "/recursos", label: "Ver recursos" }}
+        secondaryAction={{ href: "/recursos", label: resourcesCtaLabel }}
         stats={[
           { value: "5", label: "Areas nucleares de trabajo" },
           { value: "Real", label: "Biblioteca editorial ya integrada" },
@@ -343,10 +343,11 @@ export default function ServicesPage() {
       </Section>
 
       <ActionBanner
+        eyebrow="Siguiente paso"
         title="Si la necesidad encaja, el siguiente paso es presentar el contexto con materiales, objetivo y punto de partida"
         description="Una consulta inicial util debe indicar que tipo de problema existe, que fuentes o materiales hay disponibles y que salida tecnica o documental se busca."
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
-        secondaryAction={{ href: "/recursos", label: "Ver recursos" }}
+        secondaryAction={{ href: "/recursos", label: resourcesCtaLabel }}
         note="La pagina de servicios ya funciona como una puerta de entrada clara, seria y conectada con contenido real."
         highlights={[
           "Menos ambiguedad sobre lo que si encaja.",

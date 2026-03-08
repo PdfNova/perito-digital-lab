@@ -15,9 +15,12 @@ import {
 } from "@/components/ui";
 import { buildPageMetadata } from "../metadata";
 import {
+  articleBaseCtaLabel,
   contactDirectCtaLabel,
   contactMailto,
   contactPageCtaLabel,
+  episodeCtaLabel,
+  technicalGuideCtaLabel,
 } from "../site-config";
 
 const featuredPieces = [
@@ -28,7 +31,7 @@ const featuredPieces = [
       "Pieza audiovisual de apertura sobre contexto, integridad, preservacion y valor documental en evidencia digital.",
     meta: "Duracion objetivo: 5:30-6:00",
     href: "/recursos/videos/episodio-01",
-    cta: "Ver episodio",
+    cta: episodeCtaLabel,
     tags: ["Episodio 01", "Video largo", "Pieza base"],
   },
   {
@@ -38,7 +41,7 @@ const featuredPieces = [
       "Articulo base para entender por que una pieza digital necesita contexto, orden y trazabilidad para sostenerse mejor.",
     meta: "Lectura estimada: 6 min",
     href: "/recursos/articulos/valor-documental-evidencia-digital",
-    cta: "Leer articulo",
+    cta: articleBaseCtaLabel,
     tags: ["Articulo", "Integridad", "Documentacion"],
   },
   {
@@ -277,7 +280,7 @@ export default function ResourcesPage() {
             description="Recurso pensado para explicar que puede aportar una revision, que no conviene pedirle y por que los limites mejoran la credibilidad del trabajo."
             meta="Pieza de segundo lote"
             href="/recursos/guias/revision-tecnica-evidencia-digital"
-            cta="Leer guia tecnica"
+            cta={technicalGuideCtaLabel}
             tags={["Revision tecnica", "Alcance", "Limites", "Conversion"]}
           />
         </Container>
@@ -310,7 +313,7 @@ export default function ResourcesPage() {
           >
             <TagList items={["Episodio 01", "Video largo", "Marco base", "Shorts"]} />
             <Link className="inline-link" href="/recursos/videos/episodio-01">
-              Ver pagina del episodio
+              {episodeCtaLabel}
             </Link>
           </SurfaceCard>
 
@@ -368,6 +371,7 @@ export default function ResourcesPage() {
       </Section>
 
       <ActionBanner
+        eyebrow="Hub editorial"
         title="Si el contenido ya aclara el marco, el siguiente paso es convertir esa lectura en una consulta mejor formulada"
         description="Recursos ya no es una seccion secundaria. Es una portada editorial que ayuda a entender mejor el problema, mejora el descubrimiento del sitio y refuerza la calidad del contacto."
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}

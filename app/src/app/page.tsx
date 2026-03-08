@@ -17,6 +17,8 @@ import {
 import { buildPageMetadata } from "./metadata";
 import {
   contactPageCtaLabel,
+  episodeCtaLabel,
+  resourcesCtaLabel,
   visualAssets,
 } from "./site-config";
 
@@ -61,7 +63,7 @@ const featuredResources = [
       "Episodio editorial que condensa el marco base del proyecto y lo convierte en una pieza grabable y reutilizable.",
     meta: "Duracion objetivo: 5:30-6:00",
     href: "/recursos/videos/episodio-01",
-    cta: "Ver episodio",
+    cta: episodeCtaLabel,
     tags: ["Video largo", "Pieza base", "Shorts"],
   },
   {
@@ -122,7 +124,7 @@ export default function HomePage() {
         title="Investigacion digital y documentacion tecnica para casos donde el componente digital exige criterio"
         subtitle="Una presencia pensada para consultas cualificadas donde la informacion digital necesita orden, lectura metodologica y una salida documental clara."
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
-        secondaryAction={{ href: "/recursos", label: "Explorar recursos" }}
+        secondaryAction={{ href: "/recursos", label: resourcesCtaLabel }}
         stats={[
           { value: "4", label: "Piezas editoriales ya visibles" },
           { value: "5", label: "Lineas principales de trabajo" },
@@ -389,10 +391,11 @@ export default function HomePage() {
       </Section>
 
       <ActionBanner
+        eyebrow="Siguiente paso"
         title="Si el caso requiere claridad tecnica, el siguiente paso es acotar el contexto con una consulta bien planteada"
         description="La mejor entrada no es un mensaje largo ni una promesa inflada. Es una consulta con objetivo claro, materiales identificados y una expectativa razonable sobre la salida tecnica o documental."
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
-        secondaryAction={{ href: "/recursos", label: "Explorar recursos" }}
+        secondaryAction={{ href: "/recursos", label: resourcesCtaLabel }}
         note="El sitio ya combina servicios, metodologia y contenido publico para mejorar la calidad del primer intercambio."
         highlights={[
           "Consultas mejor formuladas desde el primer mensaje.",

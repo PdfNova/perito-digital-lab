@@ -13,7 +13,11 @@ import {
   TagList,
 } from "@/components/ui";
 import { buildPageMetadata } from "@/app/metadata";
-import { contactPageCtaLabel } from "@/app/site-config";
+import {
+  contactPageCtaLabel,
+  episodeCtaLabel,
+  technicalGuideCtaLabel,
+} from "@/app/site-config";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Valor documental de la evidencia digital",
@@ -31,7 +35,7 @@ export default function DocumentaryValueArticlePage() {
         title="Valor documental de la evidencia digital"
         subtitle="Una pieza base para entender por que un archivo, una captura o un registro solo resultan realmente utiles cuando conservan contexto, integridad razonable y capacidad de explicacion."
         primaryAction={{ href: "#lectura", label: "Leer articulo" }}
-        secondaryAction={{ href: "/recursos/videos/episodio-01", label: "Ver episodio" }}
+        secondaryAction={{ href: "/recursos/videos/episodio-01", label: episodeCtaLabel }}
         stats={[
           { value: "6 min", label: "Lectura estimada" },
           { value: "Base", label: "Pieza editorial de apertura" },
@@ -231,7 +235,7 @@ export default function DocumentaryValueArticlePage() {
             >
               <TagList items={["Video largo", "5 bloques", "Shorts derivados"]} />
               <Link className="inline-link" href="/recursos/videos/episodio-01">
-                Ver pagina del episodio
+                {episodeCtaLabel}
               </Link>
             </SurfaceCard>
 
@@ -241,7 +245,7 @@ export default function DocumentaryValueArticlePage() {
             >
               <TagList items={["Revision tecnica", "Alcance", "Limites"]} />
               <Link className="inline-link" href="/recursos/guias/revision-tecnica-evidencia-digital">
-                Leer guia tecnica
+                {technicalGuideCtaLabel}
               </Link>
             </SurfaceCard>
           </div>
@@ -249,6 +253,7 @@ export default function DocumentaryValueArticlePage() {
       </Section>
 
       <ActionBanner
+        eyebrow="Continuidad editorial"
         title="Si necesitas valorar materiales digitales con mejor contexto y mejor lenguaje tecnico, el siguiente paso es plantear la consulta con orden"
         description="Esta pieza ofrece un marco de lectura. Si existe una necesidad concreta, la conversacion inicial puede centrarse en materiales disponibles, objetivo documental y limites razonables del analisis."
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}

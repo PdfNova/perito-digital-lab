@@ -6,6 +6,7 @@ import {
   contactEmail,
   contactMailto,
   contactPageCtaLabel,
+  resourcesCtaLabel,
 } from "@/app/site-config";
 
 const footerLinks = [
@@ -48,7 +49,7 @@ export function SiteFooter() {
               <ButtonLink href={contactMailto} label={contactDirectCtaLabel} variant="secondary" />
             </div>
             <Link href="/recursos" className="text-sm font-medium text-[var(--color-accent-strong)] hover:text-[var(--color-text)]">
-              Explorar recursos
+              {resourcesCtaLabel}
             </Link>
           </SurfaceCard>
 

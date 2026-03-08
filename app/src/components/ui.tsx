@@ -338,6 +338,7 @@ export function TagList({ items }: { items: string[] }) {
 }
 
 export function ActionBanner({
+  eyebrow = "Siguiente paso",
   title,
   description,
   primaryAction,
@@ -345,6 +346,7 @@ export function ActionBanner({
   note,
   highlights = [],
 }: {
+  eyebrow?: string;
   title: string;
   description: string;
   primaryAction: Action;
@@ -358,7 +360,7 @@ export function ActionBanner({
         <div className="premium-shell rounded-[2.2rem] p-6 md:p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[1.06fr_0.94fr] lg:items-end">
             <div>
-              <Eyebrow>Contacto cualificado</Eyebrow>
+              <Eyebrow>{eyebrow}</Eyebrow>
               <SectionHeading title={title} description={description} />
               {note ? <p className="mt-5 text-sm font-medium text-[var(--color-accent-strong)]">{note}</p> : null}
               {highlights.length ? (

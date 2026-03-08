@@ -20,6 +20,7 @@ import {
   contactMailto,
   contactResponseCopy,
   contactSubject,
+  resourcesCtaLabel,
   visualAssets,
 } from "@/app/site-config";
 import { buildPageMetadata } from "../metadata";
@@ -62,7 +63,7 @@ export default function ContactPage() {
         title="Contacto para consultas tecnicas donde el componente digital exige contexto, metodo y claridad"
         subtitle="El objetivo no es solo recoger una consulta. Es ayudar a que llegue mejor planteada, con materiales identificados, alcance mas realista y un primer intercambio mas util."
         primaryAction={{ href: "#consulta", label: contactAnchorCtaLabel }}
-        secondaryAction={{ href: "/recursos", label: "Ver recursos" }}
+        secondaryAction={{ href: "/recursos", label: resourcesCtaLabel }}
         stats={[
           { value: "Claro", label: "Primer paso mejor encuadrado" },
           { value: "Filtro", label: "Mas calidad en la consulta inicial" },
@@ -275,10 +276,11 @@ export default function ContactPage() {
       </Section>
 
       <ActionBanner
+        eyebrow="Contacto directo"
         title="Si la necesidad es real y el marco ya esta mas claro, el siguiente paso es plantear la consulta con materiales identificados y objetivo definido"
         description="La pagina de contacto no solo cierra el sitio. Tambien actua como filtro de calidad para que el primer intercambio se centre en contexto, alcance y utilidad documental."
         primaryAction={{ href: contactMailto, label: contactDirectCtaLabel }}
-        secondaryAction={{ href: "/recursos", label: "Ver recursos" }}
+        secondaryAction={{ href: "/recursos", label: resourcesCtaLabel }}
         note="Mejor encaje, menos ruido y una expectativa mas razonable desde el principio."
         highlights={[
           "Entrada comercial mas propia de una firma tecnica de alto nivel.",
