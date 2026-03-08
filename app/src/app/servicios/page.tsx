@@ -3,12 +3,12 @@ import {
   ActionBanner,
   Container,
   Eyebrow,
+  ImagePanel,
   PageHero,
   Section,
   SectionHeading,
   SurfaceCard,
   TagList,
-  VisualPlaceholder,
 } from "@/components/ui";
 
 const services = [
@@ -94,12 +94,14 @@ export default function ServicesPage() {
           "Despacho, tecnologia y documentacion integrados en un mismo lenguaje visual.",
         ]}
         visual={
-          <VisualPlaceholder
-            label="Revision tecnica"
+          <ImagePanel
+            src="/images/services/services-hero.svg"
+            alt="Entorno profesional de analisis digital y documentacion tecnica"
+            eyebrow="Revision tecnica"
             title="Despacho, herramientas y analisis presentados como una oferta de nivel"
-            caption="Una composicion orientada a transmitir orden, lectura tecnica y capacidad de documentacion desde la primera visita."
+            description="Una composicion orientada a transmitir orden, lectura tecnica y capacidad de documentacion desde la primera visita."
             tags={["Servicios", "Despacho", "Analisis"]}
-            variant="briefing"
+            priority
           />
         }
       />
@@ -172,13 +174,14 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <VisualPlaceholder
-            label="Entorno de caso"
+          <ImagePanel
+            src="/images/services/services-detail.svg"
+            alt="Mesa de trabajo con informe tecnico, monitor y herramientas de revision"
+            eyebrow="Entorno de caso"
             title="Servicio presentado con mesa de trabajo, lectura tecnica y documentacion clara"
-            caption="Una escena sobria que acompana la explicacion de alcance y refuerza la confianza comercial sin excesos."
+            description="Una escena sobria que acompana la explicacion de alcance y refuerza la confianza comercial sin excesos."
             tags={["Despacho", "Analisis", "Informe"]}
-            className="min-h-[24rem]"
-            variant="studio"
+            aspect="landscape"
           />
         </Container>
       </Section>

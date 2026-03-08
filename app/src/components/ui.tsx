@@ -1,7 +1,12 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type Action = {
   href: string;
+  label: string;
+};
+
+type MediaTag = {
   label: string;
 };
 
@@ -99,148 +104,58 @@ export function HeroStat({
   );
 }
 
-function StudioVisual({ caption }: { caption: string }) {
-  return (
-    <div className="relative mt-8 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
-      <div className="visual-window rounded-[1.5rem] p-4">
-        <div className="mb-4 flex items-center gap-2">
-          <span className="h-2.5 w-2.5 rounded-full bg-white/40" />
-          <span className="h-2.5 w-2.5 rounded-full bg-white/18" />
-          <span className="h-2.5 w-2.5 rounded-full bg-white/18" />
-        </div>
-        <div className="grid gap-3">
-          <div className="visual-line w-[72%]" />
-          <div className="visual-line w-[92%]" />
-          <div className="visual-line w-[58%]" />
-        </div>
-        <div className="mt-6 grid grid-cols-2 gap-3">
-          <div className="rounded-[1.2rem] border border-white/12 bg-white/6 p-4">
-            <div className="visual-line h-3 w-[58%]" />
-            <div className="mt-4 visual-line h-2.5 w-full" />
-            <div className="mt-2 visual-line h-2.5 w-[74%]" />
-          </div>
-          <div className="rounded-[1.2rem] border border-white/12 bg-white/6 p-4">
-            <div className="visual-line h-3 w-[48%]" />
-            <div className="mt-4 visual-line h-2.5 w-full" />
-            <div className="mt-2 visual-line h-2.5 w-[62%]" />
-          </div>
-        </div>
-      </div>
+export function ImagePanel({
+  src,
+  alt,
+  eyebrow,
+  title,
+  description,
+  tags = [],
+  className = "",
+  priority = false,
+  aspect = "portrait",
+}: {
+  src: string;
+  alt: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  tags?: MediaTag[] | string[];
+  className?: string;
+  priority?: boolean;
+  aspect?: "portrait" | "landscape" | "wide";
+}) {
+  const normalizedTags = tags.map((tag) => (typeof tag === "string" ? { label: tag } : tag));
 
-      <div className="grid gap-4">
-        <div className="visual-window rounded-[1.4rem] p-4">
-          <p className="text-[0.68rem] uppercase tracking-[0.24em] text-white/58">
-            Cuadro tecnico
-          </p>
-          <div className="mt-4 rounded-[1rem] border border-white/10 bg-white/6 p-4">
-            <div className="grid gap-2">
-              <div className="visual-line h-2.5 w-[72%]" />
-              <div className="visual-line h-2.5 w-[88%]" />
-              <div className="visual-line h-2.5 w-[54%]" />
-            </div>
-          </div>
-        </div>
-        <div className="visual-window rounded-[1.4rem] p-4">
-          <p className="text-[0.68rem] uppercase tracking-[0.24em] text-white/58">Sintesis</p>
-          <p className="mt-4 max-w-xs text-sm leading-6 text-white/72">{caption}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function BriefingVisual({ caption, tags }: { caption: string; tags: string[] }) {
   return (
-    <div className="relative mt-8 grid gap-4">
-      <div className="visual-window rounded-[1.6rem] p-5">
-        <div className="grid gap-4 md:grid-cols-[1.15fr_0.85fr]">
-          <div className="rounded-[1.2rem] border border-white/10 bg-white/6 p-5">
-            <p className="text-[0.68rem] uppercase tracking-[0.24em] text-white/58">
-              Revision de caso
+    <figure
+      className={`image-panel image-panel--${aspect} relative overflow-hidden rounded-[2rem] ${className}`}
+    >
+      <div className="image-panel__media">
+        <Image src={src} alt={alt} fill priority={priority} className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
+      </div>
+      <div className="image-panel__veil" />
+      <figcaption className="image-panel__content">
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div className="max-w-lg">
+            <p className="text-[0.7rem] uppercase tracking-[0.28em] text-white/72">{eyebrow}</p>
+            <h3 className="mt-3 text-3xl leading-tight text-white md:text-[2.45rem]">{title}</h3>
+            <p className="mt-4 max-w-md text-sm leading-6 text-white/76 md:text-[0.96rem] md:leading-7">
+              {description}
             </p>
-            <div className="mt-4 grid gap-3">
-              <div className="visual-line w-[68%]" />
-              <div className="visual-line w-[92%]" />
-              <div className="visual-line w-[74%]" />
-            </div>
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              {["Contexto", "Fuentes", "Criterio"].map((item) => (
-                <div
-                  key={item}
-                  className="rounded-[1rem] border border-white/10 bg-white/6 px-3 py-4 text-sm text-white/74"
-                >
-                  {item}
-                </div>
+          </div>
+          {normalizedTags.length ? (
+            <div className="flex flex-wrap justify-end gap-2">
+              {normalizedTags.map((tag) => (
+                <span key={tag.label} className="image-panel__tag">
+                  {tag.label}
+                </span>
               ))}
             </div>
-          </div>
-          <div className="grid gap-3">
-            <div className="rounded-[1.2rem] border border-white/10 bg-white/6 p-4">
-              <p className="text-[0.68rem] uppercase tracking-[0.24em] text-white/58">Lectura</p>
-              <p className="mt-3 text-sm leading-6 text-white/72">{caption}</p>
-            </div>
-            <div className="rounded-[1.2rem] border border-white/10 bg-white/6 p-4">
-              <p className="text-[0.68rem] uppercase tracking-[0.24em] text-white/58">Claves</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {tags.slice(0, 3).map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-white/12 bg-white/8 px-3 py-1.5 text-[0.74rem] text-white/76"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+          ) : null}
         </div>
-      </div>
-      <div className="grid gap-3 sm:grid-cols-3">
-        {["Encuadre", "Analisis", "Documento"].map((item, index) => (
-          <div key={item} className="visual-window rounded-[1.2rem] px-4 py-5">
-            <p className="text-xs uppercase tracking-[0.24em] text-white/52">0{index + 1}</p>
-            <p className="mt-3 text-base text-white/84">{item}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function TimelineVisual({ caption }: { caption: string }) {
-  return (
-    <div className="relative mt-8 grid gap-4 lg:grid-cols-[0.92fr_1.08fr]">
-      <div className="visual-window rounded-[1.5rem] p-5">
-        <p className="text-[0.68rem] uppercase tracking-[0.24em] text-white/58">Secuencia</p>
-        <div className="mt-5 grid gap-4">
-          {["Encuadre", "Correlacion", "Salida documental"].map((item, index) => (
-            <div key={item} className="flex items-start gap-4">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/14 bg-white/8 text-xs text-white/76">
-                0{index + 1}
-              </span>
-              <div className="pt-1">
-                <p className="text-sm text-white/84">{item}</p>
-                <div className="mt-3 visual-line h-2 w-[8rem]" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="grid gap-4">
-        <div className="visual-window rounded-[1.5rem] p-5">
-          <p className="text-[0.68rem] uppercase tracking-[0.24em] text-white/58">Contexto</p>
-          <div className="mt-4 grid gap-3">
-            <div className="visual-line w-[72%]" />
-            <div className="visual-line w-[96%]" />
-            <div className="visual-line w-[61%]" />
-          </div>
-        </div>
-        <div className="visual-window rounded-[1.5rem] p-5">
-          <p className="text-[0.68rem] uppercase tracking-[0.24em] text-white/58">Enfoque</p>
-          <p className="mt-4 max-w-sm text-sm leading-6 text-white/72">{caption}</p>
-        </div>
-      </div>
-    </div>
+      </figcaption>
+    </figure>
   );
 }
 
@@ -250,7 +165,6 @@ export function VisualPlaceholder({
   caption,
   tags = [],
   className = "",
-  variant = "studio",
 }: {
   label: string;
   title: string;
@@ -260,33 +174,32 @@ export function VisualPlaceholder({
   variant?: "studio" | "briefing" | "timeline";
 }) {
   return (
-    <div
-      data-variant={variant}
-      className={`visual-frame min-h-[26rem] p-5 md:p-6 ${className}`}
-    >
+    <div className={`visual-frame min-h-[26rem] p-5 md:p-6 ${className}`}>
       <div className="visual-grid" />
       <div className="relative flex h-full flex-col justify-between">
         <div className="flex flex-wrap items-start justify-between gap-4">
-          <div>
+          <div className="max-w-lg">
             <p className="text-[0.7rem] uppercase tracking-[0.28em] text-white/70">{label}</p>
-            <h3 className="mt-3 max-w-md text-3xl leading-tight text-white md:text-[2.6rem]">
-              {title}
-            </h3>
+            <h3 className="mt-3 text-3xl leading-tight text-white md:text-[2.4rem]">{title}</h3>
+            <p className="mt-5 max-w-md text-sm leading-6 text-white/72">{caption}</p>
           </div>
           <div className="flex flex-wrap justify-end gap-2">
             {tags.map((tag) => (
-              <span
-                key={tag}
-                className="visual-chip rounded-full px-3 py-1.5 text-[0.72rem] font-medium"
-              >
+              <span key={tag} className="visual-chip rounded-full px-3 py-1.5 text-[0.72rem] font-medium">
                 {tag}
               </span>
             ))}
           </div>
         </div>
-        {variant === "briefing" ? <BriefingVisual caption={caption} tags={tags} /> : null}
-        {variant === "timeline" ? <TimelineVisual caption={caption} /> : null}
-        {variant === "studio" ? <StudioVisual caption={caption} /> : null}
+        <div className="mt-8 grid gap-3 sm:grid-cols-3">
+          {["Contexto", "Lectura", "Documento"].map((item) => (
+            <div key={item} className="visual-window rounded-[1.2rem] px-4 py-5">
+              <p className="text-xs uppercase tracking-[0.24em] text-white/52">{item}</p>
+              <div className="mt-4 visual-line h-2.5 w-[82%]" />
+              <div className="mt-3 visual-line h-2.5 w-[62%]" />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -184,6 +184,70 @@ a {
   backdrop-filter: blur(16px);
 }
 
+.image-panel {
+  border: 1px solid rgba(255, 255, 255, 0.64);
+  background: linear-gradient(180deg, rgba(15, 23, 35, 0.08), rgba(15, 23, 35, 0.22));
+  box-shadow: 0 30px 70px rgba(22, 32, 47, 0.18);
+  isolation: isolate;
+}
+
+.image-panel--portrait {
+  min-height: 33rem;
+}
+
+.image-panel--landscape {
+  min-height: 24rem;
+}
+
+.image-panel--wide {
+  min-height: 21rem;
+}
+
+.image-panel__media {
+  position: absolute;
+  inset: 0;
+}
+
+.image-panel__media::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(180deg, rgba(16, 23, 34, 0.04), rgba(16, 23, 34, 0.34) 64%, rgba(16, 23, 34, 0.74) 100%),
+    radial-gradient(circle at top right, rgba(241, 210, 174, 0.18), transparent 22%);
+}
+
+.image-panel__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(15, 22, 32, 0.18), transparent 38%),
+    linear-gradient(180deg, transparent 26%, rgba(15, 22, 32, 0.56) 100%);
+  pointer-events: none;
+}
+
+.image-panel__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: inherit;
+  align-items: flex-end;
+  padding: 1.5rem;
+}
+
+.image-panel__tag {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 0.48rem 0.82rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(10px);
+}
+
 .visual-frame {
   position: relative;
   overflow: hidden;

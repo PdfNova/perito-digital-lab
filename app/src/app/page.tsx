@@ -4,13 +4,13 @@ import {
   ActionBanner,
   Container,
   Eyebrow,
+  ImagePanel,
   PageHero,
   Section,
   SectionHeading,
   StatCard,
   SurfaceCard,
   TagList,
-  VisualPlaceholder,
 } from "@/components/ui";
 
 const capabilities = [
@@ -73,12 +73,14 @@ export default function HomePage() {
           "Lenguaje visual alineado con despacho tecnico, analisis y documentacion.",
         ]}
         visual={
-          <VisualPlaceholder
-            label="Entorno de analisis"
+          <ImagePanel
+            src="/images/hero/hero-main.svg"
+            alt="Despacho tecnico con pantallas de analisis y documentacion de trabajo"
+            eyebrow="Entorno de analisis"
             title="Despacho, analisis digital y tecnologia en una misma presencia"
-            caption="Una presencia pensada para unir mesa de trabajo, pantallas de revision y materiales de documentacion en una sola escena."
+            description="Una presencia pensada para unir mesa de trabajo, pantallas de revision y materiales de documentacion en una sola escena."
             tags={["Despacho profesional", "Analisis digital", "Documentacion"]}
-            variant="studio"
+            priority
           />
         }
       />
@@ -103,12 +105,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          <VisualPlaceholder
-            label="Presencia de firma"
+          <ImagePanel
+            src="/images/hero/hero-signature.svg"
+            alt="Mesa de trabajo con documentacion tecnica y monitor de revision"
+            eyebrow="Presencia de firma"
             title="Despacho tecnico y entorno de analisis"
-            caption="Una composicion sobria que combina superficie de trabajo, pantalla principal y piezas documentales con criterio editorial."
+            description="Una composicion sobria que combina superficie de trabajo, pantalla principal y piezas documentales con criterio editorial."
             tags={["Mesa de trabajo", "Pantallas", "Documentacion"]}
-            variant="briefing"
+            aspect="landscape"
           />
         </Container>
       </Section>
@@ -197,13 +201,14 @@ export default function HomePage() {
           </div>
 
           <div className="grid gap-4">
-            <VisualPlaceholder
-              label="Secuencia de trabajo"
+            <ImagePanel
+              src="/images/methodology/methodology-process.svg"
+              alt="Cronologia tecnica y estructura metodologica en pantalla"
+              eyebrow="Secuencia de trabajo"
               title="Cronologias, diagramas y flujo de trabajo en una misma lectura"
-              caption="Una manera de mostrar orden, lectura de tiempos y estructura de trabajo sin recurrir a artificios."
+              description="Una manera de mostrar orden, lectura de tiempos y estructura de trabajo sin recurrir a artificios."
               tags={["Cronologia", "Proceso", "Analisis"]}
-              className="min-h-[24rem]"
-              variant="timeline"
+              aspect="landscape"
             />
             <SurfaceCard
               title="Metodo como elemento comercial"

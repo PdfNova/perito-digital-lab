@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import {
   Container,
+  ImagePanel,
   PageHero,
   Section,
   SectionHeading,
   SurfaceCard,
   TagList,
-  VisualPlaceholder,
 } from "@/components/ui";
 
 export const metadata: Metadata = {
@@ -34,12 +34,14 @@ export default function ContactPage() {
           "La pagina ordena la consulta desde el primer momento y transmite un marco profesional claro.",
         ]}
         visual={
-          <VisualPlaceholder
-            label="Canal de consulta"
+          <ImagePanel
+            src="/images/contact/contact-hero.svg"
+            alt="Entorno de despacho con zona de contacto y documentacion profesional"
+            eyebrow="Canal de consulta"
             title="Despacho, escritorio y entorno profesional al servicio de una primera toma de contacto"
-            caption="Una composicion pensada para reforzar seriedad, orden y confianza antes del primer intercambio."
+            description="Una composicion pensada para reforzar seriedad, orden y confianza antes del primer intercambio."
             tags={["Contacto", "Despacho", "Confianza"]}
-            variant="studio"
+            priority
           />
         }
       />
@@ -168,6 +170,15 @@ export default function ContactPage() {
           </div>
 
           <div className="grid gap-5">
+            <ImagePanel
+              src="/images/contact/contact-detail.svg"
+              alt="Mesa de reunion con documentacion tecnica y canal de consulta"
+              eyebrow="Contexto de trabajo"
+              title="Una primera conversacion debe sentirse clara, discreta y bien encuadrada"
+              description="La dimension visual del contacto acompana la idea de orden profesional y ayuda a que la consulta se perciba como parte de un marco tecnico serio."
+              tags={["Despacho", "Consulta", "Documentacion"]}
+              aspect="wide"
+            />
             <SurfaceCard
               title="Una consulta bien planteada mejora la respuesta inicial"
               description="Cuando el problema llega resumido con claridad, con las fuentes identificadas y con una expectativa concreta, la conversacion avanza con mas precision desde el principio."

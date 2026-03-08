@@ -3,12 +3,12 @@ import {
   ActionBanner,
   Container,
   Eyebrow,
+  ImagePanel,
   PageHero,
   Section,
   SectionHeading,
   SurfaceCard,
   TagList,
-  VisualPlaceholder,
 } from "@/components/ui";
 
 const phases = [
@@ -63,12 +63,14 @@ export default function MethodologyPage() {
           "El metodo se presenta como una estructura de trabajo visible, sobria y comprensible.",
         ]}
         visual={
-          <VisualPlaceholder
-            label="Arquitectura de metodo"
+          <ImagePanel
+            src="/images/methodology/methodology-hero.svg"
+            alt="Esquema metodologico con cronologia, notas y estructura de analisis"
+            eyebrow="Arquitectura de metodo"
             title="Cronologia, criterio y estructura analitica en una sola lectura"
-            caption="Una composicion pensada para hacer visible el orden del trabajo y reforzar la sensacion de metodo desde el inicio."
+            description="Una composicion pensada para hacer visible el orden del trabajo y reforzar la sensacion de metodo desde el inicio."
             tags={["Proceso", "Cronologia", "Criterio"]}
-            variant="timeline"
+            priority
           />
         }
       />
@@ -113,13 +115,14 @@ export default function MethodologyPage() {
           </div>
 
           <div className="grid gap-4">
-            <VisualPlaceholder
-              label="Secuencia operativa"
+            <ImagePanel
+              src="/images/methodology/methodology-process.svg"
+              alt="Pantalla de proceso con secuencia de analisis y documentacion"
+              eyebrow="Secuencia operativa"
               title="Cronologias, diagramas y lectura de relaciones como parte visible del proceso"
-              caption="Una manera de mostrar el metodo como algo tangible: orden, tiempos, dependencias y salida documental."
+              description="Una manera de mostrar el metodo como algo tangible: orden, tiempos, dependencias y salida documental."
               tags={["Secuencia", "Analisis", "Documentacion"]}
-              className="min-h-[24rem]"
-              variant="briefing"
+              aspect="landscape"
             />
             <SurfaceCard
               title="Cada fase debe verse util"
