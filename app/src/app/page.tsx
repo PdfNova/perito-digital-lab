@@ -61,8 +61,8 @@ export default function HomePage() {
         eyebrow="Investigacion digital / analisis forense / trazabilidad"
         title="Presencia digital sobria para analisis tecnico, evidencia y documentacion de alto nivel"
         subtitle="Una web pensada para transmitir criterio, metodo y capacidad de lectura en casos donde la informacion digital necesita orden, contexto y explicacion clara."
-        primaryAction={{ href: "/contacto", label: "Contactar" }}
-        secondaryAction={{ href: "/servicios", label: "Ver servicios" }}
+        primaryAction={{ href: "/contacto", label: "Solicitar orientacion inicial" }}
+        secondaryAction={{ href: "/servicios", label: "Explorar servicios" }}
         stats={[
           { value: "5", label: "Lineas principales de trabajo" },
           { value: "01", label: "Marco metodologico claro y reusable" },
@@ -74,7 +74,7 @@ export default function HomePage() {
         ]}
         visual={
           <ImagePanel
-            src="/images/hero/hero-main.svg"
+            src="/images/lot-01/hero-main.svg"
             alt="Despacho tecnico con pantallas de analisis y documentacion de trabajo"
             eyebrow="Entorno de analisis"
             title="Despacho, analisis digital y tecnologia en una misma presencia"
@@ -267,16 +267,26 @@ export default function HomePage() {
                 <p>La imagen acompana el posicionamiento del sitio y refuerza una presencia de firma mas consistente.</p>
               </div>
             </SurfaceCard>
+            <SurfaceCard
+              title="Una consulta bien filtrada ahorra tiempo desde el inicio"
+              description="La home debe ayudar a que llegue mejor contexto, menos ruido y una expectativa mas razonable sobre el alcance del trabajo."
+            >
+              <TagList items={["Mejor encaje", "Mas claridad inicial", "Menos friccion comercial"]} />
+            </SurfaceCard>
           </div>
         </Container>
       </Section>
 
       <ActionBanner
-        title="Si el caso requiere claridad tecnica, el siguiente paso es presentar el contexto con orden"
-        description="La presencia del sitio combina claridad comercial, criterio tecnico y una imagen de firma capaz de sostener contacto, recursos y servicios en un mismo lenguaje."
-        primaryAction={{ href: "/contacto", label: "Contactar" }}
+        title="Si el caso requiere claridad tecnica, el siguiente paso es acotar el contexto con una consulta bien planteada"
+        description="Una primera toma de contacto util debe indicar que problema existe, que materiales hay disponibles y que salida tecnica o documental se espera obtener."
+        primaryAction={{ href: "/contacto", label: "Solicitar orientacion inicial" }}
         secondaryAction={{ href: "/metodologia", label: "Ver metodologia" }}
-        note="Una presencia visual mas convincente tambien mejora la captacion cualificada."
+        note="La conversion mejora cuando la web filtra mejor y transmite nivel sin exageracion."
+        highlights={[
+          "Consultas mejor formuladas desde el primer mensaje.",
+          "Mas claridad sobre alcance, limites y siguiente paso razonable.",
+        ]}
       />
     </>
   );

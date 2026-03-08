@@ -163,3 +163,43 @@ Stock.
 - Ajustes pendientes:
 - Dudas abiertas:
 - Siguiente accion:
+
+## Aprobacion final del lote
+
+### Estado final por asset
+
+- hero-main:
+- services-hero:
+- contact-hero:
+
+### Imagen elegida por asset
+
+- hero-main:
+- services-hero:
+- contact-hero:
+
+### Motivo de eleccion
+
+- hero-main:
+- services-hero:
+- contact-hero:
+
+### Riesgos o dudas
+
+- hero-main:
+- services-hero:
+- contact-hero:
+
+### Validacion de serie
+
+- Coherencia material:
+- Coherencia de luz:
+- Coherencia de color:
+- Coherencia de tono premium:
+- La serie funciona junta: si / no / revisar
+
+### Decision final del lote
+
+- Estado: aprobado / revisar / incompleto
+- Responsable de cierre:
+- Fecha de validacion:

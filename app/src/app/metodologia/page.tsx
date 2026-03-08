@@ -183,12 +183,33 @@ export default function MethodologyPage() {
         </Container>
       </Section>
 
+      <Section>
+        <Container className="grid gap-6 lg:grid-cols-3">
+          <SurfaceCard
+            title="Delimitacion"
+            description="Un metodo serio empieza por definir preguntas, fuentes y alcance antes de ampliar materiales o hipotesis."
+          />
+          <SurfaceCard
+            title="Trazabilidad"
+            description="Cada lectura debe poder reconstruirse con claridad para diferenciar observacion, relacion entre indicios e interpretacion."
+          />
+          <SurfaceCard
+            title="Documento final"
+            description="La metodologia solo se completa cuando el analisis puede trasladarse a una salida clara, util y entendible para terceros."
+          />
+        </Container>
+      </Section>
+
       <ActionBanner
         title="Si el caso requiere metodo, la siguiente conversacion debe partir de una necesidad bien delimitada"
         description="Una consulta inicial con contexto minimo permite valorar mejor el punto de partida, el tipo de fuentes disponibles y la salida documental mas razonable."
         primaryAction={{ href: "/contacto", label: "Contactar" }}
         secondaryAction={{ href: "/recursos", label: "Ver recursos" }}
         note="La metodologia ya funciona como una prueba visible de criterio, orden y madurez profesional."
+        highlights={[
+          "El metodo ayuda a filtrar expectativas poco realistas.",
+          "La claridad del proceso mejora la confianza antes del encargo.",
+        ]}
       />
     </>
   );

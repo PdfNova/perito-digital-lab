@@ -319,3 +319,41 @@ Si se quiere maximizar coherencia futura:
 
 - generar primero `hero-main`;
 - usar esa imagen como referencia visual para filtrar `services-hero` y `contact-hero`.
+
+## Aprobacion final del lote
+
+### Estado final por asset
+
+- hero-main:
+- services-hero:
+- contact-hero:
+
+### Imagen elegida
+
+- hero-main:
+- services-hero:
+- contact-hero:
+
+### Motivo de eleccion
+
+- hero-main:
+- services-hero:
+- contact-hero:
+
+### Riesgos o dudas
+
+- hero-main:
+- services-hero:
+- contact-hero:
+
+### Validacion de serie
+
+- Las tres comparten paleta y temperatura:
+- Las tres comparten nivel de sobriedad:
+- Las tres parecen parte de la misma firma:
+- Hay algun choque visual relevante: si / no
+
+### Decision final
+
+- Estado del lote: aprobado / revisar / incompleto
+- Comentario de cierre:

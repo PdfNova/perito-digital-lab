@@ -15,8 +15,8 @@ export function SiteFooter() {
       <Container className="py-12 md:py-16">
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <SurfaceCard
-            title="Presencia digital para casos que requieren criterio"
-            description="Investigacion digital, analisis forense, OSINT y documentacion tecnica con una presencia sobria, clara y orientada a autoridad profesional."
+            title="Una firma tecnica debe cerrar igual de bien que abre"
+            description="Investigacion digital, analisis forense, OSINT y documentacion tecnica con una presencia sobria, clara y orientada a consultas cualificadas."
           >
             <TagList
               items={[
@@ -27,8 +27,8 @@ export function SiteFooter() {
               ]}
             />
             <div className="flex flex-wrap gap-3 pt-2">
-              <ButtonLink href="/contacto" label="Iniciar contacto" />
-              <ButtonLink href="/recursos" label="Explorar recursos" variant="secondary" />
+              <ButtonLink href="/contacto" label="Solicitar orientacion inicial" />
+              <ButtonLink href="/recursos" label="Explorar biblioteca" variant="secondary" />
             </div>
           </SurfaceCard>
 
@@ -55,6 +55,9 @@ export function SiteFooter() {
                   </p>
                   <p className="mt-4 max-w-xs text-lg leading-8 text-white/82">
                     Despacho, analisis y documentacion reunidos bajo una presencia clara y discreta.
+                  </p>
+                  <p className="mt-4 max-w-xs text-sm leading-6 text-white/66">
+                    Metodo visible, limites claros y una entrada editorial que ayuda a entender mejor cada necesidad.
                   </p>
                 </div>
                 <div className="grid gap-3">

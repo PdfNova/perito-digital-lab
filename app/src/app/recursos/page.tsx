@@ -4,12 +4,12 @@ import {
   ActionBanner,
   Container,
   Eyebrow,
+  ImagePanel,
   PageHero,
   Section,
   SectionHeading,
   SurfaceCard,
   TagList,
-  VisualPlaceholder,
 } from "@/components/ui";
 
 const pillars = [
@@ -65,12 +65,14 @@ export default function ResourcesPage() {
           "El lenguaje visual acompana el tono tecnico sin perder claridad comercial.",
         ]}
         visual={
-          <VisualPlaceholder
-            label="Biblioteca tecnica"
+          <ImagePanel
+            src="/images/resources/resources-hero.svg"
+            alt="Biblioteca editorial con monitor, libreta tecnica y documentacion de apoyo"
+            eyebrow="Biblioteca tecnica"
             title="Articulos, piezas audiovisuales y notas de trabajo bajo un mismo criterio editorial"
-            caption="Una composicion pensada para asociar contenido, analisis y documentacion con una presencia de marca sobria y reconocible."
+            description="Una composicion pensada para asociar contenido, analisis y documentacion con una presencia de marca sobria y reconocible."
             tags={["Recursos", "Editorial", "Analisis"]}
-            variant="briefing"
+            priority
           />
         }
       />
@@ -110,13 +112,15 @@ export default function ResourcesPage() {
             {pillars.map((pillar) => (
               <SurfaceCard key={pillar.title} title={pillar.title} description={pillar.description} />
             ))}
-            <VisualPlaceholder
-              label="Contenido destacado"
+            <ImagePanel
+              src="/images/resources/resources-featured.svg"
+              alt="Mesa editorial con articulo destacado, monitor y materiales de apoyo"
+              eyebrow="Contenido destacado"
               title="Una pieza central para abrir la biblioteca con contexto, criterio y continuidad visual"
-              caption="Este bloque refuerza la idea de biblioteca curada y permite destacar una guia, un articulo o una pieza audiovisual con mayor peso."
+              description="Este bloque refuerza la idea de biblioteca curada y permite destacar una guia, un articulo o una pieza audiovisual con mayor peso."
               tags={["Destacado", "Articulo", "Video"]}
-              className="md:col-span-2 xl:col-span-1 min-h-[23rem]"
-              variant="studio"
+              className="md:col-span-2 xl:col-span-1"
+              aspect="landscape"
             />
           </div>
           <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[var(--color-border)] pt-6">
@@ -139,13 +143,14 @@ export default function ResourcesPage() {
             <TagList items={["Articulos", "Guias", "Glosarios", "Videos"]} />
           </SurfaceCard>
 
-          <VisualPlaceholder
-            label="Criterio editorial"
+          <ImagePanel
+            src="/images/resources/resources-library.svg"
+            alt="Material editorial con notas, monitor y estructura de contenidos"
+            eyebrow="Criterio editorial"
             title="Libreta, monitor y estructura de contenidos como parte de una biblioteca con identidad propia"
-            caption="Una escena que acompana la dimension editorial del proyecto y sostiene una sensacion de archivo tecnico bien cuidado."
+            description="Una escena que acompana la dimension editorial del proyecto y sostiene una sensacion de archivo tecnico bien cuidado."
             tags={["Editorial", "Contenido", "Biblioteca"]}
-            className="min-h-[22rem]"
-            variant="timeline"
+            aspect="landscape"
           />
         </Container>
       </Section>
@@ -183,6 +188,10 @@ export default function ResourcesPage() {
         primaryAction={{ href: "/contacto", label: "Contactar" }}
         secondaryAction={{ href: "/metodologia", label: "Ver metodologia" }}
         note="El valor editorial refuerza autoridad y mejora la calidad de las consultas que llegan al sitio."
+        highlights={[
+          "Contenido orientado a autoridad, no a volumen vacio.",
+          "Puente natural entre descubrimiento, confianza y contacto.",
+        ]}
       />
     </>
   );

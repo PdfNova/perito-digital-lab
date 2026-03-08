@@ -24,7 +24,7 @@ export function SiteHeader() {
               </p>
             </Link>
 
-            <ButtonLink href="/contacto" label="Contactar" variant="secondary" />
+            <ButtonLink href="/contacto" label="Orientacion inicial" variant="secondary" />
           </div>
 
           <nav className="mt-5 flex gap-2 overflow-x-auto pb-1 text-sm text-[var(--color-muted)]">

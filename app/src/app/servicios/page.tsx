@@ -82,7 +82,7 @@ export default function ServicesPage() {
         eyebrow="Servicios"
         title="Servicios presentados con una presencia mas cercana a un despacho tecnico de alto nivel"
         subtitle="La propuesta se organiza por necesidades reales de analisis, correlacion y documentacion, con una presentacion mas solida, mas visual y mas convincente."
-        primaryAction={{ href: "/contacto", label: "Contactar con contexto inicial" }}
+        primaryAction={{ href: "/contacto", label: "Solicitar orientacion inicial" }}
         secondaryAction={{ href: "/metodologia", label: "Ver metodologia" }}
         stats={[
           { value: "5", label: "Areas nucleares de servicio" },
@@ -95,7 +95,7 @@ export default function ServicesPage() {
         ]}
         visual={
           <ImagePanel
-            src="/images/services/services-hero.svg"
+            src="/images/lot-01/services-hero.svg"
             alt="Entorno profesional de analisis digital y documentacion tecnica"
             eyebrow="Revision tecnica"
             title="Despacho, herramientas y analisis presentados como una oferta de nivel"
@@ -206,12 +206,33 @@ export default function ServicesPage() {
         </Container>
       </Section>
 
+      <Section>
+        <Container className="grid gap-6 lg:grid-cols-3">
+          <SurfaceCard
+            title="Encuadre inicial"
+            description="Antes de avanzar conviene acotar el caso, los materiales disponibles y el objetivo de la revision para evitar trabajo improductivo."
+          />
+          <SurfaceCard
+            title="Lectura tecnica"
+            description="La propuesta se orienta a ordenar indicios, relaciones y cronologias con una mirada tecnica prudente y documentable."
+          />
+          <SurfaceCard
+            title="Salida util"
+            description="El resultado debe poder traducirse a un informe, una nota tecnica o una estructura clara que sirva para decidir mejor."
+          />
+        </Container>
+      </Section>
+
       <ActionBanner
         title="Si la necesidad encaja, el siguiente paso es concretar el contexto con una presentacion clara"
         description="Una consulta inicial util debe indicar que tipo de problema existe, que fuentes o materiales hay disponibles y que objetivo documental o tecnico se busca."
-        primaryAction={{ href: "/contacto", label: "Contactar con contexto inicial" }}
+        primaryAction={{ href: "/contacto", label: "Solicitar orientacion inicial" }}
         secondaryAction={{ href: "/metodologia", label: "Ver metodologia" }}
         note="La pagina de servicios funciona como una puerta de entrada clara, seria y cualificada."
+        highlights={[
+          "Menos ambiguedad sobre lo que si encaja.",
+          "Mejor percepcion de servicio especializado y de alto nivel.",
+        ]}
       />
     </>
   );

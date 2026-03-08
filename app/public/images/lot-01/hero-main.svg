@@ -1,0 +1,37 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#D8CCBB"/>
+  <rect width="1600" height="1200" fill="url(#bg)"/>
+  <ellipse cx="1230" cy="182" rx="342" ry="226" fill="#E9D9C3" fill-opacity="0.72"/>
+  <ellipse cx="298" cy="1038" rx="462" ry="286" fill="#8EA1B8" fill-opacity="0.2"/>
+  <rect x="140" y="178" width="864" height="548" rx="28" fill="#1B2432"/>
+  <rect x="180" y="214" width="786" height="468" rx="20" fill="#273246"/>
+  <rect x="238" y="274" width="320" height="18" rx="9" fill="#F3E8D8" fill-opacity="0.85"/>
+  <rect x="238" y="316" width="468" height="14" rx="7" fill="#D5DCE7" fill-opacity="0.68"/>
+  <rect x="238" y="352" width="420" height="14" rx="7" fill="#D5DCE7" fill-opacity="0.44"/>
+  <rect x="238" y="414" width="338" height="206" rx="18" fill="#31405B"/>
+  <rect x="600" y="414" width="308" height="96" rx="18" fill="#F2E4D3" fill-opacity="0.16"/>
+  <rect x="600" y="526" width="308" height="94" rx="18" fill="#F2E4D3" fill-opacity="0.1"/>
+  <rect x="1042" y="348" width="360" height="586" rx="28" fill="#FCF8F1" fill-opacity="0.82"/>
+  <rect x="1082" y="402" width="280" height="22" rx="11" fill="#233042"/>
+  <rect x="1082" y="450" width="222" height="14" rx="7" fill="#546171" fill-opacity="0.66"/>
+  <rect x="1082" y="488" width="256" height="14" rx="7" fill="#546171" fill-opacity="0.44"/>
+  <rect x="1082" y="564" width="280" height="234" rx="20" fill="#EFE4D4"/>
+  <rect x="0" y="952" width="1600" height="248" fill="url(#desk)"/>
+  <rect x="248" y="862" width="360" height="178" rx="20" fill="#F8F2E9"/>
+  <rect x="292" y="904" width="196" height="14" rx="7" fill="#2A384D"/>
+  <rect x="292" y="940" width="236" height="12" rx="6" fill="#657284" fill-opacity="0.54"/>
+  <rect x="840" y="872" width="278" height="152" rx="20" fill="#F7EFE2"/>
+  <rect x="886" y="916" width="156" height="12" rx="6" fill="#2A384D"/>
+  <rect x="886" y="950" width="186" height="12" rx="6" fill="#657284" fill-opacity="0.46"/>
+  <defs>
+    <linearGradient id="bg" x1="168" y1="96" x2="1452" y2="1092" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4EEE3"/>
+      <stop offset="0.52" stop-color="#E7DDCF"/>
+      <stop offset="1" stop-color="#D7C7B2"/>
+    </linearGradient>
+    <linearGradient id="desk" x1="800" y1="952" x2="800" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8A6747"/>
+      <stop offset="1" stop-color="#6C5038"/>
+    </linearGradient>
+  </defs>
+</svg>

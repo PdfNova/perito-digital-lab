@@ -22,7 +22,7 @@ export default function ContactPage() {
         eyebrow="Contacto"
         title="Una pagina de contacto que ya transmite confianza, nivel y orden profesional"
         subtitle="El objetivo no es solo recoger una consulta: es proyectar una imagen clara, rigurosa y adecuada para trabajos tecnicos de mayor valor."
-        primaryAction={{ href: "#consulta", label: "Enviar consulta" }}
+        primaryAction={{ href: "#consulta", label: "Plantear consulta" }}
         secondaryAction={{ href: "/servicios", label: "Ver servicios" }}
         stats={[
           { value: "Claro", label: "Formulario visual sin ruido" },
@@ -35,7 +35,7 @@ export default function ContactPage() {
         ]}
         visual={
           <ImagePanel
-            src="/images/contact/contact-hero.svg"
+            src="/images/lot-01/contact-hero.svg"
             alt="Entorno de despacho con zona de contacto y documentacion profesional"
             eyebrow="Canal de consulta"
             title="Despacho, escritorio y entorno profesional al servicio de una primera toma de contacto"
@@ -163,7 +163,7 @@ export default function ContactPage() {
                   Canal inicial orientado a consultas tecnicas bien formuladas y con contexto suficiente.
                 </p>
                 <button type="button" className="button-primary">
-                  Enviar consulta
+                  Solicitar orientacion inicial
                 </button>
               </div>
             </form>
@@ -203,6 +203,23 @@ export default function ContactPage() {
               </div>
             </SurfaceCard>
           </div>
+        </Container>
+      </Section>
+
+      <Section tint="soft">
+        <Container className="grid gap-6 lg:grid-cols-3">
+          <SurfaceCard
+            title="Respuesta orientativa"
+            description="El primer intercambio debe servir para aclarar encaje, necesidades y posibles siguientes pasos, no para sobreactuar certezas."
+          />
+          <SurfaceCard
+            title="Marco discreto"
+            description="La consulta debe centrarse en el contexto tecnico y documental relevante, evitando exposicion innecesaria y relatos inflados."
+          />
+          <SurfaceCard
+            title="Siguiente paso claro"
+            description="Si la necesidad encaja, el avance debe traducirse en un alcance razonable, una metodologia clara y una salida util."
+          />
         </Container>
       </Section>
     </>

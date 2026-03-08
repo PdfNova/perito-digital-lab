@@ -338,12 +338,14 @@ export function ActionBanner({
   primaryAction,
   secondaryAction,
   note,
+  highlights = [],
 }: {
   title: string;
   description: string;
   primaryAction: Action;
   secondaryAction?: Action;
   note?: string;
+  highlights?: string[];
 }) {
   return (
     <Section>
@@ -354,6 +356,18 @@ export function ActionBanner({
               <Eyebrow>Contacto cualificado</Eyebrow>
               <SectionHeading title={title} description={description} />
               {note ? <p className="mt-5 text-sm font-medium text-[var(--color-accent-strong)]">{note}</p> : null}
+              {highlights.length ? (
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  {highlights.map((item) => (
+                    <div
+                      key={item}
+                      className="rounded-[1.2rem] border border-[var(--color-border)] bg-[rgba(255,255,255,0.56)] px-4 py-4 text-sm leading-6 text-[var(--color-text)]"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              ) : null}
             </div>
             <div className="grid gap-4 lg:justify-items-end">
               <div className="visual-window w-full max-w-md rounded-[1.6rem] p-5 text-white">
@@ -364,6 +378,11 @@ export function ActionBanner({
                   <div className="visual-line h-2.5 w-[72%]" />
                   <div className="visual-line h-2.5 w-[88%]" />
                   <div className="visual-line h-2.5 w-[52%]" />
+                </div>
+                <div className="mt-5 grid gap-2 text-sm text-white/72">
+                  <p>Contexto del caso</p>
+                  <p>Materiales disponibles</p>
+                  <p>Objetivo tecnico o documental</p>
                 </div>
               </div>
               <div className="flex flex-wrap gap-3 lg:justify-end">
