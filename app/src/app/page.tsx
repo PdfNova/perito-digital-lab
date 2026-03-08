@@ -259,7 +259,7 @@ export default function HomePage() {
                   La arquitectura visual ya contempla hero photography, stills de escritorio y
                   composiciones editoriales.
                 </p>
-                <p>Eso permite crecer en presencia sin rehacer componentes ni jerarquia.</p>
+                <p>La imagen acompana el posicionamiento del sitio y refuerza una presencia de firma mas consistente.</p>
               </div>
             </SurfaceCard>
           </div>

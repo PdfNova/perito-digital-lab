@@ -51,25 +51,26 @@ export default function ResourcesPage() {
     <>
       <PageHero
         eyebrow="Recursos"
-        title="Una biblioteca editorial preparada para verse como parte de una marca tecnica seria"
-        subtitle="La seccion de recursos debe reforzar autoridad, invitar a explorar y quedar lista para convivir con articulos, video y fotografia editorial de calidad."
+        title="Una biblioteca editorial integrada en una marca tecnica sobria y consistente"
+        subtitle="La seccion de recursos refuerza autoridad, ordena la exploracion y da continuidad natural al enfoque tecnico del sitio a traves de articulos, video y piezas de consulta."
         primaryAction={{ href: "#biblioteca", label: "Explorar recursos" }}
         secondaryAction={{ href: "/contacto", label: "Contactar" }}
         stats={[
           { value: "5", label: "Pilares editoriales principales" },
-          { value: "Blog", label: "Preparado para piezas de autoridad" },
-          { value: "Video", label: "Conectado con una capa audiovisual futura" },
+          { value: "Blog", label: "Articulos de criterio y contexto" },
+          { value: "Video", label: "Piezas breves de apoyo editorial" },
         ]}
         notes={[
           "La biblioteca debe sentirse curada, no improvisada.",
-          "El sistema visual ya admite imagen editorial y stills de desk setup.",
+          "El lenguaje visual acompana el tono tecnico sin perder claridad comercial.",
         ]}
         visual={
           <VisualPlaceholder
-            label="Placeholder editorial principal"
-            title="Biblioteca tecnica, video faceless y fotografia de workspace"
-            caption="Espacio reservado para sustituirse despues por composicion editorial, escritorio, libreta tecnica o still de pantalla."
-            tags={["Recursos", "Editorial", "Workspace"]}
+            label="Biblioteca tecnica"
+            title="Articulos, piezas audiovisuales y notas de trabajo bajo un mismo criterio editorial"
+            caption="Una composicion pensada para asociar contenido, analisis y documentacion con una presencia de marca sobria y reconocible."
+            tags={["Recursos", "Editorial", "Analisis"]}
+            variant="briefing"
           />
         }
       />
@@ -89,7 +90,7 @@ export default function ResourcesPage() {
           >
             <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
               <p>Recorridos breves sobre preservacion, contexto y lectura prudente de indicios.</p>
-              <p>Material preparado para conectar con la capa de video faceless y con futuras guias de descarga.</p>
+              <p>Material pensado para dialogar con articulos, video breve y recursos de consulta dentro de una misma linea editorial.</p>
             </div>
             <p className="text-sm font-medium text-[var(--color-accent-strong)]">
               Empezar por lo esencial.
@@ -102,7 +103,7 @@ export default function ResourcesPage() {
         <Container id="biblioteca">
           <SectionHeading
             title="Lineas editoriales principales"
-            description="Cada pilar se presenta como una categoria editorial fuerte, lista para crecer con piezas visuales, stills de apoyo y contenidos derivados."
+            description="Cada pilar se presenta como una categoria editorial fuerte, pensada para reunir piezas utiles, legibles y alineadas con el posicionamiento del proyecto."
             align="center"
           />
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -110,11 +111,12 @@ export default function ResourcesPage() {
               <SurfaceCard key={pillar.title} title={pillar.title} description={pillar.description} />
             ))}
             <VisualPlaceholder
-              label="Placeholder para featured post"
-              title="Bloque preparado para articulo destacado o pieza audiovisual principal"
-              caption="Puede sustituirse por miniatura editorial o fotografia real sin rehacer la maqueta."
-              tags={["Featured", "Articulo", "Video"]}
+              label="Contenido destacado"
+              title="Una pieza central para abrir la biblioteca con contexto, criterio y continuidad visual"
+              caption="Este bloque refuerza la idea de biblioteca curada y permite destacar una guia, un articulo o una pieza audiovisual con mayor peso."
+              tags={["Destacado", "Articulo", "Video"]}
               className="md:col-span-2 xl:col-span-1 min-h-[23rem]"
+              variant="studio"
             />
           </div>
           <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[var(--color-border)] pt-6">
@@ -138,11 +140,12 @@ export default function ResourcesPage() {
           </SurfaceCard>
 
           <VisualPlaceholder
-            label="Placeholder de escritorio editorial"
-            title="Espacio para libreta, monitor, subtitulos y composicion de contenidos"
-            caption="Preparado para reforzar la sensacion de marca editorial de alto nivel."
-            tags={["Desk setup", "Editorial", "Contenido"]}
+            label="Criterio editorial"
+            title="Libreta, monitor y estructura de contenidos como parte de una biblioteca con identidad propia"
+            caption="Una escena que acompana la dimension editorial del proyecto y sostiene una sensacion de archivo tecnico bien cuidado."
+            tags={["Editorial", "Contenido", "Biblioteca"]}
             className="min-h-[22rem]"
+            variant="timeline"
           />
         </Container>
       </Section>
@@ -155,12 +158,12 @@ export default function ResourcesPage() {
           >
             <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
               <p>El contenido deja de ser un relleno visual y pasa a integrarse como una capa de autoridad, marca y conversion.</p>
-              <p>La seccion queda lista para incorporar miniaturas, retratos de workspace o visuales de pizarra faceless.</p>
+              <p>La biblioteca funciona como un entorno de referencia: ayuda a entender mejor el marco tecnico antes de plantear una consulta.</p>
             </div>
           </SurfaceCard>
 
           <SurfaceCard
-            title="Una biblioteca mas preparada para convertirse en marca"
+            title="Una biblioteca que ya actua como marca"
             description="La mejora visual de recursos hace que la web parezca menos estatica y mas cercana a una firma con criterio, archivo y presencia editorial propia."
           >
             <TagList
@@ -176,10 +179,10 @@ export default function ResourcesPage() {
 
       <ActionBanner
         title="Si el contenido ya aclaro el marco, el siguiente paso es plantear la necesidad con contexto"
-        description="La seccion de recursos queda preparada para incorporar fotografia, miniaturas y composiciones editoriales sin perder sobriedad."
+        description="La seccion de recursos acompana el posicionamiento del sitio y funciona como una biblioteca de apoyo para entender mejor problemas, limites y criterios de trabajo."
         primaryAction={{ href: "/contacto", label: "Contactar" }}
         secondaryAction={{ href: "/metodologia", label: "Ver metodologia" }}
-        note="Esta es una de las zonas que mas gana con un lenguaje visual mas editorial."
+        note="El valor editorial refuerza autoridad y mejora la calidad de las consultas que llegan al sitio."
       />
     </>
   );

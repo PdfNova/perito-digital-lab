@@ -445,7 +445,7 @@ export function ActionBanner({
             <div className="grid gap-4 lg:justify-items-end">
               <div className="visual-window w-full max-w-md rounded-[1.6rem] p-5 text-white">
                 <p className="text-[0.68rem] uppercase tracking-[0.28em] text-white/55">
-                  Consulta inicial
+                  Conversacion inicial
                 </p>
                 <div className="mt-4 grid gap-3">
                   <div className="visual-line h-2.5 w-[72%]" />

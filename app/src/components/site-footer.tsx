@@ -16,7 +16,7 @@ export function SiteFooter() {
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <SurfaceCard
             title="Presencia digital para casos que requieren criterio"
-            description="Investigacion digital, analisis forense, OSINT y documentacion tecnica con enfoque sobrio, visual y preparado para una futura capa editorial mas amplia."
+            description="Investigacion digital, analisis forense, OSINT y documentacion tecnica con una presencia sobria, clara y orientada a autoridad profesional."
           >
             <TagList
               items={[
@@ -46,15 +46,15 @@ export function SiteFooter() {
               </div>
             </div>
 
-            <div className="visual-frame min-h-[15rem] p-5">
+            <div data-surface="editorial" className="visual-frame min-h-[15rem] p-5">
               <div className="visual-grid" />
               <div className="relative flex h-full flex-col justify-between">
                 <div>
                   <p className="text-[0.68rem] uppercase tracking-[0.28em] text-white/58">
-                    Marca preparada para imagen real
+                    Firma tecnica
                   </p>
                   <p className="mt-4 max-w-xs text-lg leading-8 text-white/82">
-                    Espacio visual reservado para despacho, herramientas y workspace de analisis.
+                    Despacho, analisis y documentacion reunidos bajo una presencia clara y discreta.
                   </p>
                 </div>
                 <div className="grid gap-3">
