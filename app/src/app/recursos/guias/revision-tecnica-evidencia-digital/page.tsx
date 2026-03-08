@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ActionBanner,
+  Breadcrumbs,
   Container,
   EditorialMetaStrip,
   ImagePanel,
@@ -11,12 +12,16 @@ import {
   SurfaceCard,
   TagList,
 } from "@/components/ui";
+import { buildPageMetadata } from "@/app/metadata";
+import { contactPageCtaLabel } from "@/app/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Revision tecnica de evidencia digital: alcance y limites",
   description:
     "Recurso tecnico sobre lo que una revision de evidencia digital puede aportar realmente, sus limites y como mejora la credibilidad un enfoque prudente.",
-};
+  path: "/recursos/guias/revision-tecnica-evidencia-digital",
+  type: "article",
+});
 
 export default function TechnicalReviewGuidePage() {
   return (
@@ -26,7 +31,7 @@ export default function TechnicalReviewGuidePage() {
         title="Revision tecnica de evidencia digital: alcance y limites"
         subtitle="Una pieza orientada a explicar que puede aportar realmente una revision tecnica, que no conviene pedirle y por que la claridad sobre limites mejora la credibilidad del resultado."
         primaryAction={{ href: "#guia", label: "Leer recurso" }}
-        secondaryAction={{ href: "/contacto", label: "Plantear una consulta" }}
+        secondaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         stats={[
           { value: "7 min", label: "Lectura estimada" },
           { value: "Nuevo", label: "Segundo lote editorial" },
@@ -53,6 +58,13 @@ export default function TechnicalReviewGuidePage() {
       <Section>
         <Container className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_19rem] lg:items-start">
           <div className="grid gap-6" id="guia">
+            <Breadcrumbs
+              items={[
+                { href: "/", label: "Inicio" },
+                { href: "/recursos", label: "Recursos" },
+                { label: "Revision tecnica" },
+              ]}
+            />
             <EditorialMetaStrip
               items={[
                 { label: "Formato", value: "Guia tecnica publica" },
@@ -208,7 +220,7 @@ export default function TechnicalReviewGuidePage() {
       <ActionBanner
         title="Si el objetivo es valorar alcance real y no solo acumular materiales, el siguiente paso es plantear la revision con contexto suficiente"
         description="Esta guia ayuda a ajustar expectativas antes del contacto. A partir de ahi, la conversacion inicial puede centrarse en materiales disponibles, objetivo documental y limites razonables del trabajo."
-        primaryAction={{ href: "/contacto", label: "Plantear una consulta" }}
+        primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         secondaryAction={{ href: "/recursos", label: "Volver a recursos" }}
         note="Una consulta mejor planteada mejora tanto el encaje comercial como la utilidad tecnica de la revision."
         highlights={[

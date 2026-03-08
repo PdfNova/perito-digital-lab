@@ -3,8 +3,7 @@ import { Instrument_Sans, Newsreader } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+import { brandDescriptor, brandName, shareImageUrl, siteUrl, visualAssets } from "./site-config";
 
 const sans = Instrument_Sans({
   variable: "--font-sans",
@@ -20,18 +19,40 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: "Investigacion digital, evidencia y documentacion tecnica",
-    template: "%s | Perito Digital Lab",
+    template: `%s | ${brandName}`,
   },
   description:
     "Investigacion digital, analisis forense, OSINT con limites, trazabilidad y documentacion tecnica con enfoque sobrio, claro y metodologico.",
-  applicationName: "Perito Digital Lab",
+  applicationName: brandName,
+  alternates: {
+    canonical: siteUrl,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
-    title: "Perito Digital Lab",
+    title: brandName,
     description:
       "Investigacion digital, analisis forense, trazabilidad y documentacion tecnica con un enfoque sobrio y profesional.",
+    url: siteUrl,
     type: "website",
     locale: "es_ES",
-    siteName: "Perito Digital Lab",
+    siteName: brandName,
+    images: [
+      {
+        url: shareImageUrl,
+        width: 1200,
+        height: 630,
+        alt: visualAssets.shareDefault.alt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: brandName,
+    description: `${brandDescriptor} con un enfoque sobrio y profesional.`,
+    images: [shareImageUrl],
   },
 };
 

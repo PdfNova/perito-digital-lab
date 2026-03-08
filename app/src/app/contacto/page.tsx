@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ActionBanner,
+  ButtonLink,
   Container,
   ContentLinkCard,
   ImagePanel,
@@ -11,6 +12,17 @@ import {
   SurfaceCard,
   TagList,
 } from "@/components/ui";
+import {
+  contactAnchorCtaLabel,
+  contactDirectCtaLabel,
+  contactEmail,
+  contactFirstStepCopy,
+  contactMailto,
+  contactResponseCopy,
+  contactSubject,
+  visualAssets,
+} from "@/app/site-config";
+import { buildPageMetadata } from "../metadata";
 
 const supportPieces = [
   {
@@ -35,11 +47,12 @@ const supportPieces = [
   },
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Contacto para investigacion digital y documentacion tecnica",
   description:
     "Pagina de contacto orientada a consultas cualificadas sobre investigacion digital, analisis forense, trazabilidad, revision tecnica y documentacion tecnica.",
-};
+  path: "/contacto",
+});
 
 export default function ContactPage() {
   return (
@@ -48,7 +61,7 @@ export default function ContactPage() {
         eyebrow="Contacto"
         title="Contacto para consultas tecnicas donde el componente digital exige contexto, metodo y claridad"
         subtitle="El objetivo no es solo recoger una consulta. Es ayudar a que llegue mejor planteada, con materiales identificados, alcance mas realista y un primer intercambio mas util."
-        primaryAction={{ href: "#consulta", label: "Preparar consulta" }}
+        primaryAction={{ href: "#consulta", label: contactAnchorCtaLabel }}
         secondaryAction={{ href: "/recursos", label: "Ver recursos" }}
         stats={[
           { value: "Claro", label: "Primer paso mejor encuadrado" },
@@ -61,8 +74,8 @@ export default function ContactPage() {
         ]}
         visual={
           <ImagePanel
-            src="/images/lot-01/contact-hero.svg"
-            alt="Entorno de despacho con mesa de trabajo, documentacion y zona preparada para una primera consulta"
+            src={visualAssets.contactHero.src}
+            alt={visualAssets.contactHero.alt}
             eyebrow="Canal de consulta"
             title="Despacho, contexto y documentacion al servicio de una primera toma de contacto mas precisa"
             description="La pagina de contacto se apoya en un lenguaje visual sobrio y en una estructura que mejora el encaje antes de cualquier revision."
@@ -100,7 +113,7 @@ export default function ContactPage() {
         <Container className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
           <SurfaceCard
             title="Informacion util para una primera consulta"
-            description="No hace falta enviar un relato extenso. Resulta mas util resumir el problema, indicar materiales disponibles, describir el momento del caso y explicar que se necesita aclarar."
+            description={contactFirstStepCopy}
           >
             <ul className="space-y-2 text-sm leading-7 text-[var(--color-muted)]">
               {[
@@ -139,63 +152,73 @@ export default function ContactPage() {
         <Container id="consulta" className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div className="premium-shell rounded-[2rem] p-6 md:p-8">
             <SectionHeading
-              title="Estructura recomendada para plantear la consulta"
-              description="La estructura siguiente deja claro que informacion conviene reunir para un primer intercambio util y mejor encuadrado."
+              title="Correo directo para consultas con encaje tecnico"
+              description="El primer paso ya puede resolverse con un correo claro, breve y bien orientado. La pagina ordena que conviene explicar, como formular la consulta y que esperar del intercambio inicial."
             />
-            <form className="mt-8 grid gap-4">
-              <label className="grid gap-2">
-                <span className="text-sm font-medium text-[var(--color-text)]">
-                  Nombre o referencia de contacto
-                </span>
-                <input
-                  className="input-shell rounded-2xl px-4 py-3 text-sm"
-                  placeholder="Puede usarse una referencia profesional o identificador funcional"
-                  readOnly
-                />
-              </label>
-              <label className="grid gap-2">
-                <span className="text-sm font-medium text-[var(--color-text)]">Correo de respuesta</span>
-                <input
-                  className="input-shell rounded-2xl px-4 py-3 text-sm"
-                  placeholder="Canal de continuidad para la consulta"
-                  readOnly
-                />
-              </label>
-              <label className="grid gap-2">
-                <span className="text-sm font-medium text-[var(--color-text)]">Tipo de necesidad</span>
-                <select className="input-shell rounded-2xl px-4 py-3 text-sm" defaultValue="" disabled>
-                  <option value="" disabled>
-                    Investigacion digital, forense, OSINT, trazabilidad o documentacion
-                  </option>
-                </select>
-              </label>
-              <label className="grid gap-2">
-                <span className="text-sm font-medium text-[var(--color-text)]">Resumen del caso</span>
-                <textarea
-                  className="input-shell min-h-32 rounded-[1.4rem] px-4 py-3 text-sm"
-                  placeholder="Describir el problema en pocas lineas, sin incluir datos innecesarios"
-                  readOnly
-                />
-              </label>
-              <label className="grid gap-2">
-                <span className="text-sm font-medium text-[var(--color-text)]">Materiales disponibles</span>
-                <textarea
-                  className="input-shell min-h-28 rounded-[1.4rem] px-4 py-3 text-sm"
-                  placeholder="Indicar si existen correos, capturas, cronologias, registros, dispositivos u otros soportes"
-                  readOnly
-                />
-              </label>
-              <div className="mt-2 grid gap-4 border-t border-[var(--color-border)] pt-5 lg:grid-cols-[1fr_auto] lg:items-center">
-                <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">
-                  Esta estructura sirve para ordenar una consulta cualificada: problema, materiales,
-                  objetivo y nivel de urgencia documental. Cuanto mejor llegue esa base, mejor encaja
-                  la orientacion inicial.
+            <div className="mt-8 grid gap-4">
+              <div className="rounded-[1.6rem] border border-[var(--color-border)] bg-[rgba(255,255,255,0.7)] px-5 py-5 shadow-[var(--shadow-soft)]">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-[var(--color-muted)]">
+                  Correo de marca
                 </p>
-                <button type="button" className="button-primary">
-                  Solicitar orientacion inicial
-                </button>
+                <p className="mt-3 text-2xl leading-tight text-[var(--color-text)] md:text-[2.2rem]">
+                  {contactEmail}
+                </p>
+                <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--color-muted)]">
+                  Canal recomendado para una primera toma de contacto: breve, clara y centrada en el
+                  problema, los materiales disponibles y el objetivo tecnico o documental.
+                </p>
+                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-[1.15rem] border border-[var(--color-border)] bg-white/70 px-4 py-4">
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-[var(--color-muted)]">
+                      Asunto sugerido
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-[var(--color-text)]">{contactSubject}</p>
+                  </div>
+                  <div className="rounded-[1.15rem] border border-[var(--color-border)] bg-white/70 px-4 py-4">
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-[var(--color-muted)]">
+                      Primer paso
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-[var(--color-text)]">{contactResponseCopy}</p>
+                  </div>
+                </div>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <ButtonLink href={contactMailto} label={contactDirectCtaLabel} />
+                  <ButtonLink href="/recursos" label="Leer recursos antes de escribir" variant="secondary" />
+                </div>
               </div>
-            </form>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <SurfaceCard
+                  title="Que incluir en el primer mensaje"
+                  description="Cuatro datos suelen bastar para encuadrar bien la consulta y mejorar la orientacion inicial."
+                >
+                  <ul className="space-y-2 text-sm leading-7 text-[var(--color-muted)]">
+                    {[
+                      "Descripcion breve del problema",
+                      "Materiales o fuentes disponibles",
+                      "Estado actual del caso",
+                      "Objetivo tecnico o documental",
+                    ].map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--color-accent-strong)]" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </SurfaceCard>
+
+                <SurfaceCard
+                  title="Que ocurre despues"
+                  description={contactResponseCopy}
+                >
+                  <TagList items={["Encaje", "Alcance", "Prioridad", "Siguiente paso"]} />
+                  <p className="text-sm leading-7 text-[var(--color-muted)]">
+                    Si la necesidad encaja, la conversacion posterior ya puede entrar en materiales,
+                    metodologia y salida documental esperada.
+                  </p>
+                </SurfaceCard>
+              </div>
+            </div>
           </div>
 
           <div className="grid gap-5">
@@ -210,10 +233,10 @@ export default function ContactPage() {
             />
 
             <SurfaceCard
-              title="Que se revisa en la orientacion inicial"
-              description="La primera conversacion no intenta resolver todo. Sirve para valorar encaje, ordenar el punto de partida y delimitar el siguiente paso razonable."
+              title="Tiempo y expectativas del primer paso"
+              description="La orientacion inicial no sustituye una revision tecnica. Sirve para entender el punto de partida y decidir con criterio si conviene avanzar."
             >
-              <TagList items={["Encaje", "Materiales", "Objetivo", "Siguiente paso"]} />
+              <TagList items={["Primer encaje", "Lectura inicial", "Alcance razonable"]} />
             </SurfaceCard>
 
             <SurfaceCard
@@ -254,7 +277,7 @@ export default function ContactPage() {
       <ActionBanner
         title="Si la necesidad es real y el marco ya esta mas claro, el siguiente paso es plantear la consulta con materiales identificados y objetivo definido"
         description="La pagina de contacto no solo cierra el sitio. Tambien actua como filtro de calidad para que el primer intercambio se centre en contexto, alcance y utilidad documental."
-        primaryAction={{ href: "#consulta", label: "Preparar consulta" }}
+        primaryAction={{ href: contactMailto, label: contactDirectCtaLabel }}
         secondaryAction={{ href: "/recursos", label: "Ver recursos" }}
         note="Mejor encaje, menos ruido y una expectativa mas razonable desde el principio."
         highlights={[

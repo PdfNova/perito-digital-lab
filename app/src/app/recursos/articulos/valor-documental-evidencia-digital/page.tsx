@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ActionBanner,
+  Breadcrumbs,
   Container,
   EditorialMetaStrip,
   ImagePanel,
@@ -11,12 +12,16 @@ import {
   SurfaceCard,
   TagList,
 } from "@/components/ui";
+import { buildPageMetadata } from "@/app/metadata";
+import { contactPageCtaLabel } from "@/app/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Valor documental de la evidencia digital",
   description:
     "Articulo sobre contexto, integridad, trazabilidad y factores que refuerzan o debilitan la utilidad de una evidencia digital.",
-};
+  path: "/recursos/articulos/valor-documental-evidencia-digital",
+  type: "article",
+});
 
 export default function DocumentaryValueArticlePage() {
   return (
@@ -53,6 +58,13 @@ export default function DocumentaryValueArticlePage() {
       <Section>
         <Container className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_19rem] lg:items-start">
           <div className="grid gap-6" id="lectura">
+            <Breadcrumbs
+              items={[
+                { href: "/", label: "Inicio" },
+                { href: "/recursos", label: "Recursos" },
+                { label: "Valor documental" },
+              ]}
+            />
             <EditorialMetaStrip
               items={[
                 { label: "Formato", value: "Articulo editorial" },
@@ -239,7 +251,7 @@ export default function DocumentaryValueArticlePage() {
       <ActionBanner
         title="Si necesitas valorar materiales digitales con mejor contexto y mejor lenguaje tecnico, el siguiente paso es plantear la consulta con orden"
         description="Esta pieza ofrece un marco de lectura. Si existe una necesidad concreta, la conversacion inicial puede centrarse en materiales disponibles, objetivo documental y limites razonables del analisis."
-        primaryAction={{ href: "/contacto", label: "Plantear una consulta" }}
+        primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         secondaryAction={{
           href: "/recursos/articulos/preservacion-inicial-evidencia-digital",
           label: "Leer la siguiente pieza",

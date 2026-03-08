@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   ActionBanner,
   Container,
+  ContentLinkCard,
   Eyebrow,
   ImagePanel,
   PageHero,
@@ -10,6 +12,7 @@ import {
   SurfaceCard,
   TagList,
 } from "@/components/ui";
+import { buildPageMetadata } from "../metadata";
 
 const phases = [
   {
@@ -38,11 +41,35 @@ const phases = [
   },
 ];
 
-export const metadata: Metadata = {
+const supportPieces = [
+  {
+    type: "Articulo base",
+    title: "Valor documental de la evidencia digital",
+    description:
+      "Pieza recomendada para entender por que contexto, integridad y trazabilidad condicionan la lectura de cualquier material.",
+    meta: "Marco conceptual",
+    href: "/recursos/articulos/valor-documental-evidencia-digital",
+    cta: "Leer articulo",
+    tags: ["Contexto", "Integridad", "Valor documental"],
+  },
+  {
+    type: "Guia tecnica",
+    title: "Revision tecnica de evidencia digital: alcance y limites",
+    description:
+      "Guia pensada para explicar que puede sostenerse realmente al final del proceso y por que los limites forman parte del rigor.",
+    meta: "Continuidad metodologica",
+    href: "/recursos/guias/revision-tecnica-evidencia-digital",
+    cta: "Leer guia",
+    tags: ["Alcance", "Limites", "Revision tecnica"],
+  },
+];
+
+export const metadata: Metadata = buildPageMetadata({
   title: "Metodologia de investigacion digital y documentacion tecnica",
   description:
     "Metodologia sobria y estructurada para preservar, analizar, correlacionar y documentar evidencia digital con claridad y prudencia.",
-};
+  path: "/metodologia",
+});
 
 export default function MethodologyPage() {
   return (
@@ -197,6 +224,60 @@ export default function MethodologyPage() {
             title="Documento final"
             description="La metodologia solo se completa cuando el analisis puede trasladarse a una salida clara, util y entendible para terceros."
           />
+        </Container>
+      </Section>
+
+      <Section tint="soft">
+        <Container className="grid gap-6 lg:grid-cols-[1.04fr_0.96fr] lg:items-start">
+          <SurfaceCard
+            title="Que suele entregar un proceso bien llevado"
+            description="Cronologia estructurada, lectura de relaciones, nota tecnica, aclaracion de alcance o una pieza documental clara para apoyar decisiones posteriores."
+          >
+            <TagList
+              items={[
+                "Cronologia",
+                "Nota tecnica",
+                "Lectura de relaciones",
+                "Salida documental",
+              ]}
+            />
+          </SurfaceCard>
+
+          <SurfaceCard
+            title="Que puede esperar el cliente del proceso"
+            description="Orden, prudencia, mejor lectura del punto de partida y una explicacion clara de lo que puede sostenerse y de lo que queda fuera de alcance."
+          />
+        </Container>
+      </Section>
+
+      <Section>
+        <Container className="grid gap-8 lg:grid-cols-[0.94fr_1.06fr] lg:items-start">
+          <div>
+            <Eyebrow>Lecturas que sostienen el metodo</Eyebrow>
+            <SectionHeading
+              title="La metodologia se entiende mejor cuando puede recorrerse tambien desde el contenido"
+              description="Estas piezas complementan la pagina y convierten el metodo en algo mas tangible: valor documental, preservacion inicial y alcance real del analisis."
+            />
+            <div className="mt-8">
+              <Link className="inline-link" href="/recursos">
+                Explorar recursos
+              </Link>
+            </div>
+          </div>
+          <div className="grid gap-4">
+            {supportPieces.map((piece) => (
+              <ContentLinkCard
+                key={piece.title}
+                type={piece.type}
+                title={piece.title}
+                description={piece.description}
+                meta={piece.meta}
+                href={piece.href}
+                cta={piece.cta}
+                tags={piece.tags}
+              />
+            ))}
+          </div>
         </Container>
       </Section>
 

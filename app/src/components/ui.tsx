@@ -10,6 +10,11 @@ type MediaTag = {
   label: string;
 };
 
+type BreadcrumbItem = {
+  href?: string;
+  label: string;
+};
+
 export function Container({
   children,
   className = "",
@@ -471,5 +476,27 @@ export function ContentLinkCard({
         <ButtonLink href={href} label={cta} variant="secondary" />
       </div>
     </SurfaceCard>
+  );
+}
+
+export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+  return (
+    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-sm text-[var(--color-muted)]">
+      {items.map((item, index) => {
+        const isLast = index === items.length - 1;
+        return (
+          <div key={`${item.label}-${index}`} className="flex items-center gap-2">
+            {item.href && !isLast ? (
+              <Link href={item.href} className="hover:text-[var(--color-text)]">
+                {item.label}
+              </Link>
+            ) : (
+              <span className={isLast ? "font-medium text-[var(--color-text)]" : ""}>{item.label}</span>
+            )}
+            {!isLast ? <span className="text-[var(--color-muted)]/60">/</span> : null}
+          </div>
+        );
+      })}
+    </nav>
   );
 }

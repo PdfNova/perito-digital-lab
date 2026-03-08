@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ActionBanner,
+  Breadcrumbs,
+  ButtonLink,
   Container,
   EditorialMetaStrip,
   ImagePanel,
@@ -11,6 +13,8 @@ import {
   SurfaceCard,
   TagList,
 } from "@/components/ui";
+import { buildPageMetadata } from "@/app/metadata";
+import { contactPageCtaLabel } from "@/app/site-config";
 
 const blocks = [
   {
@@ -64,11 +68,13 @@ const shorts = [
   },
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Episodio 01: valor documental de la evidencia digital",
   description:
     "Pagina editorial del episodio 01 sobre contexto, integridad, preservacion y utilidad real de la evidencia digital.",
-};
+  path: "/recursos/videos/episodio-01",
+  type: "article",
+});
 
 export default function Episode01Page() {
   return (
@@ -76,7 +82,7 @@ export default function Episode01Page() {
       <PageHero
         eyebrow="Video"
         title="Que hace util a una evidencia digital y que la debilita"
-        subtitle="Pagina editorial del episodio 01: una pieza breve, grabable y reutilizable para explicar por que el valor de una evidencia depende de contexto, integridad, preservacion y capacidad de documentacion."
+        subtitle="Episodio editorial de apertura sobre contexto, integridad, preservacion y valor documental. La pieza ya puede leerse como una unidad publica completa dentro del hub y concentra su resumen, estructura y derivados breves."
         primaryAction={{ href: "#estructura", label: "Ver estructura" }}
         secondaryAction={{
           href: "/recursos/articulos/valor-documental-evidencia-digital",
@@ -108,12 +114,19 @@ export default function Episode01Page() {
       <Section>
         <Container className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_19rem] lg:items-start">
           <div className="grid gap-6">
+            <Breadcrumbs
+              items={[
+                { href: "/", label: "Inicio" },
+                { href: "/recursos", label: "Recursos" },
+                { label: "Episodio 01" },
+              ]}
+            />
             <EditorialMetaStrip
               items={[
-                { label: "Formato", value: "Video largo" },
-                { label: "Estado", value: "Guion listo para grabacion" },
+                { label: "Formato", value: "Episodio editorial" },
+                { label: "Disponibilidad", value: "Lectura publica y estructura completa" },
                 { label: "Audiencia", value: "Perfiles juridicos, tecnicos y decisores" },
-                { label: "Continuidad", value: "Conecta con articulo base y guia practica" },
+                { label: "Continuidad", value: "Conecta con articulo base, guia y contacto" },
               ]}
             />
 
@@ -123,13 +136,28 @@ export default function Episode01Page() {
             >
               <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
                 <p>El episodio evita afirmaciones infladas y se centra en utilidad real, lectura prudente y valor documental.</p>
-                <p>Tambien deja el puente ya preparado hacia preservacion inicial y hacia la conversacion comercial del sitio.</p>
+                <p>La pieza ya funciona como lectura autonoma y como puerta de entrada a los recursos que desarrollan el mismo marco con mas detalle.</p>
               </div>
               <TagList items={["Contexto", "Integridad", "Preservacion", "Documentacion"]} />
+              <div className="flex flex-wrap gap-3 pt-1">
+                <ButtonLink
+                  href="/recursos/articulos/valor-documental-evidencia-digital"
+                  label="Leer articulo base"
+                  variant="secondary"
+                />
+                <ButtonLink href="/contacto" label="Llevar este marco a una consulta" variant="secondary" />
+              </div>
             </SurfaceCard>
           </div>
 
           <div className="grid gap-4">
+            <SurfaceCard
+              title="Como se publica esta pieza"
+              description="Esta ruta funciona como ficha editorial completa del episodio: concentra la idea central, sus bloques, los cortes breves derivados y la continuidad con el resto del hub."
+            >
+              <TagList items={["Lectura guiada", "Serie inicial", "Hub editorial"]} />
+            </SurfaceCard>
+
             <SurfaceCard
               title="Articulos relacionados"
               description="La pieza larga se apoya en dos articulos ya navegables para ampliar el mismo marco con mas detalle."
@@ -161,7 +189,7 @@ export default function Episode01Page() {
         <Container id="estructura">
           <SectionHeading
             title="Estructura del episodio"
-            description="La pagina del video no muestra solo un resumen. Presenta la arquitectura narrativa de la pieza y permite entender su utilidad antes de grabarla o reutilizarla."
+            description="La arquitectura narrativa queda visible para que la pieza pueda leerse, compartirse y reutilizarse con claridad dentro del ecosistema editorial."
             align="center"
           />
           <div className="mt-10 grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
@@ -188,7 +216,7 @@ export default function Episode01Page() {
             alt="Biblioteca editorial con recursos audiovisuales y cortes verticales derivados"
             eyebrow="Shorts derivados"
             title="Dos piezas breves para vertical que extienden el mismo argumento"
-            description="Los cortes cortos no se plantean como contenido aislado, sino como extensiones del episodio y como puerta de entrada a la lectura larga."
+            description="Los cortes cortos funcionan como piezas editoriales breves: abren el argumento central, facilitan distribucion y empujan hacia lectura larga o contacto mejor encuadrado."
             tags={["Vertical", "Subtitulos", "Reutilizacion"]}
             aspect="landscape"
           />
@@ -211,14 +239,14 @@ export default function Episode01Page() {
       </Section>
 
       <ActionBanner
-        title="Si este episodio ya deja claro el marco, el siguiente paso es leer la pieza base o plantear una necesidad con mejor contexto"
-        description="La capa audiovisual sirve para fijar ideas principales con claridad. La biblioteca editorial amplifica el detalle y la pagina de contacto permite convertir esa lectura en una conversacion mejor planteada."
+        title="Si este episodio ya deja claro el marco, el siguiente paso es profundizar en la pieza base o trasladar una necesidad real a una consulta mejor encuadrada"
+        description="El episodio ya funciona como una pieza publica valida dentro del hub: resume el argumento principal, conecta con lecturas mas detalladas y permite avanzar hacia contacto sin perder continuidad."
         primaryAction={{
           href: "/recursos/articulos/valor-documental-evidencia-digital",
           label: "Leer articulo base",
         }}
-        secondaryAction={{ href: "/contacto", label: "Iniciar contacto" }}
-        note="El episodio ya esta estructurado para grabacion y sus dos shorts pueden reutilizarse como piezas verticales de entrada."
+        secondaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
+        note="La misma ruta puede concentrar despues acceso audiovisual, cortes derivados y continuidad editorial sin rehacer la pagina."
         highlights={[
           "Pieza audiovisual alineada con el tono tecnico y discreto de la marca.",
           "Continuidad directa entre video largo, shorts, articulos y contacto.",

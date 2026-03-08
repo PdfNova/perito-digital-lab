@@ -1,5 +1,12 @@
 import Link from "next/link";
 import { ButtonLink, Container, SurfaceCard, TagList } from "@/components/ui";
+import {
+  brandDescriptor,
+  contactDirectCtaLabel,
+  contactEmail,
+  contactMailto,
+  contactPageCtaLabel,
+} from "@/app/site-config";
 
 const footerLinks = [
   { href: "/", label: "Inicio" },
@@ -16,7 +23,7 @@ export function SiteFooter() {
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <SurfaceCard
             title="Una firma tecnica debe cerrar con el mismo nivel de claridad con el que se presenta"
-            description="Investigacion digital, analisis forense, OSINT con limites, trazabilidad y documentacion tecnica con una presencia sobria y orientada a consultas cualificadas."
+            description={`${brandDescriptor} con una presencia sobria, clara y orientada a consultas cualificadas.`}
           >
             <TagList
               items={[
@@ -30,10 +37,19 @@ export function SiteFooter() {
               <p>La web ya combina servicios, metodologia y biblioteca editorial bajo una misma logica de trabajo.</p>
               <p>El objetivo del primer contacto es acotar mejor el contexto, no inflar expectativas ni forzar conclusiones.</p>
             </div>
+            <Link
+              href={contactMailto}
+              className="text-sm font-medium text-[var(--color-accent-strong)] hover:text-[var(--color-text)]"
+            >
+              {contactEmail}
+            </Link>
             <div className="flex flex-wrap gap-3 pt-2">
-              <ButtonLink href="/contacto" label="Solicitar orientacion inicial" />
-              <ButtonLink href="/recursos" label="Explorar recursos" variant="secondary" />
+              <ButtonLink href="/contacto" label={contactPageCtaLabel} />
+              <ButtonLink href={contactMailto} label={contactDirectCtaLabel} variant="secondary" />
             </div>
+            <Link href="/recursos" className="text-sm font-medium text-[var(--color-accent-strong)] hover:text-[var(--color-text)]">
+              Explorar recursos
+            </Link>
           </SurfaceCard>
 
           <div className="grid gap-6 sm:grid-cols-2">

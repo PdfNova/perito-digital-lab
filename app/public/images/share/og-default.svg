@@ -1,0 +1,48 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#ECE3D7"/>
+  <rect x="28" y="28" width="1144" height="574" rx="32" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1060" height="490" rx="26" fill="rgba(255,255,255,0.72)" stroke="rgba(22,32,47,0.12)"/>
+  <circle cx="1010" cy="126" r="96" fill="url(#glow)" opacity="0.9"/>
+  <circle cx="175" cy="518" r="120" fill="url(#glow2)" opacity="0.55"/>
+  <path d="M736 162H1025" stroke="#8F6F4A" stroke-opacity="0.32" stroke-width="2"/>
+  <path d="M736 192H978" stroke="#8F6F4A" stroke-opacity="0.22" stroke-width="2"/>
+  <path d="M736 222H912" stroke="#8F6F4A" stroke-opacity="0.18" stroke-width="2"/>
+  <rect x="736" y="294" width="318" height="182" rx="22" fill="#17212F"/>
+  <rect x="772" y="338" width="214" height="12" rx="6" fill="white" fill-opacity="0.72"/>
+  <rect x="772" y="366" width="246" height="12" rx="6" fill="white" fill-opacity="0.2"/>
+  <rect x="772" y="394" width="182" height="12" rx="6" fill="white" fill-opacity="0.16"/>
+  <rect x="772" y="438" width="118" height="30" rx="15" fill="#8F6F4A"/>
+  <text x="100" y="142" fill="#70553A" font-family="Arial, sans-serif" font-size="20" letter-spacing="7">INVESTIGACION DIGITAL / DOCUMENTACION TECNICA</text>
+  <text x="100" y="250" fill="#16202F" font-family="Georgia, serif" font-size="68" font-weight="700">
+    Perito Digital Lab
+  </text>
+  <text x="100" y="320" fill="#16202F" font-family="Georgia, serif" font-size="38">
+    Evidencia, trazabilidad y lectura metodologica
+  </text>
+  <text x="100" y="392" fill="#667387" font-family="Arial, sans-serif" font-size="28">
+    Una firma tecnica sobria para casos donde la informacion digital
+  </text>
+  <text x="100" y="430" fill="#667387" font-family="Arial, sans-serif" font-size="28">
+    necesita orden, contexto y una salida documental clara.
+  </text>
+  <rect x="100" y="478" width="144" height="38" rx="19" fill="#8F6F4A" fill-opacity="0.14"/>
+  <rect x="256" y="478" width="144" height="38" rx="19" fill="#8F6F4A" fill-opacity="0.14"/>
+  <rect x="412" y="478" width="144" height="38" rx="19" fill="#8F6F4A" fill-opacity="0.14"/>
+  <text x="132" y="502" fill="#70553A" font-family="Arial, sans-serif" font-size="16">Servicios</text>
+  <text x="296" y="502" fill="#70553A" font-family="Arial, sans-serif" font-size="16">Recursos</text>
+  <text x="444" y="502" fill="#70553A" font-family="Arial, sans-serif" font-size="16">Contacto</text>
+  <defs>
+    <linearGradient id="bg" x1="78" y1="62" x2="1122" y2="574" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5EFE5"/>
+      <stop offset="1" stop-color="#E3D7C8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1010 126) rotate(90) scale(96)">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(175 518) rotate(90) scale(120)">
+      <stop stop-color="#8F6F4A" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#8F6F4A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

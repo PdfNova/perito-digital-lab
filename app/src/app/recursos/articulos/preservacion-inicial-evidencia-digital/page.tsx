@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ActionBanner,
+  Breadcrumbs,
   Container,
   EditorialMetaStrip,
   ImagePanel,
@@ -11,12 +12,16 @@ import {
   SurfaceCard,
   TagList,
 } from "@/components/ui";
+import { buildPageMetadata } from "@/app/metadata";
+import { contactPageCtaLabel } from "@/app/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Preservacion inicial de evidencia digital",
   description:
     "Articulo sobre errores frecuentes de preservacion inicial y criterios minimos para conservar mejor informacion digital desde el principio.",
-};
+  path: "/recursos/articulos/preservacion-inicial-evidencia-digital",
+  type: "article",
+});
 
 export default function InitialPreservationArticlePage() {
   return (
@@ -56,6 +61,13 @@ export default function InitialPreservationArticlePage() {
       <Section>
         <Container className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_19rem] lg:items-start">
           <div className="grid gap-6" id="lectura">
+            <Breadcrumbs
+              items={[
+                { href: "/", label: "Inicio" },
+                { href: "/recursos", label: "Recursos" },
+                { label: "Preservacion inicial" },
+              ]}
+            />
             <EditorialMetaStrip
               items={[
                 { label: "Formato", value: "Articulo practico" },
@@ -236,7 +248,7 @@ export default function InitialPreservationArticlePage() {
       <ActionBanner
         title="Si ya existe material digital recopilado, el siguiente paso es ordenarlo mejor antes de extraer conclusiones fuertes"
         description="Esta pieza ayuda a mejorar el punto de partida. Si la necesidad ya es concreta, la conversacion inicial puede centrarse en materiales disponibles, prioridad documental y alcance razonable."
-        primaryAction={{ href: "/contacto", label: "Iniciar contacto" }}
+        primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         secondaryAction={{ href: "/recursos/videos/episodio-01", label: "Ver episodio" }}
         note="Mejor preservacion inicial suele traducirse en mejor claridad tecnica y mejor tiempo de respuesta."
         highlights={[

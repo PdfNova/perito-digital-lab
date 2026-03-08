@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ActionBanner,
+  ButtonLink,
   Container,
   ContentLinkCard,
   Eyebrow,
@@ -13,6 +14,11 @@ import {
   SurfaceCard,
   TagList,
 } from "@/components/ui";
+import { buildPageMetadata } from "./metadata";
+import {
+  contactPageCtaLabel,
+  visualAssets,
+} from "./site-config";
 
 const capabilities = [
   {
@@ -77,11 +83,36 @@ const methodology = [
   "Documentar hallazgos, limites y conclusiones.",
 ];
 
-export const metadata: Metadata = {
+const recommendedPath = [
+  {
+    title: "Entender el marco",
+    description:
+      "Empezar por el articulo base o por la guia tecnica para ajustar lenguaje, expectativas y valor documental.",
+    href: "/recursos",
+    cta: "Ir a recursos",
+  },
+  {
+    title: "Valorar encaje",
+    description:
+      "Revisar servicios y metodologia para entender como se articula el trabajo y que tipo de necesidad encaja mejor.",
+    href: "/servicios",
+    cta: "Ver servicios",
+  },
+  {
+    title: "Plantear la consulta",
+    description:
+      "Pasar a contacto con materiales identificados, objetivo claro y una expectativa razonable sobre la salida del trabajo.",
+    href: "/contacto",
+    cta: "Ir a contacto",
+  },
+];
+
+export const metadata: Metadata = buildPageMetadata({
   title: "Investigacion digital, evidencia y documentacion tecnica",
   description:
     "Investigacion digital, analisis forense, trazabilidad y documentacion tecnica para casos donde la evidencia digital necesita orden, contexto y claridad expositiva.",
-};
+  path: "/",
+});
 
 export default function HomePage() {
   return (
@@ -90,21 +121,21 @@ export default function HomePage() {
         eyebrow="Investigacion digital / analisis forense / trazabilidad"
         title="Investigacion digital y documentacion tecnica para casos donde el componente digital exige criterio"
         subtitle="Una presencia pensada para consultas cualificadas donde la informacion digital necesita orden, lectura metodologica y una salida documental clara."
-        primaryAction={{ href: "/contacto", label: "Solicitar orientacion inicial" }}
+        primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         secondaryAction={{ href: "/recursos", label: "Explorar recursos" }}
         stats={[
-          { value: "3", label: "Piezas editoriales ya publicas" },
+          { value: "4", label: "Piezas editoriales ya visibles" },
           { value: "5", label: "Lineas principales de trabajo" },
-          { value: "Claro", label: "Proceso y alcance visibles" },
+          { value: "Listo", label: "Sistema publico casi cerrado" },
         ]}
         notes={[
           "Enfoque tecnico, discreto y orientado a documentacion.",
-          "Servicios, metodologia y recursos ya actuan como un mismo sistema de entrada.",
+          "Servicios, metodologia, recursos y contacto ya actuan como un mismo sistema de entrada.",
         ]}
         visual={
           <ImagePanel
-            src="/images/lot-01/hero-main.svg"
-            alt="Despacho tecnico con pantallas de analisis, documentos y entorno profesional de trabajo"
+            src={visualAssets.heroMain.src}
+            alt={visualAssets.heroMain.alt}
             eyebrow="Entorno de analisis"
             title="Despacho, analisis digital y documentacion reunidos bajo una misma logica de trabajo"
             description="La web ya no se limita a presentar servicios: muestra metodo, recursos reales y una capa editorial que ayuda a entender mejor cada necesidad."
@@ -143,6 +174,27 @@ export default function HomePage() {
             tags={["Mesa de trabajo", "Pantallas", "Metodo"]}
             aspect="landscape"
           />
+        </Container>
+      </Section>
+
+      <Section tint="soft">
+        <Container className="grid gap-8 lg:grid-cols-[0.96fr_1.04fr] lg:items-start">
+          <div>
+            <Eyebrow>Recorrido</Eyebrow>
+            <SectionHeading
+              title="Un recorrido claro desde la primera visita hasta la consulta"
+              description="La home ya no funciona solo como presentacion. Ordena el camino entre contenido, servicios, metodologia y contacto para que el sitio se perciba como un sistema completo."
+            />
+          </div>
+          <div className="grid gap-4">
+            {recommendedPath.map((item) => (
+              <SurfaceCard key={item.title} title={item.title} description={item.description}>
+                <Link className="inline-link" href={item.href}>
+                  {item.cta}
+                </Link>
+              </SurfaceCard>
+            ))}
+          </div>
         </Container>
       </Section>
 
@@ -285,10 +337,61 @@ export default function HomePage() {
         </Container>
       </Section>
 
+      <Section tint="soft">
+        <Container className="grid gap-6 lg:grid-cols-3">
+          <SurfaceCard
+            title="Que puede esperar una consulta bien encuadrada"
+            description="Un primer intercambio util no busca aparentar certeza. Busca ordenar el problema, aclarar materiales disponibles y valorar el siguiente paso razonable."
+          />
+          <SurfaceCard
+            title="Como se percibe mejor el trabajo"
+            description="La combinacion de servicios, metodologia visible y recursos publicos hace que la propuesta resulte mas creible antes de cualquier encargo."
+          />
+          <SurfaceCard
+            title="Que suele salir de un trabajo bien planteado"
+            description="Cronologias, notas tecnicas, lectura de relaciones, aclaracion de alcance o una pieza documental clara para decidir mejor."
+          />
+        </Container>
+      </Section>
+
+      <Section>
+        <Container className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
+          <SurfaceCard
+            title="Que hace que esta home ya se perciba mas publica"
+            description="La pagina principal ya combina posicionamiento, piezas reales, metodo visible y un camino de conversion mejor articulado."
+          >
+            <TagList
+              items={[
+                "Contenido integrado",
+                "Metodo visible",
+                "Servicios claros",
+                "Contacto preparado",
+              ]}
+            />
+            <div className="pt-1">
+              <ButtonLink href="/recursos" label="Entrar en el hub editorial" variant="secondary" />
+            </div>
+          </SurfaceCard>
+
+          <SurfaceCard
+            title="Que puede esperar quien llega con una necesidad real"
+            description="Un primer intercambio mas ordenado, una mejor lectura del punto de partida y una explicacion mas clara sobre alcance, limites y siguiente paso razonable."
+          >
+            <Link className="inline-link" href="/contacto">
+              Preparar una consulta mejor planteada
+            </Link>
+            <p className="text-sm leading-7 text-[var(--color-muted)]">
+              El recorrido recomendado ya esta visible: recursos para entender el marco, servicios
+              para validar encaje y contacto para abrir una conversacion inicial con mejor contexto.
+            </p>
+          </SurfaceCard>
+        </Container>
+      </Section>
+
       <ActionBanner
         title="Si el caso requiere claridad tecnica, el siguiente paso es acotar el contexto con una consulta bien planteada"
         description="La mejor entrada no es un mensaje largo ni una promesa inflada. Es una consulta con objetivo claro, materiales identificados y una expectativa razonable sobre la salida tecnica o documental."
-        primaryAction={{ href: "/contacto", label: "Solicitar orientacion inicial" }}
+        primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         secondaryAction={{ href: "/recursos", label: "Explorar recursos" }}
         note="El sitio ya combina servicios, metodologia y contenido publico para mejorar la calidad del primer intercambio."
         highlights={[

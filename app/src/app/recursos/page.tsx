@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ActionBanner,
+  ButtonLink,
   Container,
   ContentLinkCard,
   Eyebrow,
@@ -12,6 +13,12 @@ import {
   SurfaceCard,
   TagList,
 } from "@/components/ui";
+import { buildPageMetadata } from "../metadata";
+import {
+  contactDirectCtaLabel,
+  contactMailto,
+  contactPageCtaLabel,
+} from "../site-config";
 
 const featuredPieces = [
   {
@@ -109,11 +116,12 @@ const upcoming = [
   },
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Recursos sobre evidencia digital, preservacion y revision tecnica",
   description:
     "Hub editorial con articulos, guias tecnicas, video y piezas breves sobre evidencia digital, preservacion, revision tecnica y documentacion.",
-};
+  path: "/recursos",
+});
 
 export default function ResourcesPage() {
   return (
@@ -123,7 +131,7 @@ export default function ResourcesPage() {
         title="Recursos tecnicos y editoriales para leer mejor evidencia digital, preservacion y revision"
         subtitle="La biblioteca editorial ya funciona como un hub real: piezas destacadas, articulos, video principal, guias tecnicas y contenidos breves pensados para autoridad, descubrimiento y conversion."
         primaryAction={{ href: "#destacados", label: "Ver destacados" }}
-        secondaryAction={{ href: "/contacto", label: "Plantear una consulta" }}
+        secondaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         stats={[
           { value: "3", label: "Piezas publicas principales" },
           { value: "4", label: "Shorts previstos y derivados" },
@@ -171,6 +179,29 @@ export default function ResourcesPage() {
         </Container>
       </Section>
 
+      <Section tint="soft" className="py-10 md:py-12">
+        <Container>
+          <div className="flex flex-wrap gap-3">
+            {[
+              { href: "#destacados", label: "Destacados" },
+              { href: "#articulos", label: "Articulos" },
+              { href: "#guia", label: "Guia tecnica" },
+              { href: "#video", label: "Video principal" },
+              { href: "#breves", label: "Piezas breves" },
+              { href: "#siguientes", label: "Siguientes contenidos" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-full border border-[var(--color-border)] bg-[rgba(255,255,255,0.72)] px-4 py-2.5 text-sm font-medium text-[var(--color-text)] transition hover:border-[var(--color-border-strong)] hover:bg-white"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
       <Section tint="soft">
         <Container id="destacados">
           <SectionHeading
@@ -196,7 +227,7 @@ export default function ResourcesPage() {
       </Section>
 
       <Section>
-        <Container className="grid gap-8 lg:grid-cols-[1.04fr_0.96fr] lg:items-start">
+        <Container id="articulos" className="grid gap-8 lg:grid-cols-[1.04fr_0.96fr] lg:items-start">
           <div>
             <Eyebrow>Articulos</Eyebrow>
             <SectionHeading
@@ -232,7 +263,28 @@ export default function ResourcesPage() {
       </Section>
 
       <Section tint="soft">
-        <Container className="grid gap-8 lg:grid-cols-[0.98fr_1.02fr] lg:items-start">
+        <Container id="guia" className="grid gap-8 lg:grid-cols-[0.94fr_1.06fr] lg:items-start">
+          <div>
+            <Eyebrow>Guia tecnica</Eyebrow>
+            <SectionHeading
+              title="Una pieza orientada a conversion cualificada"
+              description="La guia sobre revision tecnica no actua como contenido accesorio. Funciona como puente entre lectura editorial, expectativa realista y contacto mejor encuadrado."
+            />
+          </div>
+          <ContentLinkCard
+            type="Guia tecnica"
+            title="Revision tecnica de evidencia digital: alcance y limites"
+            description="Recurso pensado para explicar que puede aportar una revision, que no conviene pedirle y por que los limites mejoran la credibilidad del trabajo."
+            meta="Pieza de segundo lote"
+            href="/recursos/guias/revision-tecnica-evidencia-digital"
+            cta="Leer guia tecnica"
+            tags={["Revision tecnica", "Alcance", "Limites", "Conversion"]}
+          />
+        </Container>
+      </Section>
+
+      <Section tint="soft">
+        <Container id="breves" className="grid gap-8 lg:grid-cols-[0.98fr_1.02fr] lg:items-start">
           <div>
             <Eyebrow>Piezas breves</Eyebrow>
             <SectionHeading
@@ -251,7 +303,28 @@ export default function ResourcesPage() {
       </Section>
 
       <Section>
-        <Container className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
+        <Container id="video" className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
+          <SurfaceCard
+            title="Video principal de la serie"
+            description="El episodio 01 articula la entrada audiovisual del proyecto y ayuda a convertir el marco metodologico en una pieza breve, clara y publicable."
+          >
+            <TagList items={["Episodio 01", "Video largo", "Marco base", "Shorts"]} />
+            <Link className="inline-link" href="/recursos/videos/episodio-01">
+              Ver pagina del episodio
+            </Link>
+          </SurfaceCard>
+
+          <SurfaceCard
+            title="Ruta recomendada de lectura"
+            description="Una ruta sencilla para una primera visita: articulo base, preservacion inicial, guia de revision tecnica y despues contacto si la necesidad ya esta mejor planteada."
+          >
+            <TagList items={["Articulo base", "Preservacion", "Guia tecnica", "Contacto"]} />
+          </SurfaceCard>
+        </Container>
+      </Section>
+
+      <Section tint="soft">
+        <Container id="siguientes" className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
           <div>
             <Eyebrow>Proximos contenidos</Eyebrow>
             <SectionHeading
@@ -283,9 +356,12 @@ export default function ResourcesPage() {
               title="Puente hacia contacto"
               description="Quien llega a contacto despues de pasar por recursos suele entender mejor contexto, materiales y limites razonables del trabajo."
             >
-              <Link className="inline-link" href="/contacto">
-                Pasar a contacto con mejor contexto
-              </Link>
+              <div className="grid gap-3">
+                <Link className="inline-link" href="/contacto">
+                  Pasar a contacto con mejor contexto
+                </Link>
+                <ButtonLink href={contactMailto} label={contactDirectCtaLabel} variant="secondary" />
+              </div>
             </SurfaceCard>
           </div>
         </Container>
@@ -294,7 +370,7 @@ export default function ResourcesPage() {
       <ActionBanner
         title="Si el contenido ya aclara el marco, el siguiente paso es convertir esa lectura en una consulta mejor formulada"
         description="Recursos ya no es una seccion secundaria. Es una portada editorial que ayuda a entender mejor el problema, mejora el descubrimiento del sitio y refuerza la calidad del contacto."
-        primaryAction={{ href: "/contacto", label: "Plantear una consulta" }}
+        primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         secondaryAction={{ href: "/servicios", label: "Ver servicios" }}
         note="El contenido publicado ya refuerza autoridad, filtra expectativas y sostiene mejor la conversion."
         highlights={[

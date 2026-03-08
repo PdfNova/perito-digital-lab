@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ActionBanner,
+  ButtonLink,
   Container,
   ContentLinkCard,
   Eyebrow,
@@ -12,6 +13,8 @@ import {
   SurfaceCard,
   TagList,
 } from "@/components/ui";
+import { buildPageMetadata } from "../metadata";
+import { contactPageCtaLabel, visualAssets } from "../site-config";
 
 const services = [
   {
@@ -94,11 +97,19 @@ const supportContent = [
   },
 ];
 
-export const metadata: Metadata = {
+const outputs = [
+  "Cronologia tecnica o secuencia de hechos",
+  "Nota tecnica de lectura o correlacion",
+  "Aclaracion de alcance y limites",
+  "Informe o pieza documental clara para terceros",
+];
+
+export const metadata: Metadata = buildPageMetadata({
   title: "Servicios de investigacion digital, analisis forense y documentacion tecnica",
   description:
     "Servicios orientados a investigacion digital, analisis forense, OSINT con limites, trazabilidad tecnologica y documentacion tecnica.",
-};
+  path: "/servicios",
+});
 
 export default function ServicesPage() {
   return (
@@ -107,7 +118,7 @@ export default function ServicesPage() {
         eyebrow="Servicios"
         title="Servicios tecnicos para casos donde la evidencia digital necesita orden, lectura y salida documental"
         subtitle="La propuesta se organiza por necesidades reales de analisis, correlacion y documentacion, con una presentacion mas cercana a una firma tecnica que a un listado generico de servicios."
-        primaryAction={{ href: "/contacto", label: "Solicitar orientacion inicial" }}
+        primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         secondaryAction={{ href: "/recursos", label: "Ver recursos" }}
         stats={[
           { value: "5", label: "Areas nucleares de trabajo" },
@@ -120,8 +131,8 @@ export default function ServicesPage() {
         ]}
         visual={
           <ImagePanel
-            src="/images/lot-01/services-hero.svg"
-            alt="Entorno profesional de analisis digital, documentacion y servicios tecnicos"
+            src={visualAssets.servicesHero.src}
+            alt={visualAssets.servicesHero.alt}
             eyebrow="Revision tecnica"
             title="Despacho, herramientas y analisis presentados como una oferta seria y visible"
             description="La pagina de servicios ya no actua sola: se apoya en metodologia clara, recursos publicos y una entrada comercial mejor filtrada."
@@ -222,6 +233,48 @@ export default function ServicesPage() {
       <Section tint="soft">
         <Container className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
           <div>
+            <Eyebrow>Outputs</Eyebrow>
+            <SectionHeading
+              title="Que tipo de salida puede esperarse"
+              description="La propuesta gana fuerza cuando deja claro que el valor no termina en el analisis, sino en la forma util en la que ese trabajo puede traducirse."
+            />
+            <div className="mt-8 grid gap-3">
+              {outputs.map((item) => (
+                <div key={item} className="premium-shell rounded-[1.4rem] px-5 py-4 text-sm leading-7 text-[var(--color-text)]">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-4">
+            <SurfaceCard
+              title="Como se articula la transicion hacia metodologia"
+              description="Servicios explica encaje y outputs. Metodologia explica como se sostiene ese trabajo en la practica."
+            >
+              <Link className="inline-link" href="/metodologia">
+                Ver metodologia
+              </Link>
+            </SurfaceCard>
+
+            <SurfaceCard
+              title="Como se articula la transicion hacia contacto"
+              description="Quien ya entiende mejor alcance, materiales y salida esperada puede plantear una consulta con menos friccion y mejor encaje."
+            >
+              <Link className="inline-link" href="/contacto">
+                Preparar consulta
+              </Link>
+              <div className="pt-1">
+                <ButtonLink href="/contacto" label={contactPageCtaLabel} variant="secondary" />
+              </div>
+            </SurfaceCard>
+          </div>
+        </Container>
+      </Section>
+
+      <Section tint="soft">
+        <Container className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
+          <div>
             <Eyebrow>Antes de contactar</Eyebrow>
             <SectionHeading
               title="La biblioteca editorial ya ayuda a filtrar mejor la consulta"
@@ -262,10 +315,37 @@ export default function ServicesPage() {
         </Container>
       </Section>
 
+      <Section tint="soft">
+        <Container className="grid gap-6 lg:grid-cols-[1.04fr_0.96fr] lg:items-start">
+          <SurfaceCard
+            title="Que puede esperar quien encarga un trabajo de este tipo"
+            description="Una lectura mas clara del caso, mejor orden de materiales, delimitacion de alcance, prudencia al interpretar y una salida documental mas util para terceros."
+          >
+            <TagList
+              items={[
+                "Mejor encuadre",
+                "Mas claridad documental",
+                "Lectura prudente",
+                "Salida util",
+              ]}
+            />
+          </SurfaceCard>
+
+          <SurfaceCard
+            title="Que no se promete"
+            description="No se promete una conclusion maxima en cualquier contexto. El valor esta en leer mejor, sostener mejor y explicar mejor hasta donde llega el trabajo."
+          >
+            <p className="text-sm font-medium text-[var(--color-accent-strong)]">
+              Rigor y limites forman parte de la propuesta comercial.
+            </p>
+          </SurfaceCard>
+        </Container>
+      </Section>
+
       <ActionBanner
         title="Si la necesidad encaja, el siguiente paso es presentar el contexto con materiales, objetivo y punto de partida"
         description="Una consulta inicial util debe indicar que tipo de problema existe, que fuentes o materiales hay disponibles y que salida tecnica o documental se busca."
-        primaryAction={{ href: "/contacto", label: "Solicitar orientacion inicial" }}
+        primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         secondaryAction={{ href: "/recursos", label: "Ver recursos" }}
         note="La pagina de servicios ya funciona como una puerta de entrada clara, seria y conectada con contenido real."
         highlights={[
