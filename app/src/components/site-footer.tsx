@@ -15,8 +15,8 @@ export function SiteFooter() {
       <Container className="py-12 md:py-16">
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <SurfaceCard
-            title="Una firma tecnica debe cerrar igual de bien que abre"
-            description="Investigacion digital, analisis forense, OSINT y documentacion tecnica con una presencia sobria, clara y orientada a consultas cualificadas."
+            title="Una firma tecnica debe cerrar con el mismo nivel de claridad con el que se presenta"
+            description="Investigacion digital, analisis forense, OSINT con limites, trazabilidad y documentacion tecnica con una presencia sobria y orientada a consultas cualificadas."
           >
             <TagList
               items={[
@@ -26,9 +26,13 @@ export function SiteFooter() {
                 "Documentacion clara",
               ]}
             />
+            <div className="grid gap-2 text-sm leading-7 text-[var(--color-muted)]">
+              <p>La web ya combina servicios, metodologia y biblioteca editorial bajo una misma logica de trabajo.</p>
+              <p>El objetivo del primer contacto es acotar mejor el contexto, no inflar expectativas ni forzar conclusiones.</p>
+            </div>
             <div className="flex flex-wrap gap-3 pt-2">
               <ButtonLink href="/contacto" label="Solicitar orientacion inicial" />
-              <ButtonLink href="/recursos" label="Explorar biblioteca" variant="secondary" />
+              <ButtonLink href="/recursos" label="Explorar recursos" variant="secondary" />
             </div>
           </SurfaceCard>
 
@@ -54,10 +58,10 @@ export function SiteFooter() {
                     Firma tecnica
                   </p>
                   <p className="mt-4 max-w-xs text-lg leading-8 text-white/82">
-                    Despacho, analisis y documentacion reunidos bajo una presencia clara y discreta.
+                    Despacho, analisis y documentacion reunidos bajo una presencia clara, tecnica y discreta.
                   </p>
                   <p className="mt-4 max-w-xs text-sm leading-6 text-white/66">
-                    Metodo visible, limites claros y una entrada editorial que ayuda a entender mejor cada necesidad.
+                    Metodo visible, limites claros y una biblioteca editorial que acompana autoridad, descubrimiento y conversion.
                   </p>
                 </div>
                 <div className="grid gap-3">
@@ -69,6 +73,17 @@ export function SiteFooter() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-[var(--color-border)] pt-5 text-sm text-[var(--color-muted)]">
+          <p>Perito Digital Lab. Investigacion digital y documentacion tecnica.</p>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/recursos/articulos/valor-documental-evidencia-digital" className="hover:text-[var(--color-text)]">
+              Valor documental
+            </Link>
+            <Link href="/recursos/guias/revision-tecnica-evidencia-digital" className="hover:text-[var(--color-text)]">
+              Revision tecnica
+            </Link>
           </div>
         </div>
       </Container>

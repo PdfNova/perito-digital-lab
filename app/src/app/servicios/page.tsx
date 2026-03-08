@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   ActionBanner,
   Container,
+  ContentLinkCard,
   Eyebrow,
   ImagePanel,
   PageHero,
@@ -15,7 +17,7 @@ const services = [
   {
     title: "Investigacion digital",
     description:
-      "Analisis de hechos con componente digital para ordenar informacion, detectar relaciones y reducir ambiguedad en el caso.",
+      "Analisis de hechos con componente digital para ordenar informacion, detectar relaciones y reducir ambiguedad.",
     items: [
       "Hechos dispersos en multiples fuentes",
       "Necesidad de reconstruir secuencias",
@@ -26,7 +28,7 @@ const services = [
   {
     title: "Analisis forense",
     description:
-      "Revision tecnica de evidencias y soportes con foco en preservacion, lectura estructurada y valor documental de los hallazgos.",
+      "Revision tecnica de evidencias y soportes con foco en preservacion, lectura estructurada y valor documental.",
     items: [
       "Informacion que requiere preservacion adecuada",
       "Revision de artefactos o metadatos",
@@ -37,10 +39,10 @@ const services = [
   {
     title: "OSINT y correlacion de indicios",
     description:
-      "Uso prudente de fuentes abiertas para aportar contexto, relacionar activos y reforzar lineas de analisis sin sobredimensionar conclusiones.",
+      "Uso prudente de fuentes abiertas para aportar contexto y reforzar lineas de analisis sin sobredimensionar conclusiones.",
     items: [
       "Activos abiertos que necesitan contexto",
-      "Relacion entre perfiles, dominios, correos o publicaciones",
+      "Relacion entre perfiles, dominios o publicaciones",
       "Necesidad de documentar hallazgos abiertos con metodo",
     ],
     note: "Contexto abierto, interpretacion prudente",
@@ -48,18 +50,18 @@ const services = [
   {
     title: "Trazabilidad tecnologica",
     description:
-      "Reconstruccion de conexiones y cronologias entre cuentas, dispositivos, comunicaciones, plataformas y otros eventos tecnicos relevantes.",
+      "Reconstruccion de conexiones y cronologias entre cuentas, dispositivos, comunicaciones y otros eventos tecnicos.",
     items: [
       "Necesidad de relacionar elementos heterogeneos",
       "Secuencias temporales incompletas",
-      "Casos donde el contexto tecnico modifica la lectura de los hechos",
+      "Contextos donde el componente tecnico cambia la lectura del caso",
     ],
     note: "Relacionar para entender",
   },
   {
     title: "Documentacion tecnica y pericial",
     description:
-      "Preparacion de informes, anexos y explicaciones estructuradas para que el analisis sea comprensible y util para terceros no tecnicos.",
+      "Preparacion de informes, anexos y explicaciones estructuradas para que el analisis resulte util para terceros.",
     items: [
       "Hallazgos que necesitan una presentacion clara",
       "Necesidad de diferenciar observaciones, interpretaciones y limites",
@@ -69,10 +71,33 @@ const services = [
   },
 ];
 
+const supportContent = [
+  {
+    type: "Articulo base",
+    title: "Valor documental de la evidencia digital",
+    description:
+      "Pieza recomendada para entender por que contexto, integridad y trazabilidad condicionan la utilidad de una evidencia.",
+    meta: "Recurso de autoridad",
+    href: "/recursos/articulos/valor-documental-evidencia-digital",
+    cta: "Leer articulo",
+    tags: ["Contexto", "Integridad", "Evidencia digital"],
+  },
+  {
+    type: "Guia tecnica",
+    title: "Revision tecnica de evidencia digital: alcance y limites",
+    description:
+      "Recurso pensado para alinear expectativas antes de solicitar una revision y reforzar la percepcion de servicio especializado.",
+    meta: "Recurso orientado a conversion",
+    href: "/recursos/guias/revision-tecnica-evidencia-digital",
+    cta: "Leer guia",
+    tags: ["Alcance", "Limites", "Revision tecnica"],
+  },
+];
+
 export const metadata: Metadata = {
-  title: "Servicios de investigacion digital, forense y documentacion tecnica",
+  title: "Servicios de investigacion digital, analisis forense y documentacion tecnica",
   description:
-    "Lineas de trabajo orientadas a investigacion digital, analisis forense, OSINT, trazabilidad tecnologica y documentacion tecnica.",
+    "Servicios orientados a investigacion digital, analisis forense, OSINT con limites, trazabilidad tecnologica y documentacion tecnica.",
 };
 
 export default function ServicesPage() {
@@ -80,26 +105,26 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Servicios"
-        title="Servicios presentados con una presencia mas cercana a un despacho tecnico de alto nivel"
-        subtitle="La propuesta se organiza por necesidades reales de analisis, correlacion y documentacion, con una presentacion mas solida, mas visual y mas convincente."
+        title="Servicios tecnicos para casos donde la evidencia digital necesita orden, lectura y salida documental"
+        subtitle="La propuesta se organiza por necesidades reales de analisis, correlacion y documentacion, con una presentacion mas cercana a una firma tecnica que a un listado generico de servicios."
         primaryAction={{ href: "/contacto", label: "Solicitar orientacion inicial" }}
-        secondaryAction={{ href: "/metodologia", label: "Ver metodologia" }}
+        secondaryAction={{ href: "/recursos", label: "Ver recursos" }}
         stats={[
-          { value: "5", label: "Areas nucleares de servicio" },
-          { value: "Claro", label: "Alcance definido desde la primera lectura" },
-          { value: "Pro", label: "Presencia comercial de alto nivel" },
+          { value: "5", label: "Areas nucleares de trabajo" },
+          { value: "Real", label: "Biblioteca editorial ya integrada" },
+          { value: "Claro", label: "Alcance y limites visibles" },
         ]}
         notes={[
-          "Presentacion orientada a confianza y criterio tecnico.",
-          "Despacho, tecnologia y documentacion integrados en un mismo lenguaje visual.",
+          "Presentacion orientada a confianza, criterio tecnico y conversion cualificada.",
+          "El sitio ya permite leer recursos antes de pasar al contacto.",
         ]}
         visual={
           <ImagePanel
             src="/images/lot-01/services-hero.svg"
-            alt="Entorno profesional de analisis digital y documentacion tecnica"
+            alt="Entorno profesional de analisis digital, documentacion y servicios tecnicos"
             eyebrow="Revision tecnica"
-            title="Despacho, herramientas y analisis presentados como una oferta de nivel"
-            description="Una composicion orientada a transmitir orden, lectura tecnica y capacidad de documentacion desde la primera visita."
+            title="Despacho, herramientas y analisis presentados como una oferta seria y visible"
+            description="La pagina de servicios ya no actua sola: se apoya en metodologia clara, recursos publicos y una entrada comercial mejor filtrada."
             tags={["Servicios", "Despacho", "Analisis"]}
             priority
           />
@@ -112,19 +137,26 @@ export default function ServicesPage() {
             <Eyebrow>Alcance</Eyebrow>
             <SectionHeading
               title="Una oferta pensada para explicar bien lo que si encaja"
-              description="La pagina de servicios debe funcionar como una herramienta comercial sobria: orientar mejor, elevar la percepcion de nivel y filtrar expectativas impropias sin sonar defensiva."
+              description="La pagina de servicios debe orientar mejor, elevar la percepcion de nivel y filtrar expectativas impropias sin sonar defensiva ni abstracta."
             />
             <div className="mt-8">
-              <TagList items={["Analisis con criterio", "Documentacion util", "Tono profesional"]} />
+              <TagList
+                items={[
+                  "Analisis con criterio",
+                  "Documentacion util",
+                  "Alcance claro",
+                  "Consulta cualificada",
+                ]}
+              />
             </div>
           </div>
           <SurfaceCard
             title="Una oferta que se percibe madura desde el primer vistazo"
-            description="La pagina de servicios debe comunicar nivel tecnico, claridad de alcance y una forma de trabajo reconocible sin depender de reclamos grandilocuentes."
+            description="La combinacion de servicios, recursos y metodologia hace que la pagina se lea como una propuesta profesional completa y no como una promesa sin prueba publica."
           >
             <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
-              <p>La presencia comercial se apoya en jerarquia, tono y estructura, no en dramatizacion visual.</p>
-              <p>Eso hace que cada servicio se lea como una capacidad profesional real y no como una promesa abstracta.</p>
+              <p>La presencia comercial se apoya en estructura, criterio y enlaces internos que ayudan a profundizar antes del contacto.</p>
+              <p>Eso mejora la confianza y hace que el visitante entienda mejor para que tipo de necesidad esta pensada la propuesta.</p>
             </div>
           </SurfaceCard>
         </Container>
@@ -134,7 +166,7 @@ export default function ServicesPage() {
         <Container>
           <SectionHeading
             title="Lineas de trabajo principales"
-            description="Cada bloque esta pensado para leerse como un servicio de nivel, no como una ficha tecnica suelta."
+            description="Cada bloque esta pensado para leerse como una capacidad profesional real, con encaje, alcance y salida utiles."
             align="center"
           />
           <div className="mt-10 grid gap-4 lg:grid-cols-2">
@@ -160,26 +192,27 @@ export default function ServicesPage() {
           <div>
             <Eyebrow>Encaje</Eyebrow>
             <SectionHeading
-              title="Cuando esta propuesta tiene sentido"
-              description="La pagina gana fuerza cuando muestra con claridad para que tipo de necesidad esta pensada y que clase de cliente o caso se beneficia mas de este enfoque."
+              title="Cuando esta propuesta tiene mas sentido"
+              description="La pagina gana fuerza cuando muestra para que tipo de necesidad esta pensada y que clase de caso se beneficia mas de este enfoque."
             />
-            <div className="mt-8">
-              <TagList
-                items={[
-                  "Casos con evidencia digital",
-                  "Casos con necesidad de cronologia",
-                  "Casos con necesidad de informe claro",
-                ]}
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <SurfaceCard
+                title="Encaja mejor cuando"
+                description="Existe material digital ya disponible, necesidad de orden, dudas sobre relaciones o necesidad de una salida documental legible."
+              />
+              <SurfaceCard
+                title="Conviene frenar cuando"
+                description="La expectativa es una certeza automatica, una atribucion garantizada o una peticion planteada fuera de un marco tecnico y prudente."
               />
             </div>
           </div>
 
           <ImagePanel
             src="/images/services/services-detail.svg"
-            alt="Mesa de trabajo con informe tecnico, monitor y herramientas de revision"
+            alt="Mesa de trabajo con informe tecnico, monitor y herramientas de revision profesional"
             eyebrow="Entorno de caso"
-            title="Servicio presentado con mesa de trabajo, lectura tecnica y documentacion clara"
-            description="Una escena sobria que acompana la explicacion de alcance y refuerza la confianza comercial sin excesos."
+            title="Mesa de trabajo, lectura tecnica y documentacion clara dentro de una misma escena"
+            description="La presencia visual acompana la explicacion de alcance y refuerza la confianza comercial sin dramatizacion ni exceso."
             tags={["Despacho", "Analisis", "Informe"]}
             aspect="landscape"
           />
@@ -187,22 +220,28 @@ export default function ServicesPage() {
       </Section>
 
       <Section tint="soft">
-        <Container className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
-          <SurfaceCard
-            title="Limites de alcance"
-            description="La web no ofrece accesos a cuentas, recuperaciones invasivas sobre terceros ni servicios planteados desde logicas opacas o agresivas. El marco de trabajo es tecnico, documental y prudente."
-          >
-            <p className="text-sm font-medium text-[var(--color-accent-strong)]">
-              Alcance definido desde el inicio.
-            </p>
-          </SurfaceCard>
-
-          <SurfaceCard
-            title="Presencia comercial sin ruido"
-            description="Una presentacion clara y serena permite percibir mejor el nivel tecnico, el alcance y la forma de trabajo."
-          >
-            <TagList items={["Mas jerarquia", "Mas presencia", "Mismo criterio tecnico"]} />
-          </SurfaceCard>
+        <Container className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
+          <div>
+            <Eyebrow>Antes de contactar</Eyebrow>
+            <SectionHeading
+              title="La biblioteca editorial ya ayuda a filtrar mejor la consulta"
+              description="Antes de pasar al contacto, el visitante puede leer piezas que aclaran valor documental, preservacion y alcance de una revision tecnica."
+            />
+          </div>
+          <div className="grid gap-4">
+            {supportContent.map((item) => (
+              <ContentLinkCard
+                key={item.title}
+                type={item.type}
+                title={item.title}
+                description={item.description}
+                meta={item.meta}
+                href={item.href}
+                cta={item.cta}
+                tags={item.tags}
+              />
+            ))}
+          </div>
         </Container>
       </Section>
 
@@ -218,17 +257,17 @@ export default function ServicesPage() {
           />
           <SurfaceCard
             title="Salida util"
-            description="El resultado debe poder traducirse a un informe, una nota tecnica o una estructura clara que sirva para decidir mejor."
+            description="El resultado debe poder traducirse a un informe, una nota tecnica o una estructura clara que ayude a decidir mejor."
           />
         </Container>
       </Section>
 
       <ActionBanner
-        title="Si la necesidad encaja, el siguiente paso es concretar el contexto con una presentacion clara"
-        description="Una consulta inicial util debe indicar que tipo de problema existe, que fuentes o materiales hay disponibles y que objetivo documental o tecnico se busca."
+        title="Si la necesidad encaja, el siguiente paso es presentar el contexto con materiales, objetivo y punto de partida"
+        description="Una consulta inicial util debe indicar que tipo de problema existe, que fuentes o materiales hay disponibles y que salida tecnica o documental se busca."
         primaryAction={{ href: "/contacto", label: "Solicitar orientacion inicial" }}
-        secondaryAction={{ href: "/metodologia", label: "Ver metodologia" }}
-        note="La pagina de servicios funciona como una puerta de entrada clara, seria y cualificada."
+        secondaryAction={{ href: "/recursos", label: "Ver recursos" }}
+        note="La pagina de servicios ya funciona como una puerta de entrada clara, seria y conectada con contenido real."
         highlights={[
           "Menos ambiguedad sobre lo que si encaja.",
           "Mejor percepcion de servicio especializado y de alto nivel.",

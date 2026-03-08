@@ -402,3 +402,74 @@ export function ActionBanner({
     </Section>
   );
 }
+
+export function EditorialMetaStrip({
+  items,
+}: {
+  items: { label: string; value: string }[];
+}) {
+  return (
+    <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+      {items.map((item) => (
+        <div
+          key={item.label}
+          className="rounded-[1.35rem] border border-[var(--color-border)] bg-[rgba(255,255,255,0.72)] px-4 py-4 shadow-[var(--shadow-soft)]"
+        >
+          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-[var(--color-muted)]">
+            {item.label}
+          </p>
+          <p className="mt-2 text-sm leading-6 text-[var(--color-text)]">{item.value}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export function ProseCard({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <article className={`premium-shell rounded-[2rem] p-6 md:p-8 lg:p-10 ${className}`}>
+      <div className="article-prose">{children}</div>
+    </article>
+  );
+}
+
+export function ContentLinkCard({
+  type,
+  title,
+  description,
+  meta,
+  href,
+  cta,
+  tags = [],
+  className = "",
+}: {
+  type: string;
+  title: string;
+  description: string;
+  meta?: string;
+  href: string;
+  cta: string;
+  tags?: string[];
+  className?: string;
+}) {
+  return (
+    <SurfaceCard title={title} description={description} className={className}>
+      <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
+        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-strong)]">
+          {type}
+        </p>
+        {meta ? <p>{meta}</p> : null}
+      </div>
+      {tags.length ? <TagList items={tags} /> : null}
+      <div className="pt-1">
+        <ButtonLink href={href} label={cta} variant="secondary" />
+      </div>
+    </SurfaceCard>
+  );
+}

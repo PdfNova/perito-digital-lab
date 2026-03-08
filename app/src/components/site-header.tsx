@@ -20,11 +20,19 @@ export function SiteHeader() {
                 Perito Digital Lab
               </p>
               <p className="mt-1 text-[1.04rem] font-medium text-[var(--color-text)]">
-                Investigacion digital y documentacion tecnica
+                Investigacion digital, evidencia y documentacion tecnica
               </p>
             </Link>
 
-            <ButtonLink href="/contacto" label="Orientacion inicial" variant="secondary" />
+            <div className="flex flex-wrap items-center gap-3">
+              <Link
+                href="/recursos"
+                className="hidden rounded-full border border-[var(--color-border)] bg-[rgba(255,255,255,0.58)] px-3.5 py-2.5 text-sm font-medium text-[var(--color-muted)] transition hover:border-[var(--color-border-strong)] hover:bg-white/84 hover:text-[var(--color-text)] md:inline-flex"
+              >
+                Leer recursos
+              </Link>
+              <ButtonLink href="/contacto" label="Orientacion inicial" variant="secondary" />
+            </div>
           </div>
 
           <nav className="mt-5 flex gap-2 overflow-x-auto pb-1 text-sm text-[var(--color-muted)]">

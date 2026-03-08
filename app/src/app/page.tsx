@@ -3,6 +3,7 @@ import Link from "next/link";
 import {
   ActionBanner,
   Container,
+  ContentLinkCard,
   Eyebrow,
   ImagePanel,
   PageHero,
@@ -25,19 +26,47 @@ const capabilities = [
       "Revision tecnica de evidencias, preservacion y lectura estructurada de soportes y artefactos.",
   },
   {
-    title: "OSINT y correlacion",
+    title: "OSINT con limites",
     description:
-      "Uso de fuentes abiertas para aportar contexto, relacionar activos y reforzar hipotesis con cautela metodologica.",
+      "Uso de fuentes abiertas para aportar contexto y relacionar activos sin inflar atribuciones.",
   },
   {
     title: "Trazabilidad tecnologica",
     description:
-      "Reconstruccion de secuencias, conexiones y movimientos entre cuentas, dispositivos, comunicaciones y eventos.",
+      "Reconstruccion de secuencias, conexiones y movimientos entre cuentas, dispositivos y eventos.",
+  },
+];
+
+const featuredResources = [
+  {
+    type: "Articulo",
+    title: "Valor documental de la evidencia digital",
+    description:
+      "Pieza base para entender por que contexto, integridad y trazabilidad importan tanto como el hallazgo.",
+    meta: "Lectura estimada: 6 min",
+    href: "/recursos/articulos/valor-documental-evidencia-digital",
+    cta: "Leer articulo",
+    tags: ["Evidencia digital", "Contexto", "Integridad"],
   },
   {
-    title: "Documentacion tecnica/pericial",
+    type: "Video",
+    title: "Que hace util a una evidencia digital y que la debilita",
     description:
-      "Transformacion del analisis en informes, anexos y piezas documentales claras para terceros no tecnicos.",
+      "Episodio editorial que condensa el marco base del proyecto y lo convierte en una pieza grabable y reutilizable.",
+    meta: "Duracion objetivo: 5:30-6:00",
+    href: "/recursos/videos/episodio-01",
+    cta: "Ver episodio",
+    tags: ["Video largo", "Pieza base", "Shorts"],
+  },
+  {
+    type: "Guia tecnica",
+    title: "Revision tecnica de evidencia digital: alcance y limites",
+    description:
+      "Recurso nuevo orientado a explicar que puede aportar una revision tecnica y por que los limites refuerzan su credibilidad.",
+    meta: "Lectura estimada: 7 min",
+    href: "/recursos/guias/revision-tecnica-evidencia-digital",
+    cta: "Leer guia",
+    tags: ["Revision tecnica", "Alcance", "Conversion"],
   },
 ];
 
@@ -49,9 +78,9 @@ const methodology = [
 ];
 
 export const metadata: Metadata = {
-  title: "Investigacion digital, analisis forense y trazabilidad tecnologica",
+  title: "Investigacion digital, evidencia y documentacion tecnica",
   description:
-    "Analisis, correlacion e informe claro para casos donde la evidencia digital necesita orden, contexto y criterio.",
+    "Investigacion digital, analisis forense, trazabilidad y documentacion tecnica para casos donde la evidencia digital necesita orden, contexto y claridad expositiva.",
 };
 
 export default function HomePage() {
@@ -59,27 +88,27 @@ export default function HomePage() {
     <>
       <PageHero
         eyebrow="Investigacion digital / analisis forense / trazabilidad"
-        title="Presencia digital sobria para analisis tecnico, evidencia y documentacion de alto nivel"
-        subtitle="Una web pensada para transmitir criterio, metodo y capacidad de lectura en casos donde la informacion digital necesita orden, contexto y explicacion clara."
+        title="Investigacion digital y documentacion tecnica para casos donde el componente digital exige criterio"
+        subtitle="Una presencia pensada para consultas cualificadas donde la informacion digital necesita orden, lectura metodologica y una salida documental clara."
         primaryAction={{ href: "/contacto", label: "Solicitar orientacion inicial" }}
-        secondaryAction={{ href: "/servicios", label: "Explorar servicios" }}
+        secondaryAction={{ href: "/recursos", label: "Explorar recursos" }}
         stats={[
+          { value: "3", label: "Piezas editoriales ya publicas" },
           { value: "5", label: "Lineas principales de trabajo" },
-          { value: "01", label: "Marco metodologico claro y reusable" },
-          { value: "Web", label: "Base para blog, video y recursos" },
+          { value: "Claro", label: "Proceso y alcance visibles" },
         ]}
         notes={[
           "Enfoque tecnico, discreto y orientado a documentacion.",
-          "Lenguaje visual alineado con despacho tecnico, analisis y documentacion.",
+          "Servicios, metodologia y recursos ya actuan como un mismo sistema de entrada.",
         ]}
         visual={
           <ImagePanel
             src="/images/lot-01/hero-main.svg"
-            alt="Despacho tecnico con pantallas de analisis y documentacion de trabajo"
+            alt="Despacho tecnico con pantallas de analisis, documentos y entorno profesional de trabajo"
             eyebrow="Entorno de analisis"
-            title="Despacho, analisis digital y tecnologia en una misma presencia"
-            description="Una presencia pensada para unir mesa de trabajo, pantallas de revision y materiales de documentacion en una sola escena."
-            tags={["Despacho profesional", "Analisis digital", "Documentacion"]}
+            title="Despacho, analisis digital y documentacion reunidos bajo una misma logica de trabajo"
+            description="La web ya no se limita a presentar servicios: muestra metodo, recursos reales y una capa editorial que ayuda a entender mejor cada necesidad."
+            tags={["Despacho profesional", "Analisis digital", "Biblioteca editorial"]}
             priority
           />
         }
@@ -90,28 +119,28 @@ export default function HomePage() {
           <div>
             <Eyebrow>Posicionamiento</Eyebrow>
             <SectionHeading
-              title="Una marca pensada para casos donde el ruido tecnico exige criterio"
-              description="El proyecto combina investigacion digital, analisis forense, OSINT, trazabilidad y documentacion pericial con una presencia mas cercana a un despacho tecnico de confianza que a una web generica de servicios."
+              title="Una firma tecnica para leer mejor evidencia digital, trazabilidad y alcance documental"
+              description="El proyecto combina investigacion digital, analisis forense, OSINT con limites, trazabilidad y documentacion tecnica con una presencia mas cercana a un despacho de criterio que a una web generica de servicios."
             />
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <SurfaceCard
                 title="Autoridad sin exhibicion"
-                description="La credibilidad se apoya en estructura, metodo y claridad expositiva, no en reclamos agresivos ni en esteticas de confrontacion."
+                description="La credibilidad se apoya en estructura, metodo, piezas publicas y claridad expositiva, no en reclamos agresivos."
               />
               <SurfaceCard
-                title="Tecnologia con contexto"
-                description="El lenguaje visual y verbal se orienta a despacho, analisis y documentacion, no a simbolos oscuros o imagineria de hacking."
+                title="Contenido que ya trabaja"
+                description="La biblioteca editorial ayuda a construir confianza, mejora el encaje de la consulta y hace que la web se perciba viva."
               />
             </div>
           </div>
 
           <ImagePanel
             src="/images/hero/hero-signature.svg"
-            alt="Mesa de trabajo con documentacion tecnica y monitor de revision"
+            alt="Mesa de trabajo con documentacion tecnica, pantalla principal y materiales de analisis"
             eyebrow="Presencia de firma"
-            title="Despacho tecnico y entorno de analisis"
-            description="Una composicion sobria que combina superficie de trabajo, pantalla principal y piezas documentales con criterio editorial."
-            tags={["Mesa de trabajo", "Pantallas", "Documentacion"]}
+            title="Una presencia de despacho tecnico, no una simple portada de servicios"
+            description="La capa visual y editorial acompana un posicionamiento mas serio: analisis, metodo, piezas publicas y conversion cualificada."
+            tags={["Mesa de trabajo", "Pantallas", "Metodo"]}
             aspect="landscape"
           />
         </Container>
@@ -121,7 +150,7 @@ export default function HomePage() {
         <Container>
           <SectionHeading
             title="Cuando el componente digital complica la lectura del caso"
-            description="La web se orienta a situaciones donde el problema no es solo encontrar informacion, sino darle forma, secuencia y utilidad documental."
+            description="La propuesta se orienta a situaciones donde el problema no es solo encontrar informacion, sino darle forma, secuencia y utilidad documental."
             align="center"
           />
           <div className="mt-10 grid gap-4 md:grid-cols-3">
@@ -133,28 +162,31 @@ export default function HomePage() {
             <StatCard
               value="02"
               label="Cronologias incompletas"
-              description="Secuencias que requieren contexto tecnico para entender relaciones, tiempos y valor probatorio."
+              description="Secuencias que requieren contexto tecnico para entender relaciones, tiempos y valor documental."
             />
             <StatCard
               value="03"
-              label="Hallazgos que deben explicarse"
-              description="Resultados tecnicos que necesitan traducirse a una pieza clara para decisores y terceros no tecnicos."
+              label="Necesidad de informe claro"
+              description="Hallazgos que deben traducirse a una salida comprensible para decisores y terceros no tecnicos."
             />
           </div>
         </Container>
       </Section>
 
       <Section>
-        <Container className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <Container className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
           <div>
             <Eyebrow>Capacidades</Eyebrow>
             <SectionHeading
               title="Servicios pensados para aportar orden, trazabilidad y salida documental"
-              description="La propuesta une analisis tecnico y estructura expositiva para que los hallazgos no solo existan, sino que puedan leerse con claridad."
+              description="La propuesta une analisis tecnico y estructura expositiva para que los hallazgos no solo existan, sino que puedan sostenerse y explicarse."
             />
-            <div className="mt-8">
+            <div className="mt-8 grid gap-3">
               <Link className="inline-link" href="/servicios">
                 Explorar servicios
+              </Link>
+              <Link className="inline-link" href="/metodologia">
+                Ver metodologia
               </Link>
             </div>
           </div>
@@ -163,17 +195,48 @@ export default function HomePage() {
               <SurfaceCard key={item.title} title={item.title} description={item.description} />
             ))}
             <SurfaceCard
-              title="Entorno de trabajo visible"
-              description="La propuesta comercial gana fuerza cuando el sitio muestra un entorno serio de revision, lectura y documentacion sin apoyarse en reclamos grandilocuentes."
+              title="Lectura, metodo y documentacion bajo una misma propuesta"
+              description="La capa comercial gana fuerza cuando la web deja ver que existe un sistema completo: servicios, piezas publicas, metodologia visible y un punto de contacto mejor filtrado."
               className="md:col-span-2"
             >
-              <TagList items={["Despacho tecnico", "Revision estructurada", "Criterio documental"]} />
+              <TagList
+                items={[
+                  "Despacho tecnico",
+                  "Revision estructurada",
+                  "Biblioteca editorial",
+                  "Consulta cualificada",
+                ]}
+              />
             </SurfaceCard>
           </div>
         </Container>
       </Section>
 
       <Section tint="soft">
+        <Container>
+          <SectionHeading
+            title="El sitio ya tiene contenido que puede leerse y reutilizarse"
+            description="La home ya no apunta a una biblioteca futura. Destaca piezas reales que ayudan a entender mejor el enfoque antes de pasar a servicios o contacto."
+            align="center"
+          />
+          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            {featuredResources.map((resource) => (
+              <ContentLinkCard
+                key={resource.title}
+                type={resource.type}
+                title={resource.title}
+                description={resource.description}
+                meta={resource.meta}
+                href={resource.href}
+                cta={resource.cta}
+                tags={resource.tags}
+              />
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section>
         <Container className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
           <div>
             <Eyebrow>Metodologia</Eyebrow>
@@ -203,16 +266,16 @@ export default function HomePage() {
           <div className="grid gap-4">
             <ImagePanel
               src="/images/methodology/methodology-process.svg"
-              alt="Cronologia tecnica y estructura metodologica en pantalla"
+              alt="Cronologia tecnica, notas metodologicas y estructura de proceso en pantalla"
               eyebrow="Secuencia de trabajo"
-              title="Cronologias, diagramas y flujo de trabajo en una misma lectura"
-              description="Una manera de mostrar orden, lectura de tiempos y estructura de trabajo sin recurrir a artificios."
+              title="Cronologias, criterios y salida documental dentro de un mismo proceso visible"
+              description="Mostrar bien el proceso filtra mejor la consulta, reduce ruido comercial y refuerza la percepcion de servicio especializado."
               tags={["Cronologia", "Proceso", "Analisis"]}
               aspect="landscape"
             />
             <SurfaceCard
-              title="Metodo como elemento comercial"
-              description="Mostrar bien el proceso aumenta confianza, filtra mejor las consultas y posiciona la marca como una propuesta tecnica de mayor nivel."
+              title="Metodo como ventaja visible"
+              description="La combinacion de proceso claro y contenido publico hace que la home se perciba mas cercana a una firma real y menos a una presentacion estatica."
             >
               <Link className="inline-link" href="/metodologia">
                 Ver metodologia completa
@@ -222,70 +285,15 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section>
-        <Container className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
-          <div className="grid gap-4">
-            <SurfaceCard
-              title="Recursos orientados a reforzar autoridad"
-              description="La capa editorial de la web se apoya en articulos, guias y videos que pueden convivir con una identidad visual mas fuerte y mas convincente."
-            >
-              <TagList items={["Articulos", "Guias", "Videos", "Recursos"]} />
-              <Link className="inline-link" href="/recursos">
-                Ver biblioteca editorial
-              </Link>
-            </SurfaceCard>
-            <SurfaceCard
-              title="Presencia editorial coherente"
-              description="La capa de contenidos puede crecer con articulos, piezas audiovisuales y materiales de consulta sin romper el tono de firma tecnica."
-            >
-              <TagList items={["Blog", "Video faceless", "Guias utiles"]} />
-            </SurfaceCard>
-          </div>
-
-          <div className="grid gap-4">
-            <SurfaceCard
-              title="Limites claros, presencia mas fuerte"
-              description="Una estetica mas premium no cambia el posicionamiento: el proyecto sigue evitando tono invasivo, promesas impropias y lenguaje agresivo."
-            >
-              <TagList
-                items={[
-                  "Sin reclamos exagerados",
-                  "Sin imagineria hacker",
-                  "Con criterio tecnico visible",
-                ]}
-              />
-            </SurfaceCard>
-            <SurfaceCard
-              title="Imagen con criterio editorial"
-              description="El sistema visual ya admite escenas de despacho, pantallas, herramientas y materiales de trabajo sin perder sobriedad ni coherencia."
-            >
-              <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
-                <p>
-                  La arquitectura visual ya contempla hero photography, stills de escritorio y
-                  composiciones editoriales.
-                </p>
-                <p>La imagen acompana el posicionamiento del sitio y refuerza una presencia de firma mas consistente.</p>
-              </div>
-            </SurfaceCard>
-            <SurfaceCard
-              title="Una consulta bien filtrada ahorra tiempo desde el inicio"
-              description="La home debe ayudar a que llegue mejor contexto, menos ruido y una expectativa mas razonable sobre el alcance del trabajo."
-            >
-              <TagList items={["Mejor encaje", "Mas claridad inicial", "Menos friccion comercial"]} />
-            </SurfaceCard>
-          </div>
-        </Container>
-      </Section>
-
       <ActionBanner
         title="Si el caso requiere claridad tecnica, el siguiente paso es acotar el contexto con una consulta bien planteada"
-        description="Una primera toma de contacto util debe indicar que problema existe, que materiales hay disponibles y que salida tecnica o documental se espera obtener."
+        description="La mejor entrada no es un mensaje largo ni una promesa inflada. Es una consulta con objetivo claro, materiales identificados y una expectativa razonable sobre la salida tecnica o documental."
         primaryAction={{ href: "/contacto", label: "Solicitar orientacion inicial" }}
-        secondaryAction={{ href: "/metodologia", label: "Ver metodologia" }}
-        note="La conversion mejora cuando la web filtra mejor y transmite nivel sin exageracion."
+        secondaryAction={{ href: "/recursos", label: "Explorar recursos" }}
+        note="El sitio ya combina servicios, metodologia y contenido publico para mejorar la calidad del primer intercambio."
         highlights={[
           "Consultas mejor formuladas desde el primer mensaje.",
-          "Mas claridad sobre alcance, limites y siguiente paso razonable.",
+          "Contenido real que ayuda a decidir mejor antes de contactar.",
         ]}
       />
     </>
