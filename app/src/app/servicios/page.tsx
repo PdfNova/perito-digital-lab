@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import {
   ActionBanner,
   Container,
+  Eyebrow,
   PageHero,
   Section,
   SectionHeading,
   SurfaceCard,
   TagList,
+  VisualPlaceholder,
 } from "@/components/ui";
 
 const services = [
@@ -78,39 +80,73 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Servicios"
-        title="Servicios orientados a analizar, correlacionar y documentar hechos digitales"
-        subtitle="La propuesta se organiza por necesidades reales de analisis y documentacion, no por herramientas ni promesas ambiguas."
+        title="Servicios presentados con una presencia mas cercana a un despacho tecnico de alto nivel"
+        subtitle="La propuesta se organiza por necesidades reales de analisis, correlacion y documentacion, con una presentacion mas solida, mas visual y mas convincente."
         primaryAction={{ href: "/contacto", label: "Contactar con contexto inicial" }}
         secondaryAction={{ href: "/metodologia", label: "Ver metodologia" }}
-        notes={["Alcance definido.", "Lenguaje claro.", "Limites explicitos."]}
+        stats={[
+          { value: "5", label: "Areas nucleares de servicio" },
+          { value: "Claro", label: "Alcance definido desde la primera lectura" },
+          { value: "Pro", label: "Presencia comercial de alto nivel" },
+        ]}
+        notes={[
+          "Presentacion orientada a confianza y criterio tecnico.",
+          "Despacho, tecnologia y documentacion integrados en un mismo lenguaje visual.",
+        ]}
+        visual={
+          <VisualPlaceholder
+            label="Revision tecnica"
+            title="Despacho, herramientas y analisis presentados como una oferta de nivel"
+            caption="Una composicion orientada a transmitir orden, lectura tecnica y capacidad de documentacion desde la primera visita."
+            tags={["Servicios", "Despacho", "Analisis"]}
+            variant="briefing"
+          />
+        }
       />
 
       <Section>
-        <Container>
-          <SectionHeading
-            title="Que puede aportar esta linea de trabajo"
-            description="La web presenta servicios para casos donde hace falta ordenar evidencia digital, reconstruir secuencias, correlacionar indicios o traducir hallazgos tecnicos a una base documental comprensible."
-          />
-          <div className="mt-6">
-            <TagList items={["Analisis con criterio", "Documentacion util"]} />
+        <Container className="grid gap-8 lg:grid-cols-[0.94fr_1.06fr] lg:items-start">
+          <div>
+            <Eyebrow>Alcance</Eyebrow>
+            <SectionHeading
+              title="Una oferta pensada para explicar bien lo que si encaja"
+              description="La pagina de servicios debe funcionar como una herramienta comercial sobria: orientar mejor, elevar la percepcion de nivel y filtrar expectativas impropias sin sonar defensiva."
+            />
+            <div className="mt-8">
+              <TagList items={["Analisis con criterio", "Documentacion util", "Tono profesional"]} />
+            </div>
           </div>
+          <SurfaceCard
+            title="Una oferta que se percibe madura desde el primer vistazo"
+            description="La pagina de servicios debe comunicar nivel tecnico, claridad de alcance y una forma de trabajo reconocible sin depender de reclamos grandilocuentes."
+          >
+            <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
+              <p>La presencia comercial se apoya en jerarquia, tono y estructura, no en dramatizacion visual.</p>
+              <p>Eso hace que cada servicio se lea como una capacidad profesional real y no como una promesa abstracta.</p>
+            </div>
+          </SurfaceCard>
         </Container>
       </Section>
 
       <Section tint="soft">
         <Container>
-          <div className="grid gap-4">
+          <SectionHeading
+            title="Lineas de trabajo principales"
+            description="Cada bloque esta pensado para leerse como un servicio de nivel, no como una ficha tecnica suelta."
+            align="center"
+          />
+          <div className="mt-10 grid gap-4 lg:grid-cols-2">
             {services.map((service) => (
               <SurfaceCard key={service.title} title={service.title} description={service.description}>
-                <ul className="mt-5 space-y-2 text-sm text-[var(--color-muted)]">
+                <ul className="space-y-2 text-sm leading-7 text-[var(--color-muted)]">
                   {service.items.map((item) => (
                     <li key={item} className="flex gap-3">
-                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]" />
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--color-accent-strong)]" />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
-                <p className="mt-5 text-sm font-medium text-[var(--color-accent)]">{service.note}</p>
+                <p className="text-sm font-medium text-[var(--color-accent-strong)]">{service.note}</p>
               </SurfaceCard>
             ))}
           </div>
@@ -118,42 +154,61 @@ export default function ServicesPage() {
       </Section>
 
       <Section>
-        <Container className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-start">
+        <Container className="grid gap-8 lg:grid-cols-[1fr_0.96fr] lg:items-start">
           <div>
+            <Eyebrow>Encaje</Eyebrow>
             <SectionHeading
               title="Cuando esta propuesta tiene sentido"
-              description="Encaja especialmente cuando el caso requiere contexto tecnico, prudencia metodologica y una salida documental clara. No esta pensada para solicitudes imprecisas, invasivas o apoyadas en expectativas impropias."
+              description="La pagina gana fuerza cuando muestra con claridad para que tipo de necesidad esta pensada y que clase de cliente o caso se beneficia mas de este enfoque."
             />
+            <div className="mt-8">
+              <TagList
+                items={[
+                  "Casos con evidencia digital",
+                  "Casos con necesidad de cronologia",
+                  "Casos con necesidad de informe claro",
+                ]}
+              />
+            </div>
           </div>
-          <TagList
-            items={[
-              "Casos con evidencia digital",
-              "Casos con necesidad de cronologia",
-              "Casos con necesidad de informe claro",
-            ]}
+
+          <VisualPlaceholder
+            label="Entorno de caso"
+            title="Servicio presentado con mesa de trabajo, lectura tecnica y documentacion clara"
+            caption="Una escena sobria que acompana la explicacion de alcance y refuerza la confianza comercial sin excesos."
+            tags={["Despacho", "Analisis", "Informe"]}
+            className="min-h-[24rem]"
+            variant="studio"
           />
         </Container>
       </Section>
 
       <Section tint="soft">
-        <Container>
+        <Container className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
           <SurfaceCard
             title="Limites de alcance"
             description="La web no ofrece accesos a cuentas, recuperaciones invasivas sobre terceros ni servicios planteados desde logicas opacas o agresivas. El marco de trabajo es tecnico, documental y prudente."
           >
-            <p className="mt-4 text-sm font-medium text-[var(--color-accent)]">
+            <p className="text-sm font-medium text-[var(--color-accent-strong)]">
               Alcance definido desde el inicio.
             </p>
+          </SurfaceCard>
+
+          <SurfaceCard
+            title="Presencia comercial sin ruido"
+            description="Una presentacion clara y serena permite percibir mejor el nivel tecnico, el alcance y la forma de trabajo."
+          >
+            <TagList items={["Mas jerarquia", "Mas presencia", "Mismo criterio tecnico"]} />
           </SurfaceCard>
         </Container>
       </Section>
 
       <ActionBanner
-        title="Si la necesidad encaja, el siguiente paso es concretar el contexto"
+        title="Si la necesidad encaja, el siguiente paso es concretar el contexto con una presentacion clara"
         description="Una consulta inicial util debe indicar que tipo de problema existe, que fuentes o materiales hay disponibles y que objetivo documental o tecnico se busca."
         primaryAction={{ href: "/contacto", label: "Contactar con contexto inicial" }}
         secondaryAction={{ href: "/metodologia", label: "Ver metodologia" }}
-        note="Mejor contexto, mejor punto de partida."
+        note="La pagina de servicios funciona como una puerta de entrada clara, seria y cualificada."
       />
     </>
   );

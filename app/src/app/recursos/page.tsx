@@ -3,11 +3,13 @@ import Link from "next/link";
 import {
   ActionBanner,
   Container,
+  Eyebrow,
   PageHero,
   Section,
   SectionHeading,
   SurfaceCard,
   TagList,
+  VisualPlaceholder,
 } from "@/components/ui";
 
 const pillars = [
@@ -49,30 +51,49 @@ export default function ResourcesPage() {
     <>
       <PageHero
         eyebrow="Recursos"
-        title="Recursos tecnicos para entender mejor evidencia, contexto y documentacion"
-        subtitle="Contenido pensado para aportar criterio, aclarar conceptos y preparar mejor una consulta cuando el caso tiene componente digital."
+        title="Una biblioteca editorial preparada para verse como parte de una marca tecnica seria"
+        subtitle="La seccion de recursos debe reforzar autoridad, invitar a explorar y quedar lista para convivir con articulos, video y fotografia editorial de calidad."
         primaryAction={{ href: "#biblioteca", label: "Explorar recursos" }}
-        secondaryAction={{ href: "/servicios", label: "Ver servicios" }}
-        notes={["Contenido util.", "Tono sobrio.", "Enfoque reutilizable y anonimo."]}
+        secondaryAction={{ href: "/contacto", label: "Contactar" }}
+        stats={[
+          { value: "5", label: "Pilares editoriales principales" },
+          { value: "Blog", label: "Preparado para piezas de autoridad" },
+          { value: "Video", label: "Conectado con una capa audiovisual futura" },
+        ]}
+        notes={[
+          "La biblioteca debe sentirse curada, no improvisada.",
+          "El sistema visual ya admite imagen editorial y stills de desk setup.",
+        ]}
+        visual={
+          <VisualPlaceholder
+            label="Placeholder editorial principal"
+            title="Biblioteca tecnica, video faceless y fotografia de workspace"
+            caption="Espacio reservado para sustituirse despues por composicion editorial, escritorio, libreta tecnica o still de pantalla."
+            tags={["Recursos", "Editorial", "Workspace"]}
+          />
+        }
       />
 
       <Section>
-        <Container className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-start">
+        <Container className="grid gap-8 lg:grid-cols-[0.98fr_1.02fr] lg:items-start">
           <div>
+            <Eyebrow>Biblioteca</Eyebrow>
             <SectionHeading
-              title="Una biblioteca tecnica pensada para aportar claridad"
-              description="Esta seccion reunira contenido breve y de profundidad media sobre evidencia digital, preservacion, OSINT, trazabilidad e informes. Su funcion es explicar mejor el marco de trabajo y reducir dudas frecuentes."
+              title="Una seccion de recursos que ya transmite curaduria"
+              description="Aunque el archivo editorial todavia este en crecimiento, esta area debe percibirse como una biblioteca tecnica cuidada y en expansion."
             />
           </div>
           <SurfaceCard
             title="Piezas recomendadas para empezar"
-            description="Una seleccion inicial puede ayudar a entender como se organiza un caso digital, que errores conviene evitar y por que la documentacion importa tanto como el analisis."
+            description="La home editorial puede destacar una seleccion breve para entrar en materia sin perder tono profesional ni caer en una estetica de blog generico."
           >
             <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
-              <p>Recorridos breves para entrar en materia sin perder contexto tecnico.</p>
-              <p>Contenidos pensados para preparar mejor una conversacion o un caso.</p>
+              <p>Recorridos breves sobre preservacion, contexto y lectura prudente de indicios.</p>
+              <p>Material preparado para conectar con la capa de video faceless y con futuras guias de descarga.</p>
             </div>
-            <p className="text-sm font-medium text-[var(--color-accent)]">Empezar por lo esencial.</p>
+            <p className="text-sm font-medium text-[var(--color-accent-strong)]">
+              Empezar por lo esencial.
+            </p>
           </SurfaceCard>
         </Container>
       </Section>
@@ -81,19 +102,25 @@ export default function ResourcesPage() {
         <Container id="biblioteca">
           <SectionHeading
             title="Lineas editoriales principales"
-            description="El contenido se agrupa en pilares que permiten recorrer el proyecto desde distintos intereses o necesidades."
+            description="Cada pilar se presenta como una categoria editorial fuerte, lista para crecer con piezas visuales, stills de apoyo y contenidos derivados."
+            align="center"
           />
-          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {pillars.map((pillar) => (
-              <SurfaceCard
-                key={pillar.title}
-                title={pillar.title}
-                description={pillar.description}
-              />
+              <SurfaceCard key={pillar.title} title={pillar.title} description={pillar.description} />
             ))}
+            <VisualPlaceholder
+              label="Placeholder para featured post"
+              title="Bloque preparado para articulo destacado o pieza audiovisual principal"
+              caption="Puede sustituirse por miniatura editorial o fotografia real sin rehacer la maqueta."
+              tags={["Featured", "Articulo", "Video"]}
+              className="md:col-span-2 xl:col-span-1 min-h-[23rem]"
+            />
           </div>
-          <div className="mt-8 flex items-center justify-between gap-4 border-t border-[var(--color-border)] pt-5">
-            <span className="text-sm font-medium text-[var(--color-accent)]">Explorar por tema</span>
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[var(--color-border)] pt-6">
+            <span className="text-sm font-medium text-[var(--color-accent-strong)]">
+              Explorar por tema
+            </span>
             <Link className="inline-link" href="/contacto">
               Plantear una consulta
             </Link>
@@ -102,40 +129,39 @@ export default function ResourcesPage() {
       </Section>
 
       <Section>
-        <Container className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
-          <div>
-            <SectionHeading
-              title="Formatos de contenido"
-              description="La primera version puede incluir articulos breves, guias descargables o resumibles, glosarios y piezas audiovisuales de explicacion tipo pizarra con voz y subtitulos."
-            />
-          </div>
+        <Container className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
           <SurfaceCard
-            title="Una estructura editorial compacta y reutilizable"
-            description="La biblioteca se organiza para que cada formato pueda escalar sin romper la coherencia del sitio."
+            title="Formatos de contenido"
+            description="La seccion puede alojar articulos breves, glosarios, guias descargables y piezas audiovisuales sin perder coherencia visual."
           >
             <TagList items={["Articulos", "Guias", "Glosarios", "Videos"]} />
           </SurfaceCard>
+
+          <VisualPlaceholder
+            label="Placeholder de escritorio editorial"
+            title="Espacio para libreta, monitor, subtitulos y composicion de contenidos"
+            caption="Preparado para reforzar la sensacion de marca editorial de alto nivel."
+            tags={["Desk setup", "Editorial", "Contenido"]}
+            className="min-h-[22rem]"
+          />
         </Container>
       </Section>
 
       <Section tint="soft">
-        <Container className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
+        <Container className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <SurfaceCard
-            title="Recursos que ayudan a preparar mejor una necesidad real"
-            description="Leer contenido tecnico antes de contactar permite formular mejor el problema, identificar lagunas de contexto y entender mejor que tipo de analisis o documentacion puede ser util."
+            title="Recursos que preparan mejor una necesidad real"
+            description="Leer contenido tecnico antes de contactar mejora la formulacion del problema, ordena expectativas y refuerza el valor del sitio como puerta de entrada cualificada."
           >
             <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
-              <p>El recurso no sustituye el analisis, pero mejora la calidad del punto de partida.</p>
-              <p>Tambien reduce ruido y ayuda a distinguir necesidad tecnica de expectativa difusa.</p>
+              <p>El contenido deja de ser un relleno visual y pasa a integrarse como una capa de autoridad, marca y conversion.</p>
+              <p>La seccion queda lista para incorporar miniaturas, retratos de workspace o visuales de pizarra faceless.</p>
             </div>
-            <p className="text-sm font-medium text-[var(--color-accent)]">
-              Del recurso al caso concreto.
-            </p>
           </SurfaceCard>
 
           <SurfaceCard
-            title="Uso previsto de esta seccion"
-            description="Espacio para concentrar autoridad, ampliar contexto y conectar el sitio con una futura capa editorial mas profunda."
+            title="Una biblioteca mas preparada para convertirse en marca"
+            description="La mejora visual de recursos hace que la web parezca menos estatica y mas cercana a una firma con criterio, archivo y presencia editorial propia."
           >
             <TagList
               items={[
@@ -149,11 +175,11 @@ export default function ResourcesPage() {
       </Section>
 
       <ActionBanner
-        title="Si el contenido ya aclaro el marco, el siguiente paso es plantear el caso con contexto"
-        description="Cuando exista una necesidad concreta, conviene describir de forma breve el problema, el momento del caso y los materiales disponibles."
+        title="Si el contenido ya aclaro el marco, el siguiente paso es plantear la necesidad con contexto"
+        description="La seccion de recursos queda preparada para incorporar fotografia, miniaturas y composiciones editoriales sin perder sobriedad."
         primaryAction={{ href: "/contacto", label: "Contactar" }}
         secondaryAction={{ href: "/metodologia", label: "Ver metodologia" }}
-        note="Recurso primero, contacto despues."
+        note="Esta es una de las zonas que mas gana con un lenguaje visual mas editorial."
       />
     </>
   );

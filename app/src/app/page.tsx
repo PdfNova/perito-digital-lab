@@ -10,6 +10,7 @@ import {
   StatCard,
   SurfaceCard,
   TagList,
+  VisualPlaceholder,
 } from "@/components/ui";
 
 const capabilities = [
@@ -58,37 +59,57 @@ export default function HomePage() {
     <>
       <PageHero
         eyebrow="Investigacion digital / analisis forense / trazabilidad"
-        title="Investigacion digital y trazabilidad tecnologica con enfoque tecnico y documental"
-        subtitle="Analisis, correlacion e informe claro para casos donde la evidencia digital necesita orden, contexto y criterio."
+        title="Presencia digital sobria para analisis tecnico, evidencia y documentacion de alto nivel"
+        subtitle="Una web pensada para transmitir criterio, metodo y capacidad de lectura en casos donde la informacion digital necesita orden, contexto y explicacion clara."
         primaryAction={{ href: "/contacto", label: "Contactar" }}
-        secondaryAction={{ href: "/metodologia", label: "Ver metodologia" }}
-        notes={[
-          "Enfoque sobrio, tecnico y orientado a documentacion.",
-          "Pensado para casos que requieren claridad antes que ruido.",
+        secondaryAction={{ href: "/servicios", label: "Ver servicios" }}
+        stats={[
+          { value: "5", label: "Lineas principales de trabajo" },
+          { value: "01", label: "Marco metodologico claro y reusable" },
+          { value: "Web", label: "Base para blog, video y recursos" },
         ]}
+        notes={[
+          "Enfoque tecnico, discreto y orientado a documentacion.",
+          "Lenguaje visual alineado con despacho tecnico, analisis y documentacion.",
+        ]}
+        visual={
+          <VisualPlaceholder
+            label="Entorno de analisis"
+            title="Despacho, analisis digital y tecnologia en una misma presencia"
+            caption="Una presencia pensada para unir mesa de trabajo, pantallas de revision y materiales de documentacion en una sola escena."
+            tags={["Despacho profesional", "Analisis digital", "Documentacion"]}
+            variant="studio"
+          />
+        }
       />
 
       <Section>
-        <Container className="grid gap-8 lg:grid-cols-[1.04fr_0.96fr] lg:items-start">
+        <Container className="grid gap-8 lg:grid-cols-[1fr_0.98fr] lg:items-start">
           <div>
-            <Eyebrow>De la evidencia al informe</Eyebrow>
+            <Eyebrow>Posicionamiento</Eyebrow>
             <SectionHeading
-              title="Una presencia digital pensada para casos que requieren criterio"
-              description="El proyecto aborda investigacion digital, analisis forense, OSINT y trazabilidad desde una logica de metodo, prudencia y utilidad documental."
+              title="Una marca pensada para casos donde el ruido tecnico exige criterio"
+              description="El proyecto combina investigacion digital, analisis forense, OSINT, trazabilidad y documentacion pericial con una presencia mas cercana a un despacho tecnico de confianza que a una web generica de servicios."
             />
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <SurfaceCard
+                title="Autoridad sin exhibicion"
+                description="La credibilidad se apoya en estructura, metodo y claridad expositiva, no en reclamos agresivos ni en esteticas de confrontacion."
+              />
+              <SurfaceCard
+                title="Tecnologia con contexto"
+                description="El lenguaje visual y verbal se orienta a despacho, analisis y documentacion, no a simbolos oscuros o imagineria de hacking."
+              />
+            </div>
           </div>
-          <SurfaceCard
-            title="Marco de posicionamiento"
-            description="Un sitio sobrio y tecnico que prioriza metodo, claridad expositiva y documentacion util antes que volumen o artificio comercial."
-          >
-            <TagList
-              items={[
-                "Metodo antes que exhibicion",
-                "Claridad antes que complejidad innecesaria",
-                "Enfoque profesional, no invasivo",
-              ]}
-            />
-          </SurfaceCard>
+
+          <VisualPlaceholder
+            label="Presencia de firma"
+            title="Despacho tecnico y entorno de analisis"
+            caption="Una composicion sobria que combina superficie de trabajo, pantalla principal y piezas documentales con criterio editorial."
+            tags={["Mesa de trabajo", "Pantallas", "Documentacion"]}
+            variant="briefing"
+          />
         </Container>
       </Section>
 
@@ -96,135 +117,161 @@ export default function HomePage() {
         <Container>
           <SectionHeading
             title="Cuando el componente digital complica la lectura del caso"
-            description="Algunos casos no necesitan mas datos, sino mejor contexto. La web se orienta a situaciones donde la evidencia digital esta dispersa, la secuencia de hechos no es clara o la documentacion tecnica necesita una estructura mas comprensible."
+            description="La web se orienta a situaciones donde el problema no es solo encontrar informacion, sino darle forma, secuencia y utilidad documental."
+            align="center"
           />
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
             <StatCard
               value="01"
               label="Evidencia dispersa"
-              description="Fuentes fragmentadas que exigen orden y criterio antes de cualquier conclusion."
+              description="Fuentes fragmentadas que exigen orden, criterio y lectura conjunta antes de cualquier conclusion."
             />
             <StatCard
               value="02"
               label="Cronologias incompletas"
-              description="Secuencias que requieren contexto tecnico para entender relaciones y tiempos."
+              description="Secuencias que requieren contexto tecnico para entender relaciones, tiempos y valor probatorio."
             />
             <StatCard
               value="03"
-              label="Hallazgos dificiles de explicar"
-              description="Resultados tecnicos que necesitan traducirse a una pieza documental comprensible."
+              label="Hallazgos que deben explicarse"
+              description="Resultados tecnicos que necesitan traducirse a una pieza clara para decisores y terceros no tecnicos."
             />
           </div>
         </Container>
       </Section>
 
       <Section>
-        <Container>
-          <SectionHeading
-            title="Capacidades principales"
-            description="La propuesta combina analisis tecnico y estructura documental para que los hallazgos sean comprensibles, trazables y utiles."
-          />
-          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <Container className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <Eyebrow>Capacidades</Eyebrow>
+            <SectionHeading
+              title="Servicios pensados para aportar orden, trazabilidad y salida documental"
+              description="La propuesta une analisis tecnico y estructura expositiva para que los hallazgos no solo existan, sino que puedan leerse con claridad."
+            />
+            <div className="mt-8">
+              <Link className="inline-link" href="/servicios">
+                Explorar servicios
+              </Link>
+            </div>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
             {capabilities.map((item) => (
               <SurfaceCard key={item.title} title={item.title} description={item.description} />
             ))}
-          </div>
-          <div className="mt-8">
-            <Link className="inline-link" href="/servicios">
-              Ver servicios
-            </Link>
+            <SurfaceCard
+              title="Entorno de trabajo visible"
+              description="La propuesta comercial gana fuerza cuando el sitio muestra un entorno serio de revision, lectura y documentacion sin apoyarse en reclamos grandilocuentes."
+              className="md:col-span-2"
+            >
+              <TagList items={["Despacho tecnico", "Revision estructurada", "Criterio documental"]} />
+            </SurfaceCard>
           </div>
         </Container>
       </Section>
 
       <Section tint="soft">
-        <Container className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+        <Container className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
           <div>
+            <Eyebrow>Metodologia</Eyebrow>
             <SectionHeading
-              title="Una metodologia pensada para reducir ruido"
-              description="El trabajo se articula en fases: encuadre del caso, preservacion y orden de fuentes, analisis y correlacion, y documentacion final."
+              title="Una metodologia visible y creible desde la primera visita"
+              description="El valor no esta solo en el resultado, sino en la forma de encuadrar, preservar, analizar y documentar cada necesidad."
             />
-            <Link className="mt-6 inline-link" href="/metodologia">
-              Ver metodologia completa
-            </Link>
-          </div>
-          <div className="grid gap-3">
-            {methodology.map((item, index) => (
-              <div key={item} className="panel-surface rounded-[1.4rem] px-5 py-4">
-                <div className="flex items-start gap-4">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
-                    {index + 1}
-                  </span>
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.22em] text-[var(--color-muted)]">
-                      Paso {index + 1}
-                    </p>
-                    <p className="mt-1 text-base leading-7 text-[var(--color-text)]">{item}</p>
+            <div className="mt-8 grid gap-3">
+              {methodology.map((item, index) => (
+                <div key={item} className="premium-shell rounded-[1.45rem] px-5 py-4">
+                  <div className="flex items-start gap-4">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-soft)] text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-accent-strong)]">
+                      {index + 1}
+                    </span>
+                    <div>
+                      <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[var(--color-muted)]">
+                        Paso {index + 1}
+                      </p>
+                      <p className="mt-1 text-base leading-7 text-[var(--color-text)]">{item}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-4">
+            <VisualPlaceholder
+              label="Secuencia de trabajo"
+              title="Cronologias, diagramas y flujo de trabajo en una misma lectura"
+              caption="Una manera de mostrar orden, lectura de tiempos y estructura de trabajo sin recurrir a artificios."
+              tags={["Cronologia", "Proceso", "Analisis"]}
+              className="min-h-[24rem]"
+              variant="timeline"
+            />
+            <SurfaceCard
+              title="Metodo como elemento comercial"
+              description="Mostrar bien el proceso aumenta confianza, filtra mejor las consultas y posiciona la marca como una propuesta tecnica de mayor nivel."
+            >
+              <Link className="inline-link" href="/metodologia">
+                Ver metodologia completa
+              </Link>
+            </SurfaceCard>
           </div>
         </Container>
       </Section>
 
       <Section>
-        <Container className="grid gap-8 lg:grid-cols-[0.96fr_1.04fr] lg:items-start">
-          <div>
-            <SectionHeading
-              title="Contenido tecnico util para entender mejor el problema"
-              description="La web integrara recursos orientados a evidencia digital, trazabilidad, documentacion e interpretacion prudente de hallazgos. Su funcion es aportar criterio antes de cualquier conversacion."
-            />
-            <div className="mt-6 flex flex-wrap gap-3">
-              <span className="pill">Articulos tecnicos</span>
-              <span className="pill">Guias breves</span>
-              <span className="pill">Videos explicativos</span>
-            </div>
+        <Container className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
+          <div className="grid gap-4">
+            <SurfaceCard
+              title="Recursos orientados a reforzar autoridad"
+              description="La capa editorial de la web se apoya en articulos, guias y videos que pueden convivir con una identidad visual mas fuerte y mas convincente."
+            >
+              <TagList items={["Articulos", "Guias", "Videos", "Recursos"]} />
+              <Link className="inline-link" href="/recursos">
+                Ver biblioteca editorial
+              </Link>
+            </SurfaceCard>
+            <SurfaceCard
+              title="Presencia editorial coherente"
+              description="La capa de contenidos puede crecer con articulos, piezas audiovisuales y materiales de consulta sin romper el tono de firma tecnica."
+            >
+              <TagList items={["Blog", "Video faceless", "Guias utiles"]} />
+            </SurfaceCard>
           </div>
-          <SurfaceCard
-            title="Biblioteca editorial en crecimiento"
-            description="Recursos para aclarar conceptos, preparar mejor una consulta y reforzar la autoridad del sitio sin recurrir a ruido comercial."
-          >
-            <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
-              <p>Lecturas base sobre preservacion, correlacion, cronologias e informes.</p>
-              <p>Acceso rapido a piezas breves orientadas a perfiles tecnicos y juridicos.</p>
-            </div>
-            <Link className="inline-link" href="/recursos">
-              Ver recursos
-            </Link>
-          </SurfaceCard>
-        </Container>
-      </Section>
 
-      <Section tint="soft">
-        <Container className="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-start">
-          <div>
-            <SectionHeading
-              title="Un enfoque profesional, no invasivo"
-              description="La propuesta no se orienta a accesos, intrusiones ni promesas impropias. Se centra en analisis, contexto, correlacion e informe claro dentro de un marco prudente y documental."
-            />
+          <div className="grid gap-4">
+            <SurfaceCard
+              title="Limites claros, presencia mas fuerte"
+              description="Una estetica mas premium no cambia el posicionamiento: el proyecto sigue evitando tono invasivo, promesas impropias y lenguaje agresivo."
+            >
+              <TagList
+                items={[
+                  "Sin reclamos exagerados",
+                  "Sin imagineria hacker",
+                  "Con criterio tecnico visible",
+                ]}
+              />
+            </SurfaceCard>
+            <SurfaceCard
+              title="Imagen con criterio editorial"
+              description="El sistema visual ya admite escenas de despacho, pantallas, herramientas y materiales de trabajo sin perder sobriedad ni coherencia."
+            >
+              <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
+                <p>
+                  La arquitectura visual ya contempla hero photography, stills de escritorio y
+                  composiciones editoriales.
+                </p>
+                <p>Eso permite crecer en presencia sin rehacer componentes ni jerarquia.</p>
+              </div>
+            </SurfaceCard>
           </div>
-          <SurfaceCard
-            title="Limites como parte de la credibilidad"
-            description="La autoridad del proyecto no se apoya en exageraciones, sino en explicar bien el alcance, el metodo y las cautelas de interpretacion."
-          >
-            <TagList
-              items={[
-                "Sin reclamos agresivos",
-                "Sin promesas absolutas",
-                "Con limites explicitos",
-              ]}
-            />
-          </SurfaceCard>
         </Container>
       </Section>
 
       <ActionBanner
-        title="Si el caso requiere claridad tecnica, el siguiente paso es ordenar el contexto"
-        description="Una primera conversacion util empieza con una descripcion breve del problema, las fuentes disponibles y la necesidad concreta."
+        title="Si el caso requiere claridad tecnica, el siguiente paso es presentar el contexto con orden"
+        description="La presencia del sitio combina claridad comercial, criterio tecnico y una imagen de firma capaz de sostener contacto, recursos y servicios en un mismo lenguaje."
         primaryAction={{ href: "/contacto", label: "Contactar" }}
-        secondaryAction={{ href: "/servicios", label: "Ver servicios" }}
-        note="Consultas mejor orientadas, no mensajes genericos."
+        secondaryAction={{ href: "/metodologia", label: "Ver metodologia" }}
+        note="Una presencia visual mas convincente tambien mejora la captacion cualificada."
       />
     </>
   );
