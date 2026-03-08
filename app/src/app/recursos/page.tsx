@@ -12,38 +12,83 @@ import {
   TagList,
 } from "@/components/ui";
 
+const featuredPieces = [
+  {
+    type: "Video largo",
+    title: "Que hace util a una evidencia digital y que la debilita",
+    description:
+      "Pieza principal de apertura sobre contexto, integridad, preservacion y valor documental en evidencia digital.",
+    meta: "Duracion objetivo: 5 min 30 s a 6 min",
+    status: "Guion cerrado y listo para grabacion",
+    tags: ["Video", "Evidencia digital", "Marco base"],
+  },
+  {
+    type: "Articulo 01",
+    title: "Evidencia digital: que la hace mas util y que la debilita",
+    description:
+      "Articulo base de autoridad para explicar por que una pieza digital necesita contexto, orden y trazabilidad para sostenerse mejor.",
+    meta: "Lectura estimada: 6 min",
+    status: "Listo para publicar",
+    tags: ["Articulo", "Integridad", "Documentacion"],
+  },
+  {
+    type: "Articulo 02",
+    title: "Preservacion inicial de informacion digital: errores que conviene evitar",
+    description:
+      "Guia breve y compartible sobre errores tempranos de conservacion y criterios minimos para llegar mejor al analisis.",
+    meta: "Lectura estimada: 6 min",
+    status: "Listo para publicar",
+    tags: ["Articulo", "Preservacion", "Criterio inicial"],
+  },
+];
+
+const shortPieces = [
+  {
+    title: "No toda evidencia digital vale lo mismo",
+    description:
+      "Corte vertical pensado para fijar la idea central del episodio: el valor depende tambien del contexto, la integridad y la claridad documental.",
+    meta: "35 a 45 segundos",
+  },
+  {
+    title: "El contexto puede ser tan importante como el archivo",
+    description:
+      "Short derivado para explicar por que fecha, origen y secuencia cambian la lectura de un mismo material digital.",
+    meta: "40 a 50 segundos",
+  },
+];
+
 const pillars = [
   {
     title: "Evidencia digital y preservacion",
     description:
-      "Guias y notas sobre integridad, contexto y errores frecuentes al recopilar informacion.",
+      "Base metodologica para entender mejor integridad, contexto, conservacion y errores frecuentes.",
   },
   {
     title: "OSINT con criterio",
     description:
-      "Piezas sobre correlacion de activos abiertos, limites de atribucion y documentacion prudente.",
+      "Piezas orientadas a utilidad real, limites de atribucion y lectura prudente de fuentes abiertas.",
   },
   {
     title: "Trazabilidad y cronologias",
     description:
-      "Contenido orientado a relacionar eventos, secuencias y elementos tecnicos con utilidad practica.",
+      "Contenido pensado para ordenar secuencias, relaciones tecnicas y continuidad documental.",
   },
   {
     title: "Informes y documentacion",
     description:
-      "Recursos para explicar mejor hallazgos, anexos, limites y estructura expositiva.",
+      "Notas y recursos sobre estructura expositiva, anexos, limites y claridad tecnica.",
   },
   {
-    title: "Guias para perfiles juridicos",
+    title: "Lectura para perfiles juridicos",
     description:
-      "Material pensado para ayudar a pedir, preservar y entender mejor evidencia digital.",
+      "Material util para entender mejor alcance, lenguaje y puntos de partida de una consulta tecnica.",
   },
 ];
 
 export const metadata: Metadata = {
   title: "Recursos sobre evidencia digital, trazabilidad y documentacion tecnica",
   description:
-    "Articulos, guias y piezas explicativas sobre investigacion digital, analisis forense, OSINT, trazabilidad y documentacion tecnica.",
+    "Primer lote editorial con articulos, video y piezas breves sobre investigacion digital, analisis forense, OSINT, trazabilidad y documentacion tecnica.",
 };
 
 export default function ResourcesPage() {
@@ -51,27 +96,27 @@ export default function ResourcesPage() {
     <>
       <PageHero
         eyebrow="Recursos"
-        title="Una biblioteca editorial integrada en una marca tecnica sobria y consistente"
-        subtitle="La seccion de recursos refuerza autoridad, ordena la exploracion y da continuidad natural al enfoque tecnico del sitio a traves de articulos, video y piezas de consulta."
-        primaryAction={{ href: "#biblioteca", label: "Explorar recursos" }}
+        title="Contenido real para leer, grabar y reutilizar con criterio tecnico"
+        subtitle="La biblioteca editorial ya incorpora un primer lote de lanzamiento con dos articulos publicables, un episodio principal listo para grabacion y dos shorts derivados sobre evidencia digital y preservacion."
+        primaryAction={{ href: "#lanzamiento", label: "Ver lote inicial" }}
         secondaryAction={{ href: "/contacto", label: "Contactar" }}
         stats={[
-          { value: "5", label: "Pilares editoriales principales" },
-          { value: "Blog", label: "Articulos de criterio y contexto" },
-          { value: "Video", label: "Piezas breves de apoyo editorial" },
+          { value: "2", label: "Articulos listos para publicar" },
+          { value: "1", label: "Video largo listo para grabar" },
+          { value: "2", label: "Shorts derivados en vertical" },
         ]}
         notes={[
-          "La biblioteca debe sentirse curada, no improvisada.",
-          "El lenguaje visual acompana el tono tecnico sin perder claridad comercial.",
+          "Todas las piezas comparten un mismo marco: contexto, integridad y claridad documental.",
+          "La biblioteca ya funciona como una capa de autoridad y tambien como filtro de consultas mejor planteadas.",
         ]}
         visual={
           <ImagePanel
             src="/images/resources/resources-hero.svg"
-            alt="Biblioteca editorial con monitor, libreta tecnica y documentacion de apoyo"
-            eyebrow="Biblioteca tecnica"
-            title="Articulos, piezas audiovisuales y notas de trabajo bajo un mismo criterio editorial"
-            description="Una composicion pensada para asociar contenido, analisis y documentacion con una presencia de marca sobria y reconocible."
-            tags={["Recursos", "Editorial", "Analisis"]}
+            alt="Mesa editorial con monitor, documentacion tecnica y piezas de contenido sobre evidencia digital"
+            eyebrow="Lanzamiento editorial"
+            title="Un primer lote compacto, coherente y listo para activar la capa viva del proyecto"
+            description="El contenido inicial se apoya en una misma linea metodologica y prepara el terreno para blog, video largo, shorts y futuras piezas descargables."
+            tags={["Articulos", "Video", "Shorts"]}
             priority
           />
         }
@@ -80,56 +125,115 @@ export default function ResourcesPage() {
       <Section>
         <Container className="grid gap-8 lg:grid-cols-[0.98fr_1.02fr] lg:items-start">
           <div>
-            <Eyebrow>Biblioteca</Eyebrow>
+            <Eyebrow>Lote 01</Eyebrow>
             <SectionHeading
-              title="Una seccion de recursos que ya transmite curaduria"
-              description="Aunque el archivo editorial todavia este en crecimiento, esta area debe percibirse como una biblioteca tecnica cuidada y en expansion."
+              title="Una biblioteca que ya muestra piezas concretas"
+              description="Este primer bloque editorial no presenta promesas de contenido: presenta material ya redactado, alineado con la web y listo para pasar a publicacion o grabacion."
             />
           </div>
           <SurfaceCard
-            title="Piezas recomendadas para empezar"
-            description="La home editorial puede destacar una seleccion breve para entrar en materia sin perder tono profesional ni caer en una estetica de blog generico."
+            title="Tema de apertura del lanzamiento"
+            description="El primer lote se concentra en un eje claro: que hace util a una evidencia digital y como la preservacion inicial condiciona la lectura posterior."
           >
             <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
-              <p>Recorridos breves sobre preservacion, contexto y lectura prudente de indicios.</p>
-              <p>Material pensado para dialogar con articulos, video breve y recursos de consulta dentro de una misma linea editorial.</p>
+              <p>El enfoque combina valor documental, criterios de conservacion y lenguaje comprensible para perfiles tecnicos y juridicos.</p>
+              <p>El objetivo no es volumen editorial, sino una primera muestra de autoridad util, reutilizable y consistente con la marca.</p>
             </div>
             <p className="text-sm font-medium text-[var(--color-accent-strong)]">
-              Empezar por lo esencial.
+              Una misma idea desplegada en varios formatos.
             </p>
           </SurfaceCard>
         </Container>
       </Section>
 
       <Section tint="soft">
-        <Container id="biblioteca">
+        <Container id="lanzamiento">
           <SectionHeading
-            title="Lineas editoriales principales"
-            description="Cada pilar se presenta como una categoria editorial fuerte, pensada para reunir piezas utiles, legibles y alineadas con el posicionamiento del proyecto."
+            title="Piezas destacadas del primer lote"
+            description="Los tres contenidos principales ya tienen posicion propio dentro de la biblioteca y pueden usarse como base de lanzamiento, captacion y autoridad."
             align="center"
           />
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {pillars.map((pillar) => (
-              <SurfaceCard key={pillar.title} title={pillar.title} description={pillar.description} />
+          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            {featuredPieces.map((piece) => (
+              <SurfaceCard key={piece.title} title={piece.title} description={piece.description}>
+                <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
+                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-strong)]">
+                    {piece.type}
+                  </p>
+                  <p>{piece.meta}</p>
+                  <p>{piece.status}</p>
+                </div>
+                <TagList items={piece.tags} />
+              </SurfaceCard>
             ))}
-            <ImagePanel
-              src="/images/resources/resources-featured.svg"
-              alt="Mesa editorial con articulo destacado, monitor y materiales de apoyo"
-              eyebrow="Contenido destacado"
-              title="Una pieza central para abrir la biblioteca con contexto, criterio y continuidad visual"
-              description="Este bloque refuerza la idea de biblioteca curada y permite destacar una guia, un articulo o una pieza audiovisual con mayor peso."
-              tags={["Destacado", "Articulo", "Video"]}
-              className="md:col-span-2 xl:col-span-1"
-              aspect="landscape"
-            />
           </div>
           <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[var(--color-border)] pt-6">
             <span className="text-sm font-medium text-[var(--color-accent-strong)]">
-              Explorar por tema
+              Primer lote coherente para web, blog y video
             </span>
             <Link className="inline-link" href="/contacto">
-              Plantear una consulta
+              Plantear una consulta con mejor contexto
             </Link>
+          </div>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
+          <ImagePanel
+            src="/images/resources/resources-featured.svg"
+            alt="Escena editorial con pieza audiovisual principal y notas tecnicas de apoyo"
+            eyebrow="Contenido central"
+            title="El episodio principal fija el marco y los articulos lo vuelven mas util"
+            description="La combinacion de video largo, texto base y pieza practica de preservacion permite lanzar una capa editorial compacta, pero ya claramente util."
+            tags={["Episodio 01", "Articulo base", "Guia practica"]}
+            aspect="landscape"
+          />
+
+          <div className="grid gap-4">
+            {shortPieces.map((piece) => (
+              <SurfaceCard
+                key={piece.title}
+                title={piece.title}
+                description={piece.description}
+              >
+                <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
+                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-strong)]">
+                    Short derivado
+                  </p>
+                  <p>{piece.meta}</p>
+                  <p>Formato pensado para vertical, subtitulado y reutilizacion entre video largo y recursos.</p>
+                </div>
+              </SurfaceCard>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section tint="soft">
+        <Container className="grid gap-8 lg:grid-cols-[0.96fr_1.04fr] lg:items-start">
+          <SurfaceCard
+            title="Como se organiza ya la biblioteca"
+            description="Aunque el primer lote se abre con evidencia digital y preservacion, la seccion queda ordenada desde ahora alrededor de cinco ejes claros de lectura."
+          >
+            <TagList
+              items={[
+                "Evidencia digital",
+                "Preservacion",
+                "OSINT",
+                "Trazabilidad",
+                "Documentacion",
+              ]}
+            />
+            <p className="text-sm leading-7 text-[var(--color-muted)]">
+              Esa estructura facilita crecer sin perder criterio y mantiene una continuidad directa entre recursos, metodologia y contacto.
+            </p>
+          </SurfaceCard>
+
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {pillars.map((pillar) => (
+              <SurfaceCard key={pillar.title} title={pillar.title} description={pillar.description} />
+            ))}
           </div>
         </Container>
       </Section>
@@ -137,60 +241,36 @@ export default function ResourcesPage() {
       <Section>
         <Container className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
           <SurfaceCard
-            title="Formatos de contenido"
-            description="La seccion puede alojar articulos breves, glosarios, guias descargables y piezas audiovisuales sin perder coherencia visual."
+            title="Que aporta este primer lote a la conversacion comercial"
+            description="El contenido ya no cumple solo una funcion editorial. Tambien ayuda a formular mejor una necesidad, ajustar expectativas y reforzar la percepcion de servicio especializado."
           >
-            <TagList items={["Articulos", "Guias", "Glosarios", "Videos"]} />
+            <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
+              <p>Quien llega a contacto despues de leer o ver estas piezas suele entender mejor la diferencia entre un hallazgo aislado y un material documentalmente util.</p>
+              <p>Eso mejora la calidad del primer intercambio y acerca la web a una firma tecnica con criterio propio, no solo a una presentacion institucional.</p>
+            </div>
           </SurfaceCard>
 
           <ImagePanel
             src="/images/resources/resources-library.svg"
-            alt="Material editorial con notas, monitor y estructura de contenidos"
-            eyebrow="Criterio editorial"
-            title="Libreta, monitor y estructura de contenidos como parte de una biblioteca con identidad propia"
-            description="Una escena que acompana la dimension editorial del proyecto y sostiene una sensacion de archivo tecnico bien cuidado."
-            tags={["Editorial", "Contenido", "Biblioteca"]}
+            alt="Biblioteca editorial con notas, cronologias y recursos tecnicos organizados"
+            eyebrow="Biblioteca activa"
+            title="Un entorno editorial que acompana autoridad, descubrimiento y conversion"
+            description="La seccion de recursos ya puede operar como puerta de entrada a la marca y como apoyo de lectura para quienes necesitan entender mejor su punto de partida."
+            tags={["Autoridad", "Lectura", "Contacto"]}
             aspect="landscape"
           />
         </Container>
       </Section>
 
-      <Section tint="soft">
-        <Container className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-          <SurfaceCard
-            title="Recursos que preparan mejor una necesidad real"
-            description="Leer contenido tecnico antes de contactar mejora la formulacion del problema, ordena expectativas y refuerza el valor del sitio como puerta de entrada cualificada."
-          >
-            <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
-              <p>El contenido deja de ser un relleno visual y pasa a integrarse como una capa de autoridad, marca y conversion.</p>
-              <p>La biblioteca funciona como un entorno de referencia: ayuda a entender mejor el marco tecnico antes de plantear una consulta.</p>
-            </div>
-          </SurfaceCard>
-
-          <SurfaceCard
-            title="Una biblioteca que ya actua como marca"
-            description="La mejora visual de recursos hace que la web parezca menos estatica y mas cercana a una firma con criterio, archivo y presencia editorial propia."
-          >
-            <TagList
-              items={[
-                "Descubrimiento cualificado",
-                "Autoridad metodologica",
-                "Puente hacia contacto",
-              ]}
-            />
-          </SurfaceCard>
-        </Container>
-      </Section>
-
       <ActionBanner
-        title="Si el contenido ya aclaro el marco, el siguiente paso es plantear la necesidad con contexto"
-        description="La seccion de recursos acompana el posicionamiento del sitio y funciona como una biblioteca de apoyo para entender mejor problemas, limites y criterios de trabajo."
-        primaryAction={{ href: "/contacto", label: "Contactar" }}
+        title="Si este primer lote ya aclara el marco, el siguiente paso es plantear la necesidad con materiales y objetivo definidos"
+        description="La biblioteca editorial ayuda a entender mejor contexto, integridad, preservacion y limites. A partir de ahi, la conversacion inicial gana precision y la consulta llega mejor enfocada."
+        primaryAction={{ href: "/contacto", label: "Iniciar contacto" }}
         secondaryAction={{ href: "/metodologia", label: "Ver metodologia" }}
-        note="El valor editorial refuerza autoridad y mejora la calidad de las consultas que llegan al sitio."
+        note="El contenido no sustituye una revision tecnica, pero si mejora de forma clara el punto de partida."
         highlights={[
-          "Contenido orientado a autoridad, no a volumen vacio.",
-          "Puente natural entre descubrimiento, confianza y contacto.",
+          "Primer lote ya listo para publicar y grabar.",
+          "Marco metodologico coherente entre web, video y blog.",
         ]}
       />
     </>
