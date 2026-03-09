@@ -169,6 +169,29 @@ const supportContent = [
   },
 ];
 
+const casePatterns = [
+  {
+    title: "Patron financiero que apunta a una operativa mayor",
+    description:
+      "Una cuenta intermedia, importes fragmentados o movimientos aparentemente menores pueden ganar sentido al integrarse en una sola cronologia técnica.",
+  },
+  {
+    title: "Fraude de compra con correo saturado",
+    description:
+      "La alerta relevante queda oculta entre ruido y el valor de la revision aparece al reconstruir la secuencia entre correo, cuenta y operativa comercial.",
+  },
+  {
+    title: "Huella digital dispersa que requiere correlacion",
+    description:
+      "Perfiles, dominios, activos visibles y rastros abiertos dejan de ser piezas sueltas cuando se documentan como patron coherente y con limites claros.",
+  },
+  {
+    title: "Mensajeria y moviles en asuntos sensibles",
+    description:
+      "Capturas, exportaciones y material movil se convierten en documento util cuando se ordenan por fuente, secuencia y contexto expositivo.",
+  },
+];
+
 export const metadata: Metadata = buildPageMetadata({
   title: "Servicios de investigacion digital, analisis pericial y documentacion tecnica",
   description:
@@ -322,6 +345,23 @@ export default function ServicesPage() {
                 <SurfaceCard key={block.title} title={block.title} description={block.description} compact />
               ))}
             </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section tint="soft">
+        <Container className="grid gap-8 lg:grid-cols-[0.94fr_1.06fr] lg:items-start">
+          <div>
+            <Eyebrow>Casos tipo</Eyebrow>
+            <SectionHeading
+              title="Patrones donde este enfoque tecnico suele aportar mas valor"
+              description="El servicio no siempre entra cuando el caso ya esta claro. A menudo entra cuando un elemento aparentemente aislado empieza a revelar una operativa mas amplia."
+            />
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {casePatterns.map((item) => (
+              <SurfaceCard key={item.title} title={item.title} description={item.description} compact />
+            ))}
           </div>
         </Container>
       </Section>

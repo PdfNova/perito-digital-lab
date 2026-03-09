@@ -21,7 +21,7 @@ const footerLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/8 bg-[linear-gradient(135deg,#0f1722_0%,#152132_58%,#0c111a_100%)] text-white">
+    <footer className="border-t border-white/8 bg-[linear-gradient(135deg,#0c131d_0%,#142232_58%,#0a1017_100%)] text-white">
       <Container className="py-12 md:py-16">
         <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
           <div className="hero-shell">
@@ -53,7 +53,7 @@ export function SiteFooter() {
               />
 
               <div className="grid gap-4 md:grid-cols-2">
-                <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.05] p-5">
+                <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.04] p-5">
                   <p className="text-[0.68rem] uppercase tracking-[0.26em] text-white/52">
                     Tipo de encargos
                   </p>
@@ -63,7 +63,7 @@ export function SiteFooter() {
                     terceros.
                   </p>
                 </div>
-                <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.05] p-5">
+                <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.04] p-5">
                   <p className="text-[0.68rem] uppercase tracking-[0.26em] text-white/52">
                     {contactChannelEyebrow}
                   </p>

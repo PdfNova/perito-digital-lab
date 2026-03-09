@@ -44,9 +44,9 @@ export function Section({
 }) {
   const tintClass =
     tint === "soft"
-      ? "bg-[linear-gradient(180deg,rgba(255,255,255,0.22),rgba(255,255,255,0.1))]"
+      ? "bg-[linear-gradient(180deg,rgba(228,235,243,0.58),rgba(244,247,250,0.18))]"
       : tint === "dark"
-        ? "bg-[linear-gradient(135deg,#101722_0%,#132033_52%,#0d141f_100%)] text-white"
+        ? "bg-[linear-gradient(135deg,#0d1521_0%,#162536_52%,#0a1018_100%)] text-white"
         : "";
 
   return <section className={`py-20 md:py-24 ${tintClass} ${className}`}>{children}</section>;
@@ -340,7 +340,7 @@ export function SurfaceCard({
 }) {
   const toneClass =
     tone === "light"
-      ? "border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))] shadow-[0_28px_80px_rgba(4,10,20,0.28)]"
+      ? "border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03))] shadow-[0_28px_80px_rgba(4,10,20,0.24)]"
       : "premium-shell";
 
   return (

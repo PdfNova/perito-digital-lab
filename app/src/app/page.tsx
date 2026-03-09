@@ -132,6 +132,29 @@ const featuredResources = [
   },
 ];
 
+const casePatterns = [
+  {
+    title: "Cuenta instrumental y dispersion de importes",
+    description:
+      "Cuando un movimiento aislado parece menor, pero la secuencia completa apunta a una operativa financiera mas amplia y mejor documentable.",
+  },
+  {
+    title: "Fraude e-commerce con ocultacion de alertas",
+    description:
+      "Cuando pedidos, cambios de cuenta o accesos quedan enterrados entre ruido, correo masivo y materiales mal preservados.",
+  },
+  {
+    title: "Huella digital y correlacion de indicios",
+    description:
+      "Cuando perfiles, dominios, activos abiertos y trazas visibles solo cobran sentido al leerse como un conjunto coherente.",
+  },
+  {
+    title: "Mensajeria y conflicto civil con evidencia dispersa",
+    description:
+      "Cuando capturas, exportaciones y cronologias parciales necesitan orden para convertirse en una pieza legible para terceros.",
+  },
+];
+
 const brandScenes = [
   {
     src: "/images/slots/slot-despacho.svg",
@@ -319,6 +342,23 @@ export default function HomePage() {
                 <SurfaceCard key={block.title} title={block.title} description={block.description} compact />
               ))}
             </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+          <div>
+            <Eyebrow>Casos tipo</Eyebrow>
+            <SectionHeading
+              title="Patrones donde una revision tecnica suele revelar mas de lo que parece al inicio"
+              description="Varios encargos comparten una misma logica: un elemento aislado parece menor hasta que se lee dentro de una secuencia mayor, con contexto, relacion entre indicios y salida documental."
+            />
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {casePatterns.map((item) => (
+              <SurfaceCard key={item.title} title={item.title} description={item.description} compact />
+            ))}
           </div>
         </Container>
       </Section>
