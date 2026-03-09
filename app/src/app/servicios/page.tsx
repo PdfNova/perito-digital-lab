@@ -16,10 +16,8 @@ import {
 } from "@/components/ui";
 import { buildPageMetadata } from "../metadata";
 import {
-  articleBaseCtaLabel,
   contactPageCtaLabel,
   resourcesCtaLabel,
-  technicalGuideCtaLabel,
   visualAssets,
 } from "../site-config";
 
@@ -148,24 +146,34 @@ const trustBlocks = [
 
 const supportContent = [
   {
-    type: "Articulo base",
-    title: "Valor documental de la evidencia digital",
+    type: "Articulo aplicado",
+    title: "Email bombing y fraude e-commerce",
     description:
-      "Pieza recomendada para entender por que contexto, integridad y trazabilidad condicionan el valor de cualquier material.",
-    meta: "Recurso de autoridad",
-    href: "/recursos/articulos/valor-documental-evidencia-digital",
-    cta: articleBaseCtaLabel,
-    tags: ["Contexto", "Integridad", "Evidencia digital"],
+      "Lectura para entender por que el ruido de correo puede ocultar alertas utiles y por que preservar la secuencia cambia la calidad del caso.",
+    meta: "Articulo aplicado",
+    href: "/recursos/articulos/email-bombing-fraude-ecommerce",
+    cta: "Leer articulo aplicado",
+    tags: ["Fraude e-commerce", "Correo", "Secuencia"],
   },
   {
     type: "Guia tecnica",
-    title: "Revision tecnica de evidencia digital: alcance y limites",
+    title: "Cuenta instrumental y fraccionamiento de ingresos",
     description:
-      "Recurso pensado para alinear expectativas antes de solicitar una revision y reforzar la percepcion de servicio especializado.",
-    meta: "Recurso orientado a conversion",
-    href: "/recursos/guias/revision-tecnica-evidencia-digital",
-    cta: technicalGuideCtaLabel,
-    tags: ["Alcance", "Limites", "Revision tecnica"],
+      "Guia para leer mejor patrones financieros visibles sin inflar lo que el material sostiene.",
+    meta: "Guia aplicada",
+    href: "/recursos/guias/cuenta-instrumental-fraccionamiento",
+    cta: "Leer guia aplicada",
+    tags: ["Trazabilidad", "Patron financiero", "Criterio"],
+  },
+  {
+    type: "Caso tipo",
+    title: "Fraude e-commerce con email bombing",
+    description:
+      "Caso anonimo que muestra como una secuencia aparentemente caotica puede cambiar cuando se preserva y se correlaciona con criterio.",
+    meta: "Caso tipo publicado",
+    href: "/recursos/casos/fraude-ecommerce-email-bombing",
+    cta: "Leer caso tipo",
+    tags: ["Ocultacion de alertas", "Preservacion", "Revision"],
   },
 ];
 
@@ -355,7 +363,7 @@ export default function ServicesPage() {
             <Eyebrow>Casos tipo</Eyebrow>
             <SectionHeading
               title="Patrones donde este enfoque tecnico suele aportar mas valor"
-              description="El servicio no siempre entra cuando el caso ya esta claro. A menudo entra cuando un elemento aparentemente aislado empieza a revelar una operativa mas amplia."
+              description="El servicio no siempre entra cuando el caso ya esta claro. A menudo entra cuando un elemento aparentemente aislado empieza a revelar una operativa mas amplia. Varios de estos patrones ya tienen traduccion editorial publica dentro de recursos."
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -371,8 +379,8 @@ export default function ServicesPage() {
           <div>
             <Eyebrow>Antes de contactar</Eyebrow>
             <SectionHeading
-              title="La biblioteca editorial ya trabaja a favor de la conversion"
-              description="Quien recorre recursos antes de contactar entiende mejor el marco del trabajo, ajusta expectativas y plantea una consulta mas util."
+              title="La biblioteca editorial ya conecta mejor contenido y asesoramiento"
+              description="Quien recorre estas piezas antes de contactar entiende mejor el patron del asunto, preserva mejor el material y plantea una consulta con mas criterio y menos ruido."
             />
             <div className="mt-8">
               <Link className="inline-link" href="/recursos">
@@ -380,7 +388,7 @@ export default function ServicesPage() {
               </Link>
             </div>
           </div>
-          <div className="grid gap-4">
+          <div className="grid gap-4 lg:grid-cols-3">
             {supportContent.map((item) => (
               <ContentLinkCard
                 key={item.title}

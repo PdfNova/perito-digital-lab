@@ -17,11 +17,8 @@ import {
 } from "@/components/ui";
 import { buildPageMetadata } from "./metadata";
 import {
-  articleBaseCtaLabel,
   contactPageCtaLabel,
-  episodeCtaLabel,
   resourcesCtaLabel,
-  technicalGuideCtaLabel,
   visualAssets,
 } from "./site-config";
 
@@ -101,34 +98,34 @@ const proofBlocks = [
 
 const featuredResources = [
   {
-    type: "Articulo",
-    title: "Valor documental de la evidencia digital",
+    type: "Articulo aplicado",
+    title: "Email bombing y fraude e-commerce",
     description:
-      "Marco base para entender por que contexto, integridad y trazabilidad importan tanto como el hallazgo.",
-    meta: "Lectura estimada: 6 min",
-    href: "/recursos/articulos/valor-documental-evidencia-digital",
-    cta: articleBaseCtaLabel,
-    tags: ["Evidencia digital", "Contexto", "Integridad"],
-  },
-  {
-    type: "Video",
-    title: "Que hace util a una evidencia digital y que la debilita",
-    description:
-      "Pieza audiovisual de apertura para fijar el marco del proyecto y convertirlo en autoridad visible.",
-    meta: "Duracion objetivo: 5:30-6:00",
-    href: "/recursos/videos/episodio-01",
-    cta: episodeCtaLabel,
-    tags: ["Video largo", "Pieza base", "Shorts"],
+      "Pieza para entender como el ruido puede ocultar alertas utiles y por que preservar la secuencia cambia el valor del caso.",
+    meta: "Lectura estimada: 7 min",
+    href: "/recursos/articulos/email-bombing-fraude-ecommerce",
+    cta: "Leer articulo aplicado",
+    tags: ["Fraude e-commerce", "Correo", "Secuencia"],
   },
   {
     type: "Guia tecnica",
-    title: "Revision tecnica de evidencia digital: alcance y limites",
+    title: "Cuenta instrumental y fraccionamiento de ingresos",
     description:
-      "Recurso pensado para alinear expectativas antes de pedir una revision y filtrar mejor el contacto.",
-    meta: "Lectura estimada: 7 min",
-    href: "/recursos/guias/revision-tecnica-evidencia-digital",
-    cta: technicalGuideCtaLabel,
-    tags: ["Revision tecnica", "Alcance", "Conversion"],
+      "Guia para leer mejor patrones financieros visibles sin convertir una recurrencia en una conclusion precipitada.",
+    meta: "Lectura estimada: 8 min",
+    href: "/recursos/guias/cuenta-instrumental-fraccionamiento",
+    cta: "Leer guia aplicada",
+    tags: ["Trazabilidad", "Patron financiero", "Criterio"],
+  },
+  {
+    type: "Caso tipo",
+    title: "Fraude e-commerce con email bombing",
+    description:
+      "Caso anonimo para mostrar como una secuencia aparentemente caotica gana claridad cuando se preserva y se correlaciona con criterio.",
+    meta: "Lectura estimada: 6 min",
+    href: "/recursos/casos/fraude-ecommerce-email-bombing",
+    cta: "Leer caso tipo",
+    tags: ["Caso tipo", "Ocultacion de alertas", "Preservacion"],
   },
 ];
 
@@ -352,7 +349,7 @@ export default function HomePage() {
             <Eyebrow>Casos tipo</Eyebrow>
             <SectionHeading
               title="Patrones donde una revision tecnica suele revelar mas de lo que parece al inicio"
-              description="Varios encargos comparten una misma logica: un elemento aislado parece menor hasta que se lee dentro de una secuencia mayor, con contexto, relacion entre indicios y salida documental."
+              description="Varios encargos comparten una misma logica: un elemento aislado parece menor hasta que se lee dentro de una secuencia mayor. Parte de esos patrones ya estan publicados en recursos para mostrar mejor donde empieza el valor del criterio experto."
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -424,13 +421,13 @@ export default function HomePage() {
             <div>
               <Eyebrow>Recursos como ventaja</Eyebrow>
               <SectionHeading
-                title="La biblioteca editorial deja de ser una seccion secundaria"
-                description="Los recursos ya no solo informan. Funcionan como capa de autoridad publica, afinan el lenguaje del visitante y preparan mejor la conversacion comercial."
+                title="La biblioteca ya publica patrones de caso, guias y lecturas aplicadas"
+                description="Los recursos ya no solo informan. Funcionan como prueba publica de criterio, hacen mas visible la experiencia aplicada y preparan mejor una conversacion comercial con materiales y limites mas claros."
               />
             </div>
             <SurfaceCard
               title="Contenido que trabaja para la firma"
-              description="Articulos, guia tecnica y episodio principal refuerzan posicionamiento, elevan la percepcion de nivel y ayudan a que servicios y contacto conviertan mejor."
+              description="Articulos aplicados, guias y casos tipo elevan la percepcion de experiencia real y dejan mas claro por que una revision bien planteada evita errores de enfoque."
               compact
             >
               <Link className="inline-link" href="/recursos">
