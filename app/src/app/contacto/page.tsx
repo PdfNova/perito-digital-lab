@@ -77,6 +77,7 @@ const fitCases = [
 const firstMessageItems = [
   "Breve descripcion del problema o de los hechos relevantes.",
   "Tipo de fuentes, materiales o dispositivos disponibles y si sigue existiendo acceso a la fuente original.",
+  "Si hay exportacion completa, PDF verificable, cabeceras, cronologia, extracto, hash, tx hash o capturas con contexto.",
   "Si el material ya ha sido reenviado, recortado, impreso, renombrado, exportado o parcialmente ordenado.",
   "Estado actual del caso, procedimiento o revision previa.",
   "Objetivo tecnico, documental o pericial que se pretende aclarar.",
@@ -96,7 +97,7 @@ const expectations = [
   {
     title: "Que suele llegar demasiado tarde",
     description:
-      "Bandejas limpiadas, PDFs convertidos en imagen, capturas sin contexto, wallets con alertas perdidas, mensajes mezclados o secuencias reconstruidas de memoria.",
+      "Bandejas limpiadas, PDFs convertidos en imagen, capturas sin contexto, wallets con alertas perdidas, mensajes mezclados, listados rehechos a mano o secuencias reconstruidas de memoria.",
   },
   {
     title: "Que no se ofrece",
@@ -233,8 +234,15 @@ export default function ContactPage() {
                   <BulletList items={firstMessageItems} className="space-y-2.5" />
                 </SurfaceCard>
 
-                <SurfaceCard title="Que ocurre despues" description={contactResponseCopy} compact>
+              <SurfaceCard title="Que ocurre despues" description={contactResponseCopy} compact>
                   <TagList items={["Encaje", "Alcance", "Prioridad", "Siguiente paso"]} className="gap-2.5" />
+                  <BulletList
+                    items={[
+                      "Ayudan mucho mas una exportacion completa, un PDF verificable, cabeceras, extracto, hash o tx hash que una captura suelta.",
+                      "Suelen quedarse cortos los PDFs impresos y escaneados, mensajes reenviados sin origen, listados rehechos a mano o recuerdos reconstruidos despues.",
+                    ]}
+                    className="space-y-2.5"
+                  />
                   <p className="text-sm leading-[1.65rem] text-[var(--color-muted)]">
                     Si la necesidad encaja, la conversacion posterior ya puede entrar en materiales,
                     metodologia y salida documental esperada.
@@ -251,8 +259,8 @@ export default function ContactPage() {
               description="Una consulta mejor planteada no necesita un relato mas largo. Necesita que el material llegue con mas contexto, menos transformaciones y una secuencia minima que todavia pueda leerse."
               items={[
                 "Lo que mas complica muchas consultas no es la falta de material, sino el material ya reenviado, recortado o sacado de su fuente original.",
-                "PDFs impresos y escaneados, capturas renombradas o mensajes mezclados suelen llegar con menos valor del que parecia al enviarlos.",
-                "Si existe wallet, PDF, correo, exportacion o movimiento relevante, indica si sigue disponible en su fuente original y si conserva alertas, versiones o contexto.",
+                "PDFs impresos y escaneados, capturas renombradas, mensajes reenviados sin origen o listados rehechos a mano suelen llegar con menos valor del que parecia al enviarlos.",
+                "Si existe wallet, PDF, correo, exportacion o movimiento relevante, indica si sigue disponible en su fuente original y si conserva alertas, versiones, cabeceras, hash o contexto.",
                 "Una consulta temprana suele ayudar mas cuando todavia puede saberse que pieza es indicio, cual solo aporta contexto y cual merece revision prioritaria.",
               ]}
               primaryAction={{ href: contactMailto, label: contactDirectCtaLabel }}

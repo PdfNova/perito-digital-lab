@@ -89,26 +89,67 @@ export default function WalletTokenizationArticlePage() {
                 contexto de cuenta.
               </p>
 
+              <h2>Material de partida habitual</h2>
+              <p>
+                Este patron suele llegar con extractos o movimientos de tarjeta, alertas de emisor,
+                mensajes SMS o correo, capturas de wallet, cambios recientes de dispositivo o numero y
+                conversaciones con soporte. El problema no es solo que haya cargos. Es que las piezas
+                llegan separadas justo en el punto donde mas importa verlas juntas.
+              </p>
+
               <h2>Por que este patron suele desconcertar</h2>
-              <ul>
-                <li>La tarjeta sigue en poder del titular.</li>
-                <li>Los cargos o autorizaciones parecen reales, pero la secuencia no encaja a simple vista.</li>
-                <li>Parte de las alertas llega por canales distintos y se revisa demasiado tarde.</li>
-                <li>Se mezclan rapidamente hipotesis sobre clonacion, robo fisico o fallo del sistema.</li>
-              </ul>
+              <p>
+                La tarjeta sigue en poder del titular, los cargos o autorizaciones parecen reales, la
+                secuencia no encaja a simple vista y parte de las alertas llega por canales distintos.
+                En ese hueco se cuelan hipotesis rapidas sobre clonacion, robo fisico o simple fallo
+                del sistema.
+              </p>
               <blockquote>
                 En medios de pago digitales, la tarjeta fisica es solo una parte del problema. A veces
                 ni siquiera la mas explicativa.
               </blockquote>
 
-              <h2>Que suele merecer preservacion temprana</h2>
-              <ul>
-                <li>Alertas de alta o uso en wallet.</li>
-                <li>Mensajes de verificacion, avisos de emisor y notificaciones de seguridad.</li>
-                <li>Cronologia de cargos, rechazos o intentos de autorizacion.</li>
-                <li>Cambios recientes de dispositivo, numero, correo o credenciales.</li>
-                <li>Conversaciones con soporte, entidad emisora o comercio afectado.</li>
-              </ul>
+              <h2>Que suele revisarse</h2>
+              <p>
+                La revision prudente suele entrar en alertas de alta o uso en wallet, mensajes de
+                verificacion, cronologia de cargos, rechazos o intentos de autorizacion, cambios de
+                dispositivo, numero, correo o credenciales y conversaciones con entidad emisora,
+                soporte o comercio afectado.
+              </p>
+
+              <h2>Herramientas o familias de herramientas aplicables</h2>
+              <p>
+                Segun el material, esta lectura puede apoyarse en extractos y cronologias de cuenta,
+                revisiones de movil y mensajeria con familias como Cellebrite o Magnet AXIOM,
+                metadatos y notificaciones conservadas en el dispositivo, hashes de ficheros si se
+                exportan materiales, y contraste entre alertas, tiempos de autorizacion y secuencia de
+                cargos. No se trata de invocar herramientas por nombre, sino de usar la familia
+                adecuada para cada artefacto.
+              </p>
+
+              <h2>Que hallazgos permite obtener</h2>
+              <p>
+                Ese trabajo puede mostrar si hubo una secuencia coherente de alta, verificacion y uso
+                digital, si existen avisos ignorados o recibidos tarde, si el cambio de dispositivo o
+                de canal coincide con la ventana del fraude y si la tarjeta fisica solo estaba
+                cubriendo una parte visible de una operativa mas amplia.
+              </p>
+
+              <h2>Que limite tecnico sigue existiendo</h2>
+              <p>
+                Ni la existencia de un cargo ni la presencia de una alerta explican por si solas toda
+                la mecanica del caso. Si faltan mensajes, si el movil ya no conserva notificaciones o
+                si solo quedan extractos parciales, la revision puede aclarar mucho la secuencia, pero
+                debe dejar visible donde termina el dato y donde empezaria una inferencia mas fuerte.
+              </p>
+
+              <h2>Que salida documental puede producirse</h2>
+              <p>
+                La salida mas util suele ser una cronologia de eventos de wallet y cargos, una nota
+                tecnica sobre relacion entre alertas, dispositivo y medio de pago, o un informe que
+                explique por que la tarjeta fisica en manos del titular no agota por si sola la
+                lectura documental del asunto.
+              </p>
               <p>
                 El valor no esta en guardar pantallas sin criterio, sino en conservar la secuencia:
                 que se vio, cuando se vio y con que relacion respecto del resto de eventos.

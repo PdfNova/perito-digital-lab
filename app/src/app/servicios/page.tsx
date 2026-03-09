@@ -31,8 +31,8 @@ const services = [
     description:
       "Encargos donde hay que ordenar hechos, cuentas, comunicaciones, documentos o activos digitales antes de que el caso se explique mal.",
     items: [
-      "Fuentes heterogeneas que no pueden leerse por separado",
-      "Necesidad de reconstruir secuencias, cronologias o relaciones",
+      "Fuentes heterogeneas que no pueden leerse por separado: correo, mensajeria, extractos, PDFs o activos abiertos",
+      "Necesidad de reconstruir secuencias, cronologias o relaciones con material revisable",
       "Asuntos donde el componente digital cambia la interpretacion del problema",
     ],
     note: "Ordenar antes de concluir",
@@ -43,7 +43,7 @@ const services = [
       "Revision de evidencias, soportes y artefactos con foco en preservacion, integridad razonable y valor documental.",
     items: [
       "PDFs, mensajes, correos o exportaciones que llegan ya transformados",
-      "Materiales que necesitan diferenciar original, copia y trabajo posterior",
+      "Materiales que necesitan diferenciar original, copia, hash y trabajo posterior",
       "Casos donde la forma de conservar condiciona la fuerza del resultado",
     ],
     note: "Preservar mejor para leer mejor",
@@ -54,7 +54,7 @@ const services = [
       "Uso serio de fuentes abiertas para aportar contexto, localizar activos y contener mejor el lenguaje de atribucion.",
     items: [
       "Perfiles, dominios o alias visibles que necesitan jerarquia comun",
-      "Correlacion de indicios abiertos con materiales ya disponibles",
+      "Correlacion de indicios abiertos con materiales ya disponibles y fechas verificables",
       "Necesidad de documentar hallazgos y limites con trazabilidad",
     ],
     note: "Contexto abierto, atribucion prudente",
@@ -64,7 +64,7 @@ const services = [
     description:
       "Analisis de conversaciones, exportaciones, registros y materiales procedentes de moviles o dispositivos con utilidad documental real.",
     items: [
-      "Mensajeria que exige secuencia, fuente y contexto",
+      "Mensajeria que exige secuencia, fuente, exportacion y contexto",
       "Dispositivos con informacion relevante para asuntos civiles o sensibles",
       "Necesidad de distinguir observacion, patron e interpretacion",
     ],
@@ -185,7 +185,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Servicios especializados"
         title="Servicios tecnicos para asuntos donde lo digital exige lectura pericial, criterio y una salida defendible"
-        subtitle="La oferta se presenta con mas foco y con mejor conexion a problemas reconocibles: fraude, wallets, cripto, PDFs, mensajeria, OSINT, secuencias financieras y documentacion sensible que muchas veces ya llegan degradados por decisiones previas."
+        subtitle="La oferta se presenta con mas foco y con mejor conexion a problemas reconocibles: fraude, wallets, cripto, PDFs, mensajeria, OSINT, secuencias financieras y documentacion sensible que muchas veces ya llegan degradados por decisiones previas sobre exportaciones, versiones o fuentes."
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         secondaryAction={{ href: "/recursos", label: resourcesCtaLabel }}
         chips={[
@@ -222,7 +222,7 @@ export default function ServicesPage() {
             <Eyebrow tone="light">Encaje prioritario</Eyebrow>
             <SectionHeading
               title="La firma encaja mejor cuando el problema exige ordenar materiales, contener conclusiones y documentar bien el alcance"
-              description="No se trata de prometer cualquier cosa. Se trata de mostrar que clase de asuntos se benefician de investigacion digital, lectura pericial prudente y una pieza documental clara."
+              description="No se trata de prometer cualquier cosa. Se trata de mostrar que clase de asuntos se benefician de investigacion digital, lectura pericial prudente y una pieza documental clara basada en artefactos revisables."
               tone="light"
             />
             <div className="mt-8">
@@ -313,18 +313,18 @@ export default function ServicesPage() {
             <Eyebrow>Por que conviene consultar pronto</Eyebrow>
             <SectionHeading
               title="Hay casos que no llegan cortos de material: llegan mal mezclados, mal preservados o demasiado interpretados"
-              description="La utilidad de una consulta temprana suele estar en evitar tres errores frecuentes: transformar el material antes de fijarlo, afirmar demasiado pronto y perder continuidad entre fuentes."
+              description="La utilidad de una consulta temprana suele estar en evitar tres errores frecuentes: transformar el material antes de fijarlo, afirmar demasiado pronto y perder continuidad entre fuentes, hashes, cabeceras o cronologias."
             />
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             <SurfaceCard
               title="Que suele llegar mal"
-              description="Capturas sin contexto, PDFs impresos y escaneados, alertas perdidas, wallets explicadas solo por saldo o secuencias financieras que ya llegan partidas."
+              description="Capturas sin contexto, PDFs impresos y escaneados, alertas perdidas, wallets explicadas solo por saldo, extractos rehechos o secuencias financieras que ya llegan partidas."
               compact
             />
             <SurfaceCard
               title="Que conviene preservar antes"
-              description="Archivos originales, exportaciones, mensajes completos, notificaciones, tiempos aproximados y la relacion entre piezas antes de reenviar o reordenar."
+              description="Archivos originales, exportaciones, mensajes completos, notificaciones, cabeceras, tx hash, tiempos aproximados y la relacion entre piezas antes de reenviar o reordenar."
               compact
             />
             <SurfaceCard
@@ -356,7 +356,7 @@ export default function ServicesPage() {
               <BulletList
                 items={[
                   "Separar material original, copia, exportacion o captura antes de que todo se mezcle en la misma capa.",
-                  "Reconstruir secuencias antes de inflar interpretaciones o dar por cerrada una explicacion.",
+                  "Reconstruir secuencias con cronologias, metadatos, cabeceras, extractos o tx hash antes de inflar interpretaciones.",
                   "Relacionar documentos, pagos, mensajes, activos o alertas dentro del mismo marco.",
                   "Definir una salida tecnica o pericial que resulte util para terceros.",
                 ]}
@@ -373,8 +373,8 @@ export default function ServicesPage() {
                 <BulletList items={outputs} tone="light" />
               </SurfaceCard>
               <SurfaceCard
-                title="Puente hacia contacto"
-                description="La consulta inicial sirve para valorar encaje, materiales y utilidad documental esperable antes de comprometer una lectura mas profunda."
+                title="Material que suele cambiar la lectura"
+                description="Exportaciones completas, cabeceras, PDF verificable, extractos, hashes, tx hash, cronologias y artefactos de navegador o movil suelen ordenar mucho mejor el encargo."
                 tone="light"
                 compact
               >

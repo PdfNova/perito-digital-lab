@@ -84,13 +84,13 @@ export default function InstrumentalAccountCasePage() {
                 salidas.
               </p>
 
-              <h2>Punto de partida</h2>
-              <ul>
-                <li>Referencias de movimientos con continuidad irregular.</li>
-                <li>Comunicaciones relacionadas con pagos.</li>
-                <li>Notas dispersas sobre cuentas y destinatarios.</li>
-                <li>Cronologias parciales preparadas en momentos distintos.</li>
-              </ul>
+              <h2>Material de partida</h2>
+              <p>
+                Este tipo de asunto suele llegar con extractos parciales, referencias de movimientos,
+                capturas de banca online, justificantes sueltos, hojas rehechas a mano y mensajes o
+                correos donde se discuten pagos concretos. No siempre falta informacion. Lo que suele
+                faltar es continuidad entre las piezas.
+              </p>
 
               <h2>Donde aparecia la dificultad real</h2>
               <p>
@@ -100,21 +100,46 @@ export default function InstrumentalAccountCasePage() {
                 era no ver nada. El riesgo era ver demasiado pronto.
               </p>
 
-              <h2>Trabajo tecnico util</h2>
-              <ol>
-                <li>Ordenar la secuencia temporal de movimientos y referencias cruzadas.</li>
-                <li>Agrupar recurrencias por cuantia aproximada, proximidad y salida posterior.</li>
-                <li>Relacionar esa secuencia con otros materiales del caso.</li>
-                <li>Dejar documentado que parte del patron era visible y donde seguia haciendo falta soporte adicional.</li>
-              </ol>
+              <h2>Que suele revisarse</h2>
+              <p>
+                La lectura util suele empezar por exportaciones o extractos con mejor continuidad,
+                cuantias repetidas, ventanas temporales cortas, destinatarios de salida, conceptos de
+                operacion, comunicaciones asociadas y cualquier referencia que permita cruzar cargos,
+                ingresos y redistribucion dentro de la misma cronologia.
+              </p>
 
-              <h2>Lo que este caso tipo ensena</h2>
-              <ul>
-                <li>Una cuenta instrumental suele entenderse mejor como funcion aparente que como etiqueta cerrada.</li>
-                <li>El fraccionamiento gana relevancia cuando coincide con redistribucion y otros hitos del caso.</li>
-                <li>Una operativa circular no se formula bien desde un movimiento aislado, sino desde su coherencia dentro del conjunto.</li>
-                <li>La salida de mayor valor suele ser una cronologia clara con relaciones visibles y limites expresos.</li>
-              </ul>
+              <h2>Herramientas o familias de herramientas aplicables</h2>
+              <p>
+                Aqui no manda una herramienta espectacular, sino una combinacion sobria de trabajo:
+                extractos exportados en formato estructurado cuando existen, tablas de correlacion,
+                cronologias comparadas, hashes de documentos si se conservan ficheros originales y,
+                cuando el caso incluye correo o dispositivos, revisiones complementarias de cabeceras,
+                artefactos o copias forenses con familias como FTK Imager o Magnet AXIOM.
+              </p>
+
+              <h2>Que hallazgos permite obtener</h2>
+              <p>
+                Ese trabajo puede dejar visible algo mucho mas util que una sospecha difusa: patrones
+                de fraccionamiento, entradas y salidas demasiado proximas, cuentas que actuan como
+                paso intermedio, redistribuciones recurrentes y relaciones temporales que no se
+                apreciaban cuando todo estaba reducido a capturas sueltas.
+              </p>
+
+              <h2>Que limite tecnico sigue existiendo</h2>
+              <p>
+                Incluso con buena secuencia, un patron financiero visible no equivale por si solo a
+                una atribucion cerrada sobre intencion, autoria o encaje completo de la operativa. La
+                lectura pericial puede describir funcion aparente, recurrencia y consistencia del
+                patron, pero debe dejar claro donde sigue haciendo falta soporte adicional.
+              </p>
+
+              <h2>Que salida documental puede producirse</h2>
+              <p>
+                La salida de mayor valor suele ser una cronologia clara, un cuadro de movimientos con
+                relaciones visibles, una nota tecnica sobre fraccionamiento y redistribucion o un
+                informe que explique con prudencia por que la cuenta aparece como instrumental dentro
+                del conjunto y no solo dentro de una operacion aislada.
+              </p>
               <blockquote>
                 En fraude bancario y trazabilidad, una lectura precipitada suele inflar el patron. Una
                 lectura ordenada suele volverlo mucho mas util.

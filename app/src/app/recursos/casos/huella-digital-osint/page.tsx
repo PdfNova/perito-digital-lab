@@ -82,13 +82,13 @@ export default function DigitalFootprintOsintCasePage() {
                 lo que podia sostener con prudencia.
               </p>
 
-              <h2>Punto de partida</h2>
-              <ul>
-                <li>Capturas de perfiles y publicaciones.</li>
-                <li>Referencias a alias repetidos.</li>
-                <li>Enlaces a activos abiertos observados en momentos distintos.</li>
-                <li>Notas con conclusiones ya avanzadas sobre posible identidad comun.</li>
-              </ul>
+              <h2>Material de partida</h2>
+              <p>
+                Este patron suele arrancar con capturas de perfiles, alias repetidos, dominios o
+                cuentas visibles, publicaciones guardadas en fechas distintas, notas con hipotesis ya
+                avanzadas y, a veces, enlaces rotos o snapshots parciales. Hay material. Lo que falta
+                es jerarquia entre fuente, fecha y fuerza de cada coincidencia.
+              </p>
 
               <h2>Donde aparecia la dificultad real</h2>
               <p>
@@ -97,19 +97,45 @@ export default function DigitalFootprintOsintCasePage() {
                 sin estructura y poco margen entre observacion visible e inferencia fuerte.
               </p>
 
-              <h2>Trabajo tecnico util</h2>
-              <ol>
-                <li>Separar datos visibles, correlaciones e interpretaciones sugeridas.</li>
-                <li>Ordenar activos abiertos por fuente, fecha y relacion observable.</li>
-                <li>Identificar que coincidencias merecen lectura conjunta y cuales solo aportan contexto.</li>
-                <li>Fijar con claridad donde acaba el patron visible y donde empieza una atribucion que necesita mas soporte.</li>
-              </ol>
-
-              <h2>Lo que este caso tipo ensena</h2>
+              <h2>Que suele revisarse</h2>
               <p>
-                Varias coincidencias abiertas resultaban tecnicamente interesantes, pero no equivalian
-                por si solas a una identificacion cerrada. El valor real aparecia al documentar la
-                relacion entre activos y al contener mejor el lenguaje de atribucion.
+                La revision suele centrarse en fechas de publicacion, persistencia de alias,
+                reutilizacion de nombres, relaciones entre perfiles, dominios o handles, cronologia de
+                cambios visibles y consistencia entre lo que muestran las fuentes abiertas y lo que ya
+                traia la consulta.
+              </p>
+
+              <h2>Herramientas o familias de herramientas aplicables</h2>
+              <p>
+                En OSINT serio la caja de herramientas suele combinar buscadores, fuentes abiertas,
+                snapshots publicos, historicos de dominio cuando son accesibles, hojas de correlacion y
+                preservacion de evidencia visible. El valor no lo aporta una marca concreta, sino una
+                documentacion trazable de perfiles, fechas, capturas con contexto y relaciones
+                observables entre activos publicos.
+              </p>
+
+              <h2>Que hallazgos permite obtener</h2>
+              <p>
+                Ese trabajo puede aportar mapas de relacion entre alias y perfiles, persistencia de una
+                misma huella en plataformas distintas, coincidencias de calendario, reutilizacion de
+                activos abiertos y patrones de presencia digital que ayudan mucho a contextualizar un
+                caso aunque no cierren por si solos una identidad.
+              </p>
+
+              <h2>Que limite tecnico sigue existiendo</h2>
+              <p>
+                Varias coincidencias abiertas pueden resultar tecnicamente interesantes, pero no
+                equivalen automaticamente a una identificacion cerrada. El limite importante sigue
+                siendo el mismo: una correlacion publica consistente puede reforzar una linea de
+                trabajo sin convertirse por ello en atribucion total.
+              </p>
+
+              <h2>Que salida documental puede producirse</h2>
+              <p>
+                La salida mas util suele ser una nota tecnica de hallazgos abiertos, una cronologia de
+                observaciones, un mapa de relaciones visibles o un cuadro de fuentes que permita
+                explicar a terceros que se observa, que patron se desprende y donde siguen estando los
+                limites del analisis.
               </p>
               <blockquote>
                 En OSINT, parte del rigor consiste en saber que no debe afirmarse todavia.

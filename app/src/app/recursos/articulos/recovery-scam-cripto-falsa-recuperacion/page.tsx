@@ -46,7 +46,7 @@ export default function RecoveryScamArticlePage() {
             src="/images/slots/slot-analista.svg"
             alt="Analista revisando direcciones, mensajes y secuencia de un posible recovery scam cripto"
             eyebrow="Cripto y trazabilidad"
-            title="El problema no siempre termina con la primera perdida: a veces empieza una segunda capa de engaño"
+            title="El problema no siempre termina con la primera perdida: a veces empieza una segunda capa de engano"
             description="Una lectura tecnica temprana ayuda a separar rastro de transaccion, mensajes de supuesto rescate y pagos adicionales antes de que el caso se vuelva aun mas confuso."
             tags={["Cripto", "Recovery scam", "Trazabilidad"]}
             priority
@@ -82,6 +82,15 @@ export default function RecoveryScamArticlePage() {
                 de ser solo una perdida inicial y se convierte en una secuencia mas desordenada.
               </p>
 
+              <h2>Material de partida habitual</h2>
+              <p>
+                Este patron suele llegar con hashes o identificadores de transaccion, direcciones de
+                wallet, capturas de paneles de supuesto rescate, mensajes por correo o mensajeria,
+                justificantes de pagos adicionales y notas hechas con mucha urgencia. El problema es
+                que la segunda capa de fraude mezcla material on-chain y off-chain justo cuando mas
+                importa separarlos.
+              </p>
+
               <h2>Por que este patron resulta especialmente danino</h2>
               <p>
                 La parte afectada llega ya cansada, con ansiedad por recuperar y con un relato del
@@ -96,20 +105,52 @@ export default function RecoveryScamArticlePage() {
                 <li>El rastro original queda peor documentado que al principio.</li>
               </ul>
 
-              <h2>Que conviene preservar cuanto antes</h2>
-              <ul>
-                <li>Hash o identificador de transaccion cuando exista.</li>
-                <li>Direcciones o cuentas implicadas en la secuencia.</li>
-                <li>Mensajes, correos, usuarios y dominios desde los que se ofrece el supuesto rescate.</li>
-                <li>Solicitudes de pago adicional, tasas, desbloqueos o verificaciones posteriores.</li>
-                <li>Capturas con contexto y, si es posible, fuentes o exportaciones mejor conservadas.</li>
-              </ul>
+              <h2>Que suele revisarse</h2>
+              <p>
+                La revision suele separar la perdida inicial de la segunda fase, ordenar hashes o
+                identificadores, direcciones implicadas, mensajes, usuarios, dominios, paneles
+                mostrados, solicitudes de pago adicional y cualquier cambio de wallet o cuenta que se
+                introduzca durante el supuesto rescate.
+              </p>
+
+              <h2>Herramientas o familias de herramientas aplicables</h2>
+              <p>
+                Aqui suelen combinarse exploradores blockchain, lectura de hashes de transaccion,
+                correlacion on-chain y off-chain, cronologias de mensajeria y correo, y, cuando existe
+                acceso al equipo o al navegador, revisiones de historial, descargas o sesiones con
+                familias como Hindsight. El objetivo no es prometer rastreos milagrosos, sino ordenar
+                artefactos reales y sus tiempos.
+              </p>
+
+              <h2>Que hallazgos permite obtener</h2>
+              <p>
+                Ese trabajo puede mostrar que la falsa recuperacion abre una secuencia distinta,
+                identifica nuevas direcciones o interlocutores, deja visible la relacion temporal entre
+                la perdida inicial y el segundo engano y ayuda a entender si el material conservado
+                permite documentar mejor la trazabilidad del caso.
+              </p>
+
+              <h2>Que limite tecnico sigue existiendo</h2>
+              <p>
+                Una buena cronologia de hashes, wallets y mensajes no equivale por si sola a
+                recuperacion de fondos ni a atribucion cerrada de todos los actores. Si faltan hashes,
+                si los paneles eran solo capturas o si el rastro llega rehecho, la lectura puede
+                seguir siendo util, pero con limites tecnicos que conviene decir con claridad.
+              </p>
+
+              <h2>Que salida documental puede producirse</h2>
+              <p>
+                La salida mas util suele ser una cronologia separada por fases, una tabla de
+                direcciones y movimientos visibles, una nota tecnica sobre la segunda capa de fraude o
+                un informe que explique con prudencia que parte del rastro puede describirse y que
+                parte no debe sobreactuarse.
+              </p>
               <blockquote>
                 El primer objetivo no es prometer recuperacion. Es evitar que el caso se degrade mas.
               </blockquote>
 
               <h2>Que puede aportar una lectura tecnica seria</h2>
-              <h3>Separar la perdida inicial de la segunda capa de engaño</h3>
+              <h3>Separar la perdida inicial de la segunda capa de engano</h3>
               <p>
                 Esa distincion documental cambia mucho la claridad del caso y evita mezclar hechos que
                 deben leerse por ventanas temporales y actores distintos.

@@ -40,17 +40,17 @@ const proofBlocks = [
   {
     title: "Preservacion y secuencia",
     description:
-      "Buena parte del valor del caso se gana o se pierde antes del informe: cuando los materiales conservan fuente, continuidad y una secuencia que no llega rehecha.",
+      "Buena parte del valor del caso se gana o se pierde antes del informe: cuando exportaciones, correos, extractos, hashes o PDFs conservan fuente, continuidad y una secuencia que no llega rehecha.",
   },
   {
     title: "Lectura pericial prudente",
     description:
-      "No todo indicio sostiene la misma conclusion. El trabajo util separa observacion, patron, correlacion, inferencia y limite antes de afirmar mas de la cuenta.",
+      "No todo indicio sostiene la misma conclusion. El trabajo util separa observacion, patron, correlacion, inferencia y limite a partir de metadatos, cronologias, cabeceras, artefactos y contexto.",
   },
   {
     title: "Salida util para terceros",
     description:
-      "Cronologia, nota tecnica, cuadro documental o informe claro para quien debe decidir sin depender de capturas llamativas ni de un relato mal cerrado.",
+      "Cronologia, nota tecnica, cuadro documental o informe claro para quien debe decidir sin depender de capturas llamativas, PDFs planos o un relato mal cerrado.",
   },
 ];
 
@@ -118,7 +118,7 @@ export default function HomePage() {
       <PageHero
         eyebrow="Firma tecnica / investigacion digital / analisis pericial"
         title="Investigacion digital y analisis pericial para casos donde una mala lectura puede empeorarlo todo"
-        subtitle="Firma orientada a despachos, procedimientos sensibles y encargos con componente digital donde hace falta ordenar materiales, reconstruir secuencia y distinguir mejor que sirve como indicio, que sostiene correlacion y que ya puede defenderse documentalmente."
+        subtitle="Firma orientada a despachos, procedimientos sensibles y encargos con componente digital donde hace falta ordenar materiales, reconstruir secuencia y distinguir mejor que sirve como indicio, que sostiene correlacion y que ya puede defenderse documentalmente a partir de exportaciones, metadatos, hashes, cronologias o artefactos revisables."
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         secondaryAction={{ href: "/recursos", label: resourcesCtaLabel }}
         chips={[
@@ -217,8 +217,8 @@ export default function HomePage() {
             >
               <BulletList
                 items={[
-                  "Se fija que material existe realmente y en que estado de preservacion llega, sin dar por buenas piezas aparentes.",
-                  "Se ordenan secuencias y relaciones antes de extraer conclusiones fuertes o cerrar atribuciones.",
+                  "Se fija que material existe realmente y en que estado de preservacion llega: exportaciones, cabeceras, PDF verificable, extractos, tx hash o copia de trabajo.",
+                  "Se ordenan secuencias y relaciones con apoyo en cronologias, metadatos, hashes y artefactos antes de extraer conclusiones fuertes o cerrar atribuciones.",
                   "Se documenta una salida clara con limites visibles para terceros y con mejor separacion entre indicio e inferencia.",
                 ]}
               />
@@ -255,7 +255,7 @@ export default function HomePage() {
                 items={[
                   { label: "Casos", value: "Patrones anonimizados y errores recurrentes de lectura." },
                   { label: "Guias", value: "Lecturas tecnicas sobre PDF, firmas, wallets, atribucion y alcance." },
-                  { label: "Efecto", value: "Mejoran la calidad de la consulta y del material que todavia conserva valor." },
+                  { label: "Artefactos", value: "Exportaciones, metadatos, hashes, cabeceras, extractos y cronologias." },
                   { label: "Puente", value: "Cada pieza conecta con especialidad, metodologia o contacto." },
                 ]}
               />
@@ -311,9 +311,9 @@ export default function HomePage() {
               description={beforeActionDescription}
               items={[
                 "Hay consultas que llegan con capturas reenviadas muchas veces y sin la fuente que les daba continuidad.",
-                "Hay PDFs con firma visible que ya vienen impresos, escaneados o separados de la validacion que permitiria leerlos mejor.",
-                "Hay fraudes con wallet donde la tarjeta fisica sigue con su titular y esa intuicion inicial hace perder tiempo valioso.",
-                "Hay recuperaciones cripto aparentes que anaden nuevas wallets, pagos y ruido antes de que se haya ordenado la perdida inicial.",
+                "Hay PDFs con firma visible que ya vienen impresos, escaneados o separados de la validacion criptografica que permitiria leerlos mejor.",
+                "Hay fraudes con wallet donde faltan alertas, cronologia de cargos o contexto de dispositivo y esa intuicion inicial hace perder tiempo valioso.",
+                "Hay recuperaciones cripto aparentes que anaden nuevas wallets, tx hash, pagos y ruido antes de que se haya ordenado la perdida inicial.",
               ]}
               primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
               secondaryAction={{ href: "/recursos", label: resourcesCtaLabel }}

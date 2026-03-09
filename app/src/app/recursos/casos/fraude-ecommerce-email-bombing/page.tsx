@@ -83,12 +83,12 @@ export default function EcommerceEmailBombingCasePage() {
               </p>
 
               <h2>Material inicial</h2>
-              <ul>
-                <li>Bandeja con volumen anomalo de correo.</li>
-                <li>Mensajes de confirmacion mezclados con ruido.</li>
-                <li>Referencias a pedidos o cargos no esperados.</li>
-                <li>Capturas y notas de contexto aportadas en momentos distintos.</li>
-              </ul>
+              <p>
+                Este patron suele llegar con bandejas saturadas, mensajes de confirmacion mezclados
+                con ruido, pedidos o cargos no esperados, capturas parciales, notas de contexto y, a
+                veces, correo ya filtrado o archivado. El problema no es que falte correo. El problema
+                es que el correo util se vuelve dificil de aislar cuando la fuente ya ha sido tocada.
+              </p>
 
               <h2>Donde aparecia la dificultad real</h2>
               <p>
@@ -103,19 +103,45 @@ export default function EcommerceEmailBombingCasePage() {
                 <li>Perdida parcial de continuidad documental.</li>
               </ul>
 
-              <h2>Trabajo tecnico util</h2>
-              <ol>
-                <li>Reconstruir cuando empezo la saturacion.</li>
-                <li>Identificar alertas autenticas dentro de esa ventana.</li>
-                <li>Relacionar correo, pedidos y otros eventos relevantes.</li>
-                <li>Fijar con claridad donde terminaba la observacion y donde empezaba una inferencia mas fuerte.</li>
-              </ol>
-
-              <h2>Lo que este caso tipo ensena</h2>
+              <h2>Que suele revisarse</h2>
               <p>
-                El volumen de correo por si solo no era concluyente. Lo que convertia el ruido en un
-                indicio serio de contexto era su coincidencia temporal con eventos relevantes y la
-                capacidad de explicarlo dentro de una sola cronologia prudente.
+                La lectura pericial suele centrarse en la ventana temporal del bombardeo, cabeceras de
+                mensajes cuando se conservan, carpetas afectadas, mensajes autenticos de comercio o
+                entidad, historial de navegador, descargas, sesiones y relacion entre correo, pedido,
+                cargo y cambios posteriores de cuenta o credenciales.
+              </p>
+
+              <h2>Herramientas o familias de herramientas aplicables</h2>
+              <p>
+                Segun el material disponible, aqui suelen entrar exportaciones completas de buzones,
+                revisiones de cabeceras, cronologias de correo, artefactos de navegador y familias de
+                herramientas como Hindsight para historial, cookies y descargas, o copias forenses y
+                revisiones de sistema con FTK Imager cuando interesa preservar el entorno con mas
+                detalle.
+              </p>
+
+              <h2>Que hallazgos permite obtener</h2>
+              <p>
+                Ese trabajo puede mostrar cuando empieza la saturacion, que mensajes servian solo para
+                ruido, cuales eran alertas reales, que pedido o accion relevante quedo enterrado en la
+                misma ventana y como se relacionan correo, navegador y operativa comercial sin tener
+                que descansar solo en memoria o relato.
+              </p>
+
+              <h2>Que limite tecnico sigue existiendo</h2>
+              <p>
+                El volumen de correo por si solo no demuestra una mecanica cerrada ni sustituye otras
+                comprobaciones. Si la bandeja ya fue limpiada, si faltan cabeceras o si solo quedan
+                capturas, la cronologia puede seguir siendo util, pero con menos fuerza explicativa y
+                mas dependencia de material complementario.
+              </p>
+
+              <h2>Que salida documental puede producirse</h2>
+              <p>
+                La salida mas util suele ser una secuencia documentada de eventos, una tabla de correo
+                relevante frente a ruido, una nota tecnica sobre la ventana temporal del bombardeo o
+                un informe que explique con prudencia por que el email bombing funciona aqui como
+                contexto tecnicamente relevante y no como mera molestia de bandeja.
               </p>
               <blockquote>
                 La salida mas util no fue una narracion dramatica. Fue una secuencia documentada con

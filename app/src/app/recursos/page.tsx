@@ -30,7 +30,7 @@ const authorityHighlights = [
     type: "Lectura clave",
     title: "Notario digital vs perito digital",
     description:
-      "Duda que suele llegar mal encuadrada: diferenciar entre fijar un estado digital y analizar su contexto, su integridad y su alcance documental real.",
+      "Duda que suele llegar mal encuadrada: diferenciar entre fijar un estado digital y revisar luego origen, metadatos, integridad y alcance documental real.",
     meta: "Despachos y decisores / 7 min",
     href: "/recursos/articulos/notario-digital-vs-perito-digital",
     cta: "Leer lectura aplicada",
@@ -40,7 +40,7 @@ const authorityHighlights = [
     type: "Guia tecnica",
     title: "Firma electronica valida vs firma visual en PDF",
     description:
-      "Controversia documental frecuente: distinguir apariencia, revisiones del archivo y peso documental del PDF sin sobreactuar el caso.",
+      "Controversia documental frecuente: distinguir apariencia, validacion criptografica, revisiones del archivo y peso documental del PDF sin sobreactuar el caso.",
     meta: "Documentos electronicos / 8 min",
     href: "/recursos/guias/firma-electronica-pdf-validez-documental",
     cta: "Leer guia tecnica",
@@ -50,7 +50,7 @@ const authorityHighlights = [
     type: "Articulo aplicado",
     title: "Tokenizacion fraudulenta y pagos con wallet",
     description:
-      "Patron que suele cerrarse demasiado pronto: la tarjeta fisica puede seguir con su titular y, aun asi, existir una secuencia de uso digital que merece revision seria.",
+      "Patron que suele cerrarse demasiado pronto: la tarjeta fisica puede seguir con su titular y, aun asi, existir una secuencia de uso digital revisable con alertas, dispositivo y cronologia.",
     meta: "Medios de pago / 7 min",
     href: "/recursos/articulos/tokenizacion-fraudulenta-tarjeta-wallet",
     cta: "Leer articulo aplicado",
@@ -60,7 +60,7 @@ const authorityHighlights = [
     type: "Articulo aplicado",
     title: "Recovery scam cripto y falsa sensacion de rescate",
     description:
-      "Segunda capa de fraude donde la urgencia por recuperar agrava el desorden documental, la trazabilidad y la lectura de la perdida inicial.",
+      "Segunda capa de fraude donde la urgencia por recuperar agrava el desorden documental, la trazabilidad y la lectura de la perdida inicial con hashes y wallets mezcladas.",
     meta: "Cripto y trazabilidad / 7 min",
     href: "/recursos/articulos/recovery-scam-cripto-falsa-recuperacion",
     cta: "Leer articulo aplicado",
@@ -73,7 +73,7 @@ const appliedStories = [
     type: "Caso tipo",
     title: "Cuenta instrumental, smurfing y operativa circular",
     description:
-      "Caso anonimo sobre ingresos fragmentados, redistribucion y patron financiero que parece disperso hasta que la secuencia se ordena bien.",
+      "Caso anonimo sobre ingresos fragmentados, redistribucion y patron financiero que parece disperso hasta que extractos, cronologia y relaciones se ordenan bien.",
     meta: "Fraude bancario / 6 min",
     href: "/recursos/casos/cuenta-instrumental-smurfing-operativa-circular",
     cta: "Leer caso tipo",
@@ -83,7 +83,7 @@ const appliedStories = [
     type: "Caso tipo",
     title: "Fraude e-commerce con email bombing",
     description:
-      "Secuencia anonima donde el ruido de correo entierra alertas y muestra por que limpiar, archivar o reenviar antes de documentar sale caro.",
+      "Secuencia anonima donde el ruido de correo entierra alertas y muestra por que cabeceras, bandeja completa e historial de navegador importan mas que unas pocas capturas.",
     meta: "Correo y fraude / 6 min",
     href: "/recursos/casos/fraude-ecommerce-email-bombing",
     cta: "Leer caso tipo",
@@ -93,7 +93,7 @@ const appliedStories = [
     type: "Caso tipo",
     title: "Huella digital, OSINT y limites de atribucion",
     description:
-      "Caso anonimo para mostrar cuando una correlacion abierta ayuda mucho y cuando una atribucion prematura debilita mas de lo que parece.",
+      "Caso anonimo para mostrar cuando una correlacion abierta ayuda mucho y cuando una atribucion prematura debilita mas de lo que parece aunque existan perfiles, alias y fechas coincidentes.",
     meta: "OSINT / 6 min",
     href: "/recursos/casos/huella-digital-osint",
     cta: "Leer caso tipo",
@@ -193,8 +193,8 @@ const authoritySignals = [
 const editorialMarkers = [
   { label: "14 piezas", value: "Articulos, guias y casos tipo ya enlazados a especialidades reales." },
   { label: "Problemas", value: "Fraude bancario, wallets, cripto, PDF, OSINT, mensajeria y preservacion." },
-  { label: "Metodo", value: "Patron, secuencia, integridad, contexto, trazabilidad y limites." },
-  { label: "Salida", value: "La lectura publica empuja de forma natural hacia servicios y contacto." },
+  { label: "Metodo", value: "Patron, secuencia, integridad, contexto, trazabilidad, herramientas y limites." },
+  { label: "Artefactos", value: "PDF, exportaciones, hashes, cabeceras, extractos, historiales y fuentes abiertas." },
 ];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -210,7 +210,7 @@ export default function ResourcesPage() {
       <PageHero
         eyebrow="Centro editorial de autoridad"
         title="Casos, guias y criterios para entender por que una lectura tecnica puede cambiar un caso"
-        subtitle="Recursos deja de funcionar como biblioteca general y pasa a comportarse como mapa de problemas reales: fraude, documentos, wallets, mensajeria, OSINT, preservacion, limites de atribucion y errores que ya hacen perder valor antes de pedir una revision."
+        subtitle="Recursos deja de funcionar como biblioteca general y pasa a comportarse como mapa de problemas reales: fraude, documentos, wallets, mensajeria, OSINT, preservacion, limites de atribucion y errores que ya hacen perder valor antes de pedir una revision sobre artefactos concretos."
         primaryAction={{ href: "#destacados", label: "Ver piezas destacadas" }}
         secondaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         chips={[
@@ -247,13 +247,13 @@ export default function ResourcesPage() {
             <Eyebrow tone="light">Como funciona el hub</Eyebrow>
             <SectionHeading
               title="Contenido para reconocer un patron real, evitar errores caros y llegar a la consulta con mejor base"
-              description="La biblioteca se organiza para pasar de la intuicion al criterio: que se observa, que se conserva, que puede sostenerse y donde una lectura temprana evita que el caso se debilite."
+              description="La biblioteca se organiza para pasar de la intuicion al criterio: que artefacto se observa, que fuente se conserva, que herramienta puede revisarlo y donde una lectura temprana evita que el caso se debilite."
               tone="light"
             />
           </div>
           <SurfaceCard
               title="Que encuentra aqui quien llega con un problema real"
-            description="No solo conceptos. Encuentra errores recurrentes, decisiones que llegan tarde, documentos mal leidos, secuencias degradadas y patrones anonimizados que suelen requerir una revision experta."
+            description="No solo conceptos. Encuentra errores recurrentes, decisiones que llegan tarde, documentos mal leidos, secuencias degradadas y patrones anonimizados donde el artefacto importa tanto como la interpretacion."
             tone="light"
             compact
           >
@@ -274,7 +274,7 @@ export default function ResourcesPage() {
             </div>
             <SurfaceCard
               title="Por que estas piezas son centrales"
-              description="No son articulos ornamentales. Responden a dudas que suelen interpretarse mal y a errores previos que, si no se corrigen, reducen mucho la calidad del caso."
+              description="No son articulos ornamentales. Responden a dudas que suelen interpretarse mal y a errores previos que, si no se corrigen, reducen mucho la calidad del caso antes incluso de abrir una herramienta."
               compact
             >
               <div className="grid gap-3">
@@ -314,9 +314,9 @@ export default function ResourcesPage() {
               description={beforeActionDescription}
               items={[
                 "Lo que suele llegar peor no es la falta de material, sino el material ya mezclado, reenviado o sin la fuente que lo hacia mas legible.",
-                "Un PDF, una captura o un cargo aislado pueden orientar, pero se debilitan mucho cuando se separan de su secuencia y de su validacion real.",
-                "Alertas, notificaciones, mensajes y versiones de archivo borrados demasiado pronto dejan huecos que luego ya no se explican igual.",
-                "La intuicion inicial suele apretar antes que el analisis. Estas piezas ayudan a que no cierre el caso antes de tiempo.",
+                "Un PDF, una captura o un cargo aislado pueden orientar, pero se debilitan mucho cuando se separan de su secuencia, su validacion real o su hash de origen.",
+                "Alertas, notificaciones, mensajes, cabeceras y versiones de archivo borrados demasiado pronto dejan huecos que luego ya no se explican igual.",
+                "La intuicion inicial suele apretar antes que el analisis. Estas piezas ayudan a que no cierre el caso antes de revisar que artefacto existe y con que tecnica puede leerse.",
               ]}
               primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
               secondaryAction={{ href: "/servicios", label: "Ver especialidades" }}
@@ -331,7 +331,7 @@ export default function ResourcesPage() {
             <Eyebrow>Historias anonimizadas y experiencias aplicadas</Eyebrow>
             <SectionHeading
               title="Casos tipo donde una mala preservacion, una mala lectura o una atribucion precipitada debilitan el asunto"
-              description="Estos patrones ya publicados muestran mejor que muchas descripciones de servicio por que un caso digital puede cambiar al ordenarse con criterio."
+              description="Estos patrones ya publicados muestran mejor que muchas descripciones de servicio por que un caso digital puede cambiar al ordenarse con criterio, artefactos revisables y limites tecnicos visibles."
             />
             <div className="mt-8 grid gap-4 lg:grid-cols-3">
               {appliedStories.map((piece) => (
@@ -355,7 +355,7 @@ export default function ResourcesPage() {
             alt="Escena editorial con documentos, monitor y recursos aplicados"
             eyebrow="Historias y patron"
             title="La experiencia aplicada se hace visible cuando el contenido muestra donde se rompe un caso y donde puede ordenarse mejor"
-            description="Cada caso tipo trabaja como prueba publica de metodo: no cuenta un expediente, convierte un patron real en una lectura util y prudente."
+            description="Cada caso tipo trabaja como prueba publica de metodo: no cuenta un expediente, convierte un patron real en una lectura util, prudente y tecnicamente reconocible."
             tags={["Casos tipo", "Patrones", "Metodo"]}
             aspect="landscape"
           />
@@ -368,7 +368,7 @@ export default function ResourcesPage() {
             <Eyebrow>Guias para revisar mejor</Eyebrow>
             <SectionHeading
               title="Lecturas aplicadas que aclaran que revisar, que conservar y por que una consulta temprana evita errores caros"
-              description="Estas piezas conectan directamente con fraude e-commerce, moviles, mensajeria, cuentas instrumentales y revisiones donde el valor depende de secuencia y contexto."
+              description="Estas piezas conectan directamente con fraude e-commerce, moviles, mensajeria, cuentas instrumentales y revisiones donde el valor depende de secuencia, fuente, metadatos y contexto."
             />
           </div>
           <div className="grid gap-4 lg:grid-cols-3">

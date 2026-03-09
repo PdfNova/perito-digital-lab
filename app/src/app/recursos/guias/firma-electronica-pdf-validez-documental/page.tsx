@@ -82,6 +82,15 @@ export default function PdfSignatureGuidePage() {
                 por su aspecto sin haber revisado todavia que estructura conserva en realidad.
               </p>
 
+              <h2>Material de partida habitual</h2>
+              <p>
+                Este tipo de controversia suele llegar con un PDF reenviado, alguna captura de la zona
+                firmada, versiones impresas y escaneadas, correos donde se adjunto el archivo y, en
+                ocasiones, un CSV o referencia de verificacion. La dificultad no esta solo en ver una
+                firma. Esta en saber que clase de archivo sigue existiendo y cual ya es solo copia de
+                trabajo.
+              </p>
+
               <h2>Por que la apariencia del PDF puede inducir a error</h2>
               <p>
                 Un PDF puede mostrar una firma visible y, sin embargo, haber llegado como copia plana,
@@ -95,14 +104,46 @@ export default function PdfSignatureGuidePage() {
                 original.
               </p>
 
-              <h2>Que suele revisar una lectura tecnica prudente</h2>
-              <ul>
-                <li>Si existe o no una firma electronica verificable en el propio documento.</li>
-                <li>Si el archivo muestra indicios de reimpresion, aplanado o recreacion posterior.</li>
-                <li>Si aparecen revisiones, cambios o versiones sucesivas del mismo PDF.</li>
-                <li>Si el documento se aporta como original digital, copia o simple captura.</li>
-                <li>Si puede relacionarse con correos, expedientes, metadatos o flujos de envio.</li>
-              </ul>
+              <h2>Que suele revisarse</h2>
+              <p>
+                La lectura prudente suele revisar si existe firma electronica verificable en el propio
+                documento, si el archivo muestra indicios de reimpresion o aplanado, si conserva
+                metadatos, revisiones o versiones sucesivas, si se aporta como original digital o como
+                copia posterior y si puede relacionarse con correo, expediente o flujo de envio.
+              </p>
+
+              <h2>Herramientas o familias de herramientas aplicables</h2>
+              <p>
+                Aqui importan mas las tecnicas que el nombre comercial: validacion criptografica del
+                PDF, comprobacion de certificados o CSV cuando existe, revision de metadatos,
+                comparacion de versiones, hashes para integridad y contraste con correos o repositorios
+                desde los que salio el archivo. Si solo queda una impresion escaneada, la caja de
+                herramientas cambia porque buena parte de la estructura original ya no esta.
+              </p>
+
+              <h2>Que hallazgos permite obtener</h2>
+              <p>
+                Ese trabajo puede aclarar si el documento conserva una firma verificable, si la firma
+                es solo visual, si el archivo fue rehecho, si existen versiones inconsistentes, si el
+                PDF mantiene relacion demostrable con su fuente y que peso documental cabe darle dentro
+                del caso.
+              </p>
+
+              <h2>Que limite tecnico sigue existiendo</h2>
+              <p>
+                Si el original digital ya no existe, si solo quedan capturas o una impresion
+                escaneada, la revision puede seguir describiendo mucho del problema, pero con menos
+                capacidad para pronunciarse sobre integridad criptografica, historial de versiones o
+                fuerza documental completa del archivo de origen.
+              </p>
+
+              <h2>Que salida documental puede producirse</h2>
+              <p>
+                La salida mas util suele ser una nota tecnica sobre verificabilidad e integridad, una
+                comparativa de versiones, un cuadro documental de origen y transformaciones o un
+                informe que explique a terceros por que un PDF aparentemente firmado puede tener un
+                alcance muy distinto segun el artefacto que realmente se conserva.
+              </p>
               <blockquote>
                 Una firma visible puede ser solo una parte del documento. No necesariamente la que mas
                 valor aporta por si sola.

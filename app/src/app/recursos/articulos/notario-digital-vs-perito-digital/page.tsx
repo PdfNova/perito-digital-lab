@@ -92,17 +92,38 @@ export default function NotaryVsExpertArticlePage() {
                 con otras piezas y limites de lo que realmente conviene afirmar.
               </p>
 
+              <h2>Material de partida habitual</h2>
+              <p>
+                Cuando esta duda aparece de verdad, el punto de partida suele ser una mezcla de
+                capturas, URLs, PDFs, correos, exportaciones de mensajeria, archivos adjuntos o
+                incluso un acta o constatacion ya practicada. Lo importante no es la cantidad. Es
+                saber que pieza fija un estado visible y que pieza sigue necesitando lectura tecnica.
+              </p>
+
+              <h2>Que suele revisarse</h2>
+              <p>
+                La revision pericial no se limita a mirar la misma pantalla otra vez. Suele entrar en
+                origen del archivo, metadatos, versiones, continuidad de una conversacion, cabeceras
+                de correo, CSV o identificadores de validacion cuando existen, y relacion entre esa
+                pieza y el resto de la secuencia documental.
+              </p>
+
+              <h2>Herramientas o familias de herramientas aplicables</h2>
+              <p>
+                Segun el artefacto, la caja de herramientas cambia: validacion criptografica y
+                metadatos en documentos, hashes para fijar integridad, revisiones de mensajeria o
+                movil con familias como Cellebrite o Magnet AXIOM, analisis de correo con cabeceras y
+                copias de trabajo, o preservacion de archivos y registros con FTK Imager cuando hace
+                falta conservar mejor la fuente.
+              </p>
+
               <h2>Por que conviene separar fijacion y analisis</h2>
               <p>
                 Un caso digital rara vez se agota en una captura, una URL o un documento mostrado en
-                pantalla. Lo que suele cambiar su lectura es el conjunto:
+                pantalla. Lo que suele cambiar su lectura es el conjunto: de donde sale el material,
+                cuando aparece dentro de la secuencia, que transformaciones ha sufrido y con que otras
+                piezas debe leerse de forma conjunta.
               </p>
-              <ul>
-                <li>de donde sale el material;</li>
-                <li>cuando aparece dentro de la secuencia;</li>
-                <li>que versiones o transformaciones ha sufrido;</li>
-                <li>con que otras piezas debe leerse de forma conjunta.</li>
-              </ul>
               <blockquote>
                 Fijar un estado visible puede ser util. Determinar que peso tiene dentro del caso es
                 otro trabajo distinto.
@@ -121,7 +142,7 @@ export default function NotaryVsExpertArticlePage() {
                 visible admite una inferencia mas fuerte de la que parece a simple vista.
               </p>
 
-              <h2>Que suele aportar una lectura pericial o tecnica</h2>
+              <h2>Que hallazgos permite obtener</h2>
               <h3>Contextualizar el material</h3>
               <p>
                 No solo importa que algo exista. Importa de donde sale, como se obtuvo y con que otras
@@ -139,6 +160,22 @@ export default function NotaryVsExpertArticlePage() {
               <p>
                 Parte del valor pericial esta en poner freno donde hace falta: separar lo observable,
                 lo que funciona como patron y lo que todavia necesitara soporte adicional.
+              </p>
+
+              <h2>Que limite tecnico sigue existiendo</h2>
+              <p>
+                Ni una constatacion notarial ni una revision pericial corrigen por si solas un material
+                ya rehecho, recortado o pobremente preservado. Si la fuente original se ha perdido, si
+                solo quedan pantallas o si faltan versiones relevantes, la lectura puede seguir siendo
+                util, pero con limites que conviene explicar sin disfrazarlos.
+              </p>
+
+              <h2>Que salida documental puede producirse</h2>
+              <p>
+                Segun el asunto, la salida puede ser una constatacion de estado, una cronologia
+                tecnica, una nota sobre integridad y transformaciones, un cuadro documental de piezas
+                o un informe pericial que separe mejor lo fijado, lo revisado y lo que todavia no
+                puede sostenerse con la misma fuerza.
               </p>
 
               <h2>Errores frecuentes cuando esta diferencia se plantea tarde</h2>

@@ -21,7 +21,67 @@ import {
 } from "@/app/site-config";
 import type { ServiceSpecialty } from "@/app/servicios/service-specialties";
 
+const specialtyWorkbench: Record<
+  string,
+  { materials: string[]; techniques: string[]; findings: string[] }
+> = {
+  "peritaje-moviles-mensajeria": {
+    materials: [
+      "Exportaciones completas, adjuntos, copias de chat, metadatos y cronologias de uso.",
+      "Capturas con contexto, dispositivo de origen y archivos que sigan diferenciando original y copia.",
+    ],
+    techniques: [
+      "Revisiones de movil y mensajeria con familias como Cellebrite o Magnet AXIOM cuando el material lo permite.",
+      "Analisis de exportaciones, hashes, tiempos y continuidad entre mensajes, adjuntos y otras piezas.",
+    ],
+    findings: [
+      "Secuencias mejor fijadas, lagunas de conversacion, continuidad entre adjuntos y valor real de cada artefacto.",
+    ],
+  },
+  "osint-huella-digital": {
+    materials: [
+      "Perfiles, alias, dominios, publicaciones, capturas con fecha y fuentes abiertas conservadas con contexto.",
+      "Snapshots, historicos publicos y referencias cruzadas entre activos visibles.",
+    ],
+    techniques: [
+      "Correlacion de fuentes abiertas, preservacion de paginas visibles y cronologias de observacion.",
+      "Jerarquizacion de hallazgos por fuente, fecha y fuerza de relacion, sin cerrar atribucion antes de tiempo.",
+    ],
+    findings: [
+      "Mapas de relacion, persistencia de alias y limites claros entre correlacion publica y atribucion fuerte.",
+    ],
+  },
+  "fraude-tecnologico-trazabilidad": {
+    materials: [
+      "Extractos, exportaciones CSV, justificantes, alertas, correos, wallets, hashes y cronologias de movimientos.",
+      "Documentos que permitan cruzar pagos, cambios de cuenta, pedidos o redistribucion dentro del mismo intervalo.",
+    ],
+    techniques: [
+      "Tablas de correlacion, lectura temporal de movimientos y contraste entre rastro financiero y rastro digital.",
+      "Exploradores blockchain o hashes de transaccion cuando el caso entra en wallets o criptoactivos.",
+    ],
+    findings: [
+      "Patrones de fraccionamiento, cuentas de paso, ventanas de operativa y separacion entre patron visible y atribucion cerrada.",
+    ],
+  },
+  "evidencia-digital-conflictos-civiles": {
+    materials: [
+      "Capturas, exportaciones, PDFs, correos, cronologias y fuentes abiertas que alteran el contexto del asunto.",
+      "Material sensible que necesita distinguir bien documento, relato y continuidad temporal.",
+    ],
+    techniques: [
+      "Ordenacion documental, revision de metadatos, exportaciones, cabeceras y versiones cuando siguen disponibles.",
+      "Lectura conjunta de mensajeria, cronologia y piezas documentales para producir una salida legible para terceros.",
+    ],
+    findings: [
+      "Cronologias mas limpias, relacion entre piezas y una frontera mas clara entre observacion, patron y valor documental.",
+    ],
+  },
+};
+
 export function ServiceSpecialtyPage({ specialty }: { specialty: ServiceSpecialty }) {
+  const workbench = specialtyWorkbench[specialty.slug];
+
   return (
     <>
       <PageHero
@@ -163,6 +223,23 @@ export function ServiceSpecialtyPage({ specialty }: { specialty: ServiceSpecialt
             />
           </div>
           <div className="grid gap-4">
+            {workbench ? (
+              <SurfaceCard
+                title="Material revisable, tecnicas y hallazgos posibles"
+                description="La especialidad no se apoya en abstracciones. Suele trabajar sobre artefactos concretos, familias de revision aplicables y una salida documental proporcionada al material disponible."
+                tone="light"
+                compact
+              >
+                <BulletList
+                  items={[
+                    `Material de partida: ${workbench.materials.join(" ")}`,
+                    `Tecnicas aplicables: ${workbench.techniques.join(" ")}`,
+                    `Hallazgos posibles: ${workbench.findings.join(" ")}`,
+                  ]}
+                  tone="light"
+                />
+              </SurfaceCard>
+            ) : null}
             <SurfaceCard
               title="Aporte habitual"
               description="Una revision rigurosa mejora la estructura del caso antes de intentar maximizar conclusiones."
