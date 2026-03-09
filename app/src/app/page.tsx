@@ -109,6 +109,16 @@ const featuredResources = [
   },
   {
     type: "Guia tecnica",
+    title: "Mensajeria, moviles y conflictos civiles",
+    description:
+      "Guia para ordenar conversaciones, capturas y exportaciones cuando el problema ya llega mezclado con conflicto y exceso de relato.",
+    meta: "Lectura estimada: 8 min",
+    href: "/recursos/guias/mensajeria-moviles-conflictos-civiles",
+    cta: "Leer guia aplicada",
+    tags: ["Moviles", "Mensajeria", "Conflictos civiles"],
+  },
+  {
+    type: "Guia tecnica",
     title: "Cuenta instrumental y fraccionamiento de ingresos",
     description:
       "Guia para leer mejor patrones financieros visibles sin convertir una recurrencia en una conclusion precipitada.",
@@ -119,13 +129,13 @@ const featuredResources = [
   },
   {
     type: "Caso tipo",
-    title: "Fraude e-commerce con email bombing",
+    title: "Huella digital, OSINT y limites de atribucion",
     description:
-      "Caso anonimo para mostrar como una secuencia aparentemente caotica gana claridad cuando se preserva y se correlaciona con criterio.",
+      "Caso anonimo para mostrar como una correlacion abierta puede ser valiosa sin justificar todavia una atribucion total.",
     meta: "Lectura estimada: 6 min",
-    href: "/recursos/casos/fraude-ecommerce-email-bombing",
+    href: "/recursos/casos/huella-digital-osint",
     cta: "Leer caso tipo",
-    tags: ["Caso tipo", "Ocultacion de alertas", "Preservacion"],
+    tags: ["OSINT", "Huella digital", "Atribucion"],
   },
 ];
 
@@ -422,12 +432,12 @@ export default function HomePage() {
               <Eyebrow>Recursos como ventaja</Eyebrow>
               <SectionHeading
                 title="La biblioteca ya publica patrones de caso, guias y lecturas aplicadas"
-                description="Los recursos ya no solo informan. Funcionan como prueba publica de criterio, hacen mas visible la experiencia aplicada y preparan mejor una conversacion comercial con materiales y limites mas claros."
+                description="Los recursos ya no solo informan. Funcionan como prueba publica de criterio en fraude, mensajeria, conflictos sensibles y OSINT con limites, y preparan mejor una conversacion comercial con materiales y alcance mas claros."
               />
             </div>
             <SurfaceCard
               title="Contenido que trabaja para la firma"
-              description="Articulos aplicados, guias y casos tipo elevan la percepcion de experiencia real y dejan mas claro por que una revision bien planteada evita errores de enfoque."
+              description="Articulos aplicados, guias y casos tipo elevan la percepcion de experiencia real y dejan mas claro por que una revision bien planteada evita errores de enfoque, de preservacion y de atribucion."
               compact
             >
               <Link className="inline-link" href="/recursos">

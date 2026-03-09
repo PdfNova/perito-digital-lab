@@ -157,6 +157,26 @@ const supportContent = [
   },
   {
     type: "Guia tecnica",
+    title: "Mensajeria, moviles y conflictos civiles",
+    description:
+      "Guia para ordenar conversaciones, capturas y exportaciones en asuntos sensibles donde el valor depende tanto del orden como del contenido.",
+    meta: "Guia aplicada",
+    href: "/recursos/guias/mensajeria-moviles-conflictos-civiles",
+    cta: "Leer guia aplicada",
+    tags: ["Moviles", "Mensajeria", "Conflictos civiles"],
+  },
+  {
+    type: "Caso tipo",
+    title: "Huella digital, OSINT y limites de atribucion",
+    description:
+      "Caso anonimo para mostrar por que correlacionar activos abiertos puede aportar mucho sin justificar todavia una atribucion total.",
+    meta: "Caso tipo publicado",
+    href: "/recursos/casos/huella-digital-osint",
+    cta: "Leer caso tipo",
+    tags: ["OSINT", "Huella digital", "Atribucion"],
+  },
+  {
+    type: "Guia tecnica",
     title: "Cuenta instrumental y fraccionamiento de ingresos",
     description:
       "Guia para leer mejor patrones financieros visibles sin inflar lo que el material sostiene.",
@@ -363,7 +383,7 @@ export default function ServicesPage() {
             <Eyebrow>Casos tipo</Eyebrow>
             <SectionHeading
               title="Patrones donde este enfoque tecnico suele aportar mas valor"
-              description="El servicio no siempre entra cuando el caso ya esta claro. A menudo entra cuando un elemento aparentemente aislado empieza a revelar una operativa mas amplia. Varios de estos patrones ya tienen traduccion editorial publica dentro de recursos."
+              description="El servicio no siempre entra cuando el caso ya esta claro. A menudo entra cuando un elemento aparentemente aislado empieza a revelar una operativa mas amplia. Varios de estos patrones ya tienen traduccion editorial publica dentro de recursos, tambien en mensajeria sensible y OSINT con limites de atribucion."
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -380,7 +400,7 @@ export default function ServicesPage() {
             <Eyebrow>Antes de contactar</Eyebrow>
             <SectionHeading
               title="La biblioteca editorial ya conecta mejor contenido y asesoramiento"
-              description="Quien recorre estas piezas antes de contactar entiende mejor el patron del asunto, preserva mejor el material y plantea una consulta con mas criterio y menos ruido."
+              description="Quien recorre estas piezas antes de contactar entiende mejor el patron del asunto, preserva mejor el material y plantea una consulta con mas criterio, menos ruido y menos riesgo de atribucion precipitada."
             />
             <div className="mt-8">
               <Link className="inline-link" href="/recursos">
@@ -388,7 +408,7 @@ export default function ServicesPage() {
               </Link>
             </div>
           </div>
-          <div className="grid gap-4 lg:grid-cols-3">
+          <div className="grid gap-4 lg:grid-cols-2">
             {supportContent.map((item) => (
               <ContentLinkCard
                 key={item.title}

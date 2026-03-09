@@ -35,6 +35,16 @@ const featuredPieces = [
   },
   {
     type: "Guia tecnica",
+    title: "Mensajeria, moviles y conflictos civiles",
+    description:
+      "Guia para ordenar capturas, exportaciones y conversaciones en asuntos sensibles donde el exceso de pantallas no equivale a claridad documental.",
+    meta: "Lectura estimada: 8 min",
+    href: "/recursos/guias/mensajeria-moviles-conflictos-civiles",
+    cta: "Leer guia aplicada",
+    tags: ["Moviles", "Mensajeria", "Conflictos civiles"],
+  },
+  {
+    type: "Guia tecnica",
     title: "Cuenta instrumental y fraccionamiento de ingresos",
     description:
       "Guia pensada para leer mejor patrones financieros visibles sin convertir recurrencias en certezas apresuradas.",
@@ -42,6 +52,16 @@ const featuredPieces = [
     href: "/recursos/guias/cuenta-instrumental-fraccionamiento",
     cta: "Leer guia aplicada",
     tags: ["Trazabilidad", "Patron financiero", "Criterio"],
+  },
+  {
+    type: "Caso tipo",
+    title: "Huella digital, OSINT y limites de atribucion",
+    description:
+      "Caso tipo sobre perfiles, activos abiertos y la diferencia entre una correlacion prometedora y una atribucion que todavia necesita mas soporte.",
+    meta: "Lectura estimada: 6 min",
+    href: "/recursos/casos/huella-digital-osint",
+    cta: "Leer caso tipo",
+    tags: ["OSINT", "Huella digital", "Atribucion"],
   },
   {
     type: "Caso tipo",
@@ -59,19 +79,19 @@ const editorialRoutes = [
   {
     title: "Entrar por un patron reconocible",
     description:
-      "Las nuevas piezas parten de asuntos concretos: correo saturado, cuentas intermedias, redistribucion de importes y secuencias mal preservadas.",
+      "Las nuevas piezas parten de asuntos concretos: correo saturado, cuentas intermedias, mensajeria sensible, activos abiertos y secuencias mal preservadas.",
     tags: ["Patron", "Secuencia", "Lectura inicial"],
   },
   {
     title: "Pasar del patron al criterio",
     description:
-      "La biblioteca no se limita a divulgar. Explica que puede sostenerse, que exige prudencia y por que una revision bien planteada ahorra errores.",
+      "La biblioteca no se limita a divulgar. Explica que puede sostenerse, donde empiezan los limites y por que una revision bien planteada ahorra errores.",
     tags: ["Limites", "Metodo", "Revision"],
   },
   {
     title: "Llegar a contacto con mejor encuadre",
     description:
-      "Quien pasa por estas piezas suele formular mejor el problema, identificar materiales utiles y entender por que actuar tarde reduce valor.",
+      "Quien pasa por estas piezas suele formular mejor el problema, identificar materiales utiles y entender por que actuar tarde o atribuir demasiado pronto reduce valor.",
     tags: ["Consulta", "Preservacion", "Encaje"],
   },
 ];
@@ -140,6 +160,16 @@ const readingSignals = [
     description:
       "El lector entiende mejor por que pedir ayuda no es solo buscar conclusiones, sino ordenar materiales antes de que el problema se vuelva mas costoso de explicar.",
   },
+  {
+    title: "En mensajeria, mas pantallas no significan mejor prueba",
+    description:
+      "Las nuevas piezas sobre moviles muestran que parte del valor esta en separar fuente, secuencia e interpretacion antes de convertir el conflicto en documento.",
+  },
+  {
+    title: "En OSINT, encontrar no equivale a atribuir",
+    description:
+      "La linea de huella digital refuerza una idea central: correlacionar activos abiertos puede aportar mucho, pero una atribucion prematura puede debilitar el caso.",
+  },
 ];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -165,13 +195,13 @@ export default function ResourcesPage() {
           "Base documental",
         ]}
         stats={[
-          { value: "7", label: "Piezas publicas ya navegables" },
-          { value: "3", label: "Piezas de patron integradas" },
+          { value: "9", label: "Piezas publicas ya navegables" },
+          { value: "5", label: "Piezas de patron integradas" },
           { value: "Activo", label: "Hub editorial listo para captar mejor" },
         ]}
         notes={[
           "Las nuevas piezas elevan el tono desde la observacion tecnica, el patron y los limites, no desde la espectacularidad del caso.",
-          "El contenido ahora sostiene mejor la necesidad percibida de criterio experto antes de convertir el problema en encargo.",
+          "El contenido ahora sostiene mejor la necesidad percibida de criterio experto en fraude, mensajeria, huella digital y conflictos con evidencia sensible.",
         ]}
         visual={
           <ImagePanel
@@ -213,9 +243,9 @@ export default function ResourcesPage() {
 
       <Section>
         <Container id="destacados">
-          <SectionHeading
-            title="Piezas destacadas"
-            description="Aqui es donde el contenido deja de sonar a divulgacion general y empieza a comportarse como experiencia aplicada, prudente y util."
+            <SectionHeading
+              title="Piezas destacadas"
+            description="Aqui es donde el contenido deja de sonar a divulgacion general y empieza a comportarse como experiencia aplicada, prudente y util para distintas clases de encargo."
             align="center"
           />
           <div className="mt-10 grid gap-4 lg:grid-cols-3">
@@ -241,7 +271,7 @@ export default function ResourcesPage() {
             <Eyebrow>Arquitectura editorial</Eyebrow>
             <SectionHeading
               title="La base documental sigue sosteniendo las piezas mas aplicadas"
-              description="Las nuevas lecturas ganan fuerza porque descansan sobre un marco previo de valor documental, preservacion y limites de la revision."
+              description="Las nuevas lecturas ganan fuerza porque descansan sobre un marco previo de valor documental, preservacion, secuencia y limites de la revision."
             />
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {supportLibrary.map((piece) => (
@@ -265,8 +295,8 @@ export default function ResourcesPage() {
             alt="Escena editorial con episodio principal, articulos y guia tecnica en un entorno premium"
             eyebrow="Sistema editorial"
             title="Las piezas de patron ganan credibilidad porque nacen de una base documental ya visible"
-            description="El contenido no sustituye el asesoramiento. Prepara mejor la conversacion, filtra expectativas y hace mas comprensible el valor de una revision bien planteada."
-            tags={["Base documental", "Articulos aplicados", "Guia", "Firma"]}
+            description="El contenido no sustituye el asesoramiento. Prepara mejor la conversacion, filtra expectativas y hace mas comprensible el valor de una revision bien planteada en fraude, mensajeria y OSINT."
+            tags={["Base documental", "Articulos aplicados", "Casos tipo", "Firma"]}
             aspect="landscape"
           />
         </Container>
@@ -278,7 +308,7 @@ export default function ResourcesPage() {
             <Eyebrow>Lo que estas piezas dejan claro</Eyebrow>
             <SectionHeading
               title="El contenido ya transmite por que el criterio tecnico evita errores caros"
-              description="La biblioteca no empuja hacia contacto por insistencia comercial. Lo hace mostrando de forma natural que preservar mal, llegar tarde o interpretar demasiado pronto complica el caso."
+              description="La biblioteca no empuja hacia contacto por insistencia comercial. Lo hace mostrando de forma natural que preservar mal, ordenar tarde o atribuir demasiado pronto complica el caso."
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -295,7 +325,7 @@ export default function ResourcesPage() {
             <Eyebrow>Puente a servicios</Eyebrow>
             <SectionHeading
               title="Las lecturas publicas ya preparan mejor una consulta real"
-              description="Despues de recorrer estas piezas suele resultar mas claro que material existe, que patron se intuye y por que una revision experta no consiste en afirmar mas, sino en leer mejor."
+              description="Despues de recorrer estas piezas suele resultar mas claro que material existe, que patron se intuye y por que una revision experta no consiste en afirmar mas, sino en leer mejor y contener mejor el alcance."
             />
           </div>
           <div className="grid gap-4">
