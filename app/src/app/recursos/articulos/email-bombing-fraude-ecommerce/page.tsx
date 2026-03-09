@@ -16,9 +16,9 @@ import { buildPageMetadata } from "@/app/metadata";
 import { contactPageCtaLabel } from "@/app/site-config";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Email bombing y fraude e-commerce",
+  title: "Email bombing y fraude e-commerce: preservacion y revision tecnica",
   description:
-    "Articulo aplicado sobre correo saturado, alertas ocultas y la utilidad de una revision tecnica para reconstruir la secuencia con prudencia.",
+    "Articulo aplicado sobre correo saturado, alertas ocultas, preservacion inicial y utilidad de una revision tecnica para reconstruir la secuencia con prudencia.",
   path: "/recursos/articulos/email-bombing-fraude-ecommerce",
   type: "article",
 });
@@ -183,11 +183,11 @@ export default function EmailBombingFraudArticlePage() {
 
             <SurfaceCard
               title="Cuando conviene revisar a tiempo"
-              description="Si ya existe un problema real con correo, pedidos, cargos o cambios de cuenta, llegar antes suele mejorar mucho la calidad del material que puede ordenarse."
+              description="Si ya existe un problema real con correo, pedidos, cargos o cambios de cuenta, esta linea suele encajar mejor en la especialidad de fraude tecnologico y trazabilidad."
             >
-              <TagList items={["Consulta inicial", "Materiales", "Objetivo"]} />
-              <Link className="inline-link" href="/contacto">
-                {contactPageCtaLabel}
+              <TagList items={["Fraude", "Trazabilidad", "Consulta inicial"]} />
+              <Link className="inline-link" href="/servicios/fraude-tecnologico-trazabilidad">
+                Ver servicio relacionado
               </Link>
             </SurfaceCard>
           </div>
@@ -199,7 +199,7 @@ export default function EmailBombingFraudArticlePage() {
         title="Si el patron se parece a un caso real, el siguiente paso no es dramatizarlo sino revisarlo con orden"
         description="Esta pieza ayuda a reconocer una secuencia. Si ya existe una necesidad concreta, la consulta inicial puede centrarse en materiales disponibles, ventana temporal y utilidad documental esperable."
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
-        secondaryAction={{ href: "/recursos/casos/fraude-ecommerce-email-bombing", label: "Leer caso tipo" }}
+        secondaryAction={{ href: "/servicios/fraude-tecnologico-trazabilidad", label: "Ver servicio relacionado" }}
         note="Actuar tarde o limpiar la bandeja sin criterio puede reducir valor de una forma dificil de recuperar."
         highlights={[
           "Articulo pensado para mostrar experiencia aplicada sin sensacionalismo.",

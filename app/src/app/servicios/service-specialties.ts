@@ -46,9 +46,9 @@ export const serviceSpecialties: ServiceSpecialty[] = [
     slug: "peritaje-moviles-mensajeria",
     href: "/servicios/peritaje-moviles-mensajeria",
     title: "Peritaje de moviles, mensajeria y evidencia digital",
-    metadataTitle: "Peritaje de moviles, mensajeria y evidencia digital",
+    metadataTitle: "Peritaje de moviles, mensajeria y evidencia digital con revision tecnica",
     metadataDescription:
-      "Servicio especializado para revisar moviles, conversaciones, exportaciones y evidencia digital con foco en secuencia, contexto y salida documental prudente.",
+      "Servicio especializado para revisar moviles, conversaciones, exportaciones y evidencia digital con foco en secuencia, contexto, limites y salida documental prudente.",
     eyebrow: "Especialidad / moviles y mensajeria",
     subtitle:
       "Servicio orientado a asuntos donde conversaciones, exportaciones, capturas y materiales de moviles necesitan orden, secuencia y una lectura tecnica capaz de sostenerse mejor ante terceros.",
@@ -166,9 +166,9 @@ export const serviceSpecialties: ServiceSpecialty[] = [
     slug: "osint-huella-digital",
     href: "/servicios/osint-huella-digital",
     title: "OSINT, huella digital y correlacion de indicios",
-    metadataTitle: "OSINT, huella digital y correlacion de indicios",
+    metadataTitle: "OSINT, huella digital y correlacion de indicios con limites de atribucion",
     metadataDescription:
-      "Servicio especializado en OSINT, huella digital y correlacion de activos abiertos con metodo, trazabilidad y limites claros de atribucion.",
+      "Servicio especializado en OSINT, huella digital y correlacion de activos abiertos con metodo, trazabilidad y limites claros de atribucion prudente.",
     eyebrow: "Especialidad / OSINT y huella digital",
     subtitle:
       "Servicio orientado a consultas donde perfiles, alias, activos abiertos, dominios o rastros visibles exigen una lectura metodologica, prudente y bien documentada antes de sostener conclusiones mas fuertes.",
@@ -286,9 +286,9 @@ export const serviceSpecialties: ServiceSpecialty[] = [
     slug: "fraude-tecnologico-trazabilidad",
     href: "/servicios/fraude-tecnologico-trazabilidad",
     title: "Fraude tecnologico, cuentas instrumentales y trazabilidad",
-    metadataTitle: "Fraude tecnologico, cuentas instrumentales y trazabilidad",
+    metadataTitle: "Fraude tecnologico, cuentas instrumentales y trazabilidad tecnica",
     metadataDescription:
-      "Servicio especializado para fraude tecnologico, cuentas instrumentales y trazabilidad de movimientos, comunicaciones y eventos con salida documental prudente.",
+      "Servicio especializado para fraude tecnologico, cuentas instrumentales y trazabilidad de movimientos, comunicaciones y eventos con salida documental clara y prudente.",
     eyebrow: "Especialidad / fraude y trazabilidad",
     subtitle:
       "Servicio para asuntos donde cuentas, comunicaciones, pedidos, importes fragmentados o eventos tecnicos exigen una lectura de secuencia y relacion mas seria que la de un dato aislado.",
@@ -371,34 +371,34 @@ export const serviceSpecialties: ServiceSpecialty[] = [
     ],
     relatedResources: [
       {
-        type: "Articulo aplicado",
-        title: "Email bombing y fraude e-commerce",
-        description:
-          "Patron tecnico sobre correo saturado, alertas ocultas y la importancia de preservar la secuencia antes de limpiar.",
-        meta: "Lectura estimada: 7 min",
-        href: "/recursos/articulos/email-bombing-fraude-ecommerce",
-        cta: "Leer articulo aplicado",
-        tags: ["Fraude e-commerce", "Correo", "Secuencia"],
-      },
-      {
-        type: "Guia aplicada",
-        title: "Cuenta instrumental y fraccionamiento de ingresos",
-        description:
-          "Guia para leer mejor cuentas intermedias, movimientos segmentados y patrones financieros visibles con prudencia.",
-        meta: "Lectura estimada: 8 min",
-        href: "/recursos/guias/cuenta-instrumental-fraccionamiento",
-        cta: "Leer guia aplicada",
-        tags: ["Trazabilidad", "Patron financiero", "Criterio"],
-      },
-      {
         type: "Caso tipo",
-        title: "Fraude e-commerce con email bombing",
+        title: "Cuenta instrumental, smurfing y operativa circular",
         description:
-          "Caso anonimo para mostrar como una secuencia aparentemente caotica gana claridad cuando se conserva y se correlaciona con criterio.",
+          "Caso anonimo para mostrar por que ingresos fragmentados y redistribucion rapida necesitan lectura conjunta y no una intuicion aislada.",
         meta: "Lectura estimada: 6 min",
-        href: "/recursos/casos/fraude-ecommerce-email-bombing",
+        href: "/recursos/casos/cuenta-instrumental-smurfing-operativa-circular",
         cta: "Leer caso tipo",
-        tags: ["Fraude", "Preservacion", "Contexto"],
+        tags: ["Fraude bancario", "Smurfing", "Trazabilidad"],
+      },
+      {
+        type: "Articulo aplicado",
+        title: "Tokenizacion fraudulenta y pagos con wallet",
+        description:
+          "Patron para entender por que la tarjeta fisica puede seguir con su titular y, aun asi, existir una secuencia digital relevante.",
+        meta: "Lectura estimada: 7 min",
+        href: "/recursos/articulos/tokenizacion-fraudulenta-tarjeta-wallet",
+        cta: "Leer articulo aplicado",
+        tags: ["Wallet", "Tokenizacion", "Pago digital"],
+      },
+      {
+        type: "Articulo aplicado",
+        title: "Recovery scam cripto y falsa sensacion de rescate",
+        description:
+          "Pieza para reconocer la segunda capa de fraude que aparece despues de la perdida inicial y empeora la trazabilidad del caso.",
+        meta: "Lectura estimada: 7 min",
+        href: "/recursos/articulos/recovery-scam-cripto-falsa-recuperacion",
+        cta: "Leer articulo aplicado",
+        tags: ["Cripto", "Hashes", "Recovery scam"],
       },
     ],
   },
@@ -408,7 +408,7 @@ export const serviceSpecialties: ServiceSpecialty[] = [
     title: "Apoyo tecnico en conflictos civiles o de familia con evidencia digital",
     metadataTitle: "Apoyo tecnico en conflictos civiles o de familia con evidencia digital",
     metadataDescription:
-      "Servicio especializado para conflictos civiles o de familia donde conversaciones, cronologias, huella digital o materiales moviles necesitan orden, criterio y salida documental prudente.",
+      "Servicio especializado para conflictos civiles o de familia donde conversaciones, cronologias, huella digital o materiales moviles necesitan orden, criterio y salida documental prudente para terceros.",
     eyebrow: "Especialidad / conflictos civiles o de familia",
     subtitle:
       "Servicio orientado a asuntos sensibles donde mensajeria, cronologias, activos abiertos o materiales digitales alteran la lectura del caso y exigen una presentacion tecnica clara, prudente y util para terceros.",

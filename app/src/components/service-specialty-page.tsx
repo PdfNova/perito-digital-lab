@@ -4,6 +4,7 @@ import {
   BulletList,
   Container,
   ContentLinkCard,
+  DecisionGuard,
   Eyebrow,
   ImagePanel,
   PageHero,
@@ -12,7 +13,12 @@ import {
   SurfaceCard,
   TagList,
 } from "@/components/ui";
-import { contactPageCtaLabel, resourcesCtaLabel } from "@/app/site-config";
+import {
+  beforeActionDescription,
+  beforeActionTitle,
+  contactPageCtaLabel,
+  resourcesCtaLabel,
+} from "@/app/site-config";
 import type { ServiceSpecialty } from "@/app/servicios/service-specialties";
 
 export function ServiceSpecialtyPage({ specialty }: { specialty: ServiceSpecialty }) {
@@ -23,7 +29,7 @@ export function ServiceSpecialtyPage({ specialty }: { specialty: ServiceSpecialt
         title={specialty.title}
         subtitle={specialty.subtitle}
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
-        secondaryAction={{ href: "#recursos", label: "Ver recursos relacionados" }}
+        secondaryAction={{ href: "#recursos", label: "Ver casos y guias relacionadas" }}
         chips={specialty.chips}
         stats={specialty.stats}
         notes={specialty.notes}
@@ -45,8 +51,8 @@ export function ServiceSpecialtyPage({ specialty }: { specialty: ServiceSpecialt
           <div>
             <Eyebrow tone="light">Que problemas resuelve</Eyebrow>
             <SectionHeading
-              title="Cuando el asunto necesita mas lectura tecnica y menos soluciones genericas"
-              description="La especialidad se orienta a problemas que no mejoran acumulando materiales, sino ordenando mejor el punto de partida, delimitando alcance y preparando una salida documental util."
+              title="Cuando el asunto necesita mas lectura tecnica y menos intuicion o soluciones genericas"
+              description="La especialidad se orienta a problemas que no mejoran acumulando materiales, sino ordenando mejor el punto de partida, delimitando alcance y evitando errores de lectura tempranos."
               tone="light"
             />
           </div>
@@ -69,8 +75,8 @@ export function ServiceSpecialtyPage({ specialty }: { specialty: ServiceSpecialt
           <div>
             <Eyebrow>En que casos encaja</Eyebrow>
             <SectionHeading
-              title="Consultas donde una revision bien planteada cambia la calidad del caso"
-              description="No se trata de prometer cualquier resultado. Se trata de mostrar en que clase de asunto el trabajo tecnico aporta mas claridad, mejor encuadre y una salida mas util para terceros."
+              title="Consultas donde una revision bien planteada cambia la calidad del caso y de la consulta"
+              description="No se trata de prometer cualquier resultado. Se trata de mostrar en que clase de asunto el trabajo tecnico aporta mas claridad, mejor encuadre y una salida documental mucho mas util antes de que el material siga perdiendo fuerza."
             />
             <div className="mt-8">
               <TagList items={specialty.chips} />
@@ -91,8 +97,8 @@ export function ServiceSpecialtyPage({ specialty }: { specialty: ServiceSpecialt
           <div>
             <Eyebrow>Lo que suele pasarse por alto</Eyebrow>
             <SectionHeading
-              title="Varios problemas no nacen del hallazgo, sino de como se conserva, se formula o se interpreta"
-              description="Buena parte del valor de una revision experta consiste en evitar estos errores de enfoque antes de que debiliten el caso o encarezcan su reconstruccion."
+              title="Varios problemas no nacen del hallazgo, sino de como se conserva, se formula o se interpreta demasiado pronto"
+              description="Buena parte del valor de una revision experta consiste en evitar estos errores de enfoque antes de que debiliten el caso, rompan la secuencia o encarezcan su reconstruccion."
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -108,12 +114,50 @@ export function ServiceSpecialtyPage({ specialty }: { specialty: ServiceSpecialt
         </Container>
       </Section>
 
+      <Section>
+        <Container className="grid gap-8 xl:grid-cols-[0.9fr_1.1fr] xl:items-start">
+          <div>
+            <Eyebrow>Utilidad inmediata</Eyebrow>
+            <SectionHeading
+              title="En esta clase de asunto suele ayudar saber que llega mal, que conviene preservar y que no debe afirmarse todavia"
+              description="Antes del analisis profundo, una consulta temprana ya puede mejorar mucho la calidad del caso si evita que el material se siga degradando o que la interpretacion se adelante demasiado."
+            />
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            <SurfaceCard
+              title="Suele llegar mal"
+              description={
+                specialty.missed[0] ??
+                "Material mezclado, transformado o explicado con mas conclusion que estructura."
+              }
+              compact
+            />
+            <SurfaceCard
+              title="Conviene preservar antes"
+              description={
+                specialty.contribution[0] ??
+                "Separar fuentes, versiones y continuidad del material antes de seguir moviendolo."
+              }
+              compact
+            />
+            <SurfaceCard
+              title="No debe afirmarse aun"
+              description={
+                specialty.limits[0] ??
+                "La lectura maxima exige mas soporte del que a veces parece existir al principio."
+              }
+              compact
+            />
+          </div>
+        </Container>
+      </Section>
+
       <Section tint="dark">
         <Container className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
           <div>
             <Eyebrow tone="light">Aporte tecnico</Eyebrow>
             <SectionHeading
-              title="Que puede aportar una revision tecnica seria"
+              title="Que puede aportar una revision tecnica seria y por que suele ser valiosa cuanto antes"
               description="El valor no esta en inflar el caso. Esta en leer mejor, ordenar mejor, distinguir mejor y traducir el trabajo a una salida documental mas util."
               tone="light"
             />
@@ -152,12 +196,34 @@ export function ServiceSpecialtyPage({ specialty }: { specialty: ServiceSpecialt
       </Section>
 
       <Section>
+        <Container>
+          <DecisionGuard
+            eyebrow="Antes de mover o reinterpretar mas material"
+            title={beforeActionTitle}
+            description={beforeActionDescription}
+            items={[
+              specialty.missed[0] ??
+                "Lo que suele llegar peor no es la falta de material, sino material ya mezclado o transformado antes de fijar una base minima.",
+              specialty.missed[1] ??
+                "Muchas conclusiones se debilitan porque el alcance real del material aun no estaba claro cuando se cerraron.",
+              specialty.limits[0] ??
+                "No toda pieza conserva la misma fuerza documental ni el mismo valor de atribucion.",
+              specialty.contribution[0] ??
+                "Una lectura temprana suele aportar mas cuando todavia conserva mejor contexto y secuencia.",
+            ]}
+            primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
+            secondaryAction={{ href: "#recursos", label: "Ver casos y guias relacionadas" }}
+          />
+        </Container>
+      </Section>
+
+      <Section>
         <Container className="grid gap-8 lg:grid-cols-[0.96fr_1.04fr] lg:items-start">
           <div>
             <Eyebrow>Limites y enfoque prudente</Eyebrow>
             <SectionHeading
               title="La credibilidad mejora cuando el servicio explica bien hasta donde puede sostenerse"
-              description="El enfoque no consiste en prometer atribuciones, certezas o reconstrucciones imposibles. Consiste en explicar mejor que puede leerse, con que fuerza y con que salida documental."
+              description="El enfoque no consiste en prometer atribuciones, certezas o reconstrucciones imposibles. Consiste en explicar mejor que puede leerse, con que fuerza y con que salida documental sin confundir correlacion con prueba cerrada."
             />
           </div>
           <SurfaceCard
@@ -174,11 +240,11 @@ export function ServiceSpecialtyPage({ specialty }: { specialty: ServiceSpecialt
         <Container id="recursos">
           <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
             <div>
-              <Eyebrow>Recursos relacionados</Eyebrow>
-              <SectionHeading
-                title="Contenido publico que ayuda a entender mejor el problema antes de la consulta"
-                description="Estos recursos no sustituyen el servicio. Funcionan como capa de criterio, marco previo y prueba publica de como se trabaja esta clase de asunto."
-              />
+            <Eyebrow>Recursos relacionados</Eyebrow>
+            <SectionHeading
+              title="Casos tipo, guias y lecturas aplicadas que ayudan a reconocer mejor el problema antes de la consulta"
+              description="Estos recursos no sustituyen el servicio. Funcionan como capa de criterio, marco previo y prueba publica de como se trabaja esta clase de asunto cuando el material no llega limpio ni bien encuadrado."
+            />
             </div>
             <SurfaceCard
               title="Puente con el hub editorial"
@@ -212,10 +278,10 @@ export function ServiceSpecialtyPage({ specialty }: { specialty: ServiceSpecialt
       <ActionBanner
         eyebrow="Siguiente paso"
         title="Si el asunto encaja, el siguiente paso es una consulta con materiales identificados y objetivo documental claro"
-        description="La conversacion inicial sirve para acotar el problema, revisar que material existe y definir una salida tecnica o pericial razonable antes de sobredimensionar el alcance."
+        description="La conversacion inicial sirve para acotar el problema, revisar que material existe y definir una salida tecnica o pericial razonable antes de sobredimensionar el alcance o seguir degradando la base documental."
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         secondaryAction={{ href: "/servicios", label: "Volver a servicios" }}
-        note="La mejor entrada no es una promesa maxima. Es una consulta bien encuadrada, con prudencia y criterio."
+        note="La mejor entrada no es una promesa maxima. Es una consulta bien encuadrada, con prudencia y criterio, antes de que la secuencia llegue mas rota."
         highlights={[
           "Servicio pensado para captar consultas cualificadas y mejor formuladas.",
           "Puente directo entre patron observado, limites metodologicos y salida documental posible.",

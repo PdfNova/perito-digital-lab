@@ -16,9 +16,9 @@ import { buildPageMetadata } from "@/app/metadata";
 import { contactPageCtaLabel, resourcesHubReturnLabel } from "@/app/site-config";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Mensajeria, moviles y conflictos civiles o de familia",
+  title: "Mensajeria, moviles y conflictos civiles: orden y revision tecnica",
   description:
-    "Guia tecnica sobre conversaciones, exportaciones, capturas y materiales de moviles en asuntos civiles o de familia con necesidad de orden y prudencia.",
+    "Guia tecnica sobre conversaciones, exportaciones, capturas y materiales de moviles en asuntos civiles o de familia con necesidad de orden, secuencia y revision tecnica prudente.",
   path: "/recursos/guias/mensajeria-moviles-conflictos-civiles",
   type: "article",
 });
@@ -141,11 +141,11 @@ export default function MessagingCivilConflictsGuidePage() {
           <div className="grid gap-4">
             <SurfaceCard
               title="Relacion con servicios"
-              description="Esta guia conecta de forma directa con analisis de moviles, mensajeria, apoyo tecnico en familia y elaboracion de cronologias o informes claros."
+              description="Esta guia conecta de forma directa con el peritaje de moviles y mensajeria, y con el apoyo tecnico en conflictos civiles o de familia con evidencia digital."
             >
               <TagList items={["Moviles", "Familia", "Informe"]} />
-              <Link className="inline-link" href="/servicios">
-                Ver servicios relacionados
+              <Link className="inline-link" href="/servicios/peritaje-moviles-mensajeria">
+                Ver peritaje relacionado
               </Link>
             </SurfaceCard>
 
@@ -177,7 +177,7 @@ export default function MessagingCivilConflictsGuidePage() {
         title="Si el conflicto ya mezcla pantallas, mensajes y versiones parciales, el siguiente paso es ordenar antes de interpretar"
         description="La guia ofrece un marco de lectura. Si existe una necesidad concreta, la consulta inicial puede centrarse en materiales disponibles, dispositivos implicados y salida documental razonable."
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
-        secondaryAction={{ href: "/recursos", label: resourcesHubReturnLabel }}
+        secondaryAction={{ href: "/servicios/evidencia-digital-conflictos-civiles", label: "Ver servicio relacionado" }}
         note="Cuanto mas se retrasa el orden documental, mas esfuerzo exige recuperar despues una secuencia legible."
         highlights={[
           "Guia pensada para conflictos sensibles donde la prudencia expositiva importa.",

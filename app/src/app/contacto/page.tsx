@@ -6,6 +6,7 @@ import {
   ButtonLink,
   Container,
   ContentLinkCard,
+  DecisionGuard,
   ImagePanel,
   PageHero,
   Section,
@@ -15,6 +16,7 @@ import {
 } from "@/components/ui";
 import {
   articleBaseCtaLabel,
+  beforeActionTitle,
   contactAnchorCtaLabel,
   contactChannelDescription,
   contactChannelEyebrow,
@@ -34,37 +36,48 @@ import { buildPageMetadata } from "../metadata";
 
 const supportPieces = [
   {
-    type: "Articulo",
+    type: "Lectura clave",
+    title: "Notario digital vs perito digital",
+    description:
+      "Pieza recomendada para entender una duda que suele llegar mal planteada: que fija una constatacion documental y que aporta una lectura tecnica sobre origen, secuencia e integridad.",
+    meta: "Recurso de encaje",
+    href: "/recursos/articulos/notario-digital-vs-perito-digital",
+    cta: "Leer lectura aplicada",
+    tags: ["Despachos", "Documento", "Perito digital"],
+  },
+  {
+    type: "Guia tecnica",
+    title: "Firma electronica valida vs firma visual en PDF",
+    description:
+      "Guia para revisar documentos que parecen claros en pantalla pero exigen una lectura mejor de archivo, versiones y trazabilidad.",
+    meta: "Documento electronico",
+    href: "/recursos/guias/firma-electronica-pdf-validez-documental",
+    cta: technicalGuideCtaLabel,
+    tags: ["PDF", "Firma electronica", "Valor documental"],
+  },
+  {
+    type: "Articulo base",
     title: "Valor documental de la evidencia digital",
     description:
-      "Lectura recomendada para entender que materiales suelen llegar mejor a una revision tecnica o documental.",
+      "Marco recomendado para entender por que contexto, integridad y trazabilidad condicionan la fuerza real del material, incluso cuando este parece convincente a primera vista.",
     meta: "Recurso base",
     href: "/recursos/articulos/valor-documental-evidencia-digital",
     cta: articleBaseCtaLabel,
     tags: ["Valor documental", "Contexto", "Integridad"],
   },
-  {
-    type: "Guia tecnica",
-    title: "Revision tecnica de evidencia digital: alcance y limites",
-    description:
-      "Pieza orientada a alinear expectativas y aclarar que puede aportar realmente una revision antes del primer contacto.",
-    meta: "Recurso de encaje",
-    href: "/recursos/guias/revision-tecnica-evidencia-digital",
-    cta: technicalGuideCtaLabel,
-    tags: ["Alcance", "Limites", "Revision tecnica"],
-  },
 ];
 
 const fitCases = [
-  "Despachos o profesionales juridicos que necesitan apoyo tecnico claro.",
-  "Procedimientos de familia o divorcios con material digital relevante.",
-  "Casos con moviles, mensajeria, exportaciones o dispositivos como pieza central.",
-  "Encargos de trazabilidad, fraude tecnologico, huella digital o correlacion de indicios.",
+  "Despachos o profesionales juridicos que necesitan una lectura tecnica clara y no solo acumulacion de material.",
+  "Procedimientos con mensajeria, moviles, PDFs, correos, wallets o documentos digitales relevantes.",
+  "Encargos de fraude tecnologico, trazabilidad, huella digital o correlacion de indicios con limites.",
+  "Casos donde una mala preservacion o una mala lectura inicial pueden empeorar mucho la utilidad posterior.",
 ];
 
 const firstMessageItems = [
   "Breve descripcion del problema o de los hechos relevantes.",
-  "Tipo de fuentes, materiales o dispositivos disponibles.",
+  "Tipo de fuentes, materiales o dispositivos disponibles y si sigue existiendo acceso a la fuente original.",
+  "Si el material ya ha sido reenviado, recortado, impreso, renombrado, exportado o parcialmente ordenado.",
   "Estado actual del caso, procedimiento o revision previa.",
   "Objetivo tecnico, documental o pericial que se pretende aclarar.",
 ];
@@ -73,12 +86,17 @@ const expectations = [
   {
     title: "Que ocurre en el primer intercambio",
     description:
-      "Se valora encaje, materiales, prioridad y siguiente paso razonable. No se sustituye una revision tecnica en ese primer momento.",
+      "Se valora encaje, materiales, prioridad y siguiente paso razonable. No se sustituye una revision tecnica en ese primer momento ni se fuerzan conclusiones sobre una base todavia debil.",
   },
   {
     title: "Que suele mejorar una consulta bien planteada",
     description:
-      "Reduce ambiguedad, permite encuadrar mejor el trabajo y facilita decidir si conviene pasar a una fase de analisis o documentacion.",
+      "Reduce ambiguedad, evita errores de preservacion y facilita decidir si conviene pasar a una fase de analisis, correlacion o documentacion con mejor separacion entre indicio e inferencia.",
+  },
+  {
+    title: "Que suele llegar demasiado tarde",
+    description:
+      "Bandejas limpiadas, PDFs convertidos en imagen, capturas sin contexto, wallets con alertas perdidas, mensajes mezclados o secuencias reconstruidas de memoria.",
   },
   {
     title: "Que no se ofrece",
@@ -100,7 +118,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contacto"
         title="Contacto para consultas tecnicas que necesitan una primera lectura seria y bien encuadrada"
-        subtitle="La pagina de contacto pasa a funcionar como una entrada comercial mas fuerte: explica mejor que tipo de encargos encajan, como conviene plantear la consulta y que puede esperarse del primer intercambio."
+        subtitle="La pagina de contacto funciona como entrada final del recorrido: ayuda a detectar encaje, plantear mejor la consulta y llegar antes de que el material se degrade, la secuencia se rompa o el caso se explique peor de lo que permite el soporte real."
         primaryAction={{ href: "#consulta", label: contactAnchorCtaLabel }}
         secondaryAction={{ href: "/servicios", label: "Volver a servicios" }}
         chips={[
@@ -115,8 +133,8 @@ export default function ContactPage() {
           { value: "Serio", label: "Canal propio de una firma tecnica" },
         ]}
         notes={[
-          "El objetivo no es recoger mensajes largos sino convertir el primer contacto en una conversacion mas util.",
-          "Los recursos publicados y la pagina de servicios ya preparan mejor a quien llega hasta aqui.",
+          "El objetivo no es recoger mensajes largos sino convertir el primer contacto en una conversacion tecnica mas util.",
+          "Los recursos y especialidades ya permiten llegar con patron, materiales y limites mucho mejor entendidos.",
         ]}
         visual={
           <ImagePanel
@@ -124,7 +142,7 @@ export default function ContactPage() {
             alt={visualAssets.contactHero.alt}
             eyebrow="Canal de consulta"
             title="Despacho, criterio y documentacion al servicio de una toma de contacto mas precisa"
-            description="La pagina proyecta un marco mas comercial y mas fuerte sin abandonar la discrecion ni el enfoque tecnico."
+            description="La pagina proyecta un marco mas comercial y mas fuerte sin abandonar la discrecion ni el enfoque tecnico ni la prudencia sobre lo que el material todavia no sostiene."
             tags={["Contacto premium", "Despacho", "Orientacion inicial"]}
             priority
           />
@@ -136,13 +154,13 @@ export default function ContactPage() {
           <div className="max-w-2xl">
             <SectionHeading
               title="Consultas donde una orientacion inicial suele aportar mas valor"
-              description="La primera capa comercial de esta pagina consiste en ayudar a detectar encaje y a preparar mejor el caso antes de cualquier revision."
+              description="La primera capa comercial de esta pagina consiste en ayudar a detectar encaje y a evitar decisiones tempranas que debiliten el caso antes de cualquier revision."
               tone="light"
             />
           </div>
           <SurfaceCard
-            title="Encaja mejor cuando"
-            description="Existe material digital ya disponible, necesidad de ordenar hechos, dudas sobre relaciones o necesidad de una salida documental clara."
+              title="Encaja mejor cuando"
+            description="Existe material digital ya disponible, necesidad de ordenar hechos, dudas sobre relaciones o necesidad de una salida documental clara antes de que se siga perdiendo valor."
             tone="light"
             compact
           >
@@ -156,7 +174,7 @@ export default function ContactPage() {
           <div className="premium-shell rounded-[2rem] p-6 md:p-10">
             <SectionHeading
               title="Correo directo para consultas con encaje tecnico o pericial"
-              description="La pagina ordena que conviene explicar y que puede esperarse de la primera respuesta, con un primer intercambio mas claro y mejor filtrado."
+              description="La pagina ordena que conviene explicar, que transformaciones ha sufrido ya el material y que puede esperarse de una primera respuesta prudente."
             />
             <div className="mt-9 grid gap-5">
               <div className="rounded-[1.7rem] border border-[var(--color-border)] bg-[rgba(255,255,255,0.8)] px-5 py-5 shadow-[var(--shadow-soft)] md:px-6 md:py-6">
@@ -207,7 +225,7 @@ export default function ContactPage() {
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
-                <SurfaceCard
+              <SurfaceCard
                   title="Que incluir en el primer mensaje"
                   description={contactFirstStepCopy}
                   compact
@@ -217,7 +235,7 @@ export default function ContactPage() {
 
                 <SurfaceCard title="Que ocurre despues" description={contactResponseCopy} compact>
                   <TagList items={["Encaje", "Alcance", "Prioridad", "Siguiente paso"]} className="gap-2.5" />
-                  <p className="text-sm leading-6.5 text-[var(--color-muted)]">
+                  <p className="text-sm leading-[1.65rem] text-[var(--color-muted)]">
                     Si la necesidad encaja, la conversacion posterior ya puede entrar en materiales,
                     metodologia y salida documental esperada.
                   </p>
@@ -227,6 +245,20 @@ export default function ContactPage() {
           </div>
 
           <div className="grid gap-4">
+            <DecisionGuard
+              eyebrow="Antes de enviar material"
+              title={beforeActionTitle}
+              description="Una consulta mejor planteada no necesita un relato mas largo. Necesita que el material llegue con mas contexto, menos transformaciones y una secuencia minima que todavia pueda leerse."
+              items={[
+                "Lo que mas complica muchas consultas no es la falta de material, sino el material ya reenviado, recortado o sacado de su fuente original.",
+                "PDFs impresos y escaneados, capturas renombradas o mensajes mezclados suelen llegar con menos valor del que parecia al enviarlos.",
+                "Si existe wallet, PDF, correo, exportacion o movimiento relevante, indica si sigue disponible en su fuente original y si conserva alertas, versiones o contexto.",
+                "Una consulta temprana suele ayudar mas cuando todavia puede saberse que pieza es indicio, cual solo aporta contexto y cual merece revision prioritaria.",
+              ]}
+              primaryAction={{ href: contactMailto, label: contactDirectCtaLabel }}
+              secondaryAction={{ href: "/recursos", label: contactResourceCtaLabel }}
+            />
+
             <ImagePanel
               src="/images/contact/contact-detail.svg"
               alt="Mesa de reunion con documentacion tecnica, pantalla y entorno premium de consulta"
@@ -248,8 +280,8 @@ export default function ContactPage() {
         <Container className="grid gap-8 lg:grid-cols-[0.94fr_1.06fr] lg:items-start">
           <div className="max-w-2xl">
             <SectionHeading
-              title="Lecturas que mejoran la calidad del primer contacto"
-              description="Antes de escribir, estas piezas ayudan a entender mejor valor documental, preservacion inicial y alcance real de una revision."
+              title="Lecturas e historias que mejoran la calidad del primer contacto"
+              description="Antes de escribir, estas piezas ayudan a entender mejor valor documental, documentos electronicos, diferencia entre fijacion y analisis y errores que suelen repetirse."
             />
             <div className="mt-7">
               <Link className="inline-link" href="/recursos">
@@ -257,7 +289,7 @@ export default function ContactPage() {
               </Link>
             </div>
           </div>
-          <div className="grid gap-4 lg:grid-cols-2">
+          <div className="grid gap-4 lg:grid-cols-3">
             {supportPieces.map((piece) => (
               <ContentLinkCard
                 key={piece.title}
@@ -278,14 +310,14 @@ export default function ContactPage() {
 
       <ActionBanner
         eyebrow="Contacto directo"
-        title="Si la necesidad es real y el marco ya esta mas claro, el siguiente paso es plantear la consulta con materiales identificados y objetivo definido"
-        description="La pagina de contacto no solo cierra el sitio. Funciona como filtro de calidad para que el primer intercambio se centre en encaje, alcance y utilidad documental."
+        title="Si la necesidad es real y el marco ya esta mas claro, el siguiente paso es plantear la consulta antes de que el material pierda mas valor"
+        description="La pagina de contacto no solo cierra el sitio. Funciona como filtro de calidad para que el primer intercambio se centre en encaje, alcance, preservacion y utilidad documental antes de que el caso llegue aun mas debilitado."
         primaryAction={{ href: contactMailto, label: contactDirectCtaLabel }}
         secondaryAction={{ href: "/recursos", label: resourcesCtaLabel }}
-        note="Mejor encaje, menos ruido y una expectativa mas razonable desde el principio."
+        note="Hay consultas que llegan cuando ya se ha perdido parte del valor documental. Cuanto antes se ordena el caso, mejor suele leerse y mas facil resulta distinguir material util de material solo aparente."
         highlights={[
-          "Entrada comercial mas potente y mas propia de una firma especializada.",
-          "Recursos y servicios enlazados para mejorar la calidad del primer mensaje.",
+          "Entrada comercial mas util para una consulta cualificada y mejor formulada.",
+          "Recursos y servicios enlazados para evitar errores caros antes del primer intercambio.",
         ]}
       />
     </>

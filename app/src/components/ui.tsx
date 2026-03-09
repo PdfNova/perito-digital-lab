@@ -27,7 +27,7 @@ export function Container({
   id?: string;
 }) {
   return (
-    <div id={id} className={`mx-auto w-full max-w-7xl px-5 sm:px-8 ${className}`}>
+    <div id={id} className={`mx-auto w-full max-w-[88rem] px-5 sm:px-7 lg:px-8 ${className}`}>
       {children}
     </div>
   );
@@ -49,7 +49,7 @@ export function Section({
         ? "bg-[linear-gradient(135deg,#0d1521_0%,#162536_52%,#0a1018_100%)] text-white"
         : "";
 
-  return <section className={`py-20 md:py-24 ${tintClass} ${className}`}>{children}</section>;
+  return <section className={`py-14 md:py-[4.5rem] lg:py-20 ${tintClass} ${className}`}>{children}</section>;
 }
 
 export function Eyebrow({
@@ -84,7 +84,7 @@ export function SectionHeading({
   return (
     <div className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""}`}>
       <h2
-        className={`text-3xl leading-[0.98] md:text-[3.35rem] ${
+        className={`text-[2rem] leading-[1.01] sm:text-[2.35rem] md:text-[2.9rem] lg:text-[3.35rem] ${
           tone === "light" ? "text-white" : "text-[var(--color-text)]"
         }`}
       >
@@ -92,7 +92,7 @@ export function SectionHeading({
       </h2>
       {description ? (
         <p
-          className={`mt-4 max-w-2xl text-base leading-7 md:text-lg ${
+          className={`mt-3.5 max-w-2xl text-[0.98rem] leading-7 md:text-[1.02rem] md:leading-[1.9rem] ${
             tone === "light" ? "text-white/72" : "text-[var(--color-muted)]"
           }`}
         >
@@ -130,9 +130,9 @@ export function HeroStat({
   label: string;
 }) {
   return (
-    <div className="hero-stat rounded-[1.5rem] px-4 py-4">
-      <p className="text-[1.7rem] leading-none text-white">{value}</p>
-      <p className="mt-2 text-sm leading-6 text-white/70">{label}</p>
+    <div className="hero-stat rounded-[1.35rem] px-4 py-3.5">
+      <p className="text-[1.45rem] leading-none text-white md:text-[1.62rem]">{value}</p>
+      <p className="mt-1.5 text-[0.85rem] leading-5.5 text-white/70">{label}</p>
     </div>
   );
 }
@@ -180,8 +180,10 @@ export function ImagePanel({
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="max-w-lg">
             <p className="text-[0.7rem] uppercase tracking-[0.28em] text-white/66">{eyebrow}</p>
-            <h3 className="mt-3 text-3xl leading-tight text-white md:text-[2.45rem]">{title}</h3>
-            <p className="mt-4 max-w-md text-sm leading-6 text-white/74 md:text-[0.96rem] md:leading-7">
+            <h3 className="mt-2.5 text-[1.85rem] leading-[1.02] text-white md:text-[2.15rem]">
+              {title}
+            </h3>
+            <p className="mt-3 max-w-md text-[0.9rem] leading-6 text-white/74 md:text-[0.95rem] md:leading-[1.65rem]">
               {description}
             </p>
           </div>
@@ -220,8 +222,8 @@ export function VisualPlaceholder({
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="max-w-lg">
             <p className="text-[0.7rem] uppercase tracking-[0.28em] text-white/70">{label}</p>
-            <h3 className="mt-3 text-3xl leading-tight text-white md:text-[2.4rem]">{title}</h3>
-            <p className="mt-5 max-w-md text-sm leading-6 text-white/72">{caption}</p>
+            <h3 className="mt-3 text-[2rem] leading-tight text-white md:text-[2.15rem]">{title}</h3>
+            <p className="mt-4 max-w-md text-sm leading-6 text-white/72">{caption}</p>
           </div>
           <div className="flex flex-wrap justify-end gap-2">
             {tags.map((tag) => (
@@ -267,22 +269,22 @@ export function PageHero({
   visual?: React.ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden pb-6 pt-6 md:pt-8">
+    <section className="relative overflow-hidden pb-4 pt-3 md:pt-5">
       <Container>
         <div className="hero-shell">
           <div className="hero-shell__orb hero-shell__orb--one" />
           <div className="hero-shell__orb hero-shell__orb--two" />
           <div className="hero-shell__grid">
-            <div className="max-w-4xl">
+            <div className="max-w-3xl">
               <Eyebrow tone="light">{eyebrow}</Eyebrow>
-              <h1 className="mt-4 text-4xl leading-[0.9] text-white sm:text-5xl md:text-6xl lg:text-[5.3rem]">
+              <h1 className="mt-3.5 text-[2.55rem] leading-[0.94] text-white sm:text-[3rem] md:text-[3.55rem] lg:text-[4.35rem]">
                 {title}
               </h1>
-              <p className="mt-5 max-w-2xl text-base leading-7 text-white/72 md:text-lg md:leading-8">
+              <p className="mt-4 max-w-2xl text-[0.98rem] leading-7 text-white/72 md:text-[1.04rem] md:leading-[1.9rem]">
                 {subtitle}
               </p>
-              {chips.length ? <TagList items={chips} tone="light" className="mt-6" /> : null}
-              <div className="mt-8 flex flex-wrap gap-3">
+              {chips.length ? <TagList items={chips} tone="light" className="mt-5" /> : null}
+              <div className="mt-6 flex flex-wrap gap-3">
                 <ButtonLink href={primaryAction.href} label={primaryAction.label} />
                 {secondaryAction ? (
                   <ButtonLink
@@ -293,7 +295,7 @@ export function PageHero({
                 ) : null}
               </div>
               {stats.length ? (
-                <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                <div className="mt-6 grid gap-3 sm:grid-cols-3">
                   {stats.map((stat) => (
                     <HeroStat key={stat.label} value={stat.value} label={stat.label} />
                   ))}
@@ -301,14 +303,14 @@ export function PageHero({
               ) : null}
             </div>
 
-            <div className="grid gap-4">
+            <div className="grid gap-3.5">
               {visual}
               {notes?.length ? (
                 <div className="grid gap-3 sm:grid-cols-2">
                   {notes.map((note) => (
                     <div
                       key={note}
-                      className="rounded-[1.5rem] border border-white/10 bg-white/6 px-5 py-5 text-sm leading-6 text-white/78 backdrop-blur-xl"
+                      className="rounded-[1.35rem] border border-white/10 bg-white/6 px-4 py-4 text-[0.9rem] leading-6 text-white/78 backdrop-blur-xl"
                     >
                       {note}
                     </div>
@@ -345,13 +347,13 @@ export function SurfaceCard({
 
   return (
     <article
-      className={`${toneClass} flex h-full flex-col rounded-[1.8rem] ${
-        compact ? "p-5 md:p-6" : "p-6 md:p-7"
+      className={`${toneClass} flex h-full flex-col rounded-[1.55rem] ${
+        compact ? "p-4 md:p-5" : "p-5 md:p-6"
       } ${className}`}
     >
       <h3
         className={`leading-tight ${
-          compact ? "text-[1.42rem] md:text-[1.62rem]" : "text-[1.8rem] md:text-[2.1rem]"
+          compact ? "text-[1.24rem] md:text-[1.4rem]" : "text-[1.5rem] md:text-[1.72rem]"
         } ${
           tone === "light" ? "text-white" : "text-[var(--color-text)]"
         }`}
@@ -360,7 +362,7 @@ export function SurfaceCard({
       </h3>
       <p
         className={`${
-          compact ? "mt-2.5 text-[0.94rem] leading-6.5" : "mt-3 text-[0.98rem] leading-7"
+          compact ? "mt-2 text-[0.92rem] leading-6" : "mt-2.5 text-[0.96rem] leading-[1.65rem]"
         } ${
           tone === "light" ? "text-white/70" : "text-[var(--color-muted)]"
         }`}
@@ -368,7 +370,9 @@ export function SurfaceCard({
         {description}
       </p>
       {children ? (
-        <div className={`flex flex-1 flex-col ${compact ? "mt-4 gap-3" : "mt-5 gap-4"}`}>{children}</div>
+        <div className={`flex flex-1 flex-col ${compact ? "mt-3.5 gap-3" : "mt-4 gap-3.5"}`}>
+          {children}
+        </div>
       ) : null}
     </article>
   );
@@ -387,7 +391,7 @@ export function StatCard({
 }) {
   return (
     <article
-      className={`rounded-[1.8rem] p-6 ${
+      className={`rounded-[1.55rem] p-5 ${
         tone === "light"
           ? "border border-white/10 bg-white/6 shadow-[0_28px_80px_rgba(4,10,20,0.24)]"
           : "premium-shell"
@@ -404,7 +408,7 @@ export function StatCard({
           {value}
         </span>
         <h3
-          className={`text-[1.65rem] leading-tight ${
+          className={`text-[1.35rem] leading-tight md:text-[1.5rem] ${
             tone === "light" ? "text-white" : "text-[var(--color-text)]"
           }`}
         >
@@ -412,7 +416,7 @@ export function StatCard({
         </h3>
       </div>
       <p
-        className={`mt-4 text-[0.98rem] leading-7 ${
+        className={`mt-3 text-[0.94rem] leading-[1.65rem] ${
           tone === "light" ? "text-white/70" : "text-[var(--color-muted)]"
         }`}
       >
@@ -471,6 +475,57 @@ export function BulletList({
   );
 }
 
+export function DecisionGuard({
+  eyebrow = "Antes de actuar",
+  title,
+  description,
+  items,
+  primaryAction,
+  secondaryAction,
+  tone = "default",
+  className = "",
+}: {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  items: string[];
+  primaryAction?: Action;
+  secondaryAction?: Action;
+  tone?: Tone;
+  className?: string;
+}) {
+  return (
+    <SurfaceCard
+      title={title}
+      description={description}
+      tone={tone}
+      className={className}
+      compact
+    >
+      <p
+        className={`text-[0.68rem] font-semibold uppercase tracking-[0.26em] ${
+          tone === "light" ? "text-[var(--color-accent-bright)]" : "text-[var(--color-accent-strong)]"
+        }`}
+      >
+        {eyebrow}
+      </p>
+      <BulletList items={items} tone={tone} className="space-y-2.5" />
+      {primaryAction || secondaryAction ? (
+        <div className="flex flex-wrap gap-3 pt-1">
+          {primaryAction ? <ButtonLink href={primaryAction.href} label={primaryAction.label} /> : null}
+          {secondaryAction ? (
+            <ButtonLink
+              href={secondaryAction.href}
+              label={secondaryAction.label}
+              variant="secondary"
+            />
+          ) : null}
+        </div>
+      ) : null}
+    </SurfaceCard>
+  );
+}
+
 export function ActionBanner({
   eyebrow = "Siguiente paso",
   title,
@@ -489,24 +544,24 @@ export function ActionBanner({
   highlights?: string[];
 }) {
   return (
-    <Section className="pt-8">
+    <Section className="pt-6">
       <Container>
         <div className="hero-shell">
           <div className="hero-shell__orb hero-shell__orb--one" />
           <div className="hero-shell__orb hero-shell__orb--two" />
-          <div className="grid gap-8 lg:grid-cols-[1.06fr_0.94fr] lg:items-end">
+          <div className="hero-shell__grid lg:grid-cols-[1.06fr_0.94fr] lg:items-end">
             <div>
               <Eyebrow tone="light">{eyebrow}</Eyebrow>
               <SectionHeading title={title} description={description} tone="light" />
               {note ? (
-                <p className="mt-5 text-sm font-medium text-[var(--color-accent-bright)]">{note}</p>
+                <p className="mt-4 text-sm font-medium text-[var(--color-accent-bright)]">{note}</p>
               ) : null}
               {highlights.length ? (
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
                   {highlights.map((item) => (
                     <div
                       key={item}
-                      className="rounded-[1.2rem] border border-white/10 bg-white/6 px-4 py-4 text-sm leading-6 text-white/78"
+                      className="rounded-[1.1rem] border border-white/10 bg-white/6 px-4 py-3.5 text-sm leading-6 text-white/78"
                     >
                       {item}
                     </div>
@@ -514,8 +569,8 @@ export function ActionBanner({
                 </div>
               ) : null}
             </div>
-            <div className="grid gap-4 lg:justify-items-end">
-              <div className="visual-window w-full max-w-md rounded-[1.6rem] p-5 text-white">
+            <div className="grid gap-3.5 lg:justify-items-end">
+              <div className="visual-window w-full max-w-md rounded-[1.4rem] p-[1.125rem] text-white">
                 <p className="text-[0.68rem] uppercase tracking-[0.28em] text-white/55">
                   Encaje de la consulta
                 </p>
@@ -524,7 +579,7 @@ export function ActionBanner({
                   <div className="visual-line h-2.5 w-[88%]" />
                   <div className="visual-line h-2.5 w-[52%]" />
                 </div>
-                <div className="mt-5 grid gap-2 text-sm text-white/72">
+                <div className="mt-4 grid gap-2 text-sm text-white/72">
                   <p>Contexto y materiales</p>
                   <p>Objetivo tecnico o pericial</p>
                   <p>Salida documental esperable</p>
@@ -578,7 +633,7 @@ export function ProseCard({
   className?: string;
 }) {
   return (
-    <article className={`premium-shell rounded-[2rem] p-6 md:p-8 lg:p-10 ${className}`}>
+    <article className={`premium-shell rounded-[1.75rem] p-5 md:p-7 lg:p-8 ${className}`}>
       <div className="article-prose">{children}</div>
     </article>
   );

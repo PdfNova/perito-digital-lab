@@ -6,6 +6,8 @@ import {
   ButtonLink,
   Container,
   ContentLinkCard,
+  DecisionGuard,
+  EditorialMetaStrip,
   Eyebrow,
   ImagePanel,
   PageHero,
@@ -13,10 +15,11 @@ import {
   SectionHeading,
   StatCard,
   SurfaceCard,
-  TagList,
 } from "@/components/ui";
 import { buildPageMetadata } from "./metadata";
 import {
+  beforeActionDescription,
+  beforeActionTitle,
   contactPageCtaLabel,
   resourcesCtaLabel,
   visualAssets,
@@ -35,128 +38,77 @@ const serviceLines = serviceSpecialties.map((specialty) => ({
 
 const proofBlocks = [
   {
-    title: "Como se trabaja",
+    title: "Preservacion y secuencia",
     description:
-      "Encuadre inicial, preservacion, analisis, correlacion y documentacion dentro de una secuencia visible y explicable.",
+      "Buena parte del valor del caso se gana o se pierde antes del informe: cuando los materiales conservan fuente, continuidad y una secuencia que no llega rehecha.",
   },
   {
-    title: "Que puede esperar el cliente",
+    title: "Lectura pericial prudente",
     description:
-      "Mas claridad sobre materiales, mejor lectura del punto de partida, alcance razonable y una salida tecnica o documental mas util.",
+      "No todo indicio sostiene la misma conclusion. El trabajo util separa observacion, patron, correlacion, inferencia y limite antes de afirmar mas de la cuenta.",
   },
   {
-    title: "Que encargos encajan mejor",
+    title: "Salida util para terceros",
     description:
-      "Casos donde hay evidencia dispersa, mensajes, dispositivos, activos abiertos o necesidad de reconstruir hechos y explicarlos bien.",
-  },
-  {
-    title: "Que entregables puede haber",
-    description:
-      "Cronologias, notas de correlacion, revisiones tecnicas, anexos y piezas periciales redactadas con prudencia y estructura.",
+      "Cronologia, nota tecnica, cuadro documental o informe claro para quien debe decidir sin depender de capturas llamativas ni de un relato mal cerrado.",
   },
 ];
 
 const featuredResources = [
   {
-    type: "Articulo aplicado",
-    title: "Email bombing y fraude e-commerce",
+    type: "Lectura clave",
+    title: "Notario digital vs perito digital",
     description:
-      "Pieza para entender como el ruido puede ocultar alertas utiles y por que preservar la secuencia cambia el valor del caso.",
-    meta: "Lectura estimada: 7 min",
-    href: "/recursos/articulos/email-bombing-fraude-ecommerce",
-    cta: "Leer articulo aplicado",
-    tags: ["Fraude e-commerce", "Correo", "Secuencia"],
+      "Duda que suele interpretarse mal: que fija una constatacion documental y que aporta una lectura tecnica sobre contexto, integridad y secuencia.",
+    meta: "Despachos y decisores / 7 min",
+    href: "/recursos/articulos/notario-digital-vs-perito-digital",
+    cta: "Leer lectura aplicada",
+    tags: ["Despachos", "Documento", "Perito digital"],
   },
   {
     type: "Guia tecnica",
-    title: "Mensajeria, moviles y conflictos civiles",
+    title: "Firma electronica valida vs firma visual en PDF",
     description:
-      "Guia para ordenar conversaciones, capturas y exportaciones cuando el problema ya llega mezclado con conflicto y exceso de relato.",
-    meta: "Lectura estimada: 8 min",
-    href: "/recursos/guias/mensajeria-moviles-conflictos-civiles",
-    cta: "Leer guia aplicada",
-    tags: ["Moviles", "Mensajeria", "Conflictos civiles"],
-  },
-  {
-    type: "Guia tecnica",
-    title: "Cuenta instrumental y fraccionamiento de ingresos",
-    description:
-      "Guia para leer mejor patrones financieros visibles sin convertir una recurrencia en una conclusion precipitada.",
-    meta: "Lectura estimada: 8 min",
-    href: "/recursos/guias/cuenta-instrumental-fraccionamiento",
-    cta: "Leer guia aplicada",
-    tags: ["Trazabilidad", "Patron financiero", "Criterio"],
+      "Controversia documental frecuente: distinguir apariencia de firma, estructura del archivo, revisiones y valor documental real del PDF.",
+    meta: "Documento electronico / 8 min",
+    href: "/recursos/guias/firma-electronica-pdf-validez-documental",
+    cta: "Leer guia tecnica",
+    tags: ["PDF", "Firma electronica", "Valor documental"],
   },
   {
     type: "Caso tipo",
-    title: "Huella digital, OSINT y limites de atribucion",
+    title: "Cuenta instrumental, smurfing y operativa circular",
     description:
-      "Caso anonimo para mostrar como una correlacion abierta puede ser valiosa sin justificar todavia una atribucion total.",
-    meta: "Lectura estimada: 6 min",
-    href: "/recursos/casos/huella-digital-osint",
+      "Patron que suele llegar fragmentado: una secuencia financiera mal leida puede inflar, ocultar o debilitar un patron muy relevante.",
+    meta: "Fraude bancario / 6 min",
+    href: "/recursos/casos/cuenta-instrumental-smurfing-operativa-circular",
     cta: "Leer caso tipo",
-    tags: ["OSINT", "Huella digital", "Atribucion"],
+    tags: ["Fraude bancario", "Smurfing", "Trazabilidad"],
   },
 ];
 
-const casePatterns = [
+const editorialSignals = [
   {
-    title: "Cuenta instrumental y dispersion de importes",
+    title: "Casos que suelen llegar mal planteados",
     description:
-      "Cuando un movimiento aislado parece menor, pero la secuencia completa apunta a una operativa financiera mas amplia y mejor documentable.",
+      "Fraude con wallet cerrado demasiado pronto, recovery scam que reabre la perdida, PDFs con firma visible, secuencias financieras fragmentadas y mensajeria ya recortada.",
   },
   {
-    title: "Fraude e-commerce con ocultacion de alertas",
+    title: "Errores que hacen perder valor probatorio",
     description:
-      "Cuando pedidos, cambios de cuenta o accesos quedan enterrados entre ruido, correo masivo y materiales mal preservados.",
+      "Material reenviado demasiadas veces, alertas borradas, PDFs impresos y escaneados, capturas sin fuente o exportaciones incompletas que ya no sostienen igual la misma lectura.",
   },
   {
-    title: "Huella digital y correlacion de indicios",
+    title: "Por que conviene consultar antes de actuar",
     description:
-      "Cuando perfiles, dominios, activos abiertos y trazas visibles solo cobran sentido al leerse como un conjunto coherente.",
-  },
-  {
-    title: "Mensajeria y conflicto civil con evidencia dispersa",
-    description:
-      "Cuando capturas, exportaciones y cronologias parciales necesitan orden para convertirse en una pieza legible para terceros.",
-  },
-];
-
-const brandScenes = [
-  {
-    src: "/images/slots/slot-despacho.svg",
-    alt: "Escena visual de despacho profesional y mesa de reunion tecnica",
-    title: "Despacho y reunion tecnica",
-    description:
-      "Mesa de reunion, documentacion y una atmosfera sobria de despacho para reforzar posicionamiento y confianza.",
-  },
-  {
-    src: "/images/slots/slot-analista.svg",
-    alt: "Escena visual de analista trabajando con pantallas y notas",
-    title: "Analisis y entorno de trabajo",
-    description:
-      "Pantallas, notas de trabajo y lectura de indicios dentro de un entorno tecnico sin estetica exhibicionista.",
-  },
-  {
-    src: "/images/slots/slot-moviles.svg",
-    alt: "Escena visual de moviles, evidencias y cadena documental",
-    title: "Moviles y evidencia organizada",
-    description:
-      "Dispositivos, exportaciones y materiales ordenados con criterio documental y lectura pericial.",
-  },
-  {
-    src: "/images/slots/slot-documental.svg",
-    alt: "Escena visual de informes, pantallas y documentacion tecnica",
-    title: "Informe y capa documental",
-    description:
-      "Informe, anexos y trazabilidad documental dentro de una direccion visual coherente con la firma.",
+      "Hay materiales que parecen cerrar el asunto y solo aportan una parte. Una lectura temprana evita fijar explicaciones pobres sobre una base que luego cuesta mucho recomponer.",
   },
 ];
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Investigacion digital, analisis pericial y documentacion tecnica",
   description:
-    "Firma de investigacion digital, analisis forense, OSINT con limites, trazabilidad e informes tecnicos para casos donde la evidencia debe sostenerse con criterio.",
+    "Firma de investigacion digital, analisis pericial, OSINT con limites, trazabilidad e informes tecnicos para casos donde la evidencia debe sostenerse con criterio.",
   path: "/",
 });
 
@@ -165,10 +117,10 @@ export default function HomePage() {
     <>
       <PageHero
         eyebrow="Firma tecnica / investigacion digital / analisis pericial"
-        title="Investigacion digital y analisis pericial para casos donde la evidencia necesita sostenerse"
-        subtitle="Una firma especializada para despachos, procedimientos sensibles y encargos con componente digital donde hace falta ordenar materiales, reconstruir hechos y producir una salida documental clara, sobria y defendible."
+        title="Investigacion digital y analisis pericial para casos donde una mala lectura puede empeorarlo todo"
+        subtitle="Firma orientada a despachos, procedimientos sensibles y encargos con componente digital donde hace falta ordenar materiales, reconstruir secuencia y distinguir mejor que sirve como indicio, que sostiene correlacion y que ya puede defenderse documentalmente."
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
-        secondaryAction={{ href: "/servicios", label: "Ver servicios prioritarios" }}
+        secondaryAction={{ href: "/recursos", label: resourcesCtaLabel }}
         chips={[
           "OSINT con limites",
           "Moviles y mensajeria",
@@ -176,22 +128,22 @@ export default function HomePage() {
           "Informes tecnicos y periciales",
         ]}
         stats={[
-          { value: "8", label: "Lineas de servicio integradas" },
-          { value: "4", label: "Bloques de confianza visibles" },
-          { value: "Real", label: "Hub editorial ya operativo" },
+          { value: "4", label: "Especialidades visibles" },
+          { value: "14", label: "Piezas editoriales publicas" },
+          { value: "Temprano", label: "Consultar antes suele proteger valor" },
         ]}
         notes={[
-          "La web combina direccion de firma, metodo visible y un discurso comercial mas claro sobre que problemas resuelve.",
-          "La credibilidad se apoya en estructura, limites y piezas publicas, no en cifras inventadas ni promesas maximas.",
+          "La autoridad publica no se apoya en promesas. Se apoya en patrones reconocibles, errores repetidos y lectura tecnica prudente.",
+          "Servicios, recursos y contacto ya funcionan como un mismo recorrido para reconocer que material llega fuerte, que material llega aparente y cuando conviene consultar antes de seguir moviendolo.",
         ]}
         visual={
           <ImagePanel
             src={visualAssets.heroMain.src}
             alt={visualAssets.heroMain.alt}
-            eyebrow="Direccion de arte"
-            title="Despacho, analisis digital y criterio documental reunidos en una misma presencia"
-            description="La portada deja de comportarse como una web sobria de estudio y pasa a proyectar una firma mas potente, visual y claramente especializada."
-            tags={["Firma premium", "Entorno tecnico", "Salida documental"]}
+            eyebrow="Direccion de firma"
+            title="Despacho, analisis digital y criterio documental en una sola presencia"
+            description="La primera impresion ya no suena a biblioteca generalista: suena a firma que distingue bien entre material aparente, material util y secuencias que ya llegan debilitadas."
+            tags={["Firma premium", "Entorno tecnico", "Criterio documental"]}
             priority
           />
         }
@@ -199,32 +151,32 @@ export default function HomePage() {
 
       <Section tint="dark">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[0.96fr_1.04fr] lg:items-start">
+          <div className="grid gap-7 xl:grid-cols-[0.88fr_1.12fr] xl:items-start">
             <div>
-              <Eyebrow tone="light">Problemas que resuelve</Eyebrow>
+              <Eyebrow tone="light">Cuando aporta valor</Eyebrow>
               <SectionHeading
-                title="Cuando lo digital cambia la lectura del asunto y hace falta una firma con mas estructura"
-                description="La propuesta esta pensada para situaciones donde la informacion existe, pero no esta ordenada, no se entiende bien o no puede traducirse todavia a una pieza util para terceros."
+                title="Cuando el problema ya no es solo encontrar un dato, sino evitar una lectura debil del caso"
+                description="La firma encaja mejor cuando hay evidencia dispersa, decisiones tomadas deprisa, secuencias mal conservadas o necesidad de traducir lo tecnico a una pieza comprensible para terceros."
                 tone="light"
               />
             </div>
             <div className="grid gap-4 md:grid-cols-3">
               <StatCard
                 value="01"
-                label="Evidencia dispersa"
-                description="Mensajes, capturas, exportaciones, dispositivos o fuentes abiertas que no pueden leerse de forma aislada."
+                label="Evidencia mal conservada"
+                description="Capturas, PDFs, correos o exportaciones que llegan ya reenviados, incompletos o fuera de la fuente que les daba mas valor."
                 tone="light"
               />
               <StatCard
                 value="02"
-                label="Cronologia incompleta"
-                description="Hechos que necesitan secuencia, relacion entre indicios y contexto tecnico para ganar claridad."
+                label="Secuencia mal leida"
+                description="Hechos que cambian al ordenar alertas, movimientos, mensajes, documentos y tiempos dentro de una sola secuencia legible."
                 tone="light"
               />
               <StatCard
                 value="03"
-                label="Necesidad de informe"
-                description="Casos donde el valor esta en convertir el analisis en una salida clara, prudente y defendible."
+                label="Necesidad de criterio"
+                description="Casos donde una lectura tecnica temprana evita atribuciones pobres, ruido acumulado y decisiones caras de corregir despues."
                 tone="light"
               />
             </div>
@@ -233,86 +185,49 @@ export default function HomePage() {
       </Section>
 
       <Section>
-        <Container>
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-            <div>
-              <Eyebrow>Servicios prioritarios</Eyebrow>
-              <SectionHeading
-                title="Cuatro especialidades publicas para captar consultas mejor formuladas"
-                description="La home ya no apunta solo a una oferta general. Destaca cuatro paginas de servicio pensadas para explicar mejor problemas concretos, limites y salida documental posible."
-              />
+        <Container className="grid gap-8 xl:grid-cols-[1.16fr_0.84fr] xl:items-start">
+          <div>
+            <Eyebrow>Especialidades prioritarias</Eyebrow>
+            <SectionHeading
+              title="Servicios enfocados para problemas donde una consulta bien planteada cambia el resultado"
+              description="La portada concentra las especialidades que mejor captan consultas cualificadas y las acompana de una explicacion clara sobre como se ordena un asunto antes de convertirlo en informe, nota tecnica o pieza pericial."
+            />
+            <div className="mt-7 grid gap-4 lg:grid-cols-2">
+              {serviceLines.map((service) => (
+                <ContentLinkCard
+                  key={service.title}
+                  type={service.type}
+                  title={service.title}
+                  description={service.description}
+                  meta={service.meta}
+                  href={service.href}
+                  cta={service.cta}
+                  tags={service.tags}
+                  compact
+                />
+              ))}
             </div>
+          </div>
+
+          <div className="grid gap-4">
             <SurfaceCard
-              title="Una propuesta comercial mas fuerte"
-              description="Cada especialidad se presenta como una necesidad profesional concreta, con mejor encaje, mayor presencia visual y una salida inteligible para perfiles tecnicos y no tecnicos."
+              title="Como se convierte un problema digital en una lectura util"
+              description="La autoridad no sale de enumerar servicios. Sale de mostrar que decisiones suelen degradar un caso y que hace una revision seria para devolverle estructura."
               compact
             >
               <BulletList
                 items={[
-                  "Problemas mejor definidos desde la primera visita.",
-                  "Puente directo entre especialidades, recursos y contacto.",
-                  "Mas claridad sobre encaje, limites y salida documental.",
+                  "Se fija que material existe realmente y en que estado de preservacion llega, sin dar por buenas piezas aparentes.",
+                  "Se ordenan secuencias y relaciones antes de extraer conclusiones fuertes o cerrar atribuciones.",
+                  "Se documenta una salida clara con limites visibles para terceros y con mejor separacion entre indicio e inferencia.",
                 ]}
               />
               <div className="pt-1">
-                <ButtonLink href="/servicios" label="Explorar alcance completo" variant="secondary" />
+                <ButtonLink href="/servicios" label="Ver especialidades" variant="secondary" />
               </div>
             </SurfaceCard>
-          </div>
 
-          <div className="mt-10 grid gap-4 lg:grid-cols-2">
-            {serviceLines.map((service) => (
-              <ContentLinkCard
-                key={service.title}
-                type={service.type}
-                title={service.title}
-                description={service.description}
-                meta={service.meta}
-                href={service.href}
-                cta={service.cta}
-                tags={service.tags}
-                compact
-              />
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section tint="soft">
-        <Container className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
-          <div className="grid gap-4">
-            <ImagePanel
-              src="/images/hero/hero-signature.svg"
-              alt="Mesa principal de despacho con informe, pantallas y entorno premium"
-              eyebrow="Presencia de firma"
-              title="Una direccion mas cercana a despacho premium que a portfolio editorial"
-              description="La marca gana fuerza cuando la web deja ver escala, rigor y una atmosfera de trabajo mas potente, sin caer en signos visuales estridentes."
-              tags={["Despacho", "Marca", "Confianza"]}
-              aspect="landscape"
-            />
-            <SurfaceCard
-              title="Encaje prioritario"
-              description="Especialmente util para despachos, asuntos de familia, fraude tecnologico, controversias con moviles y casos donde la huella digital exige reconstruccion prudente."
-              compact
-            >
-              <TagList
-                items={[
-                  "Despachos juridicos",
-                  "Procedimientos sensibles",
-                  "Evidencia movil",
-                  "Trazabilidad",
-                ]}
-              />
-            </SurfaceCard>
-          </div>
-
-          <div>
-            <Eyebrow>Confianza estructural</Eyebrow>
-            <SectionHeading
-              title="La autoridad se hace visible sin inventar cifras ni apoyarse en exhibicion"
-              description="La capa de confianza se construye mostrando como se trabaja, que encargos encajan, que puede esperar quien consulta y que tipo de entregables salen de un proceso bien llevado."
-            />
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-1">
               {proofBlocks.map((block) => (
                 <SurfaceCard key={block.title} title={block.title} description={block.description} compact />
               ))}
@@ -321,151 +236,102 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section>
-        <Container className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
-          <div>
-            <Eyebrow>Casos tipo</Eyebrow>
-            <SectionHeading
-              title="Patrones donde una revision tecnica suele revelar mas de lo que parece al inicio"
-              description="Varios encargos comparten una misma logica: un elemento aislado parece menor hasta que se lee dentro de una secuencia mayor. Parte de esos patrones ya estan publicados en recursos para mostrar mejor donde empieza el valor del criterio experto."
-            />
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {casePatterns.map((item) => (
-              <SurfaceCard key={item.title} title={item.title} description={item.description} compact />
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section tint="dark">
-        <Container className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
-          <div>
-            <Eyebrow tone="light">Metodo y entregables</Eyebrow>
-            <SectionHeading
-              title="Una firma premium no solo explica servicios: muestra como convierte indicios en salidas utiles"
-              description="El recorrido operativo esta pensado para reforzar la percepcion de solidez: encuadre, preservacion, analisis, correlacion, documentacion y entrega legible."
-              tone="light"
-            />
-            <div className="mt-8">
-              <TagList
-                items={[
-                  "Encuadre inicial",
-                  "Preservacion y orden",
-                  "Analisis y correlacion",
-                  "Informe claro",
-                ]}
-                tone="light"
-              />
-            </div>
-          </div>
-          <div className="grid gap-4">
-            <SurfaceCard
-              title="Como se traduce en la practica"
-              description="La consulta inicial no intenta vender una certeza. Intenta acotar mejor el problema, leer el material disponible y definir la salida tecnica o pericial mas sensata."
-              tone="light"
-              compact
-            >
-              <BulletList
-                items={[
-                  "Revision de materiales y del objetivo del encargo.",
-                  "Lectura de relaciones, secuencias y limites.",
-                  "Preparacion de cronologia, nota tecnica o informe.",
-                ]}
-                tone="light"
-              />
-            </SurfaceCard>
-            <div className="grid gap-4 md:grid-cols-2">
-              <SurfaceCard
-                title="Salidas habituales"
-                description="Cronologias, correlacion de indicios, lectura de mensajeria, revision tecnica de evidencia y documento final orientado a terceros."
-                tone="light"
-                compact
-              />
-              <SurfaceCard
-                title="Ventaja comercial real"
-                description="Mostrar proceso y salida eleva la confianza antes del contacto y filtra mejor encargos impropios o expectativas irreales."
-                tone="light"
-                compact
-              />
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container>
-          <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
-            <div>
-              <Eyebrow>Recursos como ventaja</Eyebrow>
-              <SectionHeading
-                title="La biblioteca ya publica patrones de caso, guias y lecturas aplicadas"
-                description="Los recursos ya no solo informan. Funcionan como prueba publica de criterio en fraude, mensajeria, conflictos sensibles y OSINT con limites, y preparan mejor una conversacion comercial con materiales y alcance mas claros."
-              />
-            </div>
-            <SurfaceCard
-              title="Contenido que trabaja para la firma"
-              description="Articulos aplicados, guias y casos tipo elevan la percepcion de experiencia real y dejan mas claro por que una revision bien planteada evita errores de enfoque, de preservacion y de atribucion."
-              compact
-            >
-              <Link className="inline-link" href="/recursos">
-                {resourcesCtaLabel}
-              </Link>
-            </SurfaceCard>
-          </div>
-
-          <div className="mt-10 grid gap-4 lg:grid-cols-3">
-            {featuredResources.map((resource) => (
-              <ContentLinkCard
-                key={resource.title}
-                type={resource.type}
-                title={resource.title}
-                description={resource.description}
-                meta={resource.meta}
-                href={resource.href}
-                cta={resource.cta}
-                tags={resource.tags}
-              />
-            ))}
-          </div>
-        </Container>
-      </Section>
-
       <Section tint="soft">
         <Container>
-          <SectionHeading
-            title="Escenas visuales que ya fijan el lenguaje de la firma"
-            description="Despacho, analisis, moviles e informe documental dentro de una misma direccion de marca, ya integrada como parte del cierre visual del sitio."
-            align="center"
-          />
-          <div className="mt-10 grid gap-4 lg:grid-cols-2">
-            {brandScenes.map((slot) => (
-              <SurfaceCard key={slot.title} title={slot.title} description={slot.description} compact>
-                <ImagePanel
-                  src={slot.src}
-                  alt={slot.alt}
-                  eyebrow="Escena de marca"
-                  title={slot.title}
-                  description={slot.description}
-                  tags={["Despacho", "Analisis", "Documento"]}
-                  aspect="wide"
+          <div className="grid gap-7 xl:grid-cols-[0.86fr_1.14fr] xl:items-end">
+            <div>
+              <Eyebrow>Casos, historias y lecturas aplicadas</Eyebrow>
+              <SectionHeading
+                title="La home ya deja ver problemas reales anonimizados, decisiones que llegan tarde y criterios que cambian la lectura del caso"
+                description="La capa editorial ya no parece una biblioteca lateral. Funciona como prueba publica de experiencia aplicada en fraude, documentos, medios de pago, mensajeria, OSINT y preservacion."
+              />
+            </div>
+            <SurfaceCard
+              title="Por que esta zona eleva autoridad de verdad"
+              description="Las piezas destacadas no venden espectacularidad. Hacen visible por que un caso con capturas, PDFs, correos, wallets o movimientos bancarios puede necesitar lectura tecnica mucho antes de lo que parece."
+              compact
+            >
+              <EditorialMetaStrip
+                items={[
+                  { label: "Casos", value: "Patrones anonimizados y errores recurrentes de lectura." },
+                  { label: "Guias", value: "Lecturas tecnicas sobre PDF, firmas, wallets, atribucion y alcance." },
+                  { label: "Efecto", value: "Mejoran la calidad de la consulta y del material que todavia conserva valor." },
+                  { label: "Puente", value: "Cada pieza conecta con especialidad, metodologia o contacto." },
+                ]}
+              />
+            </SurfaceCard>
+          </div>
+
+          <div className="mt-7 grid gap-4 xl:grid-cols-[1.28fr_0.72fr]">
+            <div className="grid gap-4 lg:grid-cols-3">
+              {featuredResources.map((resource) => (
+                <ContentLinkCard
+                  key={resource.title}
+                  type={resource.type}
+                  title={resource.title}
+                  description={resource.description}
+                  meta={resource.meta}
+                  href={resource.href}
+                  cta={resource.cta}
+                  tags={resource.tags}
+                  compact
                 />
-              </SurfaceCard>
-            ))}
+              ))}
+            </div>
+
+            <SurfaceCard
+              title="Pruebas publicas de criterio, no lecturas accesorias"
+              description="Estas piezas dominan la percepcion de autoridad porque hacen visible que muchos asuntos se debilitan por una mala lectura inicial y por acciones previas evitables."
+              compact
+            >
+              <div className="grid gap-3">
+                {editorialSignals.map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-[1.15rem] border border-[var(--color-border)] bg-white/70 px-4 py-3.5"
+                  >
+                    <p className="text-sm font-medium text-[var(--color-text)]">{item.title}</p>
+                    <p className="mt-2 text-sm leading-6 text-[var(--color-muted)]">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-3 pt-1">
+                <ButtonLink href="/recursos" label={resourcesCtaLabel} variant="secondary" />
+                <Link className="inline-link" href="/recursos/articulos/tokenizacion-fraudulenta-tarjeta-wallet">
+                  Ver otro patron aplicable
+                </Link>
+              </div>
+            </SurfaceCard>
+          </div>
+
+          <div className="mt-7">
+            <DecisionGuard
+              eyebrow="Antes de tomar decisiones sobre el material digital"
+              title={beforeActionTitle}
+              description={beforeActionDescription}
+              items={[
+                "Hay consultas que llegan con capturas reenviadas muchas veces y sin la fuente que les daba continuidad.",
+                "Hay PDFs con firma visible que ya vienen impresos, escaneados o separados de la validacion que permitiria leerlos mejor.",
+                "Hay fraudes con wallet donde la tarjeta fisica sigue con su titular y esa intuicion inicial hace perder tiempo valioso.",
+                "Hay recuperaciones cripto aparentes que anaden nuevas wallets, pagos y ruido antes de que se haya ordenado la perdida inicial.",
+              ]}
+              primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
+              secondaryAction={{ href: "/recursos", label: resourcesCtaLabel }}
+            />
           </div>
         </Container>
       </Section>
 
       <ActionBanner
         eyebrow="Siguiente paso"
-        title="Si el asunto requiere criterio tecnico y una salida documental solida, el siguiente paso es una consulta bien encuadrada"
-        description="La mejor entrada no es una promesa maxima. Es una consulta con objetivo claro, materiales identificados y una expectativa razonable sobre lo que puede ordenarse, correlacionarse o documentarse."
+        title="Si el asunto requiere criterio tecnico y una salida documental seria, conviene consultar antes de que el material se siga degradando"
+        description="La mejor entrada no es una promesa maxima. Es una consulta con objetivo claro, materiales identificados y una expectativa razonable sobre lo que puede revisarse, correlacionarse o documentarse sin inflar lo que aun no sostiene el material."
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
         secondaryAction={{ href: "/recursos", label: resourcesCtaLabel }}
-        note="La home ya funciona como una portada comercial mas fuerte: firma, servicios, confianza, recursos y contacto dentro de una sola narrativa."
+        note="La home cierra con una idea mas concreta: no todo material llega con el mismo valor y una mala preservacion puede empeorar mucho su lectura posterior."
         highlights={[
-          "Servicios ampliados y mejor articulados para encargos de mayor valor.",
-          "Presencia visual claramente superior y mas propia de una firma especializada.",
+          "Autoridad publica basada en patrones reconocibles, no en claims vacios.",
+          "Puente directo entre experiencia aplicada, material util y consulta cualificada.",
         ]}
       />
     </>

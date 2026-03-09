@@ -16,9 +16,9 @@ import { buildPageMetadata } from "@/app/metadata";
 import { contactPageCtaLabel, resourcesHubReturnLabel } from "@/app/site-config";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Caso tipo: huella digital, OSINT y limites de atribucion",
+  title: "Huella digital, OSINT y limites de atribucion: caso tipo",
   description:
-    "Caso tipo anonimo sobre perfiles, activos abiertos y como una revision tecnica documenta correlaciones sin sobreactuar la atribucion.",
+    "Caso tipo anonimo sobre perfiles, activos abiertos y como una revision tecnica documenta correlaciones y limites de atribucion sin sobreactuar el alcance.",
   path: "/recursos/casos/huella-digital-osint",
   type: "article",
 });
@@ -135,13 +135,12 @@ export default function DigitalFootprintOsintCasePage() {
           <div className="grid gap-4">
             <SurfaceCard
               title="Lectura de continuidad"
-              description="El articulo sobre OSINT y limites de atribucion desarrolla con mas detalle por que correlacionar no equivale a identificar."
+              description="Esta linea conecta de forma directa con la especialidad de OSINT y huella digital cuando el problema ya exige ordenar activos abiertos y contener mejor la atribucion."
             >
               <TagList items={["OSINT", "Huella digital", "Atribucion"]} />
-              <p className="text-sm leading-7 text-[var(--color-muted)]">
-                El contenido editorial de esta linea refuerza que una buena revision encuentra y
-                tambien contiene.
-              </p>
+              <Link className="inline-link" href="/servicios/osint-huella-digital">
+                Ver servicio relacionado
+              </Link>
             </SurfaceCard>
 
             <SurfaceCard
@@ -149,8 +148,8 @@ export default function DigitalFootprintOsintCasePage() {
               description="Este patron conecta de forma directa con OSINT, huella digital, correlacion de indicios y notas tecnicas de alcance para terceros."
             >
               <TagList items={["OSINT", "Huella digital", "Correlacion"]} />
-              <Link className="inline-link" href="/servicios">
-                Ver servicios relacionados
+              <Link className="inline-link" href="/servicios/osint-huella-digital">
+                Ver servicio principal
               </Link>
             </SurfaceCard>
 
@@ -172,7 +171,7 @@ export default function DigitalFootprintOsintCasePage() {
         title="Si varias senales abiertas parecen apuntar en la misma direccion, el siguiente paso es revisar su alcance antes de atribuir demasiado"
         description="El caso tipo ayuda a reconocer un patron. Si existe una necesidad concreta, la consulta inicial puede centrarse en activos visibles, materiales ya conservados y utilidad documental esperable."
         primaryAction={{ href: "/contacto", label: contactPageCtaLabel }}
-        secondaryAction={{ href: "/recursos", label: resourcesHubReturnLabel }}
+        secondaryAction={{ href: "/servicios/osint-huella-digital", label: "Ver servicio relacionado" }}
         note="Una conclusion contenida y bien documentada suele aportar mas valor que una atribucion prematura."
         highlights={[
           "Caso tipo pensado para mostrar OSINT con criterio y sin exhibicionismo.",

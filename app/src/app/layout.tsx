@@ -66,7 +66,7 @@ export default function RootLayout({
       <body className={`${sans.variable} ${serif.variable}`}>
         <div className="site-frame">
           <SiteHeader />
-          <main className="pb-24">{children}</main>
+          <main className="pb-16">{children}</main>
           <SiteFooter />
         </div>
       </body>
