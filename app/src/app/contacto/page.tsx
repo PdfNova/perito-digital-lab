@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ActionBanner,
+  BulletList,
   ButtonLink,
   Container,
   ContentLinkCard,
@@ -15,9 +16,12 @@ import {
 import {
   articleBaseCtaLabel,
   contactAnchorCtaLabel,
+  contactChannelDescription,
+  contactChannelEyebrow,
+  contactChannelLabel,
   contactDirectCtaLabel,
-  contactEmail,
   contactFirstStepCopy,
+  hasPublicContactEmail,
   contactMailto,
   contactResourceCtaLabel,
   contactResponseCopy,
@@ -51,10 +55,42 @@ const supportPieces = [
   },
 ];
 
+const fitCases = [
+  "Despachos o profesionales juridicos que necesitan apoyo tecnico claro.",
+  "Procedimientos de familia o divorcios con material digital relevante.",
+  "Casos con moviles, mensajeria, exportaciones o dispositivos como pieza central.",
+  "Encargos de trazabilidad, fraude tecnologico, huella digital o correlacion de indicios.",
+];
+
+const firstMessageItems = [
+  "Breve descripcion del problema o de los hechos relevantes.",
+  "Tipo de fuentes, materiales o dispositivos disponibles.",
+  "Estado actual del caso, procedimiento o revision previa.",
+  "Objetivo tecnico, documental o pericial que se pretende aclarar.",
+];
+
+const expectations = [
+  {
+    title: "Que ocurre en el primer intercambio",
+    description:
+      "Se valora encaje, materiales, prioridad y siguiente paso razonable. No se sustituye una revision tecnica en ese primer momento.",
+  },
+  {
+    title: "Que suele mejorar una consulta bien planteada",
+    description:
+      "Reduce ambiguedad, permite encuadrar mejor el trabajo y facilita decidir si conviene pasar a una fase de analisis o documentacion.",
+  },
+  {
+    title: "Que no se ofrece",
+    description:
+      "No se atienden peticiones orientadas a accesos a cuentas, recuperaciones invasivas sobre terceros ni identificaciones garantizadas.",
+  },
+];
+
 export const metadata: Metadata = buildPageMetadata({
   title: "Contacto para investigacion digital y documentacion tecnica",
   description:
-    "Pagina de contacto orientada a consultas cualificadas sobre investigacion digital, analisis forense, trazabilidad, revision tecnica y documentacion tecnica.",
+    "Pagina de contacto para consultas sobre investigacion digital, analisis pericial, trazabilidad, OSINT, evidencia movil y documentacion tecnica.",
   path: "/contacto",
 });
 
@@ -63,160 +99,125 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contacto"
-        title="Contacto para consultas tecnicas donde el componente digital exige contexto, metodo y claridad"
-        subtitle="El objetivo no es solo recoger una consulta. Es ayudar a que llegue mejor planteada, con materiales identificados, alcance mas realista y un primer intercambio mas util."
+        title="Contacto para consultas tecnicas que necesitan una primera lectura seria y bien encuadrada"
+        subtitle="La pagina de contacto pasa a funcionar como una entrada comercial mas fuerte: explica mejor que tipo de encargos encajan, como conviene plantear la consulta y que puede esperarse del primer intercambio."
         primaryAction={{ href: "#consulta", label: contactAnchorCtaLabel }}
-        secondaryAction={{ href: "/recursos", label: resourcesCtaLabel }}
+        secondaryAction={{ href: "/servicios", label: "Volver a servicios" }}
+        chips={[
+          "Valoracion inicial",
+          "Contexto y materiales",
+          "Encaje del encargo",
+          "Salida documental",
+        ]}
         stats={[
           { value: "Claro", label: "Primer paso mejor encuadrado" },
           { value: "Filtro", label: "Mas calidad en la consulta inicial" },
-          { value: "Serio", label: "Entrada propia de una firma tecnica" },
+          { value: "Serio", label: "Canal propio de una firma tecnica" },
         ]}
         notes={[
-          "La pagina ordena la consulta desde el primer momento y transmite un marco profesional claro.",
-          "Los recursos publicados ya ayudan a llegar con mejor criterio antes del primer intercambio.",
+          "El objetivo no es recoger mensajes largos sino convertir el primer contacto en una conversacion mas util.",
+          "Los recursos publicados y la pagina de servicios ya preparan mejor a quien llega hasta aqui.",
         ]}
         visual={
           <ImagePanel
             src={visualAssets.contactHero.src}
             alt={visualAssets.contactHero.alt}
             eyebrow="Canal de consulta"
-            title="Despacho, contexto y documentacion al servicio de una primera toma de contacto mas precisa"
-            description="La pagina de contacto se apoya en un lenguaje visual sobrio y en una estructura que mejora el encaje antes de cualquier revision."
-            tags={["Contacto", "Despacho", "Orientacion inicial"]}
+            title="Despacho, criterio y documentacion al servicio de una toma de contacto mas precisa"
+            description="La pagina proyecta un marco mas comercial y mas fuerte sin abandonar la discrecion ni el enfoque tecnico."
+            tags={["Contacto premium", "Despacho", "Orientacion inicial"]}
             priority
           />
         }
       />
 
-      <Section>
-        <Container className="grid gap-8 lg:grid-cols-[0.96fr_1.04fr] lg:items-start">
-          <div>
+      <Section tint="dark">
+        <Container className="grid gap-8 lg:grid-cols-[0.94fr_1.06fr] lg:items-start">
+          <div className="max-w-2xl">
             <SectionHeading
               title="Consultas donde una orientacion inicial suele aportar mas valor"
-              description="La primera capa comercial de esta pagina consiste en ayudar al visitante a identificar si su necesidad encaja y a llegar con un punto de partida mas util."
+              description="La primera capa comercial de esta pagina consiste en ayudar a detectar encaje y a preparar mejor el caso antes de cualquier revision."
+              tone="light"
             />
           </div>
           <SurfaceCard
             title="Encaja mejor cuando"
             description="Existe material digital ya disponible, necesidad de ordenar hechos, dudas sobre relaciones o necesidad de una salida documental clara."
+            tone="light"
+            compact
           >
-            <TagList
-              items={[
-                "Evidencia dispersa",
-                "Necesidad de cronologia",
-                "Revision tecnica",
-                "Informe claro",
-              ]}
-            />
-          </SurfaceCard>
-        </Container>
-      </Section>
-
-      <Section tint="soft">
-        <Container className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
-          <SurfaceCard
-            title="Informacion util para una primera consulta"
-            description={contactFirstStepCopy}
-          >
-            <ul className="space-y-2 text-sm leading-7 text-[var(--color-muted)]">
-              {[
-                "Breve descripcion del problema",
-                "Tipo de fuentes o materiales disponibles",
-                "Estado actual del caso o del expediente",
-                "Necesidad principal: analisis, correlacion, trazabilidad o documentacion",
-              ].map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--color-accent-strong)]" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="text-sm font-medium text-[var(--color-accent-strong)]">
-              Cuanto mas claro el contexto, mejor la orientacion inicial.
-            </p>
-          </SurfaceCard>
-
-          <SurfaceCard
-            title="Lo que esta propuesta no ofrece"
-            description="No se atienden solicitudes orientadas a accesos a cuentas, recuperaciones invasivas sobre terceros, identificaciones garantizadas ni peticiones formuladas desde logicas opacas o impropias."
-          >
-            <div className="grid gap-3 text-sm leading-7 text-[var(--color-muted)]">
-              <p>Los limites claros mejoran la credibilidad del sitio y ayudan a que la consulta se formule mejor desde el inicio.</p>
-              <p>El marco de trabajo sigue siendo tecnico, documental y prudente aunque la presentacion visual sea mas fuerte.</p>
-            </div>
-            <p className="text-sm font-medium text-[var(--color-accent-strong)]">
-              Alcance tecnico y documental.
-            </p>
+            <BulletList items={fitCases} tone="light" className="space-y-2.5" />
           </SurfaceCard>
         </Container>
       </Section>
 
       <Section>
         <Container id="consulta" className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-          <div className="premium-shell rounded-[2rem] p-6 md:p-8">
+          <div className="premium-shell rounded-[2rem] p-6 md:p-10">
             <SectionHeading
-              title="Correo directo para consultas con encaje tecnico"
-              description="El primer paso ya puede resolverse con un correo claro, breve y bien orientado. La pagina ordena que conviene explicar, como formular la consulta y que esperar del intercambio inicial."
+              title="Correo directo para consultas con encaje tecnico o pericial"
+              description="La pagina ordena que conviene explicar y que puede esperarse de la primera respuesta, con un primer intercambio mas claro y mejor filtrado."
             />
-            <div className="mt-8 grid gap-4">
-              <div className="rounded-[1.6rem] border border-[var(--color-border)] bg-[rgba(255,255,255,0.7)] px-5 py-5 shadow-[var(--shadow-soft)]">
+            <div className="mt-9 grid gap-5">
+              <div className="rounded-[1.7rem] border border-[var(--color-border)] bg-[rgba(255,255,255,0.8)] px-5 py-5 shadow-[var(--shadow-soft)] md:px-6 md:py-6">
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-[var(--color-muted)]">
-                  Correo de marca
+                  {contactChannelEyebrow}
                 </p>
-                <p className="mt-3 text-2xl leading-tight text-[var(--color-text)] md:text-[2.2rem]">
-                  {contactEmail}
+                <p className="mt-3 text-2xl leading-tight text-[var(--color-text)] md:text-[2.3rem]">
+                  {contactChannelLabel}
                 </p>
                 <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--color-muted)]">
-                  Canal recomendado para una primera toma de contacto: breve, clara y centrada en el
-                  problema, los materiales disponibles y el objetivo tecnico o documental.
+                  {contactChannelDescription}
                 </p>
-                <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-[1.15rem] border border-[var(--color-border)] bg-white/70 px-4 py-4">
+
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  <div className="soft-panel rounded-[1.15rem] px-4 py-4">
                     <p className="text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-[var(--color-muted)]">
-                      Asunto sugerido
+                      {hasPublicContactEmail ? "Asunto sugerido" : "Primer encuadre"}
                     </p>
-                    <p className="mt-2 text-sm leading-6 text-[var(--color-text)]">{contactSubject}</p>
+                    <p className="mt-2 text-sm leading-6 text-[var(--color-text)]">
+                      {hasPublicContactEmail
+                        ? contactSubject
+                        : "Breve descripcion, materiales disponibles y objetivo tecnico."}
+                    </p>
                   </div>
-                  <div className="rounded-[1.15rem] border border-[var(--color-border)] bg-white/70 px-4 py-4">
+                  <div className="soft-panel rounded-[1.15rem] px-4 py-4">
                     <p className="text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-[var(--color-muted)]">
                       Primer paso
                     </p>
                     <p className="mt-2 text-sm leading-6 text-[var(--color-text)]">{contactResponseCopy}</p>
                   </div>
                 </div>
-                <div className="mt-5 flex flex-wrap gap-3">
-                  <ButtonLink href={contactMailto} label={contactDirectCtaLabel} />
-                  <ButtonLink href="/recursos" label={contactResourceCtaLabel} variant="secondary" />
+
+                <div className="mt-6 border-t border-[var(--color-border)]/70 pt-5">
+                  <div className="flex flex-wrap gap-3">
+                    <ButtonLink
+                      href={contactMailto}
+                      label={contactDirectCtaLabel}
+                      className="min-w-[15rem] px-6"
+                    />
+                    <ButtonLink
+                      href="/recursos"
+                      label={contactResourceCtaLabel}
+                      variant="secondary"
+                      className="min-w-[15rem]"
+                    />
+                  </div>
                 </div>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <SurfaceCard
                   title="Que incluir en el primer mensaje"
-                  description="Cuatro datos suelen bastar para encuadrar bien la consulta y mejorar la orientacion inicial."
+                  description={contactFirstStepCopy}
+                  compact
                 >
-                  <ul className="space-y-2 text-sm leading-7 text-[var(--color-muted)]">
-                    {[
-                      "Descripcion breve del problema",
-                      "Materiales o fuentes disponibles",
-                      "Estado actual del caso",
-                      "Objetivo tecnico o documental",
-                    ].map((item) => (
-                      <li key={item} className="flex gap-3">
-                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--color-accent-strong)]" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <BulletList items={firstMessageItems} className="space-y-2.5" />
                 </SurfaceCard>
 
-                <SurfaceCard
-                  title="Que ocurre despues"
-                  description={contactResponseCopy}
-                >
-                  <TagList items={["Encaje", "Alcance", "Prioridad", "Siguiente paso"]} />
-                  <p className="text-sm leading-7 text-[var(--color-muted)]">
+                <SurfaceCard title="Que ocurre despues" description={contactResponseCopy} compact>
+                  <TagList items={["Encaje", "Alcance", "Prioridad", "Siguiente paso"]} className="gap-2.5" />
+                  <p className="text-sm leading-6.5 text-[var(--color-muted)]">
                     Si la necesidad encaja, la conversacion posterior ya puede entrar en materiales,
                     metodologia y salida documental esperada.
                   </p>
@@ -225,41 +226,36 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="grid gap-5">
+          <div className="grid gap-4">
             <ImagePanel
               src="/images/contact/contact-detail.svg"
-              alt="Mesa de reunion con documentacion tecnica, monitor y entorno de una primera conversacion profesional"
+              alt="Mesa de reunion con documentacion tecnica, pantalla y entorno premium de consulta"
               eyebrow="Contexto de trabajo"
-              title="Una primera conversacion debe sentirse clara, discreta y bien encuadrada"
-              description="La dimension visual del contacto acompana la idea de orden profesional y ayuda a que la consulta se perciba como parte de un marco tecnico serio."
-              tags={["Despacho", "Consulta", "Documentacion"]}
+              title="La primera conversacion debe sentirse precisa, discreta y profesional"
+              description="La direccion visual del contacto acompana la idea de orden y potencia la percepcion de firma de alto nivel."
+              tags={["Consulta", "Despacho", "Documentacion"]}
               aspect="wide"
             />
 
-            <SurfaceCard
-              title="Tiempo y expectativas del primer paso"
-              description="La orientacion inicial no sustituye una revision tecnica. Sirve para entender el punto de partida y decidir con criterio si conviene avanzar."
-            >
-              <TagList items={["Primer encaje", "Lectura inicial", "Alcance razonable"]} />
-            </SurfaceCard>
-
-            <SurfaceCard
-              title="Conviene no enviar"
-              description="Datos personales innecesarios, relatos excesivamente largos o materiales sin un minimo de orden previo suelen empeorar el punto de partida."
-            >
-              <TagList items={["Menos exposicion", "Mas contexto util", "Mejor lectura inicial"]} />
-            </SurfaceCard>
+            {expectations.map((item) => (
+              <SurfaceCard key={item.title} title={item.title} description={item.description} compact />
+            ))}
           </div>
         </Container>
       </Section>
 
       <Section tint="soft">
         <Container className="grid gap-8 lg:grid-cols-[0.94fr_1.06fr] lg:items-start">
-          <div>
+          <div className="max-w-2xl">
             <SectionHeading
               title="Lecturas que mejoran la calidad del primer contacto"
               description="Antes de escribir, estas piezas ayudan a entender mejor valor documental, preservacion inicial y alcance real de una revision."
             />
+            <div className="mt-7">
+              <Link className="inline-link" href="/recursos">
+                {resourcesCtaLabel}
+              </Link>
+            </div>
           </div>
           <div className="grid gap-4 lg:grid-cols-2">
             {supportPieces.map((piece) => (
@@ -272,6 +268,8 @@ export default function ContactPage() {
                 href={piece.href}
                 cta={piece.cta}
                 tags={piece.tags}
+                className="min-h-[unset]"
+                compact
               />
             ))}
           </div>
@@ -281,13 +279,13 @@ export default function ContactPage() {
       <ActionBanner
         eyebrow="Contacto directo"
         title="Si la necesidad es real y el marco ya esta mas claro, el siguiente paso es plantear la consulta con materiales identificados y objetivo definido"
-        description="La pagina de contacto no solo cierra el sitio. Tambien actua como filtro de calidad para que el primer intercambio se centre en contexto, alcance y utilidad documental."
+        description="La pagina de contacto no solo cierra el sitio. Funciona como filtro de calidad para que el primer intercambio se centre en encaje, alcance y utilidad documental."
         primaryAction={{ href: contactMailto, label: contactDirectCtaLabel }}
         secondaryAction={{ href: "/recursos", label: resourcesCtaLabel }}
         note="Mejor encaje, menos ruido y una expectativa mas razonable desde el principio."
         highlights={[
-          "Entrada comercial mas propia de una firma tecnica de alto nivel.",
-          "Recursos enlazados para mejorar la calidad del primer mensaje.",
+          "Entrada comercial mas potente y mas propia de una firma especializada.",
+          "Recursos y servicios enlazados para mejorar la calidad del primer mensaje.",
         ]}
       />
     </>

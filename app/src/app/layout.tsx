@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: `%s | ${brandName}`,
   },
   description:
-    "Investigacion digital, analisis forense, OSINT con limites, trazabilidad y documentacion tecnica con enfoque sobrio, claro y metodologico.",
+    "Investigacion digital, analisis pericial, OSINT con limites, trazabilidad y documentacion tecnica con una presencia premium, clara y metodologica.",
   applicationName: brandName,
   alternates: {
     canonical: siteUrl,
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: brandName,
     description:
-      "Investigacion digital, analisis forense, trazabilidad y documentacion tecnica con un enfoque sobrio y profesional.",
+      "Investigacion digital, analisis pericial, trazabilidad y documentacion tecnica con una presencia premium y profesional.",
     url: siteUrl,
     type: "website",
     locale: "es_ES",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: brandName,
-    description: `${brandDescriptor} con un enfoque sobrio y profesional.`,
+    description: `${brandDescriptor} con una presencia premium y profesional.`,
     images: [shareImageUrl],
   },
 };

@@ -1,0 +1,20 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#0F1722"/>
+  <rect x="0" y="0" width="1600" height="1200" fill="url(#bg)"/>
+  <rect x="128" y="148" width="1344" height="688" rx="42" fill="#172638"/>
+  <rect x="188" y="210" width="566" height="520" rx="28" fill="#223850"/>
+  <rect x="834" y="210" width="522" height="520" rx="28" fill="#FBF8F2" fill-opacity="0.92"/>
+  <rect x="0" y="948" width="1600" height="252" fill="url(#desk)"/>
+  <ellipse cx="1312" cy="180" rx="292" ry="178" fill="#E4C391" fill-opacity="0.16"/>
+  <defs>
+    <linearGradient id="bg" x1="122" y1="74" x2="1478" y2="1128" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EFE6DA"/>
+      <stop offset="0.5" stop-color="#D8C9B7"/>
+      <stop offset="1" stop-color="#B39E8A"/>
+    </linearGradient>
+    <linearGradient id="desk" x1="800" y1="948" x2="800" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B633B"/>
+      <stop offset="1" stop-color="#5D4027"/>
+    </linearGradient>
+  </defs>
+</svg>
