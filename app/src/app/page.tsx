@@ -21,57 +21,17 @@ import {
   resourcesCtaLabel,
   visualAssets,
 } from "./site-config";
+import { serviceSpecialties } from "./servicios/service-specialties";
 
-const serviceLines = [
-  {
-    title: "Investigacion digital",
-    description:
-      "Reconstruccion de hechos con componente digital cuando la informacion esta dispersa, incompleta o mal explicada.",
-    tags: ["Hechos digitales", "Correlacion", "Cronologia"],
-  },
-  {
-    title: "Analisis forense y preservacion",
-    description:
-      "Revision tecnica de materiales, soportes y evidencias con foco en integridad, orden y utilidad documental posterior.",
-    tags: ["Preservacion", "Artefactos", "Lectura tecnica"],
-  },
-  {
-    title: "OSINT y correlacion de indicios",
-    description:
-      "Fuentes abiertas tratadas como disciplina metodologica, con prudencia interpretativa y trazabilidad del razonamiento.",
-    tags: ["Fuentes abiertas", "Contexto", "Limites claros"],
-  },
-  {
-    title: "Huella digital y localizacion tecnica",
-    description:
-      "Apoyo tecnico para localizar presencia digital, activos visibles y senales utiles desde fuentes abiertas y contexto tecnico.",
-    tags: ["Huella digital", "Activos abiertos", "Ausencias preocupantes"],
-  },
-  {
-    title: "Moviles, mensajeria y dispositivos",
-    description:
-      "Analisis orientado a conversaciones, secuencias, exportaciones, registros y lectura estructurada de materiales moviles.",
-    tags: ["Moviles", "Mensajeria", "Secuencias"],
-  },
-  {
-    title: "Fraude tecnologico y trazabilidad",
-    description:
-      "Relacion de cuentas, comunicaciones, eventos y activos tecnicos para entender mejor movimientos, relaciones y patrones.",
-    tags: ["Fraude", "Relacion entre activos", "Trazabilidad"],
-  },
-  {
-    title: "Apoyo tecnico en familia y divorcios",
-    description:
-      "Soporte documental y tecnico para situaciones donde conversaciones, cronologias y huella digital cambian la lectura del asunto.",
-    tags: ["Procedimientos de familia", "Orden de materiales", "Informe legible"],
-  },
-  {
-    title: "Informes tecnicos y periciales",
-    description:
-      "Notas tecnicas, cronologias, anexos e informes claros para terceros que necesitan entender el analisis sin perder rigor.",
-    tags: ["Informe", "Anexos", "Salida documental"],
-  },
-];
+const serviceLines = serviceSpecialties.map((specialty) => ({
+  type: "Especialidad",
+  title: specialty.title,
+  description: specialty.landing.description,
+  meta: specialty.landing.meta,
+  href: specialty.href,
+  cta: "Ver servicio",
+  tags: specialty.landing.tags,
+}));
 
 const proofBlocks = [
   {
@@ -278,20 +238,20 @@ export default function HomePage() {
             <div>
               <Eyebrow>Servicios prioritarios</Eyebrow>
               <SectionHeading
-                title="Una cartera mas amplia, mas visible y mejor articulada"
-                description="La web pasa a explicar con mas claridad los encargos que puede absorber: investigacion digital, forense, OSINT, huella digital, moviles, fraude tecnologico, apoyo tecnico en familia y documentacion pericial."
+                title="Cuatro especialidades publicas para captar consultas mejor formuladas"
+                description="La home ya no apunta solo a una oferta general. Destaca cuatro paginas de servicio pensadas para explicar mejor problemas concretos, limites y salida documental posible."
               />
             </div>
             <SurfaceCard
               title="Una propuesta comercial mas fuerte"
-              description="Cada linea de servicio se presenta como una necesidad profesional concreta, con mejor encaje, mayor presencia visual y una salida inteligible para perfiles tecnicos y no tecnicos."
+              description="Cada especialidad se presenta como una necesidad profesional concreta, con mejor encaje, mayor presencia visual y una salida inteligible para perfiles tecnicos y no tecnicos."
               compact
             >
               <BulletList
                 items={[
                   "Problemas mejor definidos desde la primera visita.",
-                  "Mas peso para servicios de alto valor y alto criterio.",
-                  "Relacion mas clara entre analisis, metodo y documentacion.",
+                  "Puente directo entre especialidades, recursos y contacto.",
+                  "Mas claridad sobre encaje, limites y salida documental.",
                 ]}
               />
               <div className="pt-1">
@@ -300,11 +260,19 @@ export default function HomePage() {
             </SurfaceCard>
           </div>
 
-          <div className="mt-10 grid gap-4 lg:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid gap-4 lg:grid-cols-2">
             {serviceLines.map((service) => (
-              <SurfaceCard key={service.title} title={service.title} description={service.description} compact>
-                <TagList items={service.tags} />
-              </SurfaceCard>
+              <ContentLinkCard
+                key={service.title}
+                type={service.type}
+                title={service.title}
+                description={service.description}
+                meta={service.meta}
+                href={service.href}
+                cta={service.cta}
+                tags={service.tags}
+                compact
+              />
             ))}
           </div>
         </Container>

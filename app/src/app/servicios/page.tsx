@@ -20,6 +20,7 @@ import {
   resourcesCtaLabel,
   visualAssets,
 } from "../site-config";
+import { serviceSpecialties } from "./service-specialties";
 
 const services = [
   {
@@ -243,8 +244,8 @@ export default function ServicesPage() {
           "Fraude tecnologico",
         ]}
         stats={[
+          { value: "4", label: "Especialidades publicas prioritarias" },
           { value: "8", label: "Areas integradas en la oferta" },
-          { value: "Claro", label: "Encaje y limites visibles" },
           { value: "Listo", label: "Puente directo a recursos y contacto" },
         ]}
         notes={[
@@ -299,8 +300,32 @@ export default function ServicesPage() {
       <Section>
         <Container>
           <SectionHeading
+            title="Directorio de especialidades"
+            description="La pagina ya no funciona solo como listado general. Abre cuatro subpaginas de servicio pensadas para captar consultas cualificadas, explicar mejor el encaje y dejar mas clara la utilidad documental del trabajo."
+            align="center"
+          />
+          <div className="mt-10 grid gap-4 lg:grid-cols-2">
+            {serviceSpecialties.map((specialty) => (
+              <ContentLinkCard
+                key={specialty.slug}
+                type="Especialidad"
+                title={specialty.title}
+                description={specialty.landing.description}
+                meta={specialty.landing.meta}
+                href={specialty.href}
+                cta="Ver servicio"
+                tags={specialty.landing.tags}
+              />
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section tint="soft">
+        <Container>
+          <SectionHeading
             title="Lineas de trabajo principales"
-            description="Cada bloque esta pensado para sonar a encargo real: necesidad, tipo de material y sentido del resultado."
+            description="Junto al directorio de especialidades, la oferta general sigue mostrando el resto de lineas integradas que dan soporte a encargos de investigacion, preservacion, OSINT, trazabilidad e informe."
             align="center"
           />
           <div className="mt-10 grid gap-4 lg:grid-cols-2">
@@ -314,7 +339,7 @@ export default function ServicesPage() {
         </Container>
       </Section>
 
-      <Section tint="soft">
+      <Section>
         <Container className="grid gap-8 lg:grid-cols-[1fr_0.96fr] lg:items-start">
           <div>
             <Eyebrow>Entregables</Eyebrow>
